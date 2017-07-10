@@ -1,0 +1,69 @@
+<div id="tab-pannel">
+	<div class="panel-group">
+		<div class="panel panel-body21-1">
+			<div class="table-responsive">
+				<table class="table table-bordered table-striped">
+					<thead>
+						<tr>
+							<th>Select</th>
+							<th>Employee ID</th>
+							<th>First Name</th>
+							<th>Last Name</th>
+							<th>Gender</th>
+							<th>Employee Designation</th>
+							<th>Parent Company ID</th>
+							<th>Parent Company Name</th>
+							<th>Current Project ID</th>
+							<th>Current Project Name</th>
+							<th>For Project ID</th>
+							<th>For Project Name</th>
+							<th>Originator Employee ID & Name</th>
+							<th>Approver Person ID & Name</th>
+							<th>Date of Request</th>
+							<th>Approver Notification ID</th>
+							<th>Expected Date of Availability for Transfer</th>
+							<th>Required Date of Transfer</th>
+							<th>Proposed Date of Transfer</th>
+							<th>Approver Decision</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat="approval in empApprovalTransfer">
+							<td><input type="checkbox" value="id"
+								ng-model="approval.selected"
+								ng-click="approvalTransferRowSelect(approval)"></td>
+							<td>{{approval.eId}}</td>
+							<td>{{approval.fName}}</td>
+							<td>{{approval.lName}}</td>
+							<td>{{approval.gender}}</td>
+							<td>{{approval.designation}}</td>
+							<td>{{approval.pCompId}}</td>
+							<td>{{approval.pCompName}}</td>
+							<td>{{approval.cpId}}</td>
+							<td>{{approval.cpName}}</td>
+							<td>{{approval.fpId}}</td>
+							<td>{{approval.fpName}}</td>
+							<td>{{approval.originaleIdName}}</td>
+							<td>{{approval.approverPIDName}}</td>
+							<td>{{approval.doa}}</td>
+							<td>{{approval.notfId}}</td>
+							<td>{{approval.expectedDate}}</td>
+							<td>{{approval.requiredDate}}</td>
+							<td>{{approval.proposedDate|date}}</td>
+							<td>{{approval.approverDecision}}</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+	<div class="panel-footer">
+		<div class="pull-right">
+			<input type="button" class="btn btn-brown btn-sm"
+				ng-click="editApproverTransfer('Edit')" value="Edit"> <input
+				type="button" class="btn btn-brown btn-sm"
+				ng-click="ApproverTransfer()" value="Approve Transfer">
+
+		</div>
+	</div>
+</div>

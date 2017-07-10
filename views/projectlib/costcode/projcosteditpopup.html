@@ -1,0 +1,87 @@
+<div id="tab-pannel" class="panel-group"
+	ng-init="getProjCostItemsOnLoad()">
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<h4 class="panel-title" ng-show="action=='Add'">Add Cost
+				Groups/Items</h4>
+			<h4 class="panel-title" ng-show="action=='Edit'">Edit Cost
+				Groups/Items</h4>
+		</div>
+		<div class="panel-body15 table-responsive">
+			<table id="tree" class="table table-striped table-fixed-header">
+				<thead>
+					<tr>
+						<th>Id</th>
+						<th>Item Name</th>
+						<th>Class Id</th>
+						<th>Class Name</th>
+						<th>Start Date</th>
+						<th>Finish Date</th>
+						<th>Comments</th>
+						<th>Work Dairy Entry</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr
+						ng-repeat="tab in editCostData  |  projEditCostFilterTree:itemId1:isExpand1" class="abc{{tab.level}}">
+						<td class="input-width6" ng-form="costFrm1">
+							<span ng-show="tab.level > 0" class="xyz" style="padding-left:30px;"></span>
+							<span ng-show="tab.level > 1" class="xyz" style="padding-left:30px;"></span>
+							<span ng-show="tab.level > 2" class="xyz" style="padding-left:30px;"></span>
+							<fa ng-show="((!tab.leaf && tab.expand) || (!tab.leaf  && tab.projCostCodeItemTOs.length <= 0))" ng-click="itemClick1(tab.id,tab.expand);" name="fa fa-minus"></fa>
+							<fa ng-show="(!tab.leaf && !tab.expand && tab.projCostCodeItemTOs.length > 0)" ng-click="itemClick1(tab.id,tab.expand);" name="fa fa-plus"></fa>
+							<fa ng-show="(tab.leaf)" name="leaf"> </fa> <input type="text" 	placeholder="Cost Group Id" name="costId" ng-model="tab.code" pattern="^[a-zA-Z\s\-]+$" minlength="2" maxlength="10" ng-required="true"> 
+							<fa ng-click="addCostSubGroup(tab,tab.projId,$index)" 	name="fa fa-plus-square" ng-hide="tab.leaf"></fa>
+							<span style="padding-left: 10px;" > 
+								<fa ng-hide="tab.leaf" ng-click="addCostItem(tab,tab.projId,$index)" name="fa fa-plus-square-o"> </fa>
+								 <span style="padding-left: 10px;" > 
+								 	<fa ng-hide="tab.id>0" ng-click="deleteCostGroup(tab);" name="trash"> </fa>
+								</span> 
+								<span style="padding-left: 10px;" > 
+									<span ng-show="costFrm1.costId.$error.maxlength">Length is too long </span>
+									<span ng-show="costFrm1.costId.$error.minlength">Length	is too short </span> 
+								 	<span ng-show="costFrm1.costId.$error.pattern">Enter only characters</span>
+						 		</span>
+						 	</span>
+						</td>
+						<td class="input-width6" ng-form name="costFrm2">
+							<input type="text"  pattern="^[a-z A-Z\s\-_.,&]+$" minlength="3" placeholder="Cost Group Name" name="costName" ng-model="tab.name"	maxlength="100" ng-required="true"> 
+							<span ng-show="costFrm2.costName.$error.maxlength">Length is too long </span> 
+							<span ng-show="costFrm2.costName.$error.minlength">Length is too short </span> 
+						 	<span ng-show="costFrm2.costName.$error.pattern">Enter only characters</span>
+						 </td>
+						<td class="input-width0">
+							<select	ng-options="cost.code  for cost in  costCodeData  track by cost.code" ng-change="updateCostCode(tab.costCodeTO,tab);" ng-model="tab.costCodeTO" ng-required="true" ng-show="tab.item">
+								<option value="">select</option>
+							</select>
+						</td>
+						<td class="input-width0"><input type="text" ng-model="tab.costCodeTO.name" readonly="true" ng-show="tab.item">
+						</td>
+						<td class="input-width0"><input type="text" potdate-picker id="startDate" ng-model="tab.startDate"ng-show="tab.item">
+						</td>
+						<td class="input-width0"><input type="date" ng-model="tab.finishDate"ng-show="tab.item">
+						</td>
+						<td class="input-width3" ng-form name="costFrm3">
+							<input type="text" pattern="^[a-z A-Z\s\-_.,]+$" minlength="3" ng-show="tab.item" placeholder="Comments" name="comments" ng-model="tab.comments"maxlength="100" ng-required="true"> 
+							<span ng-show="costFrm3.comments.$error.minlength">Length is too short </span> 
+							<span ng-show="costFrm3.comments.$error.pattern">Enter only characters</span>
+						</td>
+						<td>
+							<input type="checkbox" ng-model="tab.workdairyEntry" ng-show="tab.item">
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<div class="panel-footer">
+			<div class="pull-left">
+				<input type="submit" class="btn bottomaligned btn-brown btn-sm"
+					ng-show="action=='Add'"
+					ng-click="addCostGroup(searchProject.projId)" value="Add Group">
+			</div>
+			<div class="pull-right">
+				<input type="submit" class="btn bottomaligned btn-brown btn-sm" ng-click="saveProjCostItems()" value="Save"  />
+			</div>
+		</div>
+	</div>
+</div>

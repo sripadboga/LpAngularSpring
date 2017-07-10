@@ -1,0 +1,71 @@
+<div class="panel-body16">
+	<div class="table-responsive">
+		<table class="table table-bordered table-striped">
+			<thead>
+				<tr>
+					<th rowspan=3>Select</th>
+					<th rowspan="3">Resource Id</th>
+					<th rowspan="3">Rego</th>
+					<th rowspan="3">Description</th>
+					<th rowspan="3">Make</th>
+					<th rowspan="3">Model</th>
+					<th rowspan="3">Mobilisation Date</th>
+					<th rowspan="3">Plant Charge Out Category</th>
+					<th colspan="{{workDairyCostCodeList.length*2+3}}"
+						class="text-center">Plant Utilization</th>
+				
+					<th rowspan="3">Approval Status</th>
+				</tr>
+				<tr>
+					<th colspan="{{workDairyCostCodeList.length+1}}"
+						class="text-center">Used Time</th>
+					<th colspan="{{workDairyCostCodeList.length+1}}"
+						class="text-center">Idle Time</th>
+					<th>Total</th>
+				</tr>
+				<tr>
+					<th ng-repeat="workDairyCostCode in  workDairyCostCodeList">{{workDairyCostCode.code}}</th>
+					<th>Total</th>
+					<th ng-repeat="workDairyCostCode in  workDairyCostCodeList">{{workDairyCostCode.code}}</th>
+					<th>Total</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="plant in plants">
+					<td><input type="checkbox" ng-click="plantRowSelect(plant)"
+						ng-model="plant.select" value="id"></td>
+					<td>{{plant.resourceId}}</td>
+					<td>{{plant.rego}}</td>
+					<td>{{plant.description}}</td>
+					<td>{{plant.make}}</td>
+					<td>{{plant.model}}</td>
+				
+					<td>{{plant.mobilisationRate}}</td>
+					<td>{{plant.plantChargeCatg}}</td>
+					
+					<td ng-repeat=""></td>
+					<td>{{plant.usedTotal}}</td>
+					<td ng-repeat=""></td>
+					<td>{{plant.idleTotal}}</td>
+					<td>{{plant.total}}</td>
+					<td>{{plant.approvalStatus}}</td>
+				</tr>
+			</tbody>
+
+		</table>
+	</div>
+</div>
+<div class="panel-footer">
+	<div class="pull-right">
+		<input type="button" class="btn btn-brown bottomaligned"
+			ng-click="addPlants('Add')" value="Create">
+	</div>
+	<div class="pull-left">
+		<input type="button" ng-click="deletePlant(plant)" value="Deactivate"
+			class="btn btn-brown bottomaligned"> <input type="button"
+			ng-click="addPlants('Edit')" value="Edit"
+			class="btn btn-brown bottomaligned"> <input type="button"
+			ng-click="printPreview()" value="Print Preview"
+			class="btn btn-brown bottomaligned">
+	</div>
+</div>

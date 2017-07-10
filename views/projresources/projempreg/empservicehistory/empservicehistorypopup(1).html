@@ -1,0 +1,91 @@
+<div id="tab-pannel" class="panel-group">
+<form name="serviceHistoryForm" validate>
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<h4 class="panel-title">Employee Service</h4>
+		</div>
+		<div class="panel-body15">
+				<div class="table-responsive">
+					<table class="table table-bordered table-striped">
+						<thead>
+							<tr>
+								<th>Project Posting</th>
+								<th>EPS ID</th>
+								<th>EPS Name</th>
+								<th>Project ID</th>
+								<th>Project Name</th>
+								<th>Employee Designation as per Pay Roll</th>
+								<th>Designation as per Project Contract</th>
+								<th>Designation as per Trade Union</th>
+								<th>Category</th>
+								<th>Actual Mobilization Date</th>
+								<th>Expected De-mobilization Date</th>
+								<th>Actual De-mobilization Date</th>
+								<th>Responsibilities in Brief</th>
+								<th>Post De-mobilization Status</th>
+								<th>Notes</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr ng-repeat="servicehistory in addEmpServiceHistory">
+								<td class="input-width"><input type="text" name="projectPosting"
+									onkeypress='return event.charCode >= 48 && event.charCode <= 57'
+									ng-model="servicehistory.projectPosting" placeholder="projectPosting"
+									ng-required="true"></td>
+								<td class="input-width"><input type="text" name="epsId" ng-model="servicehistory.epsId"
+									placeholder="epsId" readonly="readonly"></td>
+								<td class="input-width"><input type="text" name="epsName"
+									ng-model="servicehistory.epsName" placeholder="epsName"
+									readonly="readonly"></td>
+								<td class="input-width"><input type="text" name="pId" ng-model="servicehistory.pId"
+									placeholder="pId" readonly="readonly"></td>
+								<td class="input-width"><input type="text" name="pName" ng-model="servicehistory.pName"
+									placeholder="pName" readonly="readonly"></td>
+								<td class="input-width"><input type="text" name="tradeName"
+									ng-model="servicehistory.tradeName" placeholder="tradeName"
+									readonly="readonly"></td>
+								<td class="input-width"><input type="text" name="projectContract"
+									ng-model="servicehistory.projectContract" placeholder="projectContract"
+									readonly="readonly"></td>
+								<td class="input-width"><input type="text" name="tradeUnion"
+									ng-model="servicehistory.tradeUnion" placeholder="tradeUnion"
+									readonly="readonly"></td>
+								<td class="input-width"><input type="text" name="category"
+									ng-model="servicehistory.category" placeholder="category"
+									readonly="readonly"></td>
+								<td><input type="date" name="actualmobDate"
+									ng-model="servicehistory.actualmobDate" placeholder="actualmobDate"
+									readonly="readonly"></td>
+								<td><input type="date" name="expectedDeMobDate"
+									ng-model="servicehistory.expectedDeMobDate"
+									placeholder="expectedDeMobDate" ng-required="true"></td>
+								<td><input type="date" name="actualDeMobDate"
+									ng-model="servicehistory.actualDeMobDate" placeholder="actualDeMobDate"
+									ng-required="true"></td>
+								<td class="input-width"><input type="text" name="responsibilities"
+										ng-model="servicehistory.responsibilities"
+										placeholder="responsibilities" ng-required="true"></td>
+
+								<td><select ng-model="servicehistory.status" ng-required="true"><option
+											ng-repeat="status in statuss">{{status.name}}</option>
+								</select></td>
+
+								<td class="input-width"><input type="text" name="notes"
+										ng-model="servicehistory.notes" placeholder="notes" ng-required="true"></td>
+							</tr>
+						</tbody>
+					</table>
+		</div>
+		</div>
+		<div class="panel-footer">
+			<div class="pull-right">
+			<input type="button" class="btn btn-brown btn-sm" ng-click="addRows()" value="AddPromotion" ng-show="action =='Add'">
+				<input type="button" class="btn btn-brown btn-sm" ng-click="saveEmpEnrollemnets()" value="Save">
+				</div>
+				<div class="pull-left">
+				<input type="button" class="btn btn-brown btn-sm" ng-click="deleteRows()" value="Delete" ng-show="action =='Add'">
+			</div>
+			</div>
+		</div>
+		</form>
+	</div>

@@ -1,0 +1,30 @@
+<div id="tab-pannel" ng-init="">
+	<div class="panel-group">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h4 class="panel-title">Enterprise Structure</h4>
+			</div>
+			<div class="table-responsive panel-body10 panel-collapse collapse in">
+				<table class="table table-striped table-bordered">
+					<thead>
+						<tr>
+							<th>Plant ID</th>
+							<th>Plant Name</th>
+						</tr>
+					</thead>
+					<tbody>{{empTransferDetails}}
+						<tr ng-repeat="emp in empTransferDetails" ng-click="selectedEmployee(emp)">
+							<td>{{emp.parentEPSCode}}</td>
+							<td>{{emp.parentName}}</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+	
+</div>
+
+
+
+

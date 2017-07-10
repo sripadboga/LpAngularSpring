@@ -1,0 +1,65 @@
+<div id="tab-pannel" class="panel-group">
+	<form name="ContactDetailsForm" validate>
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h4 class="panel-title">Employee Contact Details</h4>
+			</div>
+			<div class="table-responsive panel-body15">
+				<table class="table table-bordered table-striped">
+					<thead>
+						<tr>
+							<th>Select</th>
+							<th>Date Field</th>
+							<th>Residential Address</th>
+							<th>Postal Address</th>
+							<th>Main Phone number</th>
+							<th>Alternative Phone Number</th>
+							<th>Email Address</th>
+						</tr>
+					</thead>
+					<tbody id="vert-align">
+						<tr ng-repeat="contact in addEmpContactDetails">
+							<td><input type="checkbox" ng-model="contact.selected"
+								ng-click="contactPopUpRowSelect(contact)"></td>
+								
+							<td><input type="text" potdate-picker id="date" name="date"
+								ng-model="contact.date" placeholder="Date" ng-required="true"></td>
+								
+							<td><input type="text" data-toggle="tooltip" data-placement="top" title="{{contact.residentialAddr}}" name="residentialAddress"
+									ng-model="contact.residentialAddr"
+									placeholder="Residential Address" ng-required="true"></td>
+									
+							<td><input type="text" data-toggle="tooltip" data-placement="top" title="{{contact.postalAddr}}" name="postalAddress"
+									ng-model="contact.postalAddr" placeholder="Postal Address"
+									ng-required="true"></td>
+									
+							<td><input type="text" name="mainPhoneNum"
+								ng-model="contact.phoneNumber" placeholder="Main Phone Number"
+								ng-required="true"></td>
+
+							<td><input type="text" name="phoneAlternateNumber"
+								ng-model="contact.phoneAlternateNumber"
+								placeholder="Alternate Phone Number"></td>
+								
+							<td><input type="email" name="email"
+								ng-model="contact.email" placeholder="email"></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<div class="panel-footer">
+			<div class="pull-right">
+				<input type="button" class="btn btn-brown btn-sm"
+					ng-click="saveEmpContacts()" value="Save">
+			</div>
+			<div class="pull-left">
+				<input type="button" class="btn btn-brown btn-sm"
+					ng-click="addRows()" value="Add" ng-show="action =='Add'">
+				<input type="button" class="btn btn-brown btn-sm"
+					ng-click="deleteRows()" value="Delete"
+					ng-show="action =='Add'">
+			</div>
+		</div>
+	</form>
+</div>

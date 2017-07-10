@@ -1,0 +1,178 @@
+<div id="tab-pannel" class="panel-group">
+	<form name="providentFundForm" validate>
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h4 class="panel-title">Super annuation / provident fund</h4>
+			</div>
+			<div class="panel-body15">
+				<div class="table-responsive ">
+					<table class="table table-bordered table-striped">
+						<thead>
+							<tr>
+								<th rowspan=2>Select</th>
+								<th colspan=2 class="text-center">Effective From</th>
+								<th rowspan=2>Project Posting#</th>
+								<th rowspan=2>EPS ID</th>
+								<th rowspan=2>EPS Name</th>
+								<th rowspan=2>Project ID</th>
+								<th rowspan=2>Project Name</th>
+								<th rowspan=2>Parent Company ID</th>
+								<th rowspan=2>Parent Company Name</th>
+								<th rowspan=2>Employee Tax File Number</th>
+								<th rowspan=2>Credit Cycle</th>
+								<th rowspan=2>Currency</th>
+								<th rowspan=2>Contribution type</th>
+								<th colspan=2 class="text-center">Employer Contribution</th>
+								<th colspan=2 class="text-center">Employee Contribution</th>
+								<th rowspan=2>Total Amount</th>
+								<th colspan=2 class="text-center">Tax on Super Fund</th>
+								<th colspan=6 class="text-center">Super annuation/
+									Provident Fund</th>
+								<th rowspan=2>Account Status</th>
+								<th rowspan=2>Upload / View documents</th>
+								<th rowspan=2>Notes</th>
+							</tr>
+							<tr>
+								<th>from</th>
+								<th>to</th>
+								<th>% rate on Base pay ( Variable)</th>
+								<th>Fixed amount</th>
+								<th>% on Base pay ( variable)</th>
+								<th>Fixed amount</th>
+								<th>% on super fund amount</th>
+								<th>Tax Amount</th>
+								<th>Fund Name</th>
+								<th>Fund Code #</th>
+								<th>Registered Address</th>
+								<th>Account Number</th>
+								<th>Bank/Institute Name</th>
+								<th>Bank Code</th>
+
+							</tr>
+						</thead>
+						<tbody id="vert-align">
+							<tr ng-repeat="providentfund in addEmpProvidentFund">
+								<td><input type="checkbox" value="providentfund.id"
+									ng-model="providentfund.selected"
+									ng-click="providentPopUpRowSelect(providentfund)"></td>
+								<td><input type="date" name="from"
+									ng-model="providentfund.from" placeholder="from"
+									ng-required="true"></td>
+								<td><input type="date" name="to"
+									ng-model="providentfund.to" placeholder="to" ng-required="true"></td>
+								<td class="input-width"><input type="text"
+									name="projectPosting"
+									onkeypress='return event.charCode >= 48 && event.charCode <= 57'
+									ng-model="providentfund.projectPosting"
+									placeholder="projectPosting" ng-required="true"></td>
+
+								<td class="input-width"><input type="text" name="epsId"
+									ng-model="providentfund.epsId" placeholder="epsId"
+									readonly="readonly"></td>
+								<td class="input-width"><input type="text" name="epsName"
+									ng-model="providentfund.epsName" placeholder="epsName"
+									readonly="readonly"></td>
+								<td class="input-width"><input type="text" name="pId"
+									ng-model="providentfund.pId" placeholder="pId"
+									readonly="readonly"></td>
+								<td class="input-width"><input type="text" name="pName"
+									ng-model="providentfund.pName" placeholder="pName"
+									readonly="readonly"></td>
+								<td class="input-width"><input type="text" name="pComId"
+									ng-model="providentfund.pComId" placeholder="pComId"
+									readonly="readonly"></td>
+								<td class="input-width"><input type="text" name="pComName"
+									ng-model="providentfund.pComName" placeholder="pComName"
+									readonly="readonly"></td>
+
+								<td class="input-width"><input type="text" name="taxNum"
+									ng-model="providentfund.taxNum" placeholder="taxNum"
+									ng-required="true"></td>
+								<td class="input-width"><input type="text"
+									name="creditCycle" ng-model="providentfund.creditCycle"
+									placeholder="creditCycle" ng-required="true"></td>
+								<td class="input-width"><input type="number"
+									name="currency" ng-model="providentfund.currency"
+									placeholder="currency" readonly="readonly"></td>
+								<td><select ng-model="providentfund.contributionType"
+									name="contributionType" ng-required="true">
+										<option ng-repeat="contributionType in contributionTypes">
+											{{contributionType.name}}</option>
+								</select></td>
+
+
+								<td class="input-width"><input type="text" name="bp1"
+									ng-model="providentfund.bp1" placeholder="bp1"
+									ng-required="true"></td>
+
+								<td class="input-width"><input type="number"
+									name="fixedAmount1" ng-model="providentfund.fixedAmount1"
+									placeholder="fixedAmount1" ng-required="true"></td>
+								<td class="input-width"><input type="text" name="bp2"
+									ng-model="providentfund.bp2" placeholder="bp2"
+									ng-required="true"></td>
+								<td class="input-width"><input type="number"
+									name="fixedAmount2" ng-model="providentfund.fixedAmount2"
+									placeholder="fixedAmount2" ng-required="true"></td>
+								<td class="input-width"><input type="number"
+									name="totAmount" ng-model="providentfund.totAmount"
+									placeholder="totAmount" ng-required="true"></td>
+								<td class="input-width"><input type="text"
+									name="percentOnSuperFund"
+									ng-model="providentfund.percentOnSuperFund"
+									placeholder="percentOnSuperFund" ng-required="true"></td>
+								<td class="input-width"><input type="text" name="taxAmount"
+									ng-model="providentfund.taxAmount" placeholder="taxAmount"
+									ng-required="true"></td>
+								<td class="input-width"><input type="text" name="fundName"
+									ng-model="providentfund.fundName" placeholder="fundName"
+									ng-required="true"></td>
+								<td class="input-width"><input type="text" name="fundCode"
+									ng-model="providentfund.fundCode" placeholder="fundCode"
+									ng-required="true"></td>
+								<td><input type="text" data-toggle="tooltip" data-placement="top" title="{{providentfund.regAddress}}" name="regAddress"
+										ng-model="providentfund.regAddress" placeholder="regAddress"
+										ng-required="true"></td>
+								<td class="input-width"><input type="text" name="accNum"
+									ng-model="providentfund.accNum" placeholder="accNum"
+									ng-required="true"></td>
+								<td class="input-width"><input type="text" name="bankName"
+									ng-model="providentfund.bankName" placeholder="bankName"
+									ng-required="true"></td>
+								<td class="input-width"><input type="text" name="bankCode"
+									ng-model="providentfund.bankCode" placeholder="bankCode"
+									ng-required="true"></td>
+
+								<td><select ng-model="providentfund.status"
+									ng-required="true">
+										<option ng-repeat="status in statuss">{{status.name}}</option>
+								</select></td>
+								<td><input type="file" name="doc"
+									ng-model="providentfund.doc" placeholder="doc"
+									ng-required="true"></td>
+
+								<td class="input-width"><input type="text" data-toggle="tooltip" data-placement="top" title="{{providentfund.codes}}" name="codes"
+										ng-model="providentfund.codes" placeholder="codes"
+										ng-required="true"></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+			<div class="panel-footer">
+				<div class="pull-right">
+					<input type="button" class="btn btn-brown btn-sm"
+						ng-click="save(addEmpProvidentFund,providentFundForm)"
+						value="Save">
+				</div>
+				<div class="pull-left">
+					<input type="button" class="btn btn-brown btn-sm"
+						ng-click="addRows()" value="Add" ng-show="action =='Add'">
+					<input type="button" class="btn btn-brown btn-sm"
+						ng-click="deleteRows()" value="Delete" ng-show="action =='Add'">
+				</div>
+			</div>
+		</div>
+	</form>
+</div>
+

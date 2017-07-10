@@ -1,0 +1,62 @@
+<!-- <div id="tab-pannel" class="panel-group" ng-init="getProjSupervisorDetails()">
+	<div id="tab-pannel" class="panel panel-default">
+		<div class="panel-heading">
+			 <th>Approval List</th>
+		</div>
+		<div class="table-responsive panel-body9">
+			<table class="table table-striped table-bordered">
+				<thead>
+					<tr>
+						
+			              <th align="center">EmployeeId</th>
+			            
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="detail in projSupervisorDetails"
+						ng-click="projSupervisorPopUp(detail)">
+						<td>{{detail.employeeId}}</td>
+						
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
+ -->
+ 
+ 
+ <div id="tab-pannel" ng-init="getUserDetails()">
+	<div class="panel-group">
+		<div class="panel panel-default panel-body16">
+			<div class="panel-heading">
+				<h4 class="panel-title">Supervisor List</h4>
+			</div>
+
+			<div class="table-responsive">
+				<table class="table table-bordered table-striped">
+					<thead>
+						<tr>
+							<th>Employee Id</th>
+							<th>First Name</th>
+							<th>Last Name</th>
+							<th>Trade</th>
+							<th>GlobalProfileName</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat="supervisorList in supervisorLists"
+							ng-click="supervisorListPopUp(supervisorList)">
+							<td>{{supervisorList.userId}}</td>
+							<td>{{supervisorList.firstName}}</td>
+							<td>{{supervisorList.lastName}}</td>
+							<td>{{supervisorList.empDesg}}</td>
+							<td>{{supervisorList.roleDisplay}}</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+
+		</div>
+	</div>
+</div>

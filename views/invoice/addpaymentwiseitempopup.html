@@ -1,0 +1,61 @@
+<div id="tab-pannel" class="panel-group">
+	<form name="invoiceForm"  validate>
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h4 class="panel-title" ng-show="action =='Add'">Add Invoice Wise Payment Status</h4>
+				<h4 class="panel-title" ng-show="action =='Edit'">Edit Invoice Wise Payment Status</h4>
+			</div>
+			<div class="table-responsive panel-body8">
+				<table class="table table-striped table-bordered">
+					<thead>
+						<tr>
+							<th ng-hide="action =='Edit'">Select</th>
+							<th>Invoice Date</th>
+							<th>Invoice Number</th>
+							<th>Net Invoice Amount</th>
+							<th>Goods or services Tax Amount</th>
+							<th>Total Invoice Amount(Include of all taxes)</th>
+							<th>Payment Processing Period in Days</th>
+							<th>Payment Due Date</th>
+							<th>Payment Status</th>
+							<th>Actual Payment Date</th>
+							<th>Payment Release RefNumber</th>
+							<th>Invoice Wise - Cost Accruals (Exclude of all taxes)</th>
+							<th>Invoice Wise - Amount Paid (Exclude of all taxes)</th>
+							<th>Invoice Wise - Amount Paid (Include of all taxes)</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat="invoicePayment in invoicePaymentList">
+							<td ng-hide="action =='Edit'">
+							<input type="checkbox" ng-model="invoicePayment.selected" ng-click="popUpRowSelect(invoicePayment)"></td>
+							
+							<td><input type="text" ng-model="invoicePayment.invoiceDate" placeholder="Invoice Date"/></td>
+							<td><input type="text" ng-model="invoicePayment.invoiceNumber" placeholder="Invoice Number"/></td>
+							<td><input type="text" ng-model="invoicePayment.invoiceAmount" placeholder="Invoice Amount"/></td>
+							<td><input type="text" ng-model="invoicePayment.taxAmount" placeholder="Tax Amount"/></td>
+							<td><input type="text" ng-model="invoicePayment.totalInvoiceAmount" placeholder="Total Invoice Amount"/></td>
+							<td><input type="text" ng-model="invoicePayment.paymentInDays" placeholder="payment In Days"/></td>
+							<td><input type="text" ng-model="invoicePayment.paymentDueDate" placeholder="payment Due Date"/></td>
+							<td><input type="text" ng-model="invoicePayment.paymentStatus" placeholder="payment Status"/></td>
+							<td><input type="text" ng-model="invoicePayment.actualPaymentDate" placeholder="Actual Payment Date"/></td>
+							<td><input type="text" ng-model="invoicePayment.paymentRefNumber" placeholder="Payment Ref Number"/></td>
+							<td><input type="text" ng-model="invoicePayment.costAccruals" placeholder="Cost Accruals"/></td>
+							<td><input type="text" ng-model="invoicePayment.amountPaid_Excl" placeholder="Amount Paid (Excl. taxes)"/></td>
+							<td><input type="text" ng-model="invoicePayment.amountPaid_Incl" placeholder="Amount Paid (Excl. taxes)"/></td>
+						</tr>
+				</table>
+			</div>
+			
+			<div class="panel-footer">
+				<div class="pull-left"> 
+					<input type="submit" class="btn bottomaligned btn-brown btn-sm"ng-click="addRows()" value="Add" ng-show="action =='Add'" /> 
+					<input type="button" class="btn bottomaligned btn-brown btn-sm" ng-click="deleteRows($index)" value="Delete" ng-show="action =='Add'" />
+				</div>
+				<div class="pull-right">
+					<input type="submit" class="btn bottomaligned btn-brown btn-sm" value="Save" ng-click="saveInvoiceList()"   />
+				</div>
+			</div>
+		</div>
+	</form>
+</div>

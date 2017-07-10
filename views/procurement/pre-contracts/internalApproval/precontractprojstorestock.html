@@ -1,0 +1,21 @@
+<div id="tab-pannel" ng-init="getProjStoreStocks()">
+	<div class="panel-group">
+			<div class="table-responsive panel-body10 panel-collapse collapse in">
+				<table class="table table-striped">
+					<thead>
+						<tr>
+							<th>Project Store ID</th>
+							<th>Project Store Name</th>
+						</tr>
+					</thead>
+					<tbody>
+					<tr ng-repeat="projStoreStockTO in projStoreYardData"
+						ng-dblclick="deliveryPlacePopup(projStoreStockTO,2)">
+						<td>{{projStoreStockTO.code}}</td>
+						<td>{{projStoreStockTO.desc}}</td>
+					</tr>
+				</tbody>
+				</table>
+			</div>
+		</div>
+	</div>

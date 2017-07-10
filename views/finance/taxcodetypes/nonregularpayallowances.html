@@ -1,0 +1,73 @@
+<div id="tab-pannel" ng-controller="NonRegularPayController" ng-init="getGeneralValuesOnLoad()">
+	<div class="panel-group">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h4 class="panel-title">Non Regular Pay Allowances</h4>
+			</div>
+			<div class="panel-body1 spacer2">
+				<div class="pull-left left-padding">
+				<input type="text" ng-model="countryProvisionObj.code"
+						name="name" placeholder="country"
+						ng-click="getCountryDetails(countryProvision)" readonly="readonly"
+						ng-required="true" /> <select style="width: 154px;"
+						ng-options="province.name  for province  in  provisions  track by province.name"
+						ng-model="countryProvision.provisions" ng-required="true">
+						<option value="">select</option>
+					</select> <span>Financial Year:From</span><input type="text" id="fromDate"
+						ng-model="countryProvision.fromDate" name="fromDate"
+						potdate-picker placeholder="dd-mm-yyyy"> <span>To</span><input
+						type="text" potdate-picker placeholder="dd-mm-yyyy" id="toDate"
+						ng-model="countryProvision.toDate" name="toDate"
+						ng-change='checkErr(taxcodeReq.fromDate,taxcodeReq.toDate)'><span>{{errMessage}}</span>
+					<span>Effective Date</span><input type="text"
+						placeholder="dd-mm-yyyy" potdate-picker id="effectiveDate"
+						ng-model="countryProvision.effectiveDate">
+				</div>
+				<div class="pull-right right-padding">
+					<input type="button" ng-click="nonRegularPaySearch()" value="Search" class="btn bottomaligned btn-brown btn-sm" /> 
+					<input type="reset" class="btn bottomaligned btn-brown btn-sm" ng-click="reset()" value="Reset" />
+				</div>
+			</div>
+			<div class="panel-body22">
+				<div id="tableHeight20" class="table-responsive panel-collapse collapse in">
+					<table class="table table-striped" fixed-header>
+						<thead id="tab-head">
+							<tr>
+								<th>Select</th>
+								<th>Code</th>
+								<th>Name</th>
+								<th>Taxable or Not</th>
+								<th>Notes</th>
+								<th>Status</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr ng-repeat="nonRegularPay in nonRegularPayList">
+								<td><input type="checkbox" ng-model="nonRegularPay.selected"
+									ng-click="nonRegularPayRowSelect(nonRegularPay)"></td>
+								<td>{{nonRegularPay.nonRegularPayMstrTO.code}}</td>
+								<td>{{nonRegularPay.nonRegularPayMstrTO.name}}</td>
+								<td>{{nonRegularPay.nonRegularPayMstrTO.taxStatus}}</td>
+								<td>{{nonRegularPay.nonRegularPayMstrTO.comments}}</td>
+								<td>{{nonRegularPay.status | potstatusfilter :nonRegularPay.status}}</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+			<div class="panel-footer">
+				<div class="pull-right">
+					<input type="button" class="btn bottomaligned btn-brown btn-sm" ng-click="addData('Add')" value="Create">
+				</div>
+				<div class="pull-left">
+					<input type="button" class="btn bottomaligned btn-brown btn-sm" ng-click="addData('Edit')" value="Edit">
+					<input type="button" class="btn bottomaligned btn-brown btn-sm" ng-click="deleteNonRegularPay()" value="Deactivate">
+				 <input type="button" class="btn bottomaligned btn-brown btn-sm" ng-click="view()" value="View Past Records">
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+

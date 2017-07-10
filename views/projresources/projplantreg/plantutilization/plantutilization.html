@@ -1,0 +1,63 @@
+<div id="tab-pannel" class="panel-group">
+	<div class="panel-body23-0 table-responsive" >
+		<table class="table table-bordered table-striped">
+			
+<thead>
+<tr>
+<th>Select</th>
+<th>Project Deployment</th>
+
+<th> EPS Name</th>
+<th>Project  Name</th>
+<th>  Assert ID</th>
+<th> Project plant ID</th>
+<th>Mobilization Date</th>
+<th>De-mobilization Date </th>
+<th>Unit of Measure</th>
+<th>Project wise-used Units</th>
+<th> Project Wise -Idle Time Units</th>
+<th> Cumulative -Used Units</th>
+<th> Cumulative -Idle Units</th>
+<th>Odo meter reading-on Mobilization date</th>
+<th>Odo meter reading-on de-mobilization date</th>
+<th> Project wise Units of usage-as per meter</th>
+<th> Notes</th>
+
+</tr>
+</thead>
+<tbody>
+<tr ng-repeat="utilization in utilizationData">
+<td><input type="checkbox" value="id" ng-model="utilization.selected"
+						ng-click="utilizationRowSelect(utilization)"></td>
+				
+				<td>{{utilization.projectDeploy}}</td>
+				<td>{{utilization.epsName}}</td>
+				<td>{{utilization.projectName}}</td>
+				<td>{{utilization.assertId}}</td>
+				<td>{{utilization.projectPlntId}}</td>
+				<td>{{utilization.mobilisationDate|date}}</td>
+				<td>{{utilization.deMobilisationDate|date}}</td>
+				 <td>{{utilization.unitOfMeasure}}</td>
+				<td>{{utilization.projectWiseUsedUnit}}</td>
+				<td>{{utilization.projectWiseIdleTime}}</td>
+				<td>{{utilization.cumulativeUsed}}</td>
+				<td>{{utilization.cumulativeIdle}}</td>
+				<td>{{utilization.odoMeterRdngOnMobilisation|date}}</td>
+				<td>{{utilization.odoMeterRdngOnDeMobilisation|date}}</td>
+				<td>{{utilization.projectWiseUnits}}</td>
+				<td>{{utilization.notes}}</td> 
+</tr>  
+</tbody>
+
+</table>
+
+</div>
+<div class="panel-footer">
+<div class="pull-right">
+	<input type="button" class="btn btn-brown btn-sm" ng-click="addUtilization('Edit')"
+			value="Edit">
+</div>
+</div>
+
+			
+			</div>

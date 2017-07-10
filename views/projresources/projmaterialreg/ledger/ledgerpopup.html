@@ -1,0 +1,167 @@
+<div id="tab-pannel" class="panel-group">
+<form name="ledgerForm" validate>
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<h4 class="panel-title">Ledger</h4>
+		</div>
+		<div class="panel-body12">
+			<div id="tableHeight8" class="table-responsive">
+					<table class="table table-bordered table-striped"  fixed-header>
+						<thead>
+							<tr>
+								<th>Select</th>
+								<th>Date</th>
+								<th>Eps Id</th>
+								<th>Eps Name</th>
+								<th>Project Id</th>
+								<th>Project Name</th>
+								<th>Store Stock Yard Location</th>
+								<th>Resource Id</th>
+								<th>Resource Name</th>
+								<th>Material Sub Group Name</th>
+								<th>Unit Of Measure</th>
+								<th>Opening Stock Balance</th>
+								<th>Supply/Receipts Through Supplier Delivery</th>
+								<th>Daily Issue Through Project Dockets</th>
+								<th>Consumption Through Work Diaries</th>
+								<th>Issued Balance Stock in Transit</th>
+								<th>External Project Transfer</th>
+								<th>Closing Stock Balance</th>
+								<th>Comments</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr ng-repeat="ledger in addLedgerDetails">
+								<td><input type="checkbox" value="ledger.id"
+									ng-model="ledger.selected" ng-click="ledgerPopUpRowSelect(ledger)"></td>
+
+								<td><input type="date" name="date" ng-model=ledger.date
+									placeholder="Date" ng-required="true" pattern="[a-zA-Z-\d\s]+"><span
+									ng-show="ledgerForm.date.$error.pattern">only alpha
+										numerics allowed</span></td>
+
+								<td><input type="text" name="epsId" ng-model="ledger.epsId"
+									placeholder="Eps Id" ng-required="true"
+									pattern="[a-zA-Z-\d\s]+"><span
+									ng-show="ledgerForm.epsId.$error.pattern">alpha numerics
+										allowed</span></td>
+
+								<td><input type="text" name="epsName"
+									ng-model="ledger.epsName" placeholder="Eps Name"
+									ng-required="true" pattern="[a-zA-Z-\s]+"><span
+									ng-show="ledgerForm.epsName.$error.pattern">only
+										alphabets allowed</span></td>
+
+								<td><input type="text" name="projectId"
+									ng-model="ledger.projectId" placeholder="Project Id"
+									ng-required="true" pattern="[a-zA-Z-\d\s]+"><span
+									ng-show="ledgerForm.projectId.$error.pattern">alpha
+										numerics allowed</span></td>
+
+								<td><input type="text" name="projectName"
+									ng-model="ledger.projectName" placeholder="project Name"
+									ng-required="true" pattern="[a-zA-Z-\s]+"><span
+									ng-show="ledgerForm.projectName.$error.pattern">only
+										alphabets allowed</span></td>
+
+								<td><input type="text" name="storeStockYardLocation"
+									ng-model="ledger.storeStockYardLocation"
+									placeholder="Store Stock Yard Location" ng-required="true"
+									pattern="[a-zA-Z-\s]+"><span
+									ng-show="ledgerForm.storeStockYardLocation.$error.pattern">only
+										alphabets allowed</span></td>
+
+								<td><input type="text" name="resourceId"
+									ng-model="ledger.resourceId" placeholder="Resource Id"
+									ng-required="true" pattern="[a-zA-Z-\s]+"><span
+									ng-show="ledgerForm.resourceId.$error.pattern">only
+										alphabets allowed</span></td>
+
+								<td><input type="text" name="resourceName"
+									ng-model="ledger.resourceName" placeholder="Resource Name"
+									ng-required="true" pattern="[a-zA-Z-\s]+"><span
+									ng-show="ledgerForm.resourceName.$error.pattern">only
+										alphabets allowed</span></td>
+
+								<td><input type="text" name="materialSubGroupName"
+									ng-model="ledger.materialSubGroupName"
+									placeholder="MaterialSubGroupName" ng-required="true"
+									pattern="[a-zA-Z-\s]+"><span
+									ng-show="ledgerForm.materialSubGroupName.$error.pattern">only
+										alphabets allowed</span></td>
+
+								<td><input type="text" name="unitOfMeasure"
+									ng-model="ledger.unitOfMeasure" placeholder="Unit Of Measure"
+									ng-required="true" pattern="[a-zA-Z-\s]+"><span
+									ng-show="ledgerForm.unitOfMeasure.$error.pattern">only
+										alphabets allowed</span></td>
+
+								<td><input type="text" name="openingStockBalance"
+									ng-model="ledger.openingStockBalance"
+									placeholder="Opening Stock Balance" ng-required="true"
+									pattern="[a-zA-Z-\s]+"><span
+									ng-show="ledgerForm.openingStockBalance.$error.pattern">only
+										alphabets allowed</span></td>
+
+								<td><input type="text" name="supplyReceipts"
+									ng-model="ledger.supplyReceipts" placeholder="Supply Receipts"
+									ng-required="true" pattern="[a-zA-Z-\s]+"><span
+									ng-show="ledgerForm.supplyReceipts.$error.pattern">only
+										alphabets allowed</span></td>
+
+								<td><input type="text" name=dailyIssue
+									ng-model="ledger.dailyIssue" placeholder="Daily Issue"
+									ng-required="true" pattern="[a-zA-Z-\s]+"><span
+									ng-show="ledgerForm.dailyIssue.$error.pattern">only
+										alphabets allowed</span></td>
+
+								<td><input type="text" name="consumptionThroughWorkDiaries"
+									ng-model="ledger.consumptionThroughWorkDiaries"
+									placeholder="Consumption Through Work Diaries"
+									ng-required="true" pattern="[a-zA-Z-\s]+"><span
+									ng-show="ledgerForm.consumptionThroughWorkDiaries.$error.pattern">only
+										alphabets allowed</span></td>
+
+								<td><input type="text" name="issuedBalance"
+									ng-model="ledger.issuedBalance" placeholder="Issued Balance"
+									ng-required="true" pattern="[a-zA-Z-\s]+"><span
+									ng-show="ledgerForm.issuedBalance.$error.pattern">only
+										alphabets allowed</span></td>
+
+								<td><input type="text" name="externalProjectTransfer"
+									ng-model="ledger.externalProjectTransfer"
+									placeholder="External Project Transfer" ng-required="true"
+									pattern="[a-zA-Z-\s]+"><span
+									ng-show="ledgerForm.externalProjectTransfer.$error.pattern">only
+										alphabets allowed</span></td>
+
+								<td><input type="text" name="closingStockBalance"
+									ng-model="ledger.closingStockBalance"
+									placeholder="Closing Stock Balance" ng-required="true"
+									pattern="[a-zA-Z-\s]+"><span
+									ng-show="ledgerForm.closingStockBalance.$error.pattern">only
+										alphabets allowed</span></td>
+
+								<td><textarea cols=20 name="comments"
+									ng-model="ledger.comments" placeholder="Comments"
+									ng-required="true" pattern="[a-zA-Z-\s]+"></textarea><span
+									ng-show="ledgerForm.comments.$error.pattern">only
+										alphabets allowed</span></td>
+
+							</tr>
+						</tbody>
+					</table>
+				</div>
+		</div>
+		<div class="panel-footer">
+			<div class="pull-left">
+				<input type="button" ng-click="addRows()" value="Add"  class="btn bottomaligned btn-brown btn-sm" ng-show="action =='Add'">
+				<input type="button" ng-click="deleteRows()" value="Delete"  class="btn bottomaligned btn-brown btn-sm" ng-show="action =='Add'">
+			</div>
+			<div class="pull-right">
+				<input type="button" ng-click="save()" value="Save" class="btn bottomaligned btn-brown btn-sm">
+			</div>
+		</div>
+	</div>
+	</form>
+</div>

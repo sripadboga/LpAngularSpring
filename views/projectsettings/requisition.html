@@ -1,0 +1,24 @@
+<div id="tab-pannel" class="panel-group" ng-init="procurementOnLoad()">
+	<div id="tab-pannel" class="panel panel-default">
+		<div class="panel-heading">
+			<th>Requisition Number List</th>
+		</div>
+		<div class="table-responsive panel-body6">
+			<table class="table table-striped table-bordered">
+				<thead>
+					<tr>
+						<th>Requisition Id</th>
+						<th>Requisition Number</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="req in requisitions"
+						ng-dblclick="reqNumberListPopUp(req)">
+						<td>{{req.code}}</td>
+						<td>{{req.reqCode}}</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>

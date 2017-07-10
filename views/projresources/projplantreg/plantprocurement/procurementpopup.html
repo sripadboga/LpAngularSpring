@@ -1,0 +1,110 @@
+<div id="tab-pannel" class="panel-group">
+	<form name="plntRegForm6" validate>
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h4 class="panel-title">Procurement Details</h4>
+			</div>
+			<div class="table-responsive">
+				<div class="panel-body15">
+					<table class="table table-bordered table-striped">
+						<thead>
+							<tr>
+								<th>EPS Name</th>
+								<th>Project Name</th>
+								<th>Purchase Order Number</th>
+								<th>PO Schedule Item Id</th>
+								<th>PO Schedule Item Description</th>
+								<th>Delivery Docket Date</th>
+								<th>Delivery Docket Number</th>
+								<th>Date of Delivery to Destination</th>
+								<th>Received By</th>
+								<th>Delivery in Full Or Part</th>
+								<th>Quantity Delivered</th>
+								<th>Cululative Qty Delivered</th>
+								<th>Location of Delivery</th>
+								<th>Comment from Receiver</th>
+								<th>Commissioning Date</th>
+								<th>First Odo Meter Reading</th>
+								<th>Records of Delivery dockets and other plant Records</th>
+							</tr>
+						</thead>
+						<tbody>
+
+							<tr ng-repeat="procure in addProcurementData">
+
+								<td class="input-width"><input type="text" name="EPSName"
+									ng-model=procure.EPSName placeholder="EPS Name" ng-required="true"
+									pattern="[a-zA-Z-\d\s]+"><span
+									ng-show="plntRegForm6.EPSName.$error.pattern">only alpha
+										numerics allowed</span></td>
+								<td class="input-width"><input type="text"
+									name="ProjectName" ng-model="procure.ProjectName"
+									placeholder="ProjectName" ng-required="true"
+									pattern="[a-zA-Z-\s]+"><span
+									ng-show="plntRegForm6.ProjectName.$error.pattern">only
+										alphabets allowed</span></td>
+
+								<td class="input-width"><input type="text"
+									name="PurchaseOrderNum" ng-model="procure.PurchaseOrderNum"
+									placeholder="Purchase Order Num" ng-required="true"></td>
+
+
+								<td class="input-width"><input type="text" name="PoId"
+									ng-model="procure.PoId" placeholder="PoId" ng-required="true"></td>
+								<td class="input-width"><input type="text"
+									name="PoId Description" ng-model="procure.PoIdDescription"
+									placeholder="PoId Description" ng-required="true"></td>
+								<td class="input-width4"><input type="date"
+									name="DelDocketDate" ng-model="procure.DelDocketDate"
+									placeholder="Del Docket Date" ng-required="true"></td>
+								<td class="input-width"><input type="text"
+									name="DelDocketNum" ng-model="procure.DelDocketNum"
+									placeholder="Del Docket Num" ng-required="true"></td>
+								<td><input type="date" name="DateofDel"
+									ng-model="procure.DateofDel" placeholder="Dateof Del"
+									ng-required="true"></td>
+								<td class="input-width"><input type="text"
+									name="ReceivedBy" ng-model="procure.ReceivedBy"
+									placeholder="Received By" ng-required="true"></td>
+
+								<td class="input-width"><input type="text"
+									name="DelinFullPart" ng-model="procure.DelinFullPart"
+									placeholder="DelinFullPart" ng-required="true"></td>
+								
+								<td class="input-width"><input type="text" name="QntDel"
+									ng-model="procure.QntDel" placeholder="QntDel" ng-required="true"></td>
+								<td class="input-width"><input type="text"
+									name="CuluQtyDel" ng-model="procure.CuluQtyDel"
+									placeholder="CuluQtyDel" ng-required="true"></td>
+								<td class="input-width"><input type="text"
+									name="LocationDel" ng-model="procure.LocationDel"
+									placeholder="LocationDel" ng-required="true"></td>
+								<td class="input-width"><input type="text"
+									name="CommentRec" ng-model="procure.CommentRec"
+									placeholder="CommentRec" ng-required="true"></td>
+								<td class="input-width4"><input type="Date"
+									name="CommissionDate" ng-model="procure.CommissionDate"
+									placeholder="CommissionDate" ng-required="true"></td>
+								<td class="input-width"><input type="text"
+									name="OdoMeterRdng" ng-model="procure.OdoMeterRdng"
+									placeholder="OdoMeterRdng" ng-required="true"></td>
+								<td class="input-width"><input type="text"
+									name="RecordsofDel" ng-model="procure.RecordsofDel"
+									placeholder="RecordsofDel" ng-required="true"></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				</div>
+				<div class="panel-footer">
+					<div class="pull-right">
+
+
+						<input type="button" class="btn bottomaligned btn-brown btn-sm"
+							ng-click="save()" value="Save">
+					</div>
+				</div>
+			</div>
+	</form>
+
+</div>

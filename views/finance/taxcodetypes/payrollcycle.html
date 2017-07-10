@@ -1,0 +1,91 @@
+<div id="tab-pannel" ng-controller="PayRollCycleController"
+	ng-init="payRollSearch()">
+	<div class="panel-group">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h4 class="panel-title">Pay Roll Cycle / Credit Cycle - Period
+					cut off selection</h4>
+			</div>
+			<div class="panel-body1 spacer2">
+				<div class="pull-left left-padding">
+
+					<select style="width: 154px;"
+						ng-options="coun.code   for  coun  in  countries  track by  coun.code"
+						ng-change="getCountryDetailsById(generalValues.countryTO.id);"
+						ng-model="generalValues.countryTO" ng-required="true"
+						placeholder="Country">
+						<option value="">Country</option>
+					</select> <select style="width: 154px;"
+						ng-options="province.name  for province  in  generalValues.countryTO.provisionTOs  track by province.name"
+						ng-model="generalValues.countryTO.provisionTO" ng-required="true">
+						<option value="">Province</option>
+					</select> <span>Financial Year:From</span><input type="date"
+						ng-model="payRollReq.from" placeholder="From Date"> <span>To</span><input
+						type="date" ng-model="payRollReq.to" placeholder="From Date">
+					<span>Effective Date</span><input class="input-size" type="date"
+						ng-model="payRollReq.date"> <input type="text"
+						ng-model="payRollReq.codeList" placeholder="Code List">
+				</div>
+				<div class="pull-right right-padding">
+					<input type="button" ng-click="payRollSearch()" value="Search"
+						class="btn bottomaligned btn-brown btn-sm" /> <input type="reset"
+						class="btn bottomaligned btn-brown btn-sm" ng-click="reset()"
+						value="Reset" />
+				</div>
+			</div>
+			<div class="panel-body1 spacer2">
+			<select 
+						ng-options="month.code   for  month  in  weeks  track by  month.code"
+						ng-change="getMonthsById(month.code);"
+						ng-model="month.code" ng-required="true">
+						<option value="">Payroll Cycle</option></select>
+						<select 
+						ng-options="day.code   for  day  in  days  track by  day.code"
+						ng-change="getDaysById(day.code);"
+						ng-model="day.code" ng-required="true">
+						<option value="">day</option></select>
+			</div>
+			<div class="panel-body18">
+				<div id="tableHeight20"
+					class="table-responsive panel-collapse collapse in">
+					<table class="table table-striped" fixed-header>
+						<thead id="tab-head">
+							<tr>
+								<th>Employee Type</th>
+								<th>Employee Category</th>
+								<th>Pay Roll Cycle</th>
+								<th>Explanatory notes</th>
+								<th>Status</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr ng-repeat="payRoll in payRollList">
+								<td><input type="checkbox" ng-model="payRoll.selected"
+									ng-click="payRollRowSelect(payRoll)"></td>
+								<td>{{payRoll.type}}</td>
+								<td>{{payRoll.catg}}</td>
+								<td>{{payRoll.payRollCycle}}</td>
+								<td>{{payRoll.notes}}</td>
+								<td>{{payRoll.status | potstatusfilter :payRoll.status}}</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+			<div class="panel-footer">
+				<div class="pull-right">
+					<input type="button" class="btn bottomaligned btn-brown btn-sm"
+						ng-click="addPayRoll('Add')" value="Create">
+				</div>
+				<div class="pull-left">
+					<input type="button" class="btn bottomaligned btn-brown btn-sm"
+						ng-click="addPayRoll('Edit')" value="Edit"> <input
+						type="button" class="btn bottomaligned btn-brown btn-sm"
+						ng-click="deletePayRoll()" value="Deactivate"> <input
+						type="button" class="btn bottomaligned btn-brown btn-sm"
+						ng-click="view()" value="View Past Records">
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

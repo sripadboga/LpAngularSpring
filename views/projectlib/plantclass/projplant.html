@@ -1,0 +1,63 @@
+<div ng-controller="ProjPlantController">
+	<div id="tab-pannel" class="panel-group">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h4 class="panel-title">Plant Classifications</h4>
+			</div>
+			<div class="spacer2 panel-body1 left-padding">
+				<input type="text" ng-model="searchProject.parentName"
+					placeholder="EPS ID/EPS Name" ng-click="getUserProjects()">
+				<input type="text" ng-model="searchProject.projName"
+					placeholder="Project ID/Project Name" ng-click="getUserProjects()">
+				<select ng-model="plantReq.status">
+					<option value="1" label="Active" selected="selected"></option>
+					<option value="2" label="InActive"></option>
+				</select>
+				<div class="pull-right right-padding">
+					<input type="button" ng-click="getProjPlantClasses()"
+						class="btn bottomaligned btn-brown btn-sm" value="Search"
+						ng-model="searchText"> <input type="reset"
+						class="btn bottomaligned btn-brown btn-sm"
+						ng-click="resetProjPlantClasses()" value="Reset">
+				</div>
+			</div>
+					<div class="panel-body22">
+					<div id="tableHeight20-2" class="table-responsive panel-collapse collapse in">
+						<table class="table table-striped" fixed-header>
+						<thead>
+							<tr>
+								<th>Select</th>
+								<th>ResourceCode - ResourceName</th>
+								<th>Plant Contract Value</th>
+								<th>Unit Of Measure</th>
+								<th>Status</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr ng-repeat="tab in projPlantData">
+								<td><input type="checkbox" ng-model="tab.select"
+									ng-click="rowSelect(tab)"></td>
+								<td>{{tab.plantClassTO.code}}-{{tab.plantClassTO.name}}</td>
+								<td>{{tab.plantContrName}}</td>
+								<td>{{tab.measureUnitTO.name}}</td>
+								<td>{{tab.status | potstatusfilter:tab.status}}</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+			<div class="panel-footer">
+				<div class="pull-right">
+					<input type="button" class="btn bottomaligned btn-brown btn-sm"
+						ng-click="addprojetplant('Add',searchProject)" value="Create" ng-show="account.appCodeTemplate['PRJ_PRJLIB_PRJPLANTCLSFY_ADD'] && activeFlag==1"/>
+				</div>
+				<div class="pull-left">
+					<input type="button" class="btn bottomaligned btn-brown btn-sm"
+						ng-click="addprojetplant('Edit',searchProject)" value="Edit" ng-show="account.appCodeTemplate['PRJ_PRJLIB_PRJPLANTCLSFY_ADD'] && activeFlag==1" />
+					<input type="button" class="btn bottomaligned btn-brown btn-sm" ng-click="deletePlantClass()" value="Deactivate" ng-show="account.appCodeTemplate['PRJ_PRJLIB_PRJPLANTCLSFY_DELETE'] && activeFlag==1"  />
+					<input type="button" class="btn bottomaligned btn-brown btn-sm" ng-click="activePlantClass()" value="Activate"  ng-show="account.appCodeTemplate['PRJ_PRJLIB_PRJPLANTCLSFY_DELETE'] && activeFlag==2" />
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

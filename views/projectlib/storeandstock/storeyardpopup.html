@@ -1,0 +1,37 @@
+<div id="tab-pannel" class="panel-group">
+	<form name="myForm"  validate>
+			<div id="tab-pannel" class="panel panel-default">
+				<div class="panel-heading">
+					<h4 class="panel-title">Store and stock</h4>
+				</div>
+				<div class="panel-body16 panel-collapse collapse in">
+					<table class="table table-striped">
+			<thead>
+			<tr>
+		   <th ng-show="action=='Add'">Select</th>
+			<th>Store/Location Id</th>
+			<th>Store/Location Description</th>
+			</tr>		
+			</thead>
+	<tr ng-repeat="tab in addstoreyard">
+			<td ng-show="action=='Add'"><input type="checkbox" ng-model="tab.select" ng-click="popUpRowSelect(tab)"></td>
+		<td ng-form="myForm1"><input type="text" ng-model="tab.code" name="code" maxlength="50" pattern="[a-zA-Z-\d\s]+" ng-required="true" placeholder="Enter Location">
+			<span ng-show="myForm1.code.$error.maxlength">Maximum length only 20</span><span ng-show="myForm1.code.$error.pattern">Only alphaNumerics allowed</span></td>
+				<span ng-show="myForm1.code.$error.required">This field is required</span>
+		<td ng-form="myForm2"><input type="text" ng-model="tab.desc" name="des" maxlength="50" pattern="[a-zA-Z-\d\s]+"  ng-required="true" placeholder="Enter Location Description">
+			<span ng-show="myForm2.des.$error.maxlength">Maximum length only 20</span><span ng-show="myForm2.desc.$error.required">This field is required</span><span ng-show="myForm2.des.$error.pattern">Only alphaNumerics allowed</span></td>
+			</tr>		
+		</table>
+		</div>
+		<div class="panel-footer">
+		<div class="pull-left">
+		<input type="submit" ng-click="myForm.$valid && addstoreyardClass()" value="Add" ng-show="action =='Add'" class="btn bottomaligned btn-brown btn-sm" validate>
+		 <input type="button" ng-click="deleteRows()" value="Delete" ng-show="action =='Add'" class="btn bottomaligned btn-brown btn-sm" validate>
+		 </div>
+		 <div class="pull-right">
+ <input type="submit" ng-click="myForm.$valid && saveProjStoreStocks()"value="Save" class="btn bottomaligned btn-brown btn-sm"  />
+		</div>
+	</div>
+		</div>
+	  </form>                                                             
+</div>

@@ -1,0 +1,71 @@
+<div id="tab-pannel">
+<div class="panel-group">
+	<div class="panel panel-default panel-body20-4-1">
+		<div class="table-responsive">
+			<table class="table table-bordered table-striped">
+			<thead>
+				<tr>
+					<th>select</th>
+					<th>Date</th>
+					<th>Eps Id</th>
+					<th>Eps Name</th>
+					<th>Project Id</th>
+					<th>Project Name</th>
+					<th>Store Stock Yard Location</th>
+					<th>Resource Id</th>
+					<th>Resource Name</th>
+					<th>Material Sub Group Name</th>
+					<th>Unit Of Measure</th>
+					<th>Opening Stock Balance</th>
+					<th>Supply/Receipts Through Supplier Delivery</th>
+					<th>Daily Issue Through Project Dockets</th>
+					<th>Consumption Through Work Diaries</th>
+					<th>Issued Balance Stock in Transit</th>
+					<th>External Project Transfer</th>
+					<th>Closing Stock Balance</th>
+					<th>Comments</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="ledger in ledgerDetails">
+					<td><input type="checkbox" value="id" ng-model="ledger.selected"
+						ng-click="ledgerRowSelect(ledger)"></td>
+					<td>{{ledger.date}}</td>
+					<td>{{ledger.epsId}}</td>
+					<td>{{ledger.epsName}}</td>
+					<td>{{ledger.projectId}}</td>
+					<td>{{ledger.projectName}}</td>
+					<td>{{ledger.storeStockYardLocation}}</td>
+					<td>{{ledger.resourceId}}</td>
+					<td>{{ledger.resourceName}}</td>
+					<td>{{ledger.materialSubGroupName}}</td>
+					<td>{{ledger.unitOfMeasure}}</td>
+					<td>{{ledger.openingStockBalance}}</td>
+					<td>{{ledger.supplyReceipts}}</td>
+					<td>{{ledger.dailyIssue}}</td>
+					<td>{{ledger.consumptionThroughWorkDiaries}}</td>
+					<td>{{ledger.issuedBalance}}</td>
+					<td>{{ledger.externalProjectTransfer}}</td>
+					<td>{{ledger.closingStockBalance}}</td>
+					<td>{{ledger.comments}}</td>
+				</tr>
+			</tbody>
+		</table>
+		</div>
+	</div>
+	<div class="panel-footer">
+<div class="pull-right">
+	<input type="button" class="btn btn-brown"
+		ng-click="addLedger('Add')" value="Create">
+		</div>
+		<div class="pull-left">
+ <input
+		type="button" class="btn btn-brown"
+		ng-click="addLedger('Edit')" value="Edit">
+		<input
+		type="button" class="btn btn-brown"
+		ng-click="deleteLedger()" value="Deactivate">
+</div>
+</div>
+</div>
+</div>

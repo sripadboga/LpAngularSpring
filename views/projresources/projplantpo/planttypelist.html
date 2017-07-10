@@ -1,0 +1,22 @@
+<div id="tab-pannel" class="panel-group" ng-init="getPlantTypes()">
+	<div id="tab-pannel" class="panel panel-default">
+		<div class="panel-heading">
+			<th>Plant Type List</th>
+		</div>
+		<div class="table-responsive panel-body9">
+			<table class="table table-striped table-bordered">
+				<thead>
+					<tr>
+						<th>Plant Type</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="detail in projPlantTypeDetails"
+						ng-click="plantTypePopUp(detail)">
+						<td>{{detail.code}}</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>

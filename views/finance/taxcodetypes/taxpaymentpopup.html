@@ -1,0 +1,76 @@
+<div id="tab-pannel" class="panel-group">
+	<form name="taxPaymentForm" validate>
+		<div id="tab-pannel" class="panel panel-default">
+			<div class="panel-heading">
+				<h4 class="panel-title">Tax Payment Details</h4>
+			</div>
+			<div id="tab-pannel" class="panel-body10">
+				<table class="table table-striped">
+					<thead>
+						<tr>
+							<th ng-show="action=='Add'">Select</th>
+							<th>Department Name</th>
+							<th>Registered Address</th>
+							<th>Account Number</th>
+							<th>Bank Name</th>
+							<th>Bank Code</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat="taxdetails in addTaxdetails">
+							<td ng-show="action=='Add'"><input type="checkbox"
+								value="taxdetails.id" ng-model="taxdetails.selected"
+								ng-click="popupRowSelect(taxdetails)"></td>
+							<td ng-form name="classform"><input type="text" name="deptName"
+								ng-model="taxdetails.deptName"  pattern="^[a-zA-Z\d\s.,]+$" required="required" placeholder="department Name"> 
+								 <span
+							ng-show="classform.deptName.$error.pattern">Must enter
+								required format</span> </td>
+								
+								
+							<td ng-form name="classform1"><input type="text" name="regAddr"
+								ng-model="taxdetails.regAddr" placeholder="address" pattern="^[a-zA-Z\d\s.,]+$" required="required">
+							 <span
+							ng-show="classform1.regAddr.$error.pattern">Must enter
+								required format</span> 
+							</td>
+							<td ng-form name="classform2"><input type="text" name="accNumber"
+								ng-model="taxdetails.accNumber" placeholder="acc Num" pattern="^[a-zA-Z\d\s.,]+$" required="required">
+								<span
+							ng-show="classform2.accNumber.$error.pattern">Must enter
+								required format</span> </td>
+							<td ng-form name="classform3"><input type="text" name="bankName"
+								ng-model="taxdetails.bankName" placeholder="bank Name" pattern="^[a-zA-Z\d\s.,]+$" required="required" >
+								<span
+							ng-show="classform3.bankName.$error.pattern">Must enter
+								required format</span></td>
+							<td ng-form name="classform4"><input type="text" name="bankCode"
+								ng-model="taxdetails.bankCode" placeholder="bank Code" pattern="^[a-zA-Z\d\s.,]+$" required="required">
+								<span
+							ng-show="classform4.bankCode.$error.pattern">Must enter
+								required format</span></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="panel-footer">
+				<div class="pull-left">
+					<input type="submit" ng-click="taxPaymentForm.$valid && addRows()"
+						class="btn bottomaligned btn-brown btn-sm" value="Add"
+						ng-show="action =='Add'" validate> <input type="button"
+						ng-click="deleteRows()" value="Delete" ng-show="action =='Add'"
+						class="btn bottomaligned btn-brown btn-sm" validate>
+				</div>
+				<div class="pull-right">
+					<input type="submit" ng-click="taxPaymentForm.$valid && saveTaxPayment()" value="Save"
+						class="btn bottomaligned btn-brown btn-sm" />
+				</div>
+			</div>
+		</div>
+	</form>
+</div>
+
+
+
+
+

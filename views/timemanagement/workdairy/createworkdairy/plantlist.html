@@ -1,0 +1,39 @@
+<div id="tab-pannel" ng-init="getPlantRegisters">
+	<div class="panel-group">
+		<div class="panel panel-default panel-body16">
+			<div class="panel-heading">
+				<h4 class="panel-title">Plant List</h4>
+			</div>
+
+			<div class="table-responsive">
+				<table class="table table-bordered table-striped">
+					<thead>
+						<tr>
+							<th>Resource Classification Plant Id</th>
+							<th>Resource Classification Plant Name</th>
+							<th>Registration Number</th>
+							<th>Plant Description</th>
+							<th>Make</th>
+							<th>Model</th>
+							<th>Mobilisation Date</th>
+							<th>Plant Charge Out Category</th>
+						</tr>
+
+					</thead>
+					<tbody>{{plantListDetails}}
+						<tr ng-repeat="plantList in plantListDetails" ng-dblclick="plantregpopup(plantList)">
+							<td>{{plantList.RegName}}</td>
+							<td>{{plantList.regclsName}}</td>
+							<td>{{plantList.regNum}}</td>
+							<td>{{plantList.plantdes}}</td>
+							<td>{{plantList.make}}</td>
+							<td>{{plantList.model}}</td>
+							<td>{{plantList.mobilisation}}</td>
+							<td>{{plantList.plntPurchaseCat}}</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>

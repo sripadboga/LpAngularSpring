@@ -1,0 +1,73 @@
+<div id="tab-pannel" class="panel-group">
+	<form name="categoryForm" validate>
+		<div id="tab-pannel" class="panel panel-default">
+			<div class="panel-heading">
+				<h4 class="panel-title" ng-show="action=='Add'">Add Contacts</h4>
+				<h4 class="panel-title" ng-show="action=='Edit'">Edit Contacts</h4>
+			</div>
+			<div id="tab-pannel" class="table-responsive panel-body15">
+				<table class="table table-striped">
+					<thead>
+						<tr>
+							<th ng-hide="action =='Edit'">Select</th>
+							<th>Procurement Category</th>
+							<th>Sub Category Code</th>
+							<th>Sub Category Name</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat="category in categoryList">
+							<td ng-hide="action=='Edit'"><input type="checkbox"
+								ng-model="category.selected"  ng-click="popUpRowSelect(category)"/></td>
+
+							<td ng-form="form1"><select
+								ng-change="updateCatgCode(category.procurement,category);"
+								ng-options="cat.name  for cat in proCategory track by cat.name"
+								ng-model="category.procurement" ng-required="true">
+									<option value="">select</option>
+							</select></td>
+
+							<td ng-form="form2"><input type="text" name="code"
+								ng-model="category.code" placeholder="Sub Category Code"
+								pattern="^[a-z A-Z\d\s.,]+$" minlength="2" maxlength=20
+								ng-required="true" /> <span
+								ng-show="form2.code.$error.minlength">Too Short</span> <span
+								ng-show="form2.code.$dirty &&form2.code1.$error.required">Code
+									is mandatory</span> <span ng-show="form2.code.$error.pattern">Special
+									characters are not allowed</span> <span
+								ng-show="form2.code.$error.maxlength ">You reached max
+									length</span></td>
+
+							<td ng-form="form3"><input type="text" name="catName"
+								ng-model="category.desc" placeholder=" Sub Category Name"
+								pattern="^[a-z A-Z\d\s.,]+$" minlength="3" maxlength=30
+								ng-required="true" /> <span
+								ng-show="form3.catName.$error.minlength">Too Short</span> <span
+								ng-show="form3.catName.$dirty && form3.catName.$error.required">Name
+									is mandatory</span> <span ng-show="form3.catName.$error.pattern">Special
+									characters are not allowed</span> <span
+								ng-show="form3.catName.$error.maxlength">You reached max
+									length</span></td>
+
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="panel-footer">
+				<div class="pull-left">
+					<input type="submit" ng-click="categoryForm.$valid && addRows()"
+						value="Add" class="btn bottomaligned btn-brown btn-sm"
+						ng-show="action =='Add'" /> <input type="button"
+						class="btn bottomaligned btn-brown btn-sm" ng-click="deleteRows()"
+						value="Delete" ng-show="action =='Add'" />
+				</div>
+				<div class="pull-right">
+					<input type="submit" value="Save"
+						ng-click="categoryForm.$valid && saveProcureCatgs()"
+						class="btn bottomaligned btn-brown btn-sm"  />
+
+				</div>
+			</div>
+		</div>
+	</form>
+</div>

@@ -1,0 +1,78 @@
+<div id="tab-pannel" class="panel-group">
+	<form name="nokForm" validate>
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<h4 class="panel-title">NOK</h4>
+		</div>
+		<div  class="panel-body12">
+				<div class="table-responsive ">
+					<table class="table table-striped">
+						<thead>
+							<tr>
+								<th>Select</th>
+								<th>Contact</th>
+								<th>First Name</th>
+								<th>Last Name</th>
+								<th>Relationship with Employee</th>
+								<th>Residential Address</th>
+								<th>Postal Address</th>
+								<th>Main Phone Number</th>
+								<th>Alternative Phone Number</th>
+								<th>Email Address</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr ng-repeat="nok in addEmpNOK">
+
+								<td><input type="checkbox" value="nok.id"
+									ng-model="nok.selected"
+									ng-click="empNOkRowSelect(nok)"></td>
+									
+								<td class="input-width"><input type="text" name="contact"
+									ng-model="nok.contactType" placeholder="contact"
+									ng-required="true"></td>
+								<td class="input-width"><input type="text" name="fName" ng-model="nok.firstName"
+									placeholder="First Name" ng-required="true"></td>
+								<td class="input-width"><input type="text" name="lName" ng-model="nok.lastName"
+									placeholder="Last Name" ng-required="true"></td>
+
+								<td class="input-width2"><input type="text" name="relation"
+									ng-model="nok.relationWithEmp" placeholder="Relation With Emp"
+									ng-required="true"></td>
+
+								<td class="input-width"><input type="text" data-toggle="tooltip" data-placement="top" title="{{residentialAddress}}" name="residentialAddress"
+										ng-model="nok.residentialAddr"
+										placeholder="residentialAddress" ng-required="true"></td>
+
+								<td class="input-width"><input type="text" data-toggle="tooltip" data-placement="top" title="{{postalAddress}}" name="postalAddress"
+										ng-model="nok.postalAddr" placeholder="postalAddress"
+										ng-required="true"></td>
+								<td class="input-width1"><input type="text" name="mainPhoneNum"
+									ng-model="nok.phoneNumber" placeholder="Main Phone Number"
+									ng-required="true"></td>
+
+								<td class="input-width1"><input type="text" name="altPhoneNum"
+									ng-model="nok.alternatePhoneNumber" placeholder="Alternate Phone Number"></td>
+								<td><input type="email" name="email" ng-model="nok.email"
+									placeholder="email"></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+		</div>
+		<div class="panel-footer">
+				<div class="pull-left">
+					<input type="button" class="btn btn-brown btn-sm" ng-click="addRows()"
+						value="Add" ng-show="action =='Add'"> <input type="button"
+						class="btn btn-brown" ng-click="deleteRows()" value="Delete"
+						ng-show="action =='Add'">
+				</div>
+				<div class="pull-right">
+					<input type="button" class="btn btn-brown btn-sm"
+						ng-click="saveEmpNOKDetails()" value="Save">
+				</div>
+			</div>
+	</div>
+	</form>
+	</div>
+	

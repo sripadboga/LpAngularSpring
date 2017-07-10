@@ -1,0 +1,199 @@
+<div id="tab-pannel" class="panel-group">
+	<form name="matestoreForm" validate>
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h4 class="panel-title">Material and Store</h4>
+			</div>
+			<div class="panel-body">
+				<div class="table-responsive panel-body12">
+					<table class="table table-bordered table-striped">
+						<thead>
+							<tr>
+
+								<th rowspan="2" ng-show="action=='Add'">Select</th>
+								<th rowspan="2">Source Of Materials</th>
+								<th rowspan="2">Material</th>
+								<th rowspan="2">PO Schedule Item</th>
+								<th rowspan="2">Purchase Order</th>
+								<th rowspan="2">Docket Number</th>
+								<th rowspan="2">Docket Date</th>
+								<th rowspan="2">Supplier</th>
+								<th rowspan="2">Unit Of Measure</th>
+								<th rowspan="2">Location Of Delivery</th>
+								<th rowspan="2">Quantity Recieved</th>
+								<th rowspan="2">Rate For Units</th>
+								<th rowspan="2">Upload Copy Of Delivery Docket</th>
+								<th rowspan="2">Defects If Any</th>
+								<th colspan="2">Cost Code wise Material Utilisation</th>
+								<th rowspan="2">Total Consumption Quantity</th>
+								<th rowspan="2">Approval Status</th>
+							</tr>
+							<tr>
+								<th>Code1</th>
+								<th>Code2</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr ng-repeat="matestore in addMatestores">
+
+								<td ng-show="action=='Add'"><input type="checkbox"
+									value="id" ng-click="materialPopupRowSelect(matestore)"
+									ng-model="matestore.select"></td>
+
+								<td><input type="text" name="sourceOfMaterials"
+									ng-model="matestore.sourceOfMaterials"
+									pattern="^[a-z A-Z\d\s\-_.,\%]+$" maxlength="20"
+									placeholder="Source Of Materials" required="required">
+									<span ng-show="matestoreForm.sourceOfMaterials.$error.required"></span>
+									<span ng-show="matestoreForm.sourceOfMaterials.$error.pattern">Not
+										valid </span> <span
+									ng-show="matestoreForm.sourceOfMaterials.$error.maxlength">enter
+										upto 20 chars only</span></td>
+
+								<td><input type="text" name="material"
+									ng-model="matestore.material" ng-click="matDetails()">
+									
+								<td><input type="text" name="poScheduleItem"
+									ng-model="matestore.poScheduleItem"
+									 ng-click="purchaseOrderDetails()"> 
+									</td>
+
+								<td><input type="text" name="purchaseOrder"
+									ng-model="matestore.purchaseOrder"
+									pattern="^[a-z A-Z\d\s\-_.,\%]+$" maxlength="20"
+									placeholder="Purchase Order" required="required"> <span
+									ng-show="matestoreForm.purchaseOrder.$error.required"></span> <span
+									ng-show="matestoreForm.purchaseOrder.$error.pattern">Not
+										valid </span> <span
+									ng-show="matestoreForm.purchaseOrder.$error.maxlength">enter
+										upto 20 chars only</span></td>
+
+								<td><input type="text" name="docketNumber"
+									ng-model="matestore.docketNumber"
+									pattern="^[a-z A-Z\d\s\-_.,\%]+$" maxlength="20"
+									placeholder="Docket Number" required="required"> <span
+									ng-show="matestoreForm.docketNumber.$error.required"></span> <span
+									ng-show="matestoreForm.docketNumber.$error.pattern">Not
+										valid </span> <span
+									ng-show="matestoreForm.docketNumber.$error.maxlength">enter
+										upto 20 chars only</span></td>
+								<td><input type="date" name="docketDate"
+									ng-model="matestore.docketDate"></td>
+								<td><input type="text" name="supplier"
+									ng-model="matestore.supplier" pattern="^[a-z A-Z\d\s\-_.,\%]+$"
+									maxlength="20" placeholder="Supplier" required="required">
+									<span ng-show="matestoreForm.supplier.$error.required"></span>
+									<span ng-show="matestoreForm.supplier.$error.pattern">Not
+										valid </span> <span ng-show="matestoreForm.supplier.$error.maxlength">enter
+										upto 20 chars only</span></td>
+
+								<td><input type="text" name="unitOfMeasure"
+									ng-model="matestore.unitOfMeasure"
+									pattern="^[a-z A-Z\d\s\-_.,\%]+$" maxlength="20"
+									placeholder="Unit Of Measure" required="required"> <span
+									ng-show="matestoreForm.unitOfMeasure.$error.required"></span> <span
+									ng-show="matestoreForm.unitOfMeasure.$error.pattern">Not
+										valid </span> <span
+									ng-show="matestoreForm.unitOfMeasure.$error.maxlength">enter
+										upto 20 chars only</span></td>
+								<td><input type="text" name="locationOfDelivery"
+									ng-model="matestore.locationOfDelivery"
+									pattern="^[a-z A-Z\d\s\-_.,\%]+$" maxlength="20"
+									placeholder="Location Of Delivery" required="required">
+									<span
+									ng-show="matestoreForm.locationOfDelivery.$error.required"></span>
+									<span ng-show="matestoreForm.locationOfDelivery.$error.pattern">Not
+										valid </span> <span
+									ng-show="matestoreForm.locationOfDelivery.$error.maxlength">enter
+										upto 20 chars only</span></td>
+								<td><input type="text" name="quantityReceived"
+									ng-model="matestore.quantityReceived"
+									pattern="^[a-z A-Z\d\s\-_.,\%]+$" maxlength="20"
+									placeholder="Quantity Recieved" required="required"> <span
+									ng-show="matestoreForm.quantityReceived.$error.required"></span>
+									<span ng-show="matestoreForm.quantityReceived.$error.pattern">Not
+										valid </span> <span
+									ng-show="matestoreForm.quantityReceived.$error.maxlength">enter
+										upto 20 chars only</span></td>
+								<td><input type="text" name="rateForUnits"
+									ng-model="matestore.rateForUnits"
+									pattern="^[a-z A-Z\d\s\-_.,\%]+$" maxlength="20"
+									placeholder="Rate For Units" required="required"> <span
+									ng-show="matestoreForm.rateForUnits.$error.required"></span> <span
+									ng-show="matestoreForm.rateForUnits.$error.pattern">Not
+										valid </span> <span
+									ng-show="matestoreForm.rateForUnits.$error.maxlength">enter
+										upto 20 chars only</span></td>
+								<td><input type="text" name="uploadDeliveryDoc"
+									ng-model="matestore.uploadDeliveryDoc"
+									pattern="^[a-z A-Z\d\s\-_.,\%]+$" maxlength="20"
+									placeholder="Upload Copy Of Delivery Docket"
+									required="required"> <span
+									ng-show="matestoreForm.uploadDeliveryDoc.$error.required"></span>
+									<span ng-show="matestoreForm.uploadDeliveryDoc.$error.pattern">Not
+										valid </span> <span
+									ng-show="matestoreForm.uploadDeliDoc.$error.maxlength">enter
+										upto 20 chars only</span></td>
+								<td><input type="text" name="defectsIfAny"
+									ng-model="matestore.defectsIfAny"
+									pattern="^[a-z A-Z\d\s\-_.,\%]+$" maxlength="20"
+									placeholder="Defects If Any" required="required"> <span
+									ng-show="matestoreForm.defectsIfAny.$error.required"></span> <span
+									ng-show="matestoreForm.defectsIfAny.$error.pattern">Not
+										valid </span> <span
+									ng-show="matestoreForm.defectsIfAny.$error.maxlength">enter
+										upto 20 chars only</span></td>
+								<td><input type="text" name="code1"
+									ng-model="matestore.code1" pattern="^[a-z A-Z\d\s\-_.,\%]+$"
+									maxlength="20" placeholder="code1" required="required">
+									<span ng-show="matestoreForm.code1.$error.required"></span> <span
+									ng-show="matestoreForm.code1.$error.pattern">Not valid </span>
+									<span ng-show="matestoreForm.code1.$error.maxlength">enter
+										upto 20 chars only</span></td>
+								<td><input type="text" name="code2"
+									ng-model="matestore.code2" pattern="^[a-z A-Z\d\s\-_.,\%]+$"
+									maxlength="20" placeholder="code2" required="required">
+									<span ng-show="matestoreForm.code2.$error.required"></span> <span
+									ng-show="matestoreForm.code2.$error.pattern">Not valid </span>
+									<span ng-show="matestoreForm.code2.$error.maxlength">enter
+										upto 20 chars only</span></td>
+								<td><input type="text" name="totalConsumQty"
+									ng-model="matestore.totalConsumQty"
+									pattern="^[a-z A-Z\d\s\-_.,\%]+$" maxlength="20"
+									placeholder="Source Of Materials" required="required">
+									<span ng-show="matestoreForm.totalConsumQty.$error.required"></span>
+									<span ng-show="matestoreForm.totalConsumQty.$error.pattern">Not
+										valid </span> <span
+									ng-show="matestoreForm.totalConsumQty.$error.maxlength">enter
+										upto 20 chars only</span></td>
+								<td><input type="text" name="approvalStatus"
+									ng-model="matestore.approvalStatus"
+									pattern="^[a-z A-Z\d\s\-_.,\%]+$" maxlength="20"
+									placeholder="Source Of Materials" required="required">
+									<span ng-show="matestoreForm.approvalStatus.$error.required"></span>
+									<span ng-show="matestoreForm.approvalStatus.$error.pattern">Not
+										valid </span> <span
+									ng-show="matestoreForm.approvalStatus.$error.maxlength">enter
+										upto 20 chars only</span></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+			<div class="panel-footer">
+				<div class="pull-right">
+					<input type="button" class="btn btn-brown bottomaligned"
+						ng-click="saveMaterial()" value="Save">
+
+				</div>
+				<div class="pull-left">
+					<input type="button" class="btn btn-brown bottomaligned"
+						ng-show="action=='Add'"
+						ng-click="addRows()" value="AddRows">
+					<input type="button" class="btn btn-brown bottomaligned"
+						ng-show="action=='Add'" ng-click="deleteRows()" value="DeleteRows">
+				</div>
+			</div>
+		</div>
+	</form>
+</div>

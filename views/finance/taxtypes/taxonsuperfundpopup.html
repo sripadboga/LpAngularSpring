@@ -1,0 +1,92 @@
+<div id="tab-pannel" class="panel-group">
+	<form name="taxonForm" validate>
+		<div id="tab-pannel" class="panel panel-default">
+			<div class="panel-heading">
+				<h4 class="panel-title" ng-show="action =='Add'">Add Project</h4>
+				<h4 class="panel-title" ng-show="action =='Edit'">Edit Project</h4>
+			</div>
+			
+			<div id="tab-pannel" class="panel-body5 panel panel-default">
+				<div class="table-responsive">
+
+					<table class="table">
+						<thead>
+							<tr>
+						    <th ng-hide="action =='Edit'">Select</th>
+							<th>Annual Taxable Income Limit</th>
+        		            <th>Super Fund Contribution(Before Tax)</th>
+        		            <th>Tax Rate in % over Super fund amount</th>
+        		            <th>Notes</th>
+        		         </tr>
+							
+						</thead>
+						<tbody>
+							<tr ng-repeat="taxon in taxonList">
+								<td ng-hide="action =='Edit'"><input type="checkbox"
+									ng-model="taxon.selected"
+									ng-click="taxonPopUpRowSelect(taxon)"></td>
+
+						      
+									  <td><input type="text" 
+									ng-model="taxon.limitIncome" name="limitIncome"
+								    placeholder="limitIncome" pattern="^[0-9<>]+$"
+									ng-required="true"/> <span
+									ng-show="taxonForm.limitIncome.$dirty && taxonForm.limitIncome.required">limitIncome is mandatory</span> 
+									<span ng-show="taxonForm.limitIncome.$error.pattern">Enter
+										correct limitIncome</span> <span
+									ng-show="taxonForm.limitIncome.$error.minlength">To Short!</span></td>
+									
+									 <td><input type="text" 
+									ng-model="taxon.fundAmount" name="fundAmount"
+									 placeholder="fundAmount" pattern="^[0-9<>]+$"
+									ng-required="true" /> <span
+									ng-show="taxonForm.fundAmount.$dirty && taxonForm.fundAmount.required">fundAmount is mandatory</span> 
+									<span ng-show="taxonForm.fundAmount.$error.pattern">Enter
+										correct fundAmount</span> <span
+									ng-show="taxonForm.fundAmount.$error.minlength">To Short!</span></td>
+									
+									 <td><input type="text"
+									ng-model="taxon.taxRate" name="taxRate"
+									 placeholder="taxRate" pattern="^[0-9<>%]+$"
+									ng-required="true" /> <span
+									ng-show="taxonForm.taxRate.$dirty && taxonForm.taxRate.required">taxRate is mandatory</span> 
+									<span ng-show="taxonForm.taxRate.$error.pattern">Enter
+										correct taxRate</span> <span
+									ng-show="taxonForm.taxRate.$error.minlength">To Short!</span></td>
+									
+									 <td><input type="text" 
+									ng-model="taxon.comments" name="comments"
+									 placeholder="comments" pattern="^[a-zA-Z0-9-_%,$]+$"
+									ng-required="true" /> <span
+									ng-show="taxonForm.comments.$dirty && taxonForm.comments.required">comments is mandatory</span> 
+									<span ng-show="taxonForm.comments.$error.pattern">Enter
+										correct comments</span> <span
+									ng-show="taxonForm.comments.$error.minlength">To Short!</span></td>					
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+			<div class="panel-footer">
+				<div class="pull-left">
+					<input type="submit" class="btn bottomaligned btn-brown btn-sm"
+						ng-click="addtaxonRows()" value="Add"
+						ng-show="action =='Add'" /> <input type="button"
+						class="btn bottomaligned btn-brown btn-sm"
+						ng-click="deleteProjRows()" value="Delete"
+						ng-show="action =='Add'" />
+				</div>
+				<div class="pull-right">
+					<input type="submit" class="btn bottomaligned btn-brown btn-sm"
+						value="Save" ng-click="taxonForm.$valid && savetaxon()" />
+				</div>
+			</div>
+		</div>
+	</form>
+</div>
+ 
+ 
+ 
+ 
+ 
+ 

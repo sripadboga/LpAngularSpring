@@ -1,0 +1,52 @@
+<div id="tab-pannel" class="panel-group">
+	<form name="myForm" validate>
+		<div id="tab-pannel" class="panel-group">
+			<div id="tab-pannel" class="panel panel-default">
+				<div class="panel-heading">
+					<h4 class="panel-title">Plant Classifications</h4>
+				</div>
+				<div class="panel-body15">
+			<div id="tableHeight13-2" class="table-responsive">
+					<table class="table table-striped" fixed-header>
+                          <thead>
+                          <tr>
+						<th ng-show="action=='Add'">Select</th>
+						<th>Resource ID-Resource Name</th>
+						<th>Plant Contract Value</th>
+						<th>Unit Of Measure</th>
+						</tr>
+                          </thead>
+						<tr ng-repeat="tab in addprojetplant">
+							<td ng-show="action=='Add'"><input type="checkbox" ng-model="tab.select" ng-click="popUpRowSelect(tab)"></td>
+							
+			                <td ng-form name="myform1">
+							<select ng-options="res.dispName for res  in resourceData track by res.code" name="value" 	ng-change="updateResCode(tab.plantClassTO,tab);" ng-model="tab.plantClassTO" ng-required="true" ng-required="true">
+								<span ng-show="myform1.value.$dirty && myform1.value.$error.required">Maximum length only 20</span>
+							<option value="">-select-</option>
+							</select></td>
+							<td ng-form name="myform">
+							<input type="text" ng-model="tab.plantContrName" name="client" maxlength="20" pattern="^[a-zA-Z\s]+$" ng-required="true"/> 
+							<span ng-show="myform.client.$error.maxlength">Maximum length only 20</span>
+									<span ng-show="myform.client.$error.pattern">Only alphabets allowed</span></td>
+							<td ng-form name=myform2>
+							<select ng-options="measureUnit.name for measureUnit  in measureUnits track by measureUnit.name" ng-change="updateMeasure(tab.measureUnitTO,tab);" ng-model="tab.measureUnitTO" ng-required="true">
+							<option  value="">-select-</option>
+							</select><span ng-model="tab.measureId" ng-hide="true"></td>
+
+						</tr>
+					</table>
+				</div>
+				</div>
+				<div class="panel-footer">
+				<div class="pull-left">
+					<input type="submit" class="btn bottomaligned btn-brown btn-sm" ng-click="myForm.$valid && addprojetplantClass()" value="Add" ng-show="action =='Add'" validate> 
+					<input  type="button" class="btn bottomaligned btn-brown btn-sm" ng-click="deleteRows()" value="Delete" ng-show="action =='Add'">
+					</div>
+					<div class="pull-right">
+					<input type="submit"  class="btn bottomaligned btn-brown btn-sm" ng-click="myForm.$valid && saveProjPlantClasses()" value="Save"  />
+					</div>
+					</div>
+			</div>
+			</div>
+	</form>
+</div>

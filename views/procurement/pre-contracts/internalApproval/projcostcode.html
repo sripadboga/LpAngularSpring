@@ -1,0 +1,42 @@
+<div id="tab-pannel" class="panel-group" ng-init="getProjCostStatements()">
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<h4 class="panel-title">Project Cost Code</h4>
+		</div>
+		<div id="tab-width0" class="panel-body20 table-responsive">
+			<table id="tree" class="table table-striped table-fixed-header">
+				<thead>
+					<tr>
+						<th>Cost Code</th>
+						<th>Cost Item Name</th>
+					</tr>
+				</thead>
+				<tbody>
+
+					<tr class="abc{{tab.level}}" 
+						ng-repeat="tab in projCostStatementData | projCostStatementTree:itemId:isExpand"
+						ng-dblclick="tab.leaf && projCostStatementPopup(tab)">
+						
+						
+					<!-- 	<tr ng-show="projCostStatementData.length == 0">
+						<td class="noresults" colspan="5" >No records found</td>
+					</tr> -->
+						
+						<td><span ng-show="tab.level > 0" class="xyz" style="padding-left:30px;"></span>
+								<span ng-show="tab.level > 1" class="xyz" style="padding-left:30px;"></span>
+								<span ng-show="tab.level > 2" class="xyz" style="padding-left:30px;"></span> <fa
+									ng-show="((!tab.leaf && tab.expand) || (!tab.leaf  && tab.projCostStmtChildTOs.length <= 0))"
+									ng-click="itemClick(tab.id,tab.expand);" name="fa fa-minus"></fa>
+								<fa
+									ng-show="(!tab.leaf && !tab.expand && tab.projCostStmtChildTOs.length > 0)"
+									ng-click="itemClick(tab.id,tab.expand);" name="fa fa-plus"></fa>
+								<fa ng-show="(tab.leaf)" name="leaf"> </fa> <span
+								style="padding-left: 10px;">{{tab.code}} <span
+									style="padding-left: 5px;"></span></span></td>
+						<td>{{tab.name}}</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>

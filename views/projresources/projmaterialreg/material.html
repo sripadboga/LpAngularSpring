@@ -1,0 +1,67 @@
+<div id="tab-pannel" ng-controller="MaterialController">
+	<div class="panel-group">
+		<div class="panel panel-default panel-body28-1">
+			<div class="panel-heading">
+				<h4 class="panel-title">Material Registration</h4>
+			</div>
+			<div class="spacer1 left-padding">
+				<label style="font-size:13px !important">Pre- Approved Item</label> <select>
+					<option value="0" label="Select Item" class="statusSelect"
+						selected="selected"></option>
+					<option value="1" label="Yes" ng-click="addMaterial()"></option>
+					<option value="2" label="No"></option>
+				</select>
+
+				<div id="tab-pannel" class="spacer1 " ng-show="show">
+					<input type="text" ng-model="mainForm.project"
+						placeholder="select project" ng-click="getProjects()"> <label>period</label>
+					<input type="date" name="startDate" ng-model="mainForm.startDate"
+						placeholder="from" /> <input type="date" name="startDate"
+						ng-model="mainForm.startDate" placeholder="to" />
+
+				</div>
+				<div class="pull-left left-padding">
+					<input type="text" ng-model="mainForm.parentName"
+						placeholder="EPS ID/EPS Name" ng-click="getUserProjects()">
+					<input type="text" ng-model="mainForm.projName"
+						placeholder="Project ID/Project Name" ng-click="getUserProjects()">
+					<input type="date" name="startDate" ng-model="mainForm.startDate"
+						ng-required="true" /> <span
+						ng-show="mainForm.startDate.$error.required"></span> <input
+						type="date" name="endDate" ng-model="mainForm.endDate"
+						ng-required="true" /> <span
+						ng-show="mainForm.endDate.$error.required"></span>
+				</div>
+				<div class="pull-right right-padding">
+					<input type="button"
+						ng-click="getMaterialDetails(projects.proj.projId)"
+						class="btn  btn-brown btn-sm" value="Search"
+						ng-model="mainForm.searchText"> <input type="button"
+						ng-click="fetchMaterialDetails()" class="btn  btn-brown btn-sm"
+						value="Fetch" ng-model="mainForm.fetchText"> <input
+						type="button" ng-click="fetchMaterialDetails()"
+						class="btn  btn-brown btn-sm" value="SetColumn">
+				</div>
+			</div>
+			<div class="panel-group spacer0">
+				<div class="panel-body24-2">
+					<ul class="nav nav-tabs" ng-show="moreFlag==0">
+						<li ng-repeat="tab in MaterialTabs | slice:0:6"
+							ng-class="{active:isActiveMaterialTabs(tab.url)}"><a
+							data-toggle="tab" ng-click="onClickMaterialTabs(tab)">{{tab.title}}</a></li>
+						<li><p class="arrow-font" ng-click="clickMore1(moreFlag);">&#x00BB;</p></li>
+					</ul>
+					<ul class="nav nav-tabs" ng-show="moreFlag==1">
+						<li><p class="arrow-font" ng-click="clickMore(moreFlag);">&#x00AB;</p></li>
+						<li ng-repeat="tab in MaterialTabs | slice:6:9"
+							ng-class="{active:isActiveMaterialTabs(tab.url)}"><a
+							data-toggle="tab" ng-click="onClickMaterialTabs(tab)">{{tab.title}}</a></li>
+					</ul>
+					<div id="home" class="tab-pane fade in active">
+						<div ng-include="currentMaterialTabs"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

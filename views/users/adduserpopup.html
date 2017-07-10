@@ -1,0 +1,106 @@
+<div id="tab-pannel" class="panel-group">
+	<form name="userForm" validate>
+		<div id="tab-pannel" class="panel panel-default">
+			<div class="panel-heading">
+				<h4 class="panel-title">Users</h4>
+			</div>
+			<div class="panel-body7">
+			<div id="tableHeight5-2" class="table-responsive">
+					<table class="table table-striped" fixed-header>
+						<thead>
+							<tr>
+								<th ng-show="action=='Add'">Select</th>
+								<th>User Name</th>
+								<th>Employee Code</th>
+								<th>Employee Desg</th>
+								<th>Display Name</th>
+								<th>First Name</th>
+								<th>Last Name</th>
+								<th>Email</th>
+								<th>Phone</th>
+								<th>Mobile</th>
+								<th>Profile Name</th>
+								<th>Remarks</th>
+							</tr>
+						</thead>
+						<tbody id="input-width1">
+							<tr ng-repeat="user in addUsers">
+							<td ng-show="action=='Add'"> 
+								<input type="checkbox" class="ng-pristine ng-valid" ng-model="user.select" ng-click="popUpRowSelect(user)"></td>
+								<td ng-form name="userForm9"> 
+								<input type="text" name ="userName" placeholder="userName" ng-model="user.userName"  ng-required="true"  pattern=[^\w\d]*((.*[A-Za-z]+.*)|[A-Za-z]+.*([0-9]+.*)) >
+									<span ng-show="userForm9.$error.minlength">Too Short</span>
+									<span ng-show="userForm9.userName.$error.maxlength">You reached max length</span>
+									<span  ng-show="userForm9.userName.$error.pattern">At List One Alphabet is mandatory</span></td>
+									
+								<td ng-form name="userForm1">
+								<input type="text" pattern = "^[a-z A-Z0-9]+$"  placeholder="empCode"ng-model="user.empCode" name = "empCode"   pattern=[^\w\d]*((.*[A-Za-z]+.*)|[A-Za-z]+.*([0-9]+.*))   ng-required="true">
+									<span ng-show="userForm1.empCode.$error.minlength">Too Short</span>
+									<span  ng-show="userForm1.empCode.$error.pattern">At List One Alphabet is mandatory</span>
+									<span ng-show="userForm1.empCode.$error.maxlength">You reached max length</span></td>
+									
+								<td ng-form name="userForm2">
+								<input type="text" ng-model="user.empDesg"  placeholder="empDesg" name="empDesg"  pattern=[^\w\d]*((.*[A-Za-z]+.*)|[A-Za-z]+.*([0-9]+.*))  ng-required="true">
+									<span ng-show="userForm2.empDesg.$error.maxlength">You reached max length</span>
+									<span  ng-show="userForm2.empDesg.$error.pattern">At List One Alphabet is mandatory</span></td>
+									
+								<td ng-form name="userForm3"><input type="text" placeholder="dispName" ng-model="user.dispName"  pattern=[^\w\d]*((.*[A-Za-z]+.*)|[A-Za-z]+.*([0-9]+.*))  name = "dispName" ng-required="true">
+								<span 	ng-show="userForm3.dispName.$error.maxlength">You reached max length</span>
+								<span  ng-show="userForm3.dispName.$error.pattern">At List One Alphabet is mandatory</span></td> 
+								
+								<td ng-form name="userForm4">
+								<input type="text" ng-model="user.firstName" name = "firstName" placeholder="firstName"   pattern=[^\w\d]*((.*[A-Za-z]+.*)|[A-Za-z]+.*([0-9]+.*))  ng-required="true">
+									<span ng-show="userForm4.firstName.$error.minlength">Too Short!</span>
+									<span ng-show="userForm4.firstName.$error.maxlength">You reached max length</span>
+									<span  ng-show="userForm4.firstName.$error.pattern">At List One Alphabet is mandatory</span></td>
+									
+								<td ng-form name="userForm5">
+								<input type="text" ng-model="user.lastName" name = "lastName"  placeholder="lastName"  pattern=[^\w\d]*((.*[A-Za-z]+.*)|[A-Za-z]+.*([0-9]+.*))  ng-required="true">
+									<span ng-show="userForm5.lastName.$error.minlength">Too Short!</span>
+									<span ng-show="userForm5.lastName.$error.maxlength">You reached max length</span>
+									<span  ng-show="userForm5.lastName.$error.pattern">At List One Alphabet is mandatory</span></td>
+									
+								<td ng-form name="userForm6">
+								<input type="email" ng-model="user.email" name = "email" placeholder="email" ng-required="true" >
+										<span ng-show="userForm6.email.$dirty &&userForm6.email.$error.required">Please enter email</span>
+					  <span ng-show="userForm6.email.$dirty && userForm6.email.$invalid">Invalid Email </span></td>
+					  
+								<td ng-form name="userForm7">
+								<input type="text"  pattern="^[\d\.,%]+$" ng-model="user.phone"  placeholder="phone" name = "phone" minlength="10" maxlength="10" ng-required="true">
+									<span ng-show="userForm7.phone.$error.pattern">Enter Only Digits</span>
+									<span ng-show="userForm7.phone.$error.minlength">Mobile number must be 10 characters</span></td> 
+									
+								<td ng-form name="userForm8">
+								<input type="text"  pattern="^[\d\.,%]+$"  ng-model="user.mobile" name = "mobile" placeholder="mobile" minlength="10" maxlength="10" ng-required="true">
+									<span ng-show="userForm8.mobile.$error.pattern">Enter Only numbers</span>
+									<span ng-show="userForm8.mobile.$error.minlength">Mobile number must be 10 characters</span></td>
+									
+								<td><input type = "text" ng-click = "rolesdisplay(user)"  placeholder="selectRole" ng-model="user.roleDisplay"></td>
+							
+								<td ng-form="userForm10"><input type="text" ng-model="user.remarks" placeholder="remarks"  name="comments" pattern=[^\w\d]*((.*[A-Za-z]+.*)|[A-Za-z]+.*([0-9]+.*)) >
+									<span ng-show="userForm10.comments.$error.pattern">At List One Alphabet is mandatory</span></td>
+
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				</div>
+				<div class="panel-footer">
+					<div class="pull-left">
+						<input type="submit" class="btn bottomaligned btn-brown btn-sm"
+							ng-show="action=='Add'" ng-click="userForm.$valid && addRows()"
+							value="AddRows"> <input type="button"
+							class="btn bottomaligned btn-brown btn-sm"
+							ng-click="deleteRows()" ng-show="action=='Add'"
+							value="DeleteRows">
+					</div>
+					<div class="pull-right">
+						<input type="submit" class="btn bottomaligned btn-brown btn-sm"
+							ng-click="userForm.$valid && saveUser(userForm)" value="Save"
+							validate  />
+						<!-- <button type="submit" style="float: right;"   ng-click="userForm.$valid && saveUser()" class="btn bottomaligned btn-brown btn-sm" validate>Save</button> -->
+					</div>
+				</div>
+			</div>
+	</form>
+</div>

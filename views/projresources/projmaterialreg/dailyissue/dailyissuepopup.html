@@ -1,0 +1,187 @@
+<div id="tab-pannel" class="panel-group">
+	<div class="panel panel-default20">
+		<div class="panel-heading">
+			<h4 class="panel-title">Daily issue</h4>
+		</div>
+			<div class="panel-body15">
+					<table class="table table-bordered table-striped" fixed-header>
+						<thead id="tab-head">
+							<tr>
+								<th>Select</th>
+								<th>Date Of Issue</th>
+								<th>Pre Approval Notification Id</th>
+								<th>Project Docket</th>
+								<th>Resource Id</th>
+								<th>Resource Name</th>
+								<th>Resource Sub Group Id</th>
+								<th>Resource Sub Group Name</th>
+								<th>Origin Project</th>
+								<th>Origin Store Stock Yard</th>
+								<th>Destination Project</th>
+								<th>Destination Store Stock Yard</th>
+								<th>Supplier Id</th>
+								<th>Supplier Name</th>
+								<th>Issuer Employee Id</th>
+								<th>Issuer Employee Name</th>
+								<th>Receiver Employee Id</th>
+								<th>Receiver Employee Name</th>
+								<th>Unit Of Measure</th>
+								<th>Quantity</th>
+								<th>Rate</th>
+								<th>Comments</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr ng-repeat="dailyissue in addDailyIssueRecords">
+								<td><input type="checkbox" value="dailyissue.id"
+									ng-model="dailyissue.selected" ng-click="dailyIssuePopUpRowSelect(dailyissue)"></td>
+
+								<td><input type="text" name="dateOfIssue"
+									ng-model=dailyissue.dateOfIssue placeholder="dateOfIssue"
+									ng-required="true" pattern="[a-zA-Z-\d\s]+"><span
+									ng-show="dailyIssueRecords.dateOfIssue.$error.pattern">only
+										alpha numerics allowed</span></td>
+
+								<td><input type="text" name="preApprovalNotfId"
+									ng-model=dailyissue.dateOfIssue placeholder="preApprovalNotfId"
+									ng-required="true" pattern="[a-zA-Z-\d\s]+"><span
+									ng-show="dailyIssueRecords.preApprovalNotfId.$error.pattern">only
+										alpha numerics allowed</span></td>
+
+								<td><input type="text" name="projectDocket"
+									ng-model="dailyissue.projectDocket" placeholder="projectDocket"
+									ng-required="true" pattern="[a-zA-Z-\s]+"><span
+									ng-show="dailyIssueRecords.projectDocket.$error.pattern">only
+										alphabets allowed</span></td>
+
+								<td><input type="text" name="resourceId"
+									ng-model="dailyissue.resourceId" placeholder="Resource Id"
+									ng-required="true" pattern="[a-zA-Z-\s]+"><span
+									ng-show="dailyIssueRecords.resourceId.$error.pattern">only
+										alphabets allowed</span></td>
+
+								<td><input type="text" name="resourceName"
+									ng-model="dailyissue.resourceName" placeholder="Resource Name"
+									ng-required="true" pattern="[a-zA-Z-\s]+"><span
+									ng-show="dailyIssueRecords.resourceName.$error.pattern">only
+										alphabets allowed</span></td>
+
+								<td><input type="text" name="resourceSubGroupId"
+									ng-model="dailyissue.resourceSubGroupId"
+									placeholder="Resource Sub Group Id" ng-required="true"
+									pattern="[a-zA-Z-\s]+"><span
+									ng-show="dailyIssueRecords.resourceSubGroupId.$error.pattern">only
+										alphabets allowed</span></td>
+
+								<td><input type="text" name="resourceSubGroupName"
+									ng-model="dailyissue.resourceSubGroupName"
+									placeholder="Resource Sub Group Name" ng-required="true"
+									pattern="[a-zA-Z-\s]+"><span
+									ng-show="dailyIssueRecords.resourceSubGroupName.$error.pattern">only
+										alphabets allowed</span></td>
+
+								<td><input type="text" name="originProject"
+									ng-model="dailyissue.originProject" placeholder="Origin Project"
+									ng-required="true" pattern="[a-zA-Z-\s]+"><span
+									ng-show="dailyIssueRecords.originProject.$error.pattern">only
+										alphabets allowed</span></td>
+
+								<td><input type="text" name="originStoreStockYard"
+									ng-model="dailyissue.originStoreStockYard"
+									placeholder="Origin Store Stock Yard" ng-required="true"
+									pattern="[a-zA-Z-\s]+"><span
+									ng-show="dailyIssueRecords.originStoreStockYard.$error.pattern">only
+										alphabets allowed</span></td>
+
+								<td><input type="text" name="destinationProject"
+									ng-model="dailyissue.destinationProject"
+									placeholder="Destination Project" ng-required="true"
+									pattern="[a-zA-Z-\s]+"><span
+									ng-show="dailyIssueRecords.destinationProject.$error.pattern">only
+										alphabets allowed</span></td>
+
+								<td><input type="text" name="destinationStoreStockYard"
+									ng-model="dailyissue.destinationStoreStockYard"
+									placeholder="Destination Store Stock Yard" ng-required="true"
+									pattern="[a-zA-Z-\s]+"><span
+									ng-show="dailyIssueRecords.destinationStoreStockYard.$error.pattern">only
+										alphabets allowed</span></td>
+
+								<td><input type="text" name="supplierId"
+									ng-model="dailyissue.supplierId" placeholder="Supplier Id"
+									ng-required="true" pattern="[a-zA-Z-\s]+"><span
+									ng-show="dailyIssueRecords.supplierId.$error.pattern">only
+										alphabets allowed</span></td>
+
+								<td><input type="text" name="supplierName"
+									ng-model="dailyissue.supplierName" placeholder="Supplier Name"
+									ng-required="true" pattern="[a-zA-Z-\s]+"><span
+									ng-show="dailyIssueRecords.supplierName.$error.pattern">only
+										alphabets allowed</span></td>
+
+								<td><input type="text" name="issueEmployeeId"
+									ng-model="dailyissue.issueEmployeeId" placeholder="Issue Employee Id"
+									ng-required="true" pattern="[a-zA-Z-\s]+"><span
+									ng-show="dailyIssueRecords.issueEmployeeId.$error.pattern">only
+										alphabets allowed</span></td>
+
+								<td><input type="text" name="issueEmployeeName"
+									ng-model="dailyissue.issueEmployeeName"
+									placeholder="Issue Employee Name" ng-required="true"
+									pattern="[a-zA-Z-\s]+"><span
+									ng-show="dailyIssueRecords.issueEmployeeName.$error.pattern">only
+										alphabets allowed</span></td>
+
+								<td><input type="text" name="receiverEmployeeId"
+									ng-model="dailyissue.receiverEmployeeId"
+									placeholder="Receiver Employee Id" ng-required="true"
+									pattern="[a-zA-Z-\s]+"><span
+									ng-show="dailyIssueRecords.receiverEmployeeId.$error.pattern">only
+										alphabets allowed</span></td>
+
+								<td><input type="text" name="receiverEmployeeName"
+									ng-model="dailyissue.receiverEmployeeName"
+									placeholder="Receiver Employee Name" ng-required="true"
+									pattern="[a-zA-Z-\s]+"><span
+									ng-show="dailyIssueRecords.receiverEmployeeName.$error.pattern">only
+										alphabets allowed</span></td>
+
+								<td><input type="text" name="unitOfMeasure"
+									ng-model="dailyissue.unitOfMeasure" placeholder="Unit Of Measure"
+									ng-required="true" pattern="[a-zA-Z-\s]+"><span
+									ng-show="dailyIssueRecords.unitOfMeasure.$error.pattern">only
+										alphabets allowed</span></td>
+
+								<td><input type="text" name="quantity"
+									ng-model="dailyissue.quantity" placeholder="Quantity"
+									ng-required="true" pattern="[a-zA-Z-\s]+"><span
+									ng-show="dailyIssueRecords.quantity.$error.pattern">only
+										alphabets allowed</span></td>
+
+								<td><input type="text" name="rate" ng-model="dailyissue.rate"
+									placeholder="Rate" ng-required="true" pattern="[a-zA-Z-\s]+"><span
+									ng-show="dailyIssueRecords.rate.$error.pattern">only
+										alphabets allowed</span></td>
+
+								<td><input type="text" name="comments"
+									ng-model="dailyissue.comments" placeholder="Comments"
+									ng-required="true" pattern="[a-zA-Z-\s]+"><span
+									ng-show="dailyIssueRecords.comments.$error.pattern">only
+										alphabets allowed</span></td>
+
+							</tr>
+						</tbody>
+					</table>
+					</div>
+				</div>
+		<div class="panel-footer">
+			<div class="pull-left">
+				<input type="button" ng-click="addRows()" value="Add"  class="btn bottomaligned btn-brown btn-sm" ng-show="action =='Add'">
+				<input type="button" ng-click="deleteRows()" value="Delete"  class="btn bottomaligned btn-brown btn-sm" ng-show="action =='Add'">
+			</div>
+			<div class="pull-right">
+				<input type="button" ng-click="save()" value="Save" class="btn bottomaligned btn-brown btn-sm">
+			</div>
+		</div>
+		</div>
+		

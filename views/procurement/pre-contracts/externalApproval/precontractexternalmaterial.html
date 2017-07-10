@@ -1,0 +1,70 @@
+<div class="tab-pannel">
+<form name="materialForm" validate>
+<div class="panel-body12-2 table-responsive">
+	<table id="vert-align" class="table table-striped">
+		<thead>
+			<tr>
+
+				<th>Item ID</th>
+				<th>Item Description</th>
+				<th>Material Type</th>
+				<th>Unit Of Measure</th>
+				<th>Qty</th>
+				<th>Estimate ( {{preContractObj.currencyTO.code}})</th>
+				<th>Cost Code</th>
+				<th>Balance</th>
+				<th>Start Date</th>
+				<th>Finish Date</th>
+				<th>Delivery Place</th>
+				<th ng-repeat="cmp in companyList"><span
+					style="text-align: center">
+						{{companyMap[cmp.companyId].code}}</span></th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="item in preContractObj.preContractMaterialDtlTOs">
+
+
+				<td><span>{{item.itemCode}}</span></td>
+				<td><span>{{item.itemDesc}}</span></td>
+
+
+				<td><span>{{projMaterialClassmap[item.projMaterialLabelKey.id].code}}</span></td>
+
+
+				<td><span>{{projMaterialClassmap[item.projMaterialLabelKey.id].unitOfMeasure}}</span>
+				</td>
+				<td><span>{{item.quantity}}</span></td>
+
+				<td><span>{{item.estimateCost}}</span></td>
+			<td><span>{{projcostCodeMap[item.projCostLabelKey.id].code}}</span></td>
+				<td><span>{{item.balanceBudget}}</span></td>
+
+				<td>{{item.startDate | date}}</td>
+				<td>{{item.finishDate | date}}</td>
+
+
+				<td><span ng-show="item.storeLabelKey.id > 0">{{
+						storeClassmap[item.storeLabelKey.id].code}}<span
+						ng-show="item.storeLabelKey.id <= 0 || item.projStoreLabelKey.id > 0">{{projStoreClassmap[item.projStoreLabelKey.id].code}}</span></td>
+
+
+
+				<td  ng-repeat="cmp in companyList" ng-form="rateForm1"> <span
+						ng-repeat="itemCompany in item.preContractMaterialCmpTOs" ><input ng-show="cmp.id==itemCompany.preContractCmpId" style="width: 60px;"
+							type="text" ng-model="itemCompany.rate" placeholder="Rate" pattern="^[\d]+$" name="rates" required="required" >
+							<span ng-show="rateForm1.rates.$dirty && rateForm1.rates.$error.required">This field is required</span>
+								 <span ng-show="rateForm1.rates.$error.pattern">Only Digits are allowed</span></span></td>
+			
+			</tr>
+		</tbody>
+	</table>
+</div>
+<div class="panel-footer">
+<div class="pull-right" ng-hide="preContractObj.workFlowStatusTO.value ==5 || preContractObj.workFlowStatusTO.value ==6">
+				<input type="Submit" value="Save" ng-click="materialForm.$valid && saveMaterialDetails()"
+					class="btn  btn-brown btn-sm"  validate />
+			</div>
+			</div>
+</form>
+</div>

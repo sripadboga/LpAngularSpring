@@ -1,0 +1,40 @@
+<div id="tab-pannel" class="panel-group" ng-init="getPlantFromProjects()">
+	<form name="ApproverTransferForm" validate>
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h4 class="panel-title">Plant Details</h4>
+			</div>
+			<div class="panel-body15">
+				<div class="table-responsive ">
+					<table class="table table-bordered table-striped">
+						<thead>
+							<tr>
+								<th>Asset Id</th>
+					<th>Registration Number</th>
+					<th>Resource Classification Id</th>
+					<th>Resource Classification Name</th>
+					<th>Unit of Measure</th>
+					<th>Plant Description</th>
+					<th>Make</th>
+					<th>Model</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr ng-repeat="plantDetails in plantData" ng-click="plantRegisterPopUp(plantDetails)">
+								
+									<td>{{plantDetails.assertId}}</td>
+					<td>{{plantDetails.regNumber}}</td>
+					<td>{{plantClassMstrMap[plantDetails.plantClassMstrId].code}}</td>
+					<td>{{plantClassMstrMap[plantDetails.plantClassMstrId].name}}</td>
+					<td>{{plantClassMstrMap[plantDetails.plantClassMstrId].unitOfMeasure}}</td>
+					<td>{{plantDetails.desc}}</td>
+					<td>{{plantDetails.manfacture}}</td>
+					<td>{{plantDetails.model}}</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</form>
+</div>

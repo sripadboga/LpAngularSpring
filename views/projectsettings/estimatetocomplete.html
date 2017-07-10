@@ -1,0 +1,67 @@
+<div id="tab-pannel">
+	<div style="margin-top: 3px !important;"
+		class="panel-body13-0 table-responsive table-responsive">
+		<table class="table table-bordered table-striped">
+			<thead>
+				<tr>
+					<th rowspan="2" class="vert-align">Formula Options</th>
+					<th colspan="5" class="text-center">Resource Wise Formula
+						Option Selection for Calculating ETC</th>
+				</tr>
+
+				<tr>
+					<th class="text-center">Cost</th>
+					<th class="text-center">Man Hours</th>
+					<th class="text-center">Plant Hours</th>
+					<th class="text-center">Materials</th>
+					<th class="text-center">Others</th>
+
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="estimate in projEstimateDetails">
+					<td>{{estimate.estimateType}}</td>
+
+					<td class="text-center"><input type="checkbox"
+						ng-show="estimate.estimateCost < 2"
+						ng-model="estimate.estimateCost"
+						ng-click="selectEstimate(estimate.id,1)" ng-true-value="1"
+						ng-false-value="0" ng-checked="estimate.estimateCost==1"><span
+						ng-show="estimate.estimateCost >1">N/A</span></td>
+
+					<td class="text-center"><input type="checkbox"
+						ng-show="estimate.manHrs < 2" ng-model="estimate.manHrs" 
+						ng-click="selectEstimate(estimate.id,2)" ng-true-value="1"
+						ng-false-value="0" ng-checked="estimate.manHrs==1"><span
+						ng-show="estimate.manHrs > 1">N/A</span></td>
+
+					<td class="text-center"><input type="checkbox"
+						ng-show="estimate.plantHrs < 2" ng-model="estimate.plantHrs"
+						ng-click="selectEstimate(estimate.id,3)" ng-true-value="1"
+						ng-false-value="0" ng-checked="estimate.plantHrs==1"><span
+						ng-show="estimate.plantHrs > 1">N/A</span></td>
+
+					<td class="text-center"><input type="checkbox"
+						ng-show="estimate.materialHrs < 2" ng-model="estimate.materialHrs"
+						ng-click="selectEstimate(estimate.id,4)" ng-true-value="1"
+						ng-false-value="0" ng-checked="estimate.materialHrs==1"><span
+						ng-show="estimate.materialHrs > 1">N/A</span></td>
+
+					<td class="text-center"><input type="checkbox"
+						ng-show="estimate.otherHrs < 2" ng-model="estimate.otherHrs"
+						ng-click="selectEstimate(estimate.id,5)" ng-true-value="1"
+						ng-false-value="0" ng-checked="estimate.otherHrs==1"><span
+						ng-show="estimate.otherHrs > 1">N/A</span></td>
+
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<div class="panel-footer">
+		<div class="pull-right">
+			<input type="button" class="btn bottomaligned btn-brown btn-sm"
+				value="Save" ng-click="saveProjEstimate()">
+		</div>
+	</div>
+</div>
+

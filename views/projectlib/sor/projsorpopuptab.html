@@ -1,0 +1,178 @@
+<div id="tab-pannel" ng-init="getMeasurements();getProjSORItemsById()">
+	<form role="form" name="sorForm" validate>
+		<div class="panel-group">
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h4 class="panel-title">Scheduled of Estimated Quantities</h4>
+				</div>
+				<div class="panel-body15 table-responsive">
+					<div class="bottomaligned">
+						<div class="panel-body5 table-responsive">
+							<div class="bottomaligned">
+
+								<table class="table table-striped">
+									<thead>
+										<tr>
+											<th>Select</th>
+											<th>SOR Id</th>
+											<th>SOR Name</th>
+										</tr>
+
+									</thead>
+									<tbody>
+										<tr ng-repeat="tab in addSORData">
+											<td><input type="checkbox" ng-model="tab.select"></td>
+											<td ng-form name="sorForm1"><input type="text"
+												name="sorId" ng-model="tab.code" maxlength="20"
+												placeholder="Sor Id" required="required"> <span
+												ng-show="sorForm2.sorId.$error.maxlength">You reached
+													max length</span></td>
+											<td ng-form name="sorForm2"><input type="text"
+												name="sorName" ng-model="tab.name"
+												pattern="^[a-z A-Z\s\-_.,\%]+$" maxlength="20"
+												placeholder="SOR Name" ng-required="true"></td>
+											<span ng-show="sorForm2.sorName.$error.maxlength">You
+												reached max length</span>
+											<span ng-show="sorForm2.sorName.$error.pattern">only
+												characters</span>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+
+							</div>
+
+						</div>
+
+						<div class="panel-body7 bottomaligned"
+							ng-show="(addSORLevel==1 && action=='Edit' && !itemParent)">
+							<table class="table table-striped">
+								<thead>
+									<tr>
+										<th>Select</th>
+										<th>SOR Id</th>
+										<th>SOR Name</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr ng-repeat="tab in addSORItemData">
+										<td><input type="checkbox" ng-model="tab.select" /></td>
+										<td ng-form name="sorform"><input type="text"
+											name="sorId" ng-model="tab.code" maxlength="20"
+											placeholder="Sor Id" required="required"> <span
+											ng-show="sorform.sorId.$error.maxlength">You reached
+												max length</span></td>
+										<td ng-form name="sorform1"><input type="text"
+											name="sorName" ng-model="tab.name" maxlength="20"
+											placeholder="SOR Name" ng-required="true"></td>
+										<span ng-show="sorform1.sorName.$error.maxlength">You
+											reached max length</span>
+										<span ng-show="sorform1.sorName.$error.pattern">only
+											characters</span>
+										</td>
+
+									</tr>
+								</tbody>
+							</table>
+						</div>
+
+						<div class="panel-body7 bottomaligned"
+							ng-show="(addSORLevel==1 && (action=='Add' || itemParent))">
+							<table class="table table-striped">
+								<thead>
+									<tr>
+										<th>Select</th>
+										<th>SOR Id</th>
+										<th>SOR Name</th>
+										<th>Measurement</th>
+										<th>Man Power Hrs</th>
+										<th>Labour</th>
+										<th>Plant</th>
+										<th>Material</th>
+										<th>Others Rate</th>
+										<th>Amount</th>
+										<th>Quantity</th>
+										<th>Total</th>
+										<th>Comments</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr ng-repeat="tab in addSORItemData">
+										<td><input type="checkbox" ng-model="tab.select" /></td>
+										<td ng-form name="sorform"><input type="text"
+											name="sorId" ng-model="tab.code" maxlength="20"
+											placeholder="Sor Id" required="required"> <span
+											ng-show="sorform.sorId.$error.maxlength">You reached
+												max length</span></td>
+										<td ng-form name="sorform1"><input type="text"
+											name="sorName" ng-model="tab.name" maxlength="20"
+											placeholder="SOR Name" ng-required="true"></td>
+										<span ng-show="sorform1.sorName.$error.maxlength">You
+											reached max length</span>
+										<span ng-show="sorform1.sorName.$error.pattern">only
+											characters</span>
+										</td>
+										<td><select id="sel" name="measure"
+											ng-model="tab.measureUnitTO"
+											ng-change="updateMeasureId(tab,tab.measureUnitTO);"
+											ng-options="measureObj.name for measureObj in measurements"
+											ng-required="true"><option value="">select</option></select></td>
+										<td><input type="text" ng-model="tab.manPowerHrs"
+											maxlength="3"
+											onkeypress='return event.charCode >= 48 && event.charCode <= 57'
+											placeholder="Man Power Hrs" required="required"></td>
+										<td><input type="text" ng-model="tab.labourRate"
+											maxlength="3"
+											onkeypress='return event.charCode >= 48 && event.charCode <= 57'
+											placeholder="Labour Rate" required="required"></td>
+										<td><input type="text" ng-model="tab.plantRate"
+											maxlength="3"
+											onkeypress='return event.charCode >= 48 && event.charCode <= 57'
+											placeholder="Plant" ng-required="required"></td>
+										<td><input type="text" ng-model="tab.materialRate"
+											onkeypress='return event.charCode >= 48 && event.charCode <= 57'
+											maxlength="3" placeholder="Material" ng-required="required"></td>
+										<td><input type="text" ng-model="tab.othersRate"
+											onkeypress='return event.charCode >= 48 && event.charCode <= 57'
+											maxlength="3" placeholder="Others Rate"
+											ng-model="tab.othersRate" ng-required="true"></td>
+										<td><input type="text" ng-model="tab.amount"
+											onkeypress='return event.charCode >= 48 && event.charCode <= 57'
+											maxlength="3" placeholder="Amount" ng-model="tab.amount"
+											ng-required="true"></td>
+										<td><input type="text" ng-model="tab.quantity"
+											onkeypress='return event.charCode >= 48 && event.charCode <= 57'
+											maxlength="3" placeholder="Quantity" ng-model="tab.quantity"
+											ng-required="true"></td>
+										<td><input type="text" ng-model="tab.total"
+											onkeypress='return event.charCode >= 48 && event.charCode <= 57'
+											maxlength="3" placeholder="Total" ng-model="tab.total"
+											ng-required="true"></td>
+										<td><input type="text" name="comments"
+											ng-model="tab.comments" maxlength="30" placeholder="Comments"
+											ng-required="true"> <span
+											ng-show="sorForm.comments.$error.maxlength">enter upto
+												30 chars only</span></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+				<div class="panel-footer">
+					<div class="pull-left">
+						<input type="button" class="btn bottomaligned btn-brown btn-sm"
+							ng-click="deleteRows()" value="Delete"> <input
+							type="button" class="btn bottomaligned btn-brown btn-sm"
+							value="AddTab" ng-click="addTabRows()" ng-show="action =='Add'" />
+					</div>
+					<div class="pull-right">
+						<input Type="button" value="Save"
+							class="btn bottomaligned btn-brown btn-sm"
+							ng-Click="saveModule(sorForm)"  />
+					</div>
+				</div>
+			</div>
+		</div>
+	</form>
+</div>

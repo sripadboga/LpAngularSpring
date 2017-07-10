@@ -1,0 +1,36 @@
+<div id="tab-pannel" class="panel-group">
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<h4 class="panel-title">Weather Classification</h4>
+		</div>
+
+		<div id="tableHeight20"
+			class="table-responsive panel-collapse collapse in">
+			<table class="table table-striped" fixed-header>
+				<thead id="tab-head">
+					<tr>
+
+						<th>Weather Classification Code</th>
+						<th>Weather Classification Name</th>
+
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="weather in weathers"
+						ng-dblclick="weathertpopup(weather)">
+
+						<td>{{weather.code }}</td>
+						<td>{{weather.name }}</td>
+
+					</tr>
+				</tbody>
+			</table>
+		</div>
+
+	</div>
+</div>
+
+
+
+
+

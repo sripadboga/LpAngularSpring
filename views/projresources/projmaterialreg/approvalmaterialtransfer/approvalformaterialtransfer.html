@@ -1,0 +1,74 @@
+	<div id="tab-pannel">
+<div class="panel-group">
+	<div class="panel panel-default panel-body20-4-1">
+		<div class="table-responsive">
+			<table class="table table-bordered table-striped">
+			<thead>
+				<tr>
+					<th>Select</th>
+					<th >Resource Id</th>
+					<th>Resource Name</th>
+					<th>Material Sub Group Name</th>
+					<th>Unit Of Measure</th>
+					<th>PO Schedule Item Id</th>
+					<th>Unit Rate</th>
+					<th>Expected Date Of Availability Transfer</th>
+					<th>From Project Id</th>
+					<th>From Project Name</th>
+					<th>Destination Project Id</th>
+					<th>Destination Project Name</th>
+					<th>Required Date Of Transfer</th>
+					<th>Actual Date Of Transfer</th>
+					<th>Records Of Requiests And Approvals Notifications</th>
+					<th>Approval Decision</th>
+					<th>Notify Originator</th>
+					<th>Multiple Selection Of Material List-Internal Project Use
+						Transfer</th>
+					<th>Multiple Selection Of Material List-External Project Use
+						Transfer</th>
+					
+				</tr>
+			</thead>
+			<tbody>
+			<tr ng-repeat="approval in approvalMaterialTransfer">
+					<td><input type="checkbox" value="id" ng-model="approval.selected"
+						ng-click="approvalMaterialRowSelect(approval)"></td>
+					<td>{{approval.resourceId}}</td>
+					<td>{{approval.resourceName}}</td>
+					<td>{{approval.materialSubGroupName}}</td>
+					<td>{{approval.unitOfMeasure}}</td>
+					<td>{{approval.poScheduleItemId}}</td>
+					<td>{{approval.unitRate}}</td>
+					<td>{{approval.expectedDateOfAvailabilityTransfer}}</td>
+					<td>{{approval.fromProjectId}}</td>
+					<td>{{approval.fromProjectName}}</td>
+					<td>{{approval.destinationProjectId}}</td>
+					<td>{{approval.destinationProjectName}}</td>
+					<td>{{approval.requiredDateOfTransfer}}</td>
+					<td>{{approval.actualDateOfTransfer}}</td>
+					<td>{{approval.recordsOfRequiestsAndApprovalsNotifications}}</td>
+					<td>{{approval.approvalDecision}}</td>
+					<td>{{approval.notifyOriginator}}</td>
+					<td>{{approval.multipleSelectionInternalProject}}</td>
+					<td>{{approval.multipleSelectionExternalProject}}</td>
+					
+					</tr>
+			</tbody>
+		</table>
+	</div>
+	</div>
+	<div class="panel-footer">
+<div class="pull-right">
+	<input type="button" class="btn btn-brown"
+		ng-click="addApprovalForMaterial('Add')" value="Create"> 
+		</div>
+		<div class="pull-left">
+		 <input type="button" class="btn btn-brown"
+		ng-click="addApprovalForMaterial('Edit')" value="Edit">
+		<input
+		type="button" class="btn btn-brown" ng-click="deleteApprovalForMaterial()"
+		value="Deactivate">
+</div>
+</div>
+</div>
+</div>

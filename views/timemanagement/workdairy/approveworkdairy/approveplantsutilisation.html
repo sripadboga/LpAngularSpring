@@ -1,0 +1,69 @@
+<div id="tab-pannel">
+	<div class="panel-group">
+		<div class="panel panel-body20-1-1">
+			<div class="table-responsive">
+				<table class="table table-bordered table-striped">
+					<thead>
+						<tr>
+							<th rowspan="3">Select</th>
+							<th rowspan="3">Resource Id</th>
+							<th rowspan="3">Rego</th>
+							<th rowspan="3">Description</th>
+							<th rowspan="3">Make</th>
+							<th rowspan="3">Model</th>
+							<th rowspan="3">Unit Of Measure</th>
+							<th rowspan="3">Wage Rate Factor</th>
+							<th rowspan="3">Plant Charge Out Category</th>
+							<th colspan="6">Cost Code wise Plants Utilisation</th>
+							<th rowspan="3">Total</th>
+							<th rowspan="3">Approval Status</th>
+						</tr>
+						<tr>
+							<th colspan="3">Used Time</th>
+							<th colspan="3">Idle Time</th>
+						</tr>
+						<tr>
+							<th>gfgf</th>
+							<th>nbnb</th>
+							<th>total</th>
+							<th>nbnb</th>
+							<th>nbnb</th>
+							<th>total</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat="plant in plants">
+							<td><input type="checkbox"
+								ng-click="approvePlantRowSelect(plant)"
+								class="ng-pristine ng-valid" ng-model="plant.select" value="id"
+								ng-click="rowSelect(plant)"></td>
+							<td>{{plant.resourceId}}</td>
+							<td>{{plant.rego}}</td>
+							<td>{{plant.description}}</td>
+							<td>{{plant.make}}</td>
+							<td>{{plant.model}}</td>
+							<td>{{plant.unitOfMeasure}}</td>
+							<td>{{plant.wageRateFactor}}</td>
+							<td>{{plant.plantChargeCate}}</td>
+							<td>{{plant.gfgf}}</td>
+							<td>{{plant.nbnb}}</td>
+							<td>{{plant.total}}</td>
+							<td>{{plant.nbnb}}</td>
+							<td>{{plant.nbnb}}</td>
+							<td>{{plant.total}}</td>
+							<td>{{plant.totalAndIdle}}</td>
+							<td>{{plant.approvalStatus}}</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<div class="panel-footer">
+			<div class="pull-left">
+				<input type="button" class="btn btn-brown bottomaligned"
+					ng-click="editApprovedPalnt('Edit')" value="Edit">
+			</div>
+		</div>
+	</div>
+</div>
+

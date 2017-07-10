@@ -1,0 +1,86 @@
+<div id="tab-pannel" class="panel-group">
+	<div class="panel panel-default ">
+		<div class="panel-heading">
+			<h4 class="panel-title">Current Status</h4>
+		</div>
+		<div class="panel-body">
+				<div class="table-responsive panel-body12">
+					<table class="table table-bordered table-striped">
+						<thead>
+							<tr>
+							<th>Select</th>
+								<th>EPS ID</th>
+								<th>EPS Name</th>
+								<th>Current/Last Project ID</th>
+								<th>Current/Last Project Name</th>
+								<th>Employee Current Status</th>
+								<th>Actual Mobilization Date</th>
+								<th>Expected De-mobilization Date</th>
+								<th>Actual De-mobilization Date</th>
+								<th>Records of Employee documents</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr ng-repeat="status in addEmpstatus">
+							<td><input type="checkbox" value="status.id"
+									ng-model="status.selected"></td>
+									<td><input type="text" name="epsId" ng-model="status.epsId" placeholder="epsId" readonly="readonly" ></td>
+								<td><input type="text" name="epsName"
+									ng-model="status.epsName" placeholder="epsName"
+									readonly="readonly"></td>
+								<td><input type="text" name="pId" ng-model="status.pId"
+									placeholder="pId" readonly="readonly"></td>
+								<td><input type="text" name="pName" ng-model="status.pName"
+									placeholder="pName" readonly="readonly"></td>
+								<td><input type="text" name="status"
+									ng-model="status.status" placeholder="status"
+									readonly="readonly"></td>
+								<td><input type="date" name="actualMobDate"
+									ng-model="status.actualMobDate" placeholder="actualMobDate"
+									readonly="readonly"></td>
+								<td><input type="date" name="expectedDeMobDate"
+									ng-model="status.expectedDeMobDate"
+									placeholder="expectedDeMobDate" readonly="readonly"></td>
+								<td><input type="date" name="actualDeMobDate"
+									ng-model="status.actualDeMobDate" placeholder="actualDeMobDate"
+									readonly="readonly"></td>
+								<td><input type="text" name="record"
+									ng-model="status.record" placeholder="record"
+									readonly="readonly"></td>
+
+							</tr>
+						</tbody>
+					</table>
+				</div>
+		</div>
+	</div>
+	<div class="panel-footer">
+		<div class="pull-right">
+			<input type="button" class="btn btn-brown" ng-click="addRows()"
+				value="Add" ng-show="action =='Add'">
+					<input type="button" class="btn btn-brown bottomaligned"
+					ng-click="deleteRows()" value="Delete" ng-show="action =='Add'">
+				<input type="button" class="btn btn-brown" ng-click="save()"
+				value="Save">
+		</div>
+	</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,37 @@
+<div id="tab-pannel" class="panel-group">
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<h4 class="panel-title">Employee Wage Factor</h4>
+		</div>
+
+		<div id="tableHeight20"
+			class="table-responsive panel-collapse collapse in">
+					<table  class="table table-striped" fixed-header>
+						<thead id="tab-head">
+							<tr>
+						
+								<th>Wage FactorCode</th>
+								<th>Wage FactorName</th>
+								<th>Wage Factor</th>
+								
+							</tr>
+						</thead>
+						<tbody>
+							<tr ng-repeat="wage in wages" 	ng-dblclick="wageFactorpopup(wage)">
+							
+								<td>{{wage.code}}</td>
+								<td>{{wage.name}}</td>
+								<td>{{wage.wageFactor}}</td>
+								
+							</tr>
+						</tbody>
+					</table>
+		</div>
+
+	</div>
+</div>
+
+
+
+
+

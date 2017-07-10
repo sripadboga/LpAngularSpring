@@ -1,0 +1,102 @@
+<div id="tab-pannel" class="panel-group">
+	<form name="bankAccountForm" validate>
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h4 class="panel-title">Bank Account Details</h4>
+			</div>
+			<div class="panel-body15">
+				<div class="table-responsive">
+					<table class="table table-bordered table-striped">
+						<thead>
+							<tr>
+								<th>Select</th>
+								<th>Account Date</th>
+								<th>Bank Name</th>
+								<th>Bank Address</th>
+								<th>IFSC Code</th>
+								<th>Account Holder Name</th>
+								<th>Account Holder Number</th>
+								<th>Type of Account</th>
+								<th>Account Status</th>
+								<th>Notes</th>
+							</tr>
+						</thead>
+						<tbody id="vert-align">
+							<tr ng-repeat="account in addEmpBankAccountDetails">
+								<td><input type="checkbox" value="account.id"
+									ng-model="account.selected"
+									ng-click="BankAccPopUpRowSelect(account)"></td>
+								<td><input type="text" potdate-picker id="date" name="date"
+									ng-model="account.date" placeholder="Account Date"
+									ng-required="true"></td>
+								<td class="input-width"><input type="text" name="bankName"
+									ng-model="account.bankName" placeholder="Bank Name"
+									ng-pattern="/^(?!\s)(?!.*\s$)(?=.*[A-Za-z0-9])[A-Za-z0-9-,/&\s]{5,50}$/" minlength=3 maxlength=50
+									ng-required="true">
+									<span ng-show="bankAccountForm.bankName.$dirty && addrForm1.addre.$error.required"> Address  is mandatory</span> 
+						<span ng-show="bankAccountForm.bankName.$error.pattern">Enter correct Address</span>
+						 <span ng-show="bankAccountForm.bankName.$error.minlength">To Short!</span>
+									</td>
+								<td class="input-width"><input type="text"
+									data-toggle="tooltip" data-placement="left"
+									title="{{account.address}}" name="address"
+									ng-model="account.address" placeholder="Bank Address"
+									ng-required="true"></td>
+								<td class="input-width"><input type="text" name="ifscCode"
+									ng-model="account.ifscCode" placeholder="IFSC Code"
+									ng-pattern="/^(?!\s)(?!.*\s$)(?=.*[A-Za-z0-9])[A-Za-z0-9-,/&\s]{5,50}$/" minlength=3 maxlength=50
+									ng-required="true">
+									<span ng-show="bankAccountForm.ifscCode.$dirty && addrForm1.addre.$error.required"> Address  is mandatory</span> 
+						<span ng-show="bankAccountForm.ifscCode.$error.pattern">Enter correct Address</span>
+						 <span ng-show="bankAccountForm.ifscCode.$error.minlength">To Short!</span>
+									</td>
+								<td class="input-width"><input type="text" name="accName"
+									ng-model="account.accName" placeholder="Account Name"
+									ng-pattern="/^(?!\s)(?!.*\s$)(?=.*[A-Za-z0-9])[A-Za-z0-9-,/&\s]{5,50}$/" minlength=3 maxlength=50
+									ng-required="true">
+									<span ng-show="bankAccountForm.accName.$dirty && addrForm1.addre.$error.required"> Address  is mandatory</span> 
+						<span ng-show="bankAccountForm.accName.$error.pattern">Enter correct Address</span>
+						 <span ng-show="bankAccountForm.accName.$error.minlength">To Short!</span>
+									</td>
+								<td class="input-width"><input type="text" name="accNum"
+									ng-model="account.accNumber" placeholder="Account Number"
+									ng-pattern="/^(?!\s)(?!.*\s$)(?=.*[0-9])[0-9-]{5,}$/" minlength=3 maxlength=20
+									ng-required="true">
+									<span ng-show="bankAccountForm.accNum.$dirty && addrForm1.addre.$error.required"> Address  is mandatory</span> 
+						<span ng-show="bankAccountForm.accNum.$error.pattern">Enter correct Address</span>
+						 <span ng-show="bankAccountForm.accNum.$error.minlength">To Short!</span>
+									</td>
+								<td class="input-width"><input type="text" name="accType"
+									ng-model="account.accType" placeholder="Account Type"
+									ng-required="true"></td>
+
+								<td><select ng-model="account.accStatus"
+									ng-options="account for account in accountStatusTypes">
+								</select></td>
+
+								<td class="input-width"><input data-toggle="tooltip"
+									data-placement="top" title="{{account.accComments}}"
+									type="text" name="accComments" ng-model="account.accComments"
+									placeholder="Account Comments" ng-required="true"></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+			<div class="panel-footer">
+				<div class="pull-right">
+					<input type="button" class="btn btn-brown btn-sm"
+						ng-click="saveEmpBankAccountDetails()" value="Save">
+				</div>
+				<div class="pull-left">
+					<input type="button" class="btn btn-brown btn-sm"
+						ng-click="addRows()" value="Add" ng-show="action =='Add'">
+					<input type="button" class="btn btn-brown btn-sm"
+						ng-click="deactivateBankAccount()" value="Delete"
+						ng-show="action =='Add'">
+				</div>
+			</div>
+		</div>
+	</form>
+</div>
+

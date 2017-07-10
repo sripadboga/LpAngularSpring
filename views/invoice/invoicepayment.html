@@ -1,0 +1,66 @@
+<div id="tab-pannel" ng-controller="InvoicePaymentController">
+	<div class="panel-group">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h4 class="panel-title">Project Invoice Payment</h4>
+			</div>
+			<div id="tab-pannel" class="spacer2 panel-body1">
+				<div class="pull-left left-padding">
+					<input type="text" ng-model="searchProject.parentName"
+						placeholder="EPS ID/EPS Name" ng-click="getUserProjects()">
+					<input type="text" ng-model="searchProject.projName"
+						placeholder="Project ID/Project Name" ng-click="getUserProjects()">
+				</div>
+				<div class="pull-right right-padding">
+					<input type="button"
+						ng-click="getInvoiceDetails(searchProject.projId)"
+						class="btn bottomaligned btn-brown btn-sm" value="Search"
+						ng-model="searchText"> <input type="reset"
+						class="btn bottomaligned btn-brown btn-sm"
+						ng-click="resetInvoiceData()" value="Reset">
+				</div>
+			</div>
+			<div class="panel-body8">
+				<div id="tableHeight6"
+					class=" table-responsive panel-collapse collapse in">
+					<table class="table table-striped table-bordered" fixed-header>
+						<thead>
+							<tr>
+								<th>Select</th>
+								<th>PO Number</th>
+								<th>Description Of PO</th>
+								<th>EPS Name</th>
+								<th>Project Name</th>
+								<th>Cost Code Item Id</th>
+								<th>PO Amount</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr ng-repeat="purchaseOrder in purchaseOrdersList">
+								<td><input type="checkbox" /></td>
+								<td ng-click="getExternalRequest(purchaseOrder)">{{purchaseOrder.code}}</td>
+								<td>{{purchaseOrder.paymentInDays}}</td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+		<div id="tabs" class="spacer0 panel-body15-1">
+			<div class="panel panel-default">
+				<ul class="nav  nav-tabs">
+					<li ng-repeat="invoiceDetailTab in invoiceDetailTabs"
+						ng-class="{active:isActiveInvoiceTab(invoiceDetailTab.url)}"><a
+						data-toggle="tab" ng-click="onClickInvoiceTab(invoiceDetailTab)">{{invoiceDetailTab.title}}</a></li>
+				</ul>
+				<div class="tab-content">
+					<div ng-include="currentInvoiceTab"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

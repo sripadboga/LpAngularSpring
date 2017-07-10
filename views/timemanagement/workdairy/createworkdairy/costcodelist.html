@@ -1,0 +1,75 @@
+<div id="tab-pannel" class="panel-group" ng-init="getCostCodes()">
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<h4 class="panel-title">Cost Code List</h4>
+		</div>
+		<div class="panel-body">
+			<div class="table-responsive panel-body12">
+				<table class="table table-bordered table-striped">
+					<thead>
+						<tr>
+							<th>Select</th>
+							<th>Cost Code Group Id</th>
+							<th>Cost Code Group Name</th>
+							<th>Cost Code Sub-Group Id</th>
+							<th>Cost Code Sub-Group Name</th>
+							<th>Cost Code Item Id</th>
+							<th>Cost Code Item Description</th>
+							<th>Start</th>
+							<th>Finish</th>
+							<th>Select Work Diary Entries</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat="cost in costCodeList">
+							<td><input type="checkbox" value="id" ng-model="cost.select"
+								ng-click="costCodeListRowSelect(cost)"></td>
+							<td>{{cost.groupId}}</td>
+							<td>{{cost.groupName}}</td>
+							<td>{{cost.subGroupId}}</td>
+							<td>{{cost.subGroupName}}</td>
+							<td>{{cost.itemId}}</td>
+							<td>{{cost.itemDescription}}</td>
+							<td>{{cost.start}}</td>
+							<td>{{cost.finish}}</td>
+							<td><input type="checkbox" name="entries"
+								ng-model="cost.entries">{{cost.entries}}</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<div class="panel-footer">
+			<div class="pull-left">
+					<input type="button" class="btn btn-brown btn-sm"
+						ng-click="addCostCodes()" value="AddCostCode">
+				</div>
+			<div class="pull-right">
+				<input type="button" class="btn btn-brown bottomaligned"
+					ng-click="saveCostCode()" value="Save">
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

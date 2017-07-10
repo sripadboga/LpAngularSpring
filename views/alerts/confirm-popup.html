@@ -1,0 +1,19 @@
+<div id="tab-pannel" class="panel-group">
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<h4 class="panel-title">{{header}}</h4>
+			<div id="tab-pannel" class="spacer2 text-center panel-body0">
+				<span ng-show="header=='Warning'" ng-bind-html="message"
+					class="text-warning"></span>
+			</div>
+			<div class="pull-center">
+				<input type="button" value="{{button1}}"
+					class="btn bottomaligned btn-brown btn-sm"
+					ng-click="continueAction()"> <input type="button"
+					value="{{button2}}" class="btn bottomaligned btn-brown btn-sm"
+					ng-click="confirm()">
+			</div>
+		</div>
+
+	</div>
+</div>

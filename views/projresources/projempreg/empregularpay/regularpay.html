@@ -1,0 +1,129 @@
+<div id="tab-pannel">
+<div class="panel-group">
+		<div class="panel  panel-body23-0">
+	<div class="table-responsive">
+		<table class="table table-bordered table-striped">
+		<thead>
+						<tr>
+							<th rowspan="4">Select</th>
+							<th rowspan="4">Project Posting#</th>
+							<th rowspan="4">Effective From</th>
+							<th rowspan="4">EPS ID</th>
+							<th rowspan="4">EPS Name</th>
+							<th rowspan="4">Project ID</th>
+							<th rowspan="4">Project Name</th>
+							<th rowspan="4">Parent Company ID</th>
+							<th rowspan="4">Parent Company Name</th>
+							<th rowspan="4">Employee Tax File Number</th>
+							<th rowspan="4">Currency</th>
+							<th rowspan="4">Unit of Pay Rate</th>
+							<th rowspan="4">Pay Cycle</th>
+							<th colspan="20" class="text-center">Regular Pay and
+								Allowances-Code wise applicable rates</th>
+							<th rowspan="4">Pay Roll Status</th>
+							<th rowspan="4">Employee Documents</th>
+						</tr>
+						<tr>
+							<th colspan="1" class="text-center">BP</th>
+							<th colspan="1" class="text-center">OT</th>
+							<th colspan="2" class="text-center">MVA</th>
+							<th colspan="2" class="text-center">TA</th>
+							<th colspan="2" class="text-center">LAFA</th>
+							<th colspan="2" class="text-center">DA</th>
+							<th colspan="2" class="text-center">PA</th>
+							<th colspan="2" class="text-center">MA</th>
+							<th colspan="2" class="text-center">LSA</th>
+							<th colspan="2" class="text-center">SFCC</th>
+							<th colspan="2" class="text-center">SFEC</th>
+						</tr>
+						<tr>
+							<th colspan="1">Basic Pay</th>
+							<th colspan="1">Overtime Pay</th>
+							<th colspan="2">Motor Vehicle Allowance</th>
+							<th colspan="2">Travel Allowance</th>
+							<th colspan="2">Living Away From Family Allowance</th>
+							<th colspan="2">Daily Allowance</th>
+							<th colspan="2">Project Allowance</th>
+							<th colspan="2">Meal Allowance</th>
+							<th colspan="2">Location Specific Allowance</th>
+							<th colspan="2">Super Fund-Company Contribution</th>
+							<th colspan="2">Super Fund-Employee Contribution</th>
+						</tr>
+						<tr>
+							<th>Fixed rate / unit</th>
+							<th>Applicability : Yes or No</th>
+							<th>% on BP</th>
+							<th>Fixed amount</th>
+							<th>% on BP</th>
+							<th>Fixed amount</th>
+							<th>% on BP</th>
+							<th>Fixed amount</th>
+							<th>% on BP</th>
+							<th>Fixed amount</th>
+							<th>% on BP</th>
+							<th>Fixed amount</th>
+							<th>% on BP</th>
+							<th>Fixed amount</th>
+							<th>% on BP</th>
+							<th>Fixed amount</th>
+							<th>% on BP</th>
+							<th>Fixed amount</th>
+							<th>% on BP</th>
+							<th>Fixed amount</th>
+						</tr>
+					</thead>
+			<tbody>
+				<tr ng-repeat="regpay in empRegularPay">
+					<td><input type="checkbox" value="id" ng-model="regpay.selected" ng-click="allowanceRowSelect(regpay)"></td>
+					<td>{{regpay.projectPosting}}</td>
+					<td>{{regpay.effectiveFrom|date}}</td>
+					<td>{{regpay.epsId}}</td>
+					<td>{{regpay.epsName}}</td>
+					<td>{{regpay.pId}}</td>
+					<td>{{regpay.pName}}</td>
+					<td>{{regpay.pComId}}</td>
+					<td>{{regpay.pComName}}</td>
+					<td>{{regpay.taxNum}}</td>
+					<td>{{regpay.currency}}</td>
+					<td>{{regpay.payRate}}</td>
+					<td>{{regpay.payCycle}}</td>
+					<td>{{regpay.bp}}</td>
+					<td>{{regpay.ot}}</td>
+					<td>{{regpay.mva1}}</td>
+					<td>{{regpay.mva2}}</td>
+					<td>{{regpay.ta1}}</td>
+					<td>{{regpay.ta2}}</td>
+					<td>{{regpay.lafa1}}</td>
+					<td>{{regpay.lafa2}}</td>
+					<td>{{regpay.da1}}</td>
+					<td>{{regpay.da2}}</td>
+					<td>{{regpay.pa1}}</td>
+					<td>{{regpay.pa2}}</td>
+					<td>{{regpay.ma1}}</td>
+					<td>{{regpay.ma2}}</td>
+					<td>{{regpay.lsa1}}</td>
+					<td>{{regpay.lsa2}}</td>
+					<td>{{regpay.sfcc1}}</td>
+					<td>{{regpay.sfcc2}}</td>
+					<td>{{regpay.sfec1}}</td>
+					<td>{{regpay.sfec2}}</td>
+					<td>{{regpay.status}}</td>
+					<td>{{regpay.doc}}</td>
+				</tr>
+			</tbody>
+		</table>
+		</div>
+</div>
+<div class="panel-footer">
+<div class="pull-right">
+	<input type="button" class="btn btn-brown btn-sm" ng-click="addRegularPay('Add')" value="Create">
+	</div>
+	<div class="pull-left">
+	  <input type="button" class="btn btn-brown btn-sm" ng-click="addRegularPay('Edit')" value="Edit">
+	 <input type="button" class="btn btn-brown btn-sm" ng-click="deleteRegularPay()" value="Deactivate">
+</div>
+</div>
+</div>
+
+
+</div>

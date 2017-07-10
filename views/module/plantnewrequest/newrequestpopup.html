@@ -1,0 +1,120 @@
+<div id="tab-pannel" class="panel-group">
+	<form name="plntRegForm4" validate>
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<h4 class="panel-title">Request for Transfer</h4>
+		</div>
+		<div class="table-responsive">
+			<div id="tab-pannel" class="panel-body12">
+					<table class="table table-bordered table-striped">
+						<thead>
+							<tr>
+								<th>Select</th>
+								<th>Date of Request</th>
+								<th>Originator ID & Name</th>
+								<th>Approver Person ID & Name</th>
+								<th>Requisition Notification #</th>
+								<th>Company Asset ID</th>
+								<th>Registration Number</th>
+								<th>Plant Description</th>
+								<th>Make</th>
+								<th>Model</th>
+								<th>Current Project ID</th>
+								<th>Current Project Name</th>
+								<th>For Project ID</th>
+								<th>For Project Name</th>
+								<th>Anticipated de-mobilization date</th>
+								<th>Transfer Required Date</th>
+								<th>Approval Status</th>
+								<th>Date set for Asset Transfer</th>
+							</tr>
+						</thead>
+						<tbody>
+
+							<tr ng-repeat="request in addNewRequestData">
+								<td><input type="checkbox" value="request.id"
+									ng-model="request.selected" ng-click="popUpRowSelect(request)"></td>
+									
+								<td><input type="text" name="dateOfReq"
+									ng-model=request.dateOfReq placeholder="dateOfReq"
+									ng-required="true" pattern="[a-zA-Z-\d\s]+"><span
+									ng-show="plntRegForm4.dateOfReq.$error.pattern">only
+										alpha numerics allowed</span></td>
+								<td><input type="text" name="originatorIdName"
+									ng-model="request.originatorIdName" placeholder="originatorIdName"
+									ng-required="true" pattern="[a-zA-Z-\s]+"><span
+									ng-show="plntRegForm4.originatorIdName.$error.pattern">only
+										alphabets allowed</span></td>
+
+								<td><input type="text" name="approverPersonIdName"
+									ng-model="request.approverPersonIdName"
+									placeholder="approverPersonIdName" ng-required="true"></td>
+
+
+								<td><input type="text" name="RequisitionNotification"
+									ng-model="request.RequisitionNotification"
+									placeholder="RequisitionNotification" ng-required="true"></td>
+								<td><input type="text" name="companyAssetId"
+									ng-model="request.companyAssetId" placeholder="companyAssetId"
+									ng-required="true"></td>
+								<td><input type="text" name="RegNum" ng-model="request.RegNum"
+									placeholder="RegNum" ng-required="true"></td>
+
+
+
+
+								<td><input type="text" name="plantDes"
+									ng-model="request.plantDes" placeholder="plantDes"
+									ng-required="true"></td>
+								<td><input type="text" name="Make" ng-model="request.Make"
+									placeholder="Make" ng-required="true"></td>
+								<td><input type="text" name="Model" ng-model="request.Model"
+									placeholder="Model" ng-required="true"></td>
+								<td><input type="text" name="CurrentProjId"
+									ng-model="request.CurrentProjId" placeholder="CurrentProjId"
+									ng-required="true"></td>
+
+								<td><input type="text" name="CurrentProjName"
+									ng-model="request.CurrentProjName" placeholder="CurrentProjName"
+									ng-required="true"></td>
+								<td><input type="text" name="ProjectId"
+									ng-model="request.ProjectId" placeholder="ProjectId"
+									ng-required="true"></td>
+
+								<td><input type="text" name="ProjectName"
+									ng-model="request.ProjectName" placeholder="ProjectName"
+									ng-required="true"></td>
+								<td><input type="text" name="AnticipatedDemoDate"
+									ng-model="request.AnticipatedDemoDate"
+									placeholder="AnticipatedDemoDate" ng-required="true"></td>
+								<td><input type="text" name="TransferReqDate"
+									ng-model="request.TransferReqDate" placeholder="TransferReqDate"
+									ng-required="true"></td>
+								<td><input type="text" name="ApprvalStatus"
+									ng-model="request.ApprvalStatus" placeholder="ApprvalStatus"
+									ng-required="true"></td>
+								<td><input type="text" name="DateSet"
+									ng-model="request.DateSet" placeholder="DateSet"
+									ng-required="true"></td>
+
+							</tr>
+						</tbody>
+					</table>
+			</div>
+			</div>
+			<div class="panel-footer">
+				<div class="pull-left">
+					<input type="button" class="btn bottomaligned btn-brown btn-sm"
+						ng-click="addRows()" value="Add" ng-show="action =='Add'">
+					<input type="button" class="btn bottomaligned btn-brown btn-sm"
+						ng-click="deleteRows()" value="Delete" ng-show="action =='Add'">
+						
+				</div>
+				<div class="pull-right">
+					<input type="button" class="btn bottomaligned btn-brown btn-sm"
+						ng-click="save()" value="Save">
+				</div>
+		</div>
+		</div>
+		</form>
+	</div>

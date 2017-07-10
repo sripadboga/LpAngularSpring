@@ -1,0 +1,60 @@
+<div id="tab-pannel" ng-controller="WeatherController" ng-init="weatherSearch()">
+	<div class="panel-group">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h4 class="panel-title">Weather Classification</h4>
+			</div>
+			<div class="panel-body1 spacer2">
+				<div class="pull-left left-padding">
+					<input type="text" ng-model="weatherReq.weatherCode" placeholder="Weather Classification Code"> 
+					<input type="text" ng-model="weatherReq.weatherName" placeholder="Weather Classification Name">
+					 <select ng-model="weatherReq.status">
+						<option value="0" label="Select Status" class="statusSelect" selected="selected"></option>
+						<option value="1">Active</option>
+						<option value="2">InActive</option>
+				   </select>	
+				</div>
+				<div class="pull-right right-padding">
+					<input type="button" ng-click="weatherSearch()" value="Search" class="btn bottomaligned btn-brown btn-sm" />
+					 <input type="reset" class="btn bottomaligned btn-brown btn-sm" ng-click="reset()"
+						value="Reset" />
+				</div>
+			</div>
+			<div  id="tableHeight21" class="table-responsive panel-collapse collapse in">
+				<table class="table table-striped" fixed-header>
+					<thead id="tab-head">
+						<tr>
+							<th>Select</th>
+							<th>Weather Classification Code</th>
+							<th>Weather Classification Name</th>
+							<th>status</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr
+							ng-repeat="weather in weatherClassification | orderBy:['code','name']  ">
+							<td><input type="checkbox" ng-model="weather.selected" ng-click="rowSelect(weather)"></td>
+							<td>{{weather.code }}</td>
+							<td>{{weather.name }}</td>
+							<td>{{weather.status | potstatusfilter :weather.status }}</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="panel-footer">
+				<div class="pull-right">
+					<input type="button" ng-click="weatherCls('Add')" class="btn bottomaligned btn-brown btn-sm" value="Create" ng-show="account.appCodeTemplate['ENTRPRSE_CENTLIB_WEATHRCLSFY_ADD'] && activeFlag==1" />
+				</div>
+				<div class="pull-left">
+					 <input type="button" ng-click="weatherCls('Edit')" class="btn bottomaligned btn-brown btn-sm" value="Edit" ng-show="account.appCodeTemplate['ENTRPRSE_CENTLIB_WEATHRCLSFY_ADD'] && activeFlag==1" />
+					 <input type="button" ng-click="deleteWeathers()" class="btn bottomaligned btn-brown btn-sm" value="Deactivate" ng-show="account.appCodeTemplate['ENTRPRSE_CENTLIB_WEATHRCLSFY_DELETE'] && activeFlag==1"  />
+					 	<input type="button" ng-click="activeWeathers()" class="btn bottomaligned btn-brown btn-sm" value="Activate"   ng-show="account.appCodeTemplate['ENTRPRSE_CENTLIB_WEATHRCLSFY_DELETE'] && activeFlag==2" /> 
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+

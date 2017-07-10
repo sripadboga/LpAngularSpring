@@ -1,0 +1,230 @@
+<div id="tab-pannel" class="panel-group">
+	<form name="deliverySupply" validate>
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<h4 class="panel-title">Delivery/Supply Details</h4>
+		</div>
+		<div class="panel-body12">
+			<div id="tableHeight8-2" class="table-responsive">
+						<table class="table table-bordered table-striped" fixed-header>
+							<thead fixed-header>
+								<tr>
+									<th>Select</th>
+									<th>Supply Delivery Date</th>
+									<th>Project Id</th>
+									<th>Project Name</th>
+									<th>Eps Id</th>
+									<th>Eps Name</th>
+									<th>Resource Id</th>
+									<th>Resource Name</th>
+									<th>Material Sub Group Id</th>
+									<th>Material Sub Group Name</th>
+									<th>Supplier Name</th>
+									<th>Unit Of Measure</th>
+									<th>Purchase Order(PO)</th>
+									<th>PO Schedule Item Id</th>
+									<th>PO Schedule Item Description</th>
+									<th>Delivery Docket No</th>
+									<th>Docket Date</th>
+									<th>Location Of Delivery</th>
+									<th>Quantity Received</th>
+									<th>Rate Per Unit</th>
+									<th>Received By</th>
+									<th>Defects If Any</th>
+									<th>Other Comments From Receiver</th>
+									<th>Record Of Delivery Dockets</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr ng-repeat="supply in addDailyMaterialSupply">
+									<td>
+										<input type="checkbox" value="supply.id"
+										ng-model="supply.selected" ng-click="deliverySupplyPopUpRowSelect(supply)">
+									</td>
+									<td>
+										<input type="date" name="supplyDeliveryDate"
+										ng-model=supply.supplyDeliveryDate
+										placeholder="Supply Delivery Date" ng-required="true">
+										<span ng-show="deliverySupply.supplyDeliveryDate.$error.required"></span>
+									</td>
+									<td>
+										<input type="text" name="projectId"
+										ng-model="supply.projectId" placeholder="Project Id"
+										ng-required="true" pattern="[a-zA-Z-\d\s]+">
+										<span ng-show="deliverySupply.projectId.$error.pattern">only
+											alphabets allowed</span>
+									</td>
+									<td>
+										<input type="text" name="projectName"
+										ng-model="supply.projectName" placeholder="Project Name"
+										ng-required="true" pattern="[a-zA-Z-\d\s]+">
+										<span ng-show="deliverySupply.projectName.$error.pattern">only
+											alpha numerics allowed</span>
+									</td>
+									<td>
+									   <input type="text" name="epsId" ng-model="supply.epsId"
+										placeholder="Eps Id" ng-required="true" pattern="[a-zA-Z-\d\s]+">
+										<span ng-show="deliverySupply.epsId.$error.pattern">only
+											alpha numerics allowed</span>	
+									</td>
+									<td>
+									    <input type="text" name="epsName"
+										ng-model="supply.epsName" placeholder="Eps Name"
+										ng-required="true" pattern="[a-zA-Z-\d\s]+">
+										<span ng-show="deliverySupply.epsName.$error.pattern">only
+											alpha numerics allowed</span>
+									</td>
+									<td>
+									  	<input type="text" name="resourceId"
+										ng-model="supply.resourceId" placeholder="Resource Id"
+										ng-required="true" pattern="[a-zA-Z-\s]+">
+										<span ng-show="deliverySupply.resourceId.$error.pattern">only
+											alphabets allowed</span>
+									</td>
+									<td>
+										<input type="text" name="resourceName"
+										ng-model="supply.resourceName" placeholder="Resource Name"
+										ng-required="true" pattern="[a-zA-Z-\s]+">
+										<span ng-show="deliverySupply.resourceName.$error.pattern">only
+											alphabets allowed</span>
+									</td>
+									<td>
+									   <input type="text" name="materialSubGroupId"
+										ng-model="supply.materialSubGroupId"
+										placeholder="materialSub Group Id" ng-required="true"
+										pattern="[a-zA-Z-\s]+">
+										<span ng-show="deliverySupply.materialSubGroupId.$error.pattern">only
+											alphabets allowed</span>
+									</td>
+									<td>
+									   <input type="text" name="materialSubGroupName"
+										ng-model="supply.materialSubGroupName"
+										placeholder="material Sub Group Name" ng-required="true"
+										pattern="[a-zA-Z-\s]+">
+										<span ng-show="deliverySupply.materialSubGroupName.$error.pattern">only
+											alphabets allowed</span>
+									</td>	
+									<td>
+									    <input type="text" name="supplierName"
+										ng-model="supply.supplierName" placeholder="Supplier Name"
+										ng-required="true" pattern="[a-zA-Z-\s]+">
+										<span ng-show="deliverySupply.supplierName.$error.pattern">only
+											alphabets allowed</span>
+									</td>
+									<td>
+										<input type="text" name="unitOfMeasure"
+										ng-model="supply.unitOfMeasure" placeholder="Unit Of Measure"
+										ng-required="true" pattern="[a-zA-Z-\s]+">
+										<span ng-show="deliverySupply.unitOfMeasure.$error.pattern">only
+											alphabets allowed</span>
+									</td>
+									<td>
+										<input type="text" name="purchaseOrder(PO)"
+										ng-model="supply.purchaseOrder(PO)"
+										placeholder="Purchase Order(PO)" ng-required="true"
+										pattern="[a-zA-Z-\s]+">
+										<span ng-show="deliverySupply.purchaseOrder(PO).$error.pattern">only
+											alphabets allowed</span>
+									</td>
+									<td>
+									  <input type="text" name="poScheduleItemId"
+										ng-model="supply.poScheduleItemId"
+										placeholder="PO Schedule Item Id" ng-required="true"
+										pattern="[a-zA-Z-\s]+">
+										<span ng-show="deliverySupply.poScheduleItemId.$error.pattern">only
+											alphabets allowed</span>
+									</td>
+									<td>
+										<input type="text" name="poScheduleItemDescription"
+										ng-model="supply.poScheduleItemDescription"
+										placeholder="PO Schedule Item Description" ng-required="true"
+										pattern="[a-zA-Z-\s]+">
+										<span ng-show="deliverySupply.poScheduleItemDescription.$error.pattern">only
+											alphabets allowed</span>
+									</td>
+									<td>
+									 <input type="text" name="deliveryDocketNo"
+										ng-model="supply.deliveryDocketNo"
+										placeholder="Delivery Docket No" ng-required="true"
+										pattern="[a-zA-Z-\s]+">
+										<span ng-show="deliverySupply.deliveryDocketNo.$error.pattern">only
+											alphabets allowed</span>
+									 </td>
+									<td>
+									  <input type="text" name="docketDate"
+										ng-model="supply.docketDate" placeholder="Docket Date"
+										ng-required="true" pattern="[a-zA-Z-\s]+">
+										<span ng-show="deliverySupply.docketDate.$error.pattern">only
+											alphabets allowed</span>
+									</td>
+									<td>
+									   <input type="text" name="locationOfDelivery"
+										ng-model="supply.locationOfDelivery"
+										placeholder="Location Of Delivery" ng-required="true"
+										pattern="[a-zA-Z-\s]+">
+										<span ng-show="deliverySupply.locationOfDelivery.$error.pattern">only
+											alphabets allowed</span>
+									</td>
+									<td>
+										<input type="text" name="quantityReceived"
+										ng-model="supply.quantityReceived"
+										placeholder="Quantity Received" ng-required="true"
+										pattern="[a-zA-Z-\s]+">
+										<span ng-show="deliverySupply.quantityReceived.$error.pattern">only
+											alphabets allowed</span>
+									</td>
+									<td>
+										<input type="text" name="ratePerUnit"
+										ng-model="supply.ratePerUnit" placeholder="Rate Per Unit"
+										ng-required="true" pattern="[a-zA-Z-\s]+">
+										<span ng-show="deliverySupply.ratePerUnit.$error.pattern">only
+											alphabets allowed</span>
+									</td>
+									<td>
+										<input type="text" name="receivedBy"
+										ng-model="supply.receivedBy" placeholder="Received By"
+										ng-required="true" pattern="[a-zA-Z-\s]+">
+										<span ng-show="deliverySupply.receivedBy.$error.pattern">only
+											alphabets allowed</span>
+									</td>
+									<td>
+										<input type="text" name="defectsIfAny"
+										ng-model="supply.defectsIfAny" placeholder="Defects If Any"
+										ng-required="true" pattern="[a-zA-Z-\s]+">
+										<span ng-show="deliverySupply.defectsIfAny.$error.pattern">only
+											alphabets allowed</span>
+									</td>
+									<td>
+										<input type="text" name="otherCommentsFromReceiver"
+										ng-model="supply.otherCommentsFromReceiver"
+										placeholder="Other Comments From Receiver" ng-required="true"
+										pattern="[a-zA-Z-\s]+">
+										<span ng-show="deliverySupply.otherCommentsFromReceiver.$error.pattern">only
+											alphabets allowed</span>
+									</td>
+									<td>
+									 	<input type="text" name="recordOfDeliveryDockets"
+										ng-model="supply.recordOfDeliveryDockets"
+										placeholder="Record Of Delivery Dockets" ng-required="true"
+										pattern="[a-zA-Z-\s]+">
+										<span	ng-show="deliverySupply.recordOfDeliveryDockets.$error.pattern">only
+											alphabets allowed</span>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+			</div>
+			<div class="panel-footer">
+				<div class="pull-left">
+					<input type="button" ng-click="addRows()" value="Add"  class="btn bottomaligned btn-brown btn-sm" ng-show="action =='Add'">
+					<input type="button" ng-click="deleteRows()" value="Delete"  class="btn bottomaligned btn-brown btn-sm" ng-show="action =='Add'">
+				</div>
+				<div class="pull-right">
+					<input type="button" ng-click="save()" value="Save" class="btn bottomaligned btn-brown btn-sm">
+				</div>
+			</div>
+	</div>
+	</form>
+</div>
+

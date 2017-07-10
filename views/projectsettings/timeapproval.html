@@ -1,0 +1,64 @@
+<div id="tab-pannel" class="box-border text-black">
+	<div class="panel-body11-1">
+		<div class="row">
+			<div class="col-xs-12 col-sm-12 col-md-12">
+				<h5 class="text-center spacer2">
+					<span class="underline">Additional Time Grant from Approval
+						Date (Mid Night)</span>
+				</h5>
+				<div class="row spacer2">
+					<div class="col-xs-6 col-sm-4 col-md-4 text-right">Crew Name:</div>
+					<div class="col-xs-6 col-sm-8 col-md-8">
+						<input type="text" readonly="readonly" ng-required="true"
+							ng-model="timeSheetAppr.projtimeSheetCrewLabelKeyTO.code"
+							ng-click="crewList(timeSheetAppr.projtimeSheetCrewLabelKeyTO)">
+					</div>
+				</div>
+				<div class="row spacer0">
+					<div class="col-xs-6 col-sm-4 col-md-4 text-right">Week
+						Commencing:</div>
+					<div class="col-xs-6 col-sm-8 col-md-8">
+						<input type="text" potdate-picker  id="startDate" style="width: 154px;"
+							ng-model="timeSheetAppr.timeSheetDate" ng-required="true" />
+					</div>
+				</div>
+				<div class="row spacer0">
+					<div class="col-xs-4 col-sm-4 col-md-4 text-right">Approver:</div>
+					<div class="col-xs-6 col-sm-4 col-md-4">
+						<input type="text" readonly="readonly" ng-required="true"
+							ng-model="timeSheetAppr.projtimeSheetApprLabelKeyTO.code"
+							ng-click="approversList(timeSheetAppr.projtimeSheetApprLabelKeyTO)">
+					</div>
+					<div class="col-xs-4 col-sm-4 col-md-4">
+						<input type="checkbox" /> For Submission
+					</div>
+				</div>
+				<div class="row spacer0">
+					<div class="col-xs-4 col-sm-4 col-md-4 text-right">Time Sheet
+						Number:</div>
+					<div class="col-xs- col-sm-4 col-md-4">
+						<input type="text" ng-required="true"
+							ng-model="timeSheetAppr.timeSheetNo">
+					</div>
+					<div class="col-xs-4 col-sm-4 col-md-4">
+						<input type="checkbox" /> For Approval
+					</div>
+				</div>
+				<div class="row spacer0">
+					<div class="col-xs-4 col-sm-4 col-md-4 text-right">Additional
+						Time Granted In Hours:</div>
+					<div class="col-xs- col-sm-4 col-md-4">
+						<input type="text" ng-required="true"
+							ng-model="timeSheetAppr.grantHrs">
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="panel-footer">
+		<div class="pull-right">
+			<input type="button" class="btn bottomaligned btn-brown btn-sm"
+				value="Approval" ng-click="saveProjTimeSheetAppr()">
+		</div>
+	</div>
+</div>

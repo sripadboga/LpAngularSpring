@@ -1,0 +1,62 @@
+<div id="tab-pannel" class="panel-group">
+	<div class="panel-body23-0 table-responsive" ng-init="getData8()">
+		<table class="table table-bordered table-striped">
+			<thead>
+				<tr>
+					<th>Select</th>
+					<th>Project Deployment</th>
+					<th>Effective-From</th>
+					<th>EPS Name</th>
+					<th>Project Name</th>
+					<th>Assert ID</th>
+					<th>Project plant ID</th>
+					<th>charge out Unit</th>
+					<th>Plant Charge out Category</th>
+					<th>Currency</th>
+					<th>Rates with fuel-Normal Shift</th>
+					<th>Rates without fuel-Normal shift</th>
+					<th>Rates with fuel-Double shift</th>
+					<th>Rates without fuel-double shift</th>
+					<th>Plant Idle Time-Charge out rate</th>
+					<th>plant mobilization -cost code ID</th>
+					<th>Plant mobilization rate</th>
+					<th>Plant De-mobilization Cost Code ID</th>
+					<th>Plant De-mobilization Rate</th>
+					<th>Notes</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="charge in chargeData">
+					<td><input type="checkbox" value="id" ng-model="charge.selected"
+						ng-click="chargeRowSelect(charge)"></td>
+
+					<td>{{charge.projectDeploy}}</td>
+					<td>{{charge.effectiveFrom|date}}</td>
+					<td>{{charge.epsName}}</td>
+					<td>{{charge.projecName}}</td>
+					<td>{{charge.assertId}}</td>
+					<td>{{charge.projectPlntId}}</td>
+					<td>{{charge.chargeoutUnit}}</td>
+					<td>{{charge.plntchrgOutCateg}}</td>
+					<td>{{charge.currency}}</td>
+					<td>{{charge.rateswithfuelNormal}}</td>
+					<td>{{charge.RateswithoufuelNormal}}</td>
+					<td>{{charge.RateswithfuelDouble}}</td>
+					<td>{{charge.Rateswithoutfueldouble}}</td>
+					<td>{{charge.PlantIdleTimeCharge}}</td>
+					<td>{{charge.plantmobilisationcostcode}}</td>
+					<td>{{charge.Plantmobilisationrate}}</td>
+					<td>{{charge.PlantDemobilisationCostCode}}</td>
+					<td>{{charge.PlantDemobilisation}}</td>
+					<td>{{charge.notes}}</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<div class="panel-footer">
+		<div class="pull-right">
+			<input type="button" class="btn btn-brown btn-sm"
+				ng-click="addCharge('Edit')" value="Edit">
+		</div>
+	</div>
+</div>

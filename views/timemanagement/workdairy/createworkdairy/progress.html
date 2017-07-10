@@ -1,0 +1,53 @@
+<div class="panel-body16">
+	<div class="table-responsive">
+		<table class="table table-bordered table-striped">
+			<thead>
+				<tr>
+					<th rowspan="2">Select</th>
+					<th rowspan="2">SOW Item Id</th>
+					<th rowspan="2">SOR Item Id</th>
+					<th rowspan="2">SOE Item Id</th>
+					<th rowspan="2">Cost Code Id</th>
+					<th rowspan="2">Work Description</th>
+					<th rowspan="2">Unit Of Measure</th>
+			<th colspan="{{workDairyCostCodeList.length*2+3}}"
+						class="text-center">Manpower Utilization</th>
+					<th rowspan="2">Total(Auto Sum)</th>
+					<th rowspan="2">Approval Status</th>
+				</tr>
+				<tr>
+					<th ng-repeat="workDairyCostCode in  workDairyCostCodeList">{{workDairyCostCode.code}}</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="progress in progresses">
+					<td><input type="checkbox"
+						ng-click="progressRowSelect(progress)" ng-model="progress.select"></td>
+					<td>{{progress.sowItemId}}</td>
+					<td>{{progress.sorItemId}}</td>
+					<td>{{progress.soeItemId}}</td>
+					<td>{{progress.costCodeId}}</td>
+					<td>{{progress.workDescrp}}</td>
+					<td>{{progress.unitOfMeasure}}</td>
+					<td ng-repeat=""></td>
+					<td>{{progress.total}}</td>
+					<td>{{progress.approvalStatus}}</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
+<div class="panel-footer">
+	<div class="pull-right">
+		<input type="button" ng-click="addProgress('Add')" value="Create"
+			class="btn btn-brown bottomaligned">
+	</div>
+	<div class="pull-left">
+		<input type="button" ng-click="deleteProgress()" value="Deactivate"
+			class="btn btn-brown bottomaligned"> <input type="button"
+			ng-click="addProgress('Edit')" value="Edit"
+			class="btn btn-brown bottomaligned"> <input type="button"
+			ng-click="printPreview()" value="Print Preview"
+			class="btn btn-brown bottomaligned">
+	</div>
+</div>

@@ -1,0 +1,53 @@
+<div id="tab-pannel" class="panel-group">
+	<div class="panel-group">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h4 class="panel-title">Purchase Order List</h4>
+			</div>
+			<div class="panel-body17">
+				<table class="table table-striped table-fixed-header">
+					<thead>
+						<tr>
+							<th>Purchase Order</th>
+							<th>Company</th>
+							<th>Issue Person</th>
+							<th>Start Date</th>
+							<th>Finish Date</th>
+							<th>Payment In Days</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat="order in purchaseOrders">
+						<td><input type="text" ng-model = "order.code"
+								 placeholder="Purchase Order">
+						</td>
+						<td><input type="text" ng-model = "order.preContractCmpTO.companyId"
+								 placeholder="Company">
+						</td>
+						<td><input type="text" ng-model = "order.apprUserId"
+								 placeholder="Issue Person">
+						</td>
+						<td><input type="date" ng-model = "order.startDate"
+								 placeholder="Start Date" ng-trim="false" >
+						</td>
+						<td><input type="date" ng-model = "order.finishDate"
+								 placeholder="Finish Date" ng-trim="false" >
+						</td>
+						<td><input type="number" ng-model = "order.paymentInDays"
+								 placeholder="Payment In Days">
+						</td>
+						</tr>
+					</tbody>
+				</table>
+				
+			</div>
+			<div class="panel-footer">
+				<div class="pull-right">
+					<input type="button" class="btn btn-brown btn-sm"
+						ng-Click="savePurchaserOrderRequest()"
+						value="Save">
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

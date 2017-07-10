@@ -1,0 +1,93 @@
+<div id="tab-pannel" class="panel-group">
+	<div id="tab-pannel" class="panel panel-default">
+		<div class="panel-heading">
+			<h4 class="panel-title">Leave Type Classification</h4>
+		</div>
+		<form name="myForm" validate>
+			<div id="tab-pannel" class="panel-body15 table-responsive">
+				<table class="table table-striped">
+					<thread>
+					<th ng-show="action=='Add'">Select</th>
+					<th>Code-Name</th>
+					<th>Request Form</th>
+					<th>Medical Form</th>
+					<th>Applicable For</th>
+					<th>Default Cost Code</th>
+					<th>Max No Of Days</th>
+					<th>Category</th>
+					</thread>
+					<tbody>
+						<tr ng-repeat="tab in addprojetLeave">
+							<td ng-show="action=='Add'"><input type="checkbox"
+								ng-model="tab.select" ng-click="popUpRowSelect(tab)"></td>
+
+							<td><select
+								ng-options="leave.dispName for leave  in leaveCodeData track by leave.dispName"
+								ng-change="UpdateLeaveCode(tab.leaveTypeTO,tab);" name="code"
+								ng-model="tab.leaveTypeTO" ng-required="true"
+								ng-model="tab.leaveId">
+									<option value="">-select-</option>
+							</select><span ng-show="myForm.code.$dirty && myForm.code.$error.required">This
+										field is required</span></td>
+
+							<td><input type="checkbox" ng-model="tab.requestForm"></td>
+							<td><input type="checkbox" ng-model="tab.medicalForm"></td>
+
+							<td><select
+								ng-options="catg.code for catg  in catgData track by catg.code"
+								ng-change="updateCatgCode(tab.projEmpCatgTO,tab);"
+								ng-model="tab.projEmpCatgTO" name="applicable"
+								ng-required="true">
+									<option value="">-select-</option>
+									
+							</select><span
+									ng-show="myForm.applicable.$dirty && myForm.applicable.$error.required">This
+										field is required</span></td>
+
+							<td><input type="text" readonly="readonly"
+								ng-model="tab.projCostItemTO.code" placeholder="selectcostcode"
+								name="costs" ng-click="getCostCode(tab)" ng-required="true">
+								<span
+								ng-show="myForm.name.$dirty && myForm.name.$error.required">This
+									field is required</span></td>
+
+							<td ng-form name="leaveform"><input type="text"
+								ng-model="tab.maxallowdays" name="maxdays" ng-required="true"
+								maxlength=3 pattern="^[\d,.]+$"> <span
+								ng-show="leaveform.maxdays.$error.maxlength">OnlyTwodigitsallowed</span>
+								<span ng-show="leaveform.maxdays.$error.pattern">Enter only digits</span></td>
+
+							<td><select
+								ng-options="category.code for category  in categoryData track by category.code"
+								name="catogery"
+								ng-change="updateCatgegoryCode(tab.projLeavePaidCatgTO,tab);"
+								ng-model="tab.projLeavePaidCatgTO" ng-required="true">
+									<option value="">-select-</option>
+									
+							</select>
+							<span
+									ng-show="myForm.catogery.$dirty && myForm.catogery.$error.required">This
+										field is required</span>
+							</td>
+
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="panel-footer">
+				<div class="pull-left">
+					<input type="submit" class="btn bottomaligned btn-brown btn-sm"
+						ng-click="myForm.$valid && addLeaveClass()" value="Add"
+						ng-show="action =='Add'"> <input type="button"
+						class="btn bottomaligned btn-brown btn-sm" ng-click="deleteRows()"
+						value="Delete" ng-show="action =='Add'">
+				</div>
+				<div class="pull-right">
+					<input type="submit" class="btn bottomaligned btn-brown btn-sm"
+						ng-click="myForm.$valid && saveLeaveClass()" value="Save"
+						required="required" />
+				</div>
+			</div>
+		</form>
+	</div>
+</div>

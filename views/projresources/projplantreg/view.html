@@ -1,0 +1,160 @@
+<div id="tab-pannel" ng-controller="PlantRegController"
+	ng-init="getData()">
+	<div class="panel-body1a">
+		<form name="default">
+			<div class="row">
+				<div class="col-xs-6 col-sm-6 col-md-12">
+
+					<div class="row">
+						<div class="col-xs-6 col-sm-6 col-md-2">EPS ID</div>
+						<div class="col-xs-6 col-sm-6 col-md-10">Project ID</div>
+					</div>
+
+					<div class="row">
+						<div class="col-xs-6 col-sm-6 col-md-2">
+							<input type="text" class="spacer0" name="EPSID"
+								ng-model="default.EPSID" ng-required="true" /><span
+								ng-show="default.EPSID.$error.required"></span>
+						</div>
+						<div class="col-xs-6 col-sm-6 col-md-2">
+							<input type="text" class="spacer0" list="" name="ProjectName"
+								ng-model="default.ProjectName" ng-required="true"><span
+								ng-show="default.ProjectName.$error.required"></span>
+						</div>
+						<div class="col-xs-6 col-sm-6 col-md-1">
+							<input type="button" class="btn btn-brown" value="search"
+								name="search">
+						</div>
+						<div class="col-xs-6 col-sm-6 col-md-1">
+							<input type="button" class="btn btn-brown" value="fetch"
+								name="fetch" ng-click="fetch()">
+						</div>
+						<div class="col-xs-6 col-sm-6 col-md-6">
+							<input type="button" class="btn btn-brown" value="set column"
+								name="setcolumn">
+						</div>
+					</div>
+				</div>
+			</div>
+		</form>
+	</div>
+	<div class="spacer0-l">
+		<form name="plntRegForm">
+			<div class="panel-default" id="tab">
+				<div class="panel-heading" ng-class="{active:isActiveTab(tab.url)}"
+					ng-click="onClickTab(tab)">Master Plant List</div>
+				<div class="table-responsive panel-body2 panel-collapse collapse in">
+					<table class="table table-bordered table-striped">
+						<thead>
+							<tr>
+								<th rowspan=2>Select</th>
+								<th colspan="11" class="text-center">AssetParticular</th>
+								<th colspan="8" class="text-center">CurrentStatus</th>
+								</tr>
+								<tr>
+								<th>Asset Id</th>
+								<th>Registration Number</th>
+								<th>Resource Classification Name</th>
+								<th>Plant Description</th>
+
+								<th>Make</th>
+								<th>Model</th>
+								<th>Existing New Asset</th>
+								<th>Plant Supplier Name</th>
+								<th>Plant Owner Name</th>
+								<th>Plant Purchase Category</th>
+								<th>Unit of Measure</th>
+								<th>EPS Name</th>
+								<th>Project Name</th>
+								<th>Plant Current Status</th>
+								<th>Purchase or Commissioning Date</th>
+								<th>Mobilisation Date</th>
+								<th>Anticipited demobilisation Date</th>
+								<th>Demobilisation Date</th>
+								<th>Current Odo Meter Reading</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr ng-repeat="tab1 in tableData">
+								<td><input type="checkbox" value="id"
+									ng-model="tab1.selected" ng-click="rowSelect1(tab1)"></td>
+								<td>{{tab1.assId}}</td>
+								<td>{{tab1.RegName}}</td>
+								<td>{{tab1.regclsName}}</td>
+								<td>{{tab1.plantdes}}</td>
+								<td>{{tab1.make}}</td>
+								<td>{{tab1.model}}</td>
+								<td>{{tab1.existnewasst}}</td>
+								<td>{{tab1.plntSuppName}}</td>
+								<td>{{tab1.plntOwnerName}}</td>
+								<td>{{tab1.plntPurchaseCat}}</td>
+								<td>{{tab1.unit}}</td>
+								<td>{{tab1.EPSName}}</td>
+								<td>{{tab1.projectName}}</td>
+								<td>{{tab1.plntcurrent}}</td>
+								<td>{{tab1.purchase}}</td>
+								<td>{{tab1.mobilisation}}</td>
+								<td>{{tab1.Anticipdemobilisation}}</td>
+								<td>{{tab1.demobilisation}}</td>
+								<td>{{tab1.odometer}}</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<div class="pull-right1">
+					<input type="button" class="btn btn-brown" ng-click="addplantList('Add')"
+						value="Add"> <input type="button" class="btn btn-brown"
+						ng-click="deleteMasterList()" value="Delete"> <input type="button"
+						class="btn btn-brown" ng-click="addplantList('Edit')" value="Edit">
+				</div>
+			</div>
+		</form>
+		<div id="tabs" class="spacer3">
+			<div>
+				<div ng-show="moreFlag=='0'">
+					<ul class="nav nav-tabs" ng-repeat="t in innerTabs"
+						ng-switch="$index % 6">
+
+						<li class="active" ng-switch-when="0"><a data-toggle="tab"
+							ng-click="onClickTab1(innerTabs[$index])">{{innerTabs[$index].title}}</a></li>
+
+						<li ng-switch-when="0"><a data-toggle="tab"
+							ng-click="onClickTab1(innerTabs[$index+1])">{{innerTabs[$index+1].title}}</a></li>
+						<li ng-switch-when="0"><a data-toggle="tab"
+							ng-click="onClickTab1(innerTabs[$index+2])">{{innerTabs[$index+2].title}}</a></li>
+						<li ng-switch-when="0"><a data-toggle="tab"
+							ng-click="onClickTab1(innerTabs[$index+3])">{{innerTabs[$index+3].title}}</a></li>
+						<li ng-switch-when="0"><a data-toggle="tab"
+							ng-click="onClickTab1(innerTabs[$index+4])">{{innerTabs[$index+4].title}}</a></li>
+						<li ng-switch-when="0"><a data-toggle="tab"
+							ng-click="onClickTab1(innerTabs[$index+5])">{{innerTabs[$index+5].title}}</a></li>
+						<li ng-switch-when="0"><span class="arrow-font"
+							ng-click="clickMore1(moreFlag);">&#x00BB;</span></li>
+					</ul>
+				</div>
+
+				<div ng-show="moreFlag=='1'">
+					<ul class="nav nav-tabs DocumentList" ng-repeat="t in moreTabs"
+						ng-switch="$index % 3">
+
+						<li class="active" ng-switch-when="0"><span
+							class="arrow-font" ng-click="clickMore(moreFlag);">&#x00AB;</span></li>
+
+
+						<li ng-switch-when="0"><a data-toggle="tab"
+							ng-click="onClickTab1(moreTabs[$index])">{{moreTabs[$index].title}}</a></li>
+						<li ng-switch-when="0"><a data-toggle="tab"
+							ng-click="onClickTab1(moreTabs[$index+1])">{{moreTabs[$index+1].title}}</a></li>
+						<li ng-switch-when="0"><a data-toggle="tab"
+							ng-click="onClickTab1(moreTabs[$index+2])">{{moreTabs[$index+2].title}}</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="tab-content panel-body2">
+			<div id="home" class="tab-pane fade in active">
+				<div ng-include="currentTab1"></div>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,18 @@
+<div id="tab-pannel" class="panel-group" ng-init="getStocks()">
+	<div id="tab-pannel" class="panel panel-default">
+		<div class="panel-heading">
+				<h4 class="panel-title">Project Delivery Place</h4>
+		</div>
+		<div id="tabs" class="spacer0 panel-body12">
+				<ul class="nav nav-tabs">
+					<li ng-repeat="tab in storeStockTabs"
+						ng-class="{active:isStoreStockActiveTab(tab.url)}"
+						ng-click="storeStockOnClickTab(tab)"><a data-toggle="tab">{{tab.title}}</a></li>
+				</ul>
+				<div class="tab-content">
+					<div class="active" ng-include="storeStockCurrentTab"></div>
+				</div>
+		</div>
+
+	</div>
+</div>

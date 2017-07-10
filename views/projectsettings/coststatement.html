@@ -1,0 +1,255 @@
+<div id="tab-pannel">
+	<div class="panel-group">
+		<div class="panel panel-default">
+			<div class="panel-body15">
+				<table class="table table-bordered table-striped">
+					<thead>
+						<tr>
+							<th rowspan="2">Cost Id</th>
+							<th rowspan="2">Cost Item Name</th>
+							<th rowspan="2">Cost Class Id</th>
+							<th rowspan="2">Cost Class Name</th>
+							<th rowspan="2">Start Date</th>
+							<th rowspan="2">Finish Date</th>
+							<th rowspan="2">Original Duration</th>
+							<th rowspan="2">Actual Start</th>
+							<th rowspan="2">Actual Finish</th>
+							<th rowspan="2">Actual Duration</th>
+							<!--<th>Original Cost Sum</th> -->
+							<th rowspan="2">Actual Cost to Date</th>
+							<!--WorkDairy  -->
+							<th rowspan="2">% Percent Spent Cost</th>
+							<th rowspan="2">% Progress of Work</th>
+							<th rowspan="2">Cost Completion Variance</th>
+							<th rowspan="2">Productivity Factor</th>
+							<th rowspan="2">Earned Values</th>
+							<th rowspan="2">Notes</th>
+							<th colspan="5" class="text-center" ng-show="costDatamoreFlag==0">Budget
+								Amount <span class="fa fa-caret-right"
+								style="float: right; font-size: 35px; color: #337ab7 !important;"
+								ng-click="clickForwardCostData(costDatamoreFlag);"></span>
+							</th>
+							<th colspan="5" class="text-center" ng-show="costDatamoreFlag==1">
+								<span class="fa fa-caret-left"
+								style="float: left; font-size: 35px; color: #337ab7 !important;"
+								ng-click="clickBackwardCostData(costDatamoreFlag);"></span>
+								Revised Budget Amount <span class="fa fa-caret-right"
+								style="float: right; font-size: 35px; color: #337ab7 !important;"
+								ng-click="clickForwardCostData(costDatamoreFlag);"></span>
+							</th>
+							<th colspan="5" class="text-center" ng-show="costDatamoreFlag==2">
+								<span class="fa fa-caret-left"
+								style="float: left; font-size: 35px; color: #337ab7 !important;"
+								ng-click="clickBackwardCostData(costDatamoreFlag);"></span>
+								Actual Amount <span class="fa fa-caret-right"
+								style="float: right; font-size: 35px; color: #337ab7 !important;"
+								ng-click="clickForwardCostData(costDatamoreFlag);"></span>
+							</th>
+							<th colspan="5" class="text-center" ng-show="costDatamoreFlag==3">
+								<span class="fa fa-caret-left"
+								style="float: left; font-size: 35px; color: #337ab7 !important;"
+								ng-click="clickBackwardCostData(costDatamoreFlag);"></span>
+								Remaining Amount <span class="fa fa-caret-right"
+								style="float: right; font-size: 35px; color: #337ab7 !important;"
+								ng-click="clickForwardCostData(costDatamoreFlag);"></span>
+							</th>
+							<th colspan="5" class="text-center" ng-show="costDatamoreFlag==4">
+								<span class="fa fa-caret-left"
+								style="float: left; font-size: 35px; color: #337ab7 !important;"
+								ng-click="clickBackwardCostData(costDatamoreFlag);"></span>
+								Estimate to Complete <span class="fa fa-caret-right"
+								style="float: right; font-size: 35px; color: #337ab7 !important;"
+								ng-click="clickForwardCostData(costDatamoreFlag);"></span>
+							</th>
+							<th colspan="5" class="text-center" ng-show="costDatamoreFlag==5">
+								<span class="fa fa-caret-left"
+								style="float: left; font-size: 35px; color: #337ab7 !important;"
+								ng-click="clickBackwardCostData(costDatamoreFlag);"></span>
+								Estimate at Completion Quantity <span class="fa fa-caret-right"
+								style="float: right; font-size: 35px; color: #337ab7 !important;"
+								ng-click="clickForwardCostData(costDatamoreFlag);"></span>
+							</th>
+							<th colspan="5" class="text-center" ng-show="costDatamoreFlag==6">
+								<span class="fa fa-caret-left"
+								style="float: left; font-size: 35px; color: #337ab7 !important;"
+								ng-click="clickBackwardCostData(costDatamoreFlag);"></span>
+								Variance
+							</th>
+						</tr>
+						<tr ng-show="costDatamoreFlag==0">
+							<th>Labour</th>
+							<th>Materials</th>
+							<th>Plants</th>
+							<th>Other</th>
+							<th>Total</th>
+						</tr>
+						<tr ng-show="costDatamoreFlag==1">
+							<th>Labour</th>
+							<th>Materials</th>
+							<th>Plants</th>
+							<th>Other</th>
+							<th>Total</th>
+						</tr>
+						<tr ng-show="costDatamoreFlag==2">
+							<th>Labour</th>
+							<th>Materials</th>
+							<th>Plants</th>
+							<th>Other</th>
+							<th>Total</th>
+						</tr>
+						<tr ng-show="costDatamoreFlag==3">
+							<th>Labour</th>
+							<th>Materials</th>
+							<th>Plants</th>
+							<th>Other</th>
+							<th>Total</th>
+						</tr>
+						<tr ng-show="costDatamoreFlag==4">
+							<th>Labour</th>
+							<th>Materials</th>
+							<th>Plants</th>
+							<th>Other</th>
+							<th>Total</th>
+						</tr>
+						<tr ng-show="costDatamoreFlag==5">
+							<th>Labour</th>
+							<th>Materials</th>
+							<th>Plants</th>
+							<th>Other</th>
+							<th>Total</th>
+						</tr>
+						<tr ng-show="costDatamoreFlag==6">
+							<th>Labour</th>
+							<th>Materials</th>
+							<th>Plants</th>
+							<th>Other</th>
+							<th>Total</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr
+							ng-repeat="tab in projCostStmtDtls | projCostStatementFilterTree:itemId:isExpand"
+							class="abc{{tab.level}}"
+							ng-dblclick="editMode = true; editItem()"
+							ng-init="costPercentage(tab);percentageOfWork(tab);productivityFactor(tab);costVarience(tab)">
+							<td><span ng-show="tab.level > 0" class="xyz"
+								style="padding-left: 30px;"></span> <span
+								ng-show="tab.level > 1" class="xyz" style="padding-left: 30px;"></span>
+								<span ng-show="tab.level > 2" class="xyz"
+								style="padding-left: 30px;"></span> <fa
+									ng-show="((!tab.leaf && tab.expand) || (!tab.leaf  && tab.projCostStmtChildTOs.length <= 0))"
+									ng-click="itemClick(tab.id,tab.expand);" name="fa fa-minus"></fa>
+								<fa
+									ng-show="(!tab.leaf && !tab.expand && tab.projCostStmtChildTOs.length > 0)"
+									ng-click="itemClick(tab.id,tab.expand);" name="fa fa-plus"></fa>
+								<fa ng-show="(tab.leaf)" name="leaf"> </fa> <span
+								style="padding-left: 10px;">{{tab.code}} <span
+									style="padding-left: 5px;"></span></span></td>
+
+							<td>{{tab.name}}</td>
+							<td>{{tab.projCostItemTO.costCodeTO.code}}</td>
+							<td>{{tab.costCodeTO.name}}</td>
+							<td>{{tab.startDate | date}}</td>
+							<td>{{tab.finishDate | date }}</td>
+							<td>{{tab.startDate - tab.finishDate | date}}</td>
+							<td>{{tab.actualStart | date}}</td>
+							<td>{{tab.actualFinish | date }}</td>
+							<td>{{tab.actualStart - tab.actualFinish | date}}</td>
+							<td>{{}}</td>
+							<td>{{tab.costPercentage}}</td>
+							<td>{{tab.percentageOfWork}}</td>
+							<td>{{}}</td>
+							<td>{{tab.productivityFactor}}</td>
+							<td>{{tab.earnedValue}}</td>
+							<td>
+								<span ng-show="editMode">{{tab.notes}}</span>
+								<input	type="text" ng-show="editMode" style="width: 50px"ng-model="tab.notes" />
+							</td>
+							<td ng-show="costDatamoreFlag==0"><span ng-hide="editMode">{{tab.projCostBudgetTOs[0].labourCost}}</span><input
+								type="number" ng-show="editMode" style="width: 50px"
+								ng-change="calculateBudgetAmount(tab)"
+								ng-model="tab.projCostBudgetTOs[0].labourCost" /></td>
+							<td ng-show="costDatamoreFlag==0"><span ng-hide="editMode">{{tab.projCostBudgetTOs[0].materialCost}}</span><input
+								type="number" ng-show="editMode" style="width: 50px"
+								ng-change="calculateBudgetAmount(tab)"
+								ng-model="tab.projCostBudgetTOs[0].materialCost" /></td>
+							<td ng-show="costDatamoreFlag==0"><span ng-hide="editMode">{{tab.projCostBudgetTOs[0].plantCost}}</span><input
+								type="number" ng-show="editMode" style="width: 50px"
+								ng-change="calculateBudgetAmount(tab)"
+								ng-model="tab.projCostBudgetTOs[0].plantCost" /></td>
+							<td ng-show="costDatamoreFlag==0"><span ng-hide="editMode">{{tab.projCostBudgetTOs[0].otherCost}}</span><input
+								type="number" ng-show="editMode" style="width: 50px"
+								ng-change="calculateBudgetAmount(tab)"
+								ng-model="tab.projCostBudgetTOs[0].otherCost" /></td>
+							<td ng-show="costDatamoreFlag==0"><span>{{tab.projCostBudgetTOs[0].total}}</span></td>
+							<td ng-show="costDatamoreFlag==1"><span ng-hide="editMode">{{tab.projCostBudgetTOs[1].labourCost}}</span><input
+								ng-change="calculateRevisedBudget(tab)" type="number"
+								ng-show="editMode" style="width: 50px"
+								ng-model="tab.projCostBudgetTOs[1].labourCost" /></td>
+							<td ng-show="costDatamoreFlag==1"><span ng-hide="editMode">{{tab.projCostBudgetTOs[1].materialCost}}</span><input
+								ng-change="calculateRevisedBudget(tab)" type="number"
+								ng-show="editMode" style="width: 50px"
+								ng-model="tab.projCostBudgetTOs[1].materialCost" /></td>
+							<td ng-show="costDatamoreFlag==1"><span ng-hide="editMode">{{tab.projCostBudgetTOs[1].plantCost}}</span><input
+								ng-change="calculateRevisedBudget(tab)" type="number"
+								ng-show="editMode" style="width: 50px"
+								ng-model="tab.projCostBudgetTOs[1].plantCost" /></td>
+							<td ng-show="costDatamoreFlag==1"><span ng-hide="editMode">{{tab.projCostBudgetTOs[1].otherCost}}</span><input
+								type="number" ng-show="editMode" style="width: 50px"
+								ng-change="calculateRevisedBudget(tab)"
+								ng-model="tab.projCostBudgetTOs[1].otherCost" /></td>
+							<td ng-show="costDatamoreFlag==1"><span>{{tab.projCostBudgetTOs[1].total}}</span></td>
+							<td ng-show="costDatamoreFlag==2 ">{{tab.projCostBudgetTOs[2].labourCost}}</td>
+							<td ng-show="costDatamoreFlag==2 ">{{tab.projCostBudgetTOs[2].materialCost}}</td>
+							<td ng-show="costDatamoreFlag==2 ">{{tab.projCostBudgetTOs[2].plantCost}}</td>
+							<td ng-show="costDatamoreFlag==2 ">{{tab.projCostBudgetTOs[2].otherCost}}</td>
+							<td ng-show="costDatamoreFlag==2">{{tab.projCostBudgetTOs[2].total}}</td>
+							<td ng-show="costDatamoreFlag==3 ">{{tab.projCostBudgetTOs[3].labourCost}}</td>
+							<td ng-show="costDatamoreFlag==3">{{tab.projCostBudgetTOs[3].materialCost}}</td>
+							<td ng-show="costDatamoreFlag==3">{{tab.projCostBudgetTOs[3].plantCost}}</td>
+							<td ng-show="costDatamoreFlag==3">{{tab.projCostBudgetTOs[3].otherCost}}</td>
+							<td ng-show="costDatamoreFlag==3 ">{{tab.projCostBudgetTOs[3].total}}</td>
+							<td ng-show="costDatamoreFlag==4 ">{{tab.projCostBudgetTOs[4].labourCost}}</td>
+							<td ng-show="costDatamoreFlag==4 ">{{tab.projCostBudgetTOs[4].materialCost}}</td>
+							<td ng-show="costDatamoreFlag==4 ">{{tab.projCostBudgetTOs[4].plantCost}}</td>
+							<td ng-show="costDatamoreFlag==4">{{tab.projCostBudgetTOs[4].otherCost}}</td>
+							<td ng-show="costDatamoreFlag==4 ">{{tab.projCostBudgetTOs[4].total}}</td>
+							<td ng-show="costDatamoreFlag==5">{{tab.projCostBudgetTOs[4].labourCost-tab.projCostBudgetTOs[3].labourCost}}</td>
+							<td ng-show="costDatamoreFlag==5">{{tab.projCostBudgetTOs[4].materialCost-tab.projCostBudgetTOs[3].materialCost}}</td>
+							<td ng-show="costDatamoreFlag==5">{{tab.projCostBudgetTOs[4].plantCost-tab.projCostBudgetTOs[3].plantCost}}</td>
+							<td ng-show="costDatamoreFlag==5">{{tab.projCostBudgetTOs[4].otherCost-tab.projCostBudgetTOs[3].otherCost}}</td>
+							<td ng-show="costDatamoreFlag==5 ">{{tab.projCostBudgetTOs[4].total-tab.projCostBudgetTOs[3].total}}</td>
+							<td ng-show="costDatamoreFlag==6">{{(tab.projCostBudgetTOs[4].labourCost
+								- tab.projCostBudgetTOs[3].labourCost) -
+								tab.projCostBudgetTOs[3].labourCost}}</td>
+							<td ng-show="costDatamoreFlag==6">{{(tab.projCostBudgetTOs[4].materialCost
+								- tab.projCostBudgetTOs[3].materialCost) -
+								tab.projCostBudgetTOs[3].materialCost}}</td>
+							<td ng-show="costDatamoreFlag==6">{{(tab.projCostBudgetTOs[4].plantCost
+								- tab.projCostBudgetTOs[3].plantCost) -
+								tab.projCostBudgetTOs[3].plantCost}}</td>
+							<td ng-show="costDatamoreFlag==6">{{(tab.projCostBudgetTOs[4].otherCost
+								- tab.projCostBudgetTOs[3].otherCost) -
+								tab.projCostBudgetTOs[3].otherCost}}</td>
+							<td ng-show="costDatamoreFlag==6">{{(tab.projCostBudgetTOs[4].total
+								- tab.projCostBudgetTOs[3].total) -
+								tab.projCostBudgetTOs[3].total}}</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="panel-footer">
+				<div class="pull-left">
+					<input class="btn bottomaligned btn-brown btn-sm" type="button"
+						ng-click="deactivateCostStmt()" value="Deactivate"> <input
+						class="btn bottomaligned btn-brown btn-sm" type="button"
+						ng-click="editMode = false; saveCostStmts()" value="Save">
+				</div>
+				<div class="pull-right">
+					<input type="button" class="btn bottomaligned btn-brown btn-sm"
+						ng-click="addCostItemDetails()" value="Add">
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

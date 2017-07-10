@@ -1,0 +1,58 @@
+<div id="tab-pannel" ng-controller="CreateWorkDairyController">
+	<div class="panel-group panel panel-default">
+		<div class="panel-heading">
+			<h4 class="panel-title">Create Work Diary</h4>
+		</div>
+		<div class="panel-body1 spacer0">
+			<input type="text" ng-model="searchProject.parentName"
+				placeholder="EPS ID/EPS Name" ng-click="getUserProjects()">
+			<input type="text" ng-model="searchProject.projName"
+				placeholder="Project ID/Project Name" ng-click="getUserProjects()">
+			<input type="text" placeholder="Select Crew"
+				ng-click="getCrewList(searchProject.projId)"
+				ng-model="value.crewCode"> <input type="date"
+				ng-model="date" placeholder="Date"> <input type="text"
+				ng-model="workDairyId" placeholder="Work Dairy Id"> <input
+				type="text" placeholder="Select WorkShift"
+				ng-click="getWorkingShiftId(searchProject.projId)"
+				ng-model="valueReq.shiftCode"> <input type="text"
+				placeholder="Select WeatherClasification"
+				ng-click="getWeatherClassId(searchProject.projId)"
+				ng-model="valueReq.weathername"> <input type="text"
+				ng-model="workdiary.labelKeyTO.name" placeholder="ApproverPerson"
+				ng-click="approverPerson(workdiary.labelKeyTO)">
+		</div>
+		<div class="panel-body1 spacer1">
+			<input type="button" class="btn bottomaligned btn-brown btn-sm"
+				ng-click="createOrFetchWd()" value="search"> <input
+				type="button" class="btn bottomaligned btn-brown btn-sm"
+				ng-click="costcodeList()" value="Cost Code"> <input
+				type="button" class="btn bottomaligned btn-brown btn-sm"
+				ng-click="resend()" value="Resend"> <label>Work
+				Dairy Template:</label> <label><input type="radio" name="workdiary"
+				value="yes">Yes</label> <label><input type="radio"
+				name="workdiary" value="no">No</label> <label><input
+				type="radio" name="radiobutton" value="Client Approval Required">Client
+				Approval Required</label>
+		</div>
+	</div>
+</div>
+<div class="panel-body20 table-responsive row">
+	<ul class="nav nav-tabs">
+		<li ng-repeat="tab in createWorkDiaryTabs"
+			ng-class="{active:isActiveTab(tab.url)}"><a data-toggle="tab"
+			ng-click="onClickTab(tab)">{{tab.title}}</a></li>
+	</ul>
+
+	<div class="tab-content">
+		<div ng-include="currentTab"></div>
+	</div>
+</div>
+<div class="panel-body1 spacer5">
+	<div class="pull-right">
+		<input type="button" class="btn bottomaligned btn-brown btn-sm"
+			ng-click="printPreview()" class="btnsub" value="Print Preview">
+		<input type="button" class="btn bottomaligned btn-brown btn-sm"
+			ng-click="submitForApproval()" value="Submit for Approval">
+	</div>
+</div>

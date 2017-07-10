@@ -1,0 +1,29 @@
+<div id="tab-pannel" class="panel-group" ng-init="getTaxCalculation()">
+	<div id="tab-pannel" class="panel panel-default">
+		<div class="panel-heading">
+			<th>TaxcodeList</th>
+		</div>
+		<div class="table-responsive panel-body9">
+			<table class="table table-striped table-bordered">
+				<thead>
+					<tr>
+					        <th>Select</th>
+						    <th>TaxCode</th>
+			        		<th>Description</th>
+			        		<th>Applicable for Individual or Company</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="detail in taxcodeDetails"
+						ng-click="projtaxPopUp(detail)">
+						<td><input type="checkbox" ng-model="detail.selected"
+										ng-click="taxrowselect(detail)"></td>
+						<td>{{detail.taxCalculationMstrTO.code}}</td>
+						<td>{{detail.taxCalculationMstrTO.name}}</td>
+						<td>{{detail.taxCalculationMstrTO.taxStatus}}</td>
+				   </tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>

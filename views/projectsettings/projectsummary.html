@@ -1,0 +1,15 @@
+<div class="panel-group">
+		<div class="panel-body17">
+			<ul class="nav nav-tabs">
+				<li ng-class="{active:projSummaryActiveTab(tab.urlValue)}"
+					ng-repeat="tab in projTabs[6].childTabs"><a data-toggle="tab"
+					ng-click="clickProjSummaryTab(tab)">{{tab.name}}</a></li>
+			</ul>
+
+			<div class="tab-content">
+				<div class="tab-pane fade in active">
+					<div ng-include="projSummaryTab"></div>
+				</div>
+			</div>
+		</div>
+</div>

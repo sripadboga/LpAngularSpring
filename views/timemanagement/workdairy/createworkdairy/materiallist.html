@@ -1,0 +1,35 @@
+<div id="tab-pannel"  ng-init="getMaterialRegDetails()">
+	<div class="panel-group">
+	<div class="panel panel-default panel-body16">
+		<div class="panel-heading">
+			<h4 class="panel-title">Material List</h4>
+		</div>
+		
+			<div class="table-responsive">
+				<table class="table table-bordered table-striped">
+					<thead>
+						<tr>
+							<th>Material Classification Id</th>
+							<th>Material Id</th>
+							<th>Material Name</th>
+							
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat="mat in materialDetails" ng-click="projMaterialRegPopUp(mat)">
+							<td>{{mat.matClassId}}</td>
+							<td>{{mat.matId}}</td>
+							<td>{{mat.matName}}</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+
+		</div>
+	</div>
+</div>
+
+
+
+
+

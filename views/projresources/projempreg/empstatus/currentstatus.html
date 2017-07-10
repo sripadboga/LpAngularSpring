@@ -1,0 +1,33 @@
+<div id="tab-pannel" class="panel-group">
+			<div class="table-responsive panel-body22 panel-collapse collapse in">
+					<table class="table table-striped table-bordered">
+						<thead>
+							<tr>
+								<th>EPS ID</th>
+								<th>EPS Name</th>
+								<th>Current/Last Project ID</th>
+								<th>Current/Last Project Name</th>
+								<th>Employee Current Status</th>
+								<th>Actual Mobilization Date</th>
+								<th>Expected De-mobilization Date</th>
+								<th>Actual De-mobilization Date</th>
+								<th>Records of Employee documents</th>
+							</tr>
+						</thead>
+						<tbody>
+						<tr ng-repeat="status in empStatus">
+							<td>{{status.epsId}}</td>
+							<td>{{status.epsName}}</td>
+							<td>{{status.pId}}</td>
+							<td>{{status.pName}}</td>
+							<td>{{status.status}}</td>
+							<td>{{status.actualMobDate}}</td>
+							<td>{{status.expectedDeMobDate}}</td>
+							<td>{{status.actualDeMobDate}}</td>
+							<td>{{status.record}}</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+				

@@ -1,0 +1,31 @@
+<div id="tab-pannel" ng-init="getInternalPrecontractDetails();">
+
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<h4 class="panel-title">Internal Stage1 Approval</h4>
+		</div>
+		<div class="spacer2 panel-body17-1">
+			<form name="procureForm" validate>
+				<div class="row" id="input-height">
+					<div class="col-md-2">
+						<input type="text" ng-model="preContractObj.code"
+							readonly="readonly">
+					</div>
+					<div class="col-md-2" >
+						<input type="text"  ng-model="preContractObj.desc" readonly="readonly">
+					</div>
+				</div>
+			</form>
+			<div id="tabs1" class="spacer2">
+				<ul class="nav nav-tabs">
+					<li ng-repeat="preContarctDetailTab in preContrctDetailTabs"
+						ng-class="{active:isActiveTab1(preContarctDetailTab.url)}"><a
+						data-toggle="tab" ng-click="onClickTab1(preContarctDetailTab)"><span>{{preContarctDetailTab.title}}</span></a></li>
+				</ul>
+				<div class="tab-content">
+					<div ng-include="currentTab1"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,65 @@
+<div id="tab-pannel">
+	<div class="panel-group">
+		<div class="panel panel-body20-1-1">
+			<div class="table-responsive">
+				<table class="table table-bordered table-striped">
+					<thead>
+						<tr>
+							<th rowspan="3">Select</th>
+							<th rowspan="3">Resource Id</th>
+							<th rowspan="3">First Name</th>
+							<th rowspan="3">SurName</th>
+							<th rowspan="3">Trade Name As Company</th>
+							<th rowspan="3">Category</th>
+							<th rowspan="3">Wage Rate Factor</th>
+							<th rowspan="3">Unit Of Measure</th>
+							<th colspan="8">Cost Code wise Manpower Utilisation</th>
+							<th rowspan="3">Total</th>
+							<th rowspan="3">Comments</th>
+							<th rowspan="3">Approval Status</th>
+						</tr>
+						<tr>
+							<th colspan="4">Used Time</th>
+							<th colspan="4">Idle Time</th>
+						</tr>
+						<tr>
+							<th ng-repeat="">{{}}</th>
+							<th>Total</th>
+							<th ng-repeat="">{{}}</th>
+							<th>Total</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat="man in mans">
+							<td><input type="checkbox" ng-click="approveManpowerRowSelect(man)"
+								 ng-model="man.select" ></td>
+							<td>{{man.resourceId}}</td>
+							<td>{{man.firstName}}</td>
+							<td>{{man.surName}}</td>
+							<td>{{man.tradeNameAsCompany}}</td>
+							<td>{{man.category}}</td>
+							<td>{{man.wageRateFactor}}</td>
+							<td>{{man.unitOfMeasure}}</td>
+							<td>{{man.ccadmin1}}</td>
+							<td>{{man.ccaes1}}</td>
+							<td>{{man.ccbes1}}</td>
+							<td>{{man.total1}}</td>
+							<td>{{man.ccAdmin2}}</td>
+							<td>{{man.ccaes2}}</td>
+							<td>{{man.ccbes2}}</td>
+							<td>{{man.total2}}</td>
+							<td>{{man.totalAndIdle}}</td>
+							<td>{{man.comments}}</td>
+							<td>{{man.apprvPerson}}</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<div class="panel-footer">
+			<div class="pull-left">
+ 		 		<input type="button" class="btn btn-brown " ng-click="editApprovedManpower('Edit')" value="Edit">
+  			</div>
+		</div>
+	</div>
+</div>

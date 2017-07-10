@@ -1,0 +1,40 @@
+<div id="tab-pannel" class="normal-fnt box-border">
+	<div class="panel-body11-1">
+		<div class="row">
+			<div class="col-xs-12 col-sm-12 col-md-12">
+				<h5 class="text-center spacer2">
+					<span class="underline">Normal Time Frame for Approval From
+						Requisition</span>
+				</h5>
+				<div class="row spacer2">
+					<div class="col-xs-12 col-sm-12 col-md-4"></div>
+					<div class="col-xs-12 col-sm-12 col-md-3">Cut off Time in
+						Days</div>
+					<div class="col-xs-12 col-sm-12 col-md-3 ">Cut off Time(24h)</div>
+					<div class="col-xs-12 col-sm-12 col-md-2"></div>
+				</div>
+				<div class="row spacer1" ng-repeat="procure in projProcureDetails">
+					<div class="col-xs-12 col-sm-12 col-md-2 "></div>
+					<div class="col-xs-12 col-sm-12 col-md-3 ">{{procure.procureType}}</div>
+					<div class="col-xs-12 col-sm-12 col-md-3 ">
+						<input  class="input-size" type="text" ng-model="procure.cutOffDays">
+					</div>
+					<div class="col-xs-12 col-sm-12 col-md-3 ">
+						<input  type="number" placeholder="hh" min=0 max=23
+							style="width: 55px;" name="cutoffHours"
+							ng-model="procure.cutOffHours" ng-required="true" maxlength=2 />
+						<input  type="number" min=0 max=59 placeholder="mm"
+							style="width: 55px;" name="cutoffMinutes"
+							ng-model="procure.cutOffMinutes" />
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="panel-footer">
+		<div class="pull-right">
+			<input type="button" class="btn bottomaligned btn-brown btn-sm"
+				value="Save" ng-click="saveProjProcurements()">
+		</div>
+	</div>
+</div>

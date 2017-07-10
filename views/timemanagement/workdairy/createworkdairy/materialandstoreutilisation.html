@@ -1,0 +1,70 @@
+<div class="tab-content panel-body16">
+	<div class="table-responsive">
+		<table class="table table-bordered table-striped">
+			<thead>
+				<tr>
+					<th rowspan="2">Select</th>
+					<th rowspan="2">Source Of Materials</th>
+					<th rowspan="2">Material</th>
+					<th rowspan="2">PO Schedule Item</th>
+					<th rowspan="2">Purchase Order</th>
+					<th rowspan="2">Docket Number</th>
+					<th rowspan="2">Docket Date</th>
+					<th rowspan="2">Supplier</th>
+					<th rowspan="2">Unit Of Measure</th>
+					<th rowspan="2">Location Of Delivery</th>
+					<th rowspan="2">Quantity Recieved</th>
+					<th rowspan="2">Rate For Units</th>
+					<th rowspan="2">Upload Copy Of Delivery Docket</th>
+					<th rowspan="2">Defects If Any</th>
+					<th colspan="{{workDairyCostCodeList.length*2+3}}"
+						class="text-center">Manpower Utilization</th>
+					<th rowspan="2">Total Consumption Quantity</th>
+					<th rowspan="2">Approval Status</th>
+				</tr>
+				<tr>
+				<th ng-repeat="workDairyCostCode in  workDairyCostCodeList">{{workDairyCostCode.code}}</th>
+					
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="matestore in matestores">
+					<td><input type="checkbox"
+						ng-click="materialStoreRowSelect(matestore)"
+						ng-model="matestore.select" value="id"></td>
+					<td>{{matestore.sourceOfMaterials}}</td>
+					<td>{{matestore.material}}</td>
+					<td>{{matestore.poScheduleItem}}</td>
+					<td>{{matestore.purchaseOrder}}</td>
+					<td>{{matestore.docketNumber}}</td>
+					<td>{{matestore.docketDate}}</td>
+					<td>{{matestore.supplier}}</td>
+					<td>{{matestore.unitOfMeasure}}</td>
+					<td>{{matestore.locationOfDelivery}}</td>
+					<td>{{matestore.quantityReceived}}</td>
+					<td>{{matestore.rateForUnits}}</td>
+					<td>{{matestore.uploadDeliveryDoc}}</td>
+					<td>{{matestore.defectsIfAny}}</td>
+					<td ng-repeat=""></td>
+					
+					<td>{{matestore.totalConsumQty}}</td>
+					<td>{{matestore.approvalStatus}}</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
+<div class="panel-footer">
+	<div class="pull-right">
+		<input type="button" ng-click="addMatestores('Add')" value="Create"
+			class="btn btn-brown bottomaligned">
+	</div>
+	<div class="pull-left">
+		<input type="button" ng-click="deleteMatestore()" value="Deactivate"
+			class="btn btn-brown bottomaligned"> <input type="button"
+			ng-click="addMatestores('Edit')" value="Edit"
+			class="btn btn-brown bottomaligned"> <input type="button"
+			ng-click="printPreview()" value="Print Preview"
+			class="btn btn-brown bottomaligned">
+	</div>
+</div>

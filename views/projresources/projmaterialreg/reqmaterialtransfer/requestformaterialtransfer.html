@@ -1,0 +1,70 @@
+<div id="tab-pannel">
+<div class="panel-group">
+	<div class="panel panel-default panel-body20-4-1">
+		<div class="table-responsive">
+			<table class="table table-bordered table-striped">
+			<thead>
+				<tr>
+					<th>Select</th>
+					<th>Resource Id</th>
+					<th>Resource Name</th>
+					<th>Material Sub Group Name</th>
+					<th>From Project Id</th>
+					<th>From Project Name</th>
+					<th>Originator Employee Id And Name</th>
+					<th>Requisition Number</th>
+					<th>Approver Person Id And Name</th>
+					<th>Destination Project Id</th>
+					<th>Destination Project Name</th>
+					<th>Unit Of Measure</th>
+					<th>Internal Project Use-Requested Transfer Quantity</th>
+					<th>External Project Use-Requested Transfer Quantity</th>
+					<th>Date Of Request</th>
+					<th>Required Date Of Transfer</th>
+					<th>Expected Date Of Transfer</th>
+					<th>Approval Status</th>
+				</tr>
+			</thead>
+			<tbody>
+			<tr ng-repeat="request in reqMaterialTransfer">
+					<td><input type="checkbox" value="id" ng-model="request.selected"
+						ng-click="reqTransferlRowSelect(request)"></td>
+					<td>{{request.resourceId}}</td>
+					<td>{{request.resourceName}}</td>
+					<td>{{request.materialSubGroupName}}</td>
+					<td>{{request.fromProjectId}}</td>
+					<td>{{request.fromProjectName}}</td>
+					<td>{{request.originatorEmployeeIdAndName}}</td>
+					<td>{{request.requisitionNumber}}</td>
+					<td>{{request.approverPersonIdAndName}}</td>
+					<td>{{request.destinationProjectId}}</td>
+					<td>{{request.destinationProjectName}}</td>
+					<td>{{request.unitOfMeasure}}</td>
+					<td>{{request.internalProjectTransfer}}</td>
+					<td>{{request.externalProjectTransfer}}</td>
+					<td>{{request.dateOfRequest}}</td>
+					<td>{{request.requiredDateOfTransfer}}</td>
+					<td>{{request.expectedDateOfTransfer}}</td>
+					<td>{{request.approvalStatus}}</td>
+					
+					</tr>
+			</tbody>
+		</table>
+	</div>
+	</div>
+		<div class="panel-footer">
+<div class="pull-right">
+	<input type="button" class="btn btn-brown"
+		ng-click="addReqForMaterial('Add')" value="Create"> 
+		</div>
+		<div class="pull-left">
+		<input type="button" class="btn btn-brown"
+		ng-click="addReqForMaterial('Edit')" value="Edit">
+		<input
+		type="button" class="btn btn-brown" ng-click="deleteReqForMaterial()"
+		value="Deactivate"> 
+</div>
+</div>
+</div>
+</div>
+

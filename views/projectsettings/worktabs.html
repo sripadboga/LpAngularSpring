@@ -1,0 +1,11 @@
+<ul style="margin-top: 4px !important" class="nav nav-tabs">
+	<li  ng-class="{active:isActiveWorkTab(tab.urlValue)}"
+		ng-repeat="tab in projTabs[0].childTabs[2].childTabs"><a data-toggle="tab"
+		ng-click="onClickWorkTab(tab)">{{tab.name}}</a></li>
+</ul>
+
+<div class="tab-content">
+	<div class="tab-pane fade in active">
+		<div ng-include="currentWorkTab"></div>
+	</div>
+</div>

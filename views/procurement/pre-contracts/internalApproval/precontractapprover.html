@@ -1,0 +1,27 @@
+<div id="tab-pannel" class="panel-group" ng-init="getUsersByModulePermission()">
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<h4 class="panel-title">User Details</h4>
+		</div>
+
+		<div class="panel-body12">
+
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<th>User Name</th>
+						<th>Email</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-click="addApproverToPrecontract(approverTo)"
+						ng-repeat="approverTo in approverUserList">
+						<td>{{approverTo.name}}</td>
+						<td>{{approverTo.email}}</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+
+	</div>
+</div>

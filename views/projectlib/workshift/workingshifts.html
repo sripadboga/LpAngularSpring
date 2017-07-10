@@ -1,0 +1,63 @@
+<div ng-controller="ProjWorkShiftController">
+	<div id="tab-pannel" class="panel-group">
+		<div id="tab-pannel" class="panel panel-default">
+			<div class="panel-heading">
+				<h4 class="panel-title">Working Shifts </h4>
+			</div>
+			<div class="panel-body1 spacer2">
+				<div class="pull-left left-padding">
+					<input type="text" ng-model="searchProject.parentName"
+						placeholder="EPS ID/EPS Name" ng-click="getUserProjects()">
+					<input type="text" ng-model="searchProject.projName"
+						placeholder="Project ID/Project Name" ng-click="getUserProjects()">
+					<select ng-model="workShiftReq.status">
+						<option value="1" label="Active" selected="selected"></option>
+						<option value="2" label="InActive"></option>
+					</select>
+				</div>
+				<div class="pull-right right-padding">
+					<input type="button" ng-click="getProjWorkShifts()"
+						class="btn bottomaligned btn-brown btn-sm" value="Search"
+						ng-model="searchText"> <input type="reset"
+						class="btn bottomaligned btn-brown btn-sm"
+						ng-click="resetProjWorkShift()" value="Reset">
+				</div>
+			</div>
+			<div class="panel-body22">
+				<div id="tableHeight20-2" class="table-responsive  panel-collapse collapse in">
+					<table class="table table-striped"  fixed-header>
+						<thead id="tab-head">
+							<th>Select</th>
+							<th>Shift</th>
+							<th>Start Hour</th>
+							<th>Duration in Hours</th>
+							<th>Status</th>
+						</thead>
+						<tbody>
+							<tr
+								ng-repeat="tab in tableData | orderBy:['code','startTime','finishTime']">
+								<td><input type="checkbox" ng-model="tab.select"
+									ng-click="rowSelect(tab)"></td>
+								<td>{{tab.code}}</td>
+								<td>{{tab.startHours}} <span>:</span>{{tab.startMinutes}}</td>
+								<td>{{tab.finishHours}}<span>:</span>{{tab.finishMinutes}}</td>
+								<td>{{tab.status | potstatusfilter:tab.status}}</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+			<div class="panel-footer">
+				<div class="pull-right">
+					<input type="submit" ng-click="addTableData('Add',searchProject)"  class="btn bottomaligned btn-brown btn-sm" value="Create" ng-show="account.appCodeTemplate['PRJ_PRJLIB_WRKGSHFT_ADD'] && activeFlag==1"/>
+				</div>
+				<div class="pull-left"> 
+					<input type="submit" ng-click="addTableData('Edit',searchProject)"value="Edit" class="btn bottomaligned btn-brown btn-sm" ng-show="account.appCodeTemplate['PRJ_PRJLIB_WRKGSHFT_ADD'] && activeFlag==1"/> 
+						<input  type="button" ng-click="deleteWorkShifts()" value="Deactivate" 	class="btn bottomaligned btn-brown btn-sm"   ng-show="account.appCodeTemplate['PRJ_PRJLIB_WRKGSHFT_DELETE'] && activeFlag==1"/>
+							<input  type="button" ng-click="activeWorkShifts()" value="Activate" 	class="btn bottomaligned btn-brown btn-sm"  ng-show="account.appCodeTemplate['PRJ_PRJLIB_WRKGSHFT_DELETE']  && activeFlag==2" />
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+

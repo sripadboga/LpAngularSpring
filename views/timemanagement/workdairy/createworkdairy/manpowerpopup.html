@@ -1,0 +1,163 @@
+<div id="tab-pannel" class="panel-group">
+	<form name="manForm" validate>
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h4 class="panel-title">Manpower</h4>
+			</div>
+			
+				<div class="spacer2">
+				<input type="text" placeholder="Select Crew"
+					ng-click="getManPowerCrewList()" ng-model="crewLabelKeyTO.code">
+			</div>
+			
+			<div class="panel-body">
+				<div class="table-responsive panel-body12">
+					<table class="table table-bordered table-striped">
+				
+						<thead>
+				<tr>
+					<th rowspan="3" ng-show="action=='Add'">Select</th>
+					<th rowspan="3">Empolyee ID</th>
+					<th rowspan="3">First Name</th>
+					<th rowspan="3">Last Name</th>
+					<th rowspan="3">Designation</th>
+					<th rowspan="3">Category</th>
+					<th rowspan="3">Wage Factor</th>
+					<!-- <th rowspan="3">Unit Of Measure</th> -->
+					<th colspan="{{workDairyCostCodeList.length*2+3}}"
+						class="text-center">Manpower Utilization</th>
+					<th rowspan="3">Comments</th>
+					<th rowspan="3">Approval Status</th>
+				</tr>
+				<tr>
+					<th colspan="{{workDairyCostCodeList.length+1}}"
+						class="text-center">Used Time</th>
+					<th colspan="{{workDairyCostCodeList.length+1}}"
+						class="text-center">Idle Time</th>
+					<th>Total</th>
+				</tr>
+				<tr>
+					<th ng-repeat="workDairyCostCode in  workDairyCostCodeList">{{workDairyCostCode.code}}</th>
+					<th>Total</th>
+					<th ng-repeat="workDairyCostCode in  workDairyCostCodeList">{{workDairyCostCode.code}}</th>
+					<th>Total</th>
+				</tr>
+			</thead>
+						<tbody>
+							<tr ng-repeat="man in addMans">
+
+								<td ng-show="action=='Add'"><input type="checkbox"
+									value="id" ng-model="man.select"
+									ng-click="manpowerPopupRowSelect(man)"></td>
+
+								<td><input type="text" 
+									ng-model="man.empRegLableKeyTO.code" ng-click="addEmployeeRegDetails(man.empRegLableKeyTO)" readonly="readonly" required="required">
+									</td>
+
+								<td><input type="text" name="firstName"
+									ng-model="man.empRegLableKeyTO.firstName" ng-click="addEmployeeRegDetails(man.empRegLableKeyTO)"
+									 required="required" readonly="readonly">
+									</td>
+
+								<td>
+								<input type="text" name="surName"
+									ng-model="man.empRegLableKeyTO.lastName" readonly="readonly" ng-click="addEmployeeRegDetails(man.empRegLableKeyTO)" readonly="readonly" ></td>
+								
+									
+
+								<td><input type="text" name="tradeNameAsCompany"
+									ng-model="man.empRegLableKeyTO.name" ng-click="addEmployeeRegDetails(man.empRegLableKeyTO)" readonly="readonly"></td>
+									
+								<td><input type="text" name="category"
+									ng-model="man.empRegLableKeyTO.category" ng-click="addEmployeeRegDetails(man.empRegLableKeyTO)" readonly="readonly" ></td>
+							
+
+                         <td><input type="text" placeholder="Select wageFactor"
+						ng-click="getWageFactor(man.wageFactorLabelKeyTO)"
+						ng-model="man.wageFactorLabelKeyTO.name"></td>
+						
+								<!-- <td><input type="text" name="unitOfMeasure"
+									ng-model="man.unitOfMeasure" pattern="^[a-z A-Z\d\s\-_.,\%]+$"
+									maxlength="20" placeholder="Unit Of Measure"
+									required="required"> 
+								</td> -->
+
+						
+									
+								<td ng-repeat="workDairyCostCode in  workDairyCostCodeList"><input type="text" name="code1" ng-model="man.workDairyCostCode.code"
+									pattern="^[a-z A-Z\d\s\-_.,\%]+$" maxlength="20"
+									placeholder="costcode" required="required"> <span
+									ng-show="manForm.code1.$error.required"></span> <span
+									ng-show="manForm.code1.$error.pattern">Not valid </span> <span
+									ng-show="manForm.code1.$error.maxlength">enter upto 20
+										chars only</span></td>
+
+							
+
+								<td><input type="text" name="total1" ng-model="man.total1"
+									pattern="^[a-z A-Z\d\s\-_.,\%]+$" maxlength="20"
+									placeholder="UsedTimeTotal" required="required"> <span
+									ng-show="manForm.total1.$error.required"></span> <span
+									ng-show="manForm.total1.$error.pattern">Not valid </span> <span
+									ng-show="manForm.total1.$error.maxlength">enter upto 20
+										chars only</span></td>
+
+								<td ng-repeat="workDairyCostCode in  workDairyCostCodeList"><input type="text" name="total" ng-model="man.workDairyCostCode.code"
+									pattern="^[a-z A-Z\d\s\-_.,\%]+$" maxlength="20"
+									placeholder="Total" required="required"> <span
+									ng-show="manForm.code21.$error.required"></span> <span
+									ng-show="manForm.code21.$error.pattern">Not valid </span> <span
+									ng-show="manForm.code21.$error.maxlength">enter upto 20
+										chars only</span></td>
+
+
+								<td><input type="text" name="total2" ng-model="man.total2"
+									pattern="^[a-z A-Z\d\s\-_.,\%]+$" maxlength="20"
+									placeholder="IdleTimeTotal" required="required"> <span
+									ng-show="manForm.total2.$error.required"></span> <span
+									ng-show="manForm.total2.$error.pattern">Not valid </span> <span
+									ng-show="manForm.total2.$error.maxlength">enter upto 20
+										chars only</span></td>
+
+
+								<td><input type="text" name="totalAndIdle"
+									ng-model="man.totalAndIdle" pattern="^[a-z A-Z\d\s\-_.,\%]+$"
+									maxlength="20" placeholder="Total(U+I)" required="required">
+									<span ng-show="manForm.totalAndIdle.$error.required"></span> <span
+									ng-show="manForm.totalAndIdle.$error.pattern">Not valid
+								</span> <span ng-show="manForm.totalAndIdle.$error.maxlength">enter
+										upto 20 chars only</span></td>
+
+								<td><input type="text" name="comments"
+									ng-model="man.comments" pattern="^[a-z A-Z\d\s\-_.,\%]+$"
+									maxlength="20" placeholder="Comments" required="required">
+									<span ng-show="manForm.comments.$error.required"></span> <span
+									ng-show="manForm.comments.$error.pattern">Not valid </span> <span
+									ng-show="manForm.comments.$error.maxlength">enter upto
+										20 chars only</span></td>
+										
+								<td><input type="text" name="approvePerson"
+									ng-model="man.approvalPerson" 
+									readonly="readonly" placeholder="Approver Status" >
+									</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+
+			<div class="panel-footer">
+				<div class="pull-left">
+					<input type="button" class="btn btn-brown" ng-click="addManpowerDetails()"
+						value="Add" ng-show="action =='Add'"> <input type="button"
+						class="btn btn-brown" ng-click="deleteManpowerRows()" value="Delete"
+						ng-show="action =='Add'">
+				</div>
+				<div class="pull-right">
+					<input type="button" class="btn btn-brown" ng-click="saveManpowerDetails()"
+						value="Save">
+				</div>
+			</div>
+		</div>
+	</form>
+</div>

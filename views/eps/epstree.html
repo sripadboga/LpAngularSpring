@@ -1,0 +1,58 @@
+<div id="tab-pannel" class="panel-group"
+	ng-controller="EPSProjController" ng-init="getEPSDetails()">
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<h4 class="panel-title">Enterprise Projects</h4>
+		</div>
+		<div class="panel-body25-0">
+			<div id="tableHeight24" class="table-responsive">
+				<table id="tree" class="table table-striped" fixed-header>
+					<thead>
+						<tr>
+							<th>Select</th>
+							<th>EPS ID</th>
+							<th>EPS Name</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr
+							ng-repeat="item in epsData | epsFilterTreeItem:itemId:isExpand"
+							class="abc{{item.level}}">
+							<td><input type="checkbox" ng-model="item.select"
+								ng-click="rowSelect(item)"></td>
+							<td><span ng-show="item.level > 0" class="xyz"
+								style="padding-left: 30px;"></span> <span
+								ng-show="item.level > 1" class="xyz" style="padding-left: 30px;"></span>
+								<span ng-show="item.level > 2" class="xyz"
+								style="padding-left: 30px;"></span> <fa
+									ng-show="((!item.leaf && item.expand) || (!item.leaf  && item.childProjs.length <= 0))"
+									ng-click="itemClick(item.projId,item.expand);"
+									name="fa fa-minus"></fa> <fa
+									ng-show="(!item.leaf && !item.expand && item.childProjs.length > 0)"
+									ng-click="itemClick(item.projId,item.expand);"
+									name="fa fa-plus"></fa> <fa ng-show="(item.leaf)" name="leaf"></fa>
+								<span style="padding-left: 10px;">{{item.projCode}} <span
+									style="padding-left: 5px;"></span></span> <fa ng-hide="(item.leaf)"
+									ng-click="editTreeDetails('Edit',item)" name="pencil"></fa></td>
+							<td>{{item.projName}}</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<div class="panel-footer">
+			<div class="pull-left">
+				<input type="button" class="btn  btn-brown btn-sm"
+					ng-click="deactivateEPSDetails()" value="Deactivate"
+					ng-show="account.appCodeTemplate['ENTRPRSE_EPS_DELETE']" />
+			</div>
+			<div class="pull-right">
+				<input type="button" class="btn  btn-brown btn-sm"
+					style="float: right;" ng-click="editTreeDetails('Add',null)"
+					value="Create"
+					ng-show="account.appCodeTemplate['ENTRPRSE_EPS_ADD']">
+			</div>
+		</div>
+	</div>
+</div>
+

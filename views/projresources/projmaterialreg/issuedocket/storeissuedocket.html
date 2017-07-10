@@ -1,0 +1,59 @@
+<div id="tab-pannel">
+	<div class="panel-group">
+		<div class="panel panel-default panel-body20-4-1">
+			<div class="table-responsive">
+				<table class="table table-bordered table-striped">
+					<thead>
+						<tr>
+							<th>Select</th>
+							<th id="sdd">Resource Id</th>
+							<th>Resource Name</th>
+							<th>Resource Sub Group Id</th>
+							<th>Resource Sub Group Name</th>
+							<th>PO Number</th>
+							<th>Schedule Item Id</th>
+							<th>Supplier Id</th>
+							<th>Supplier Name</th>
+							<th>Unit Of Measure</th>
+							<th>Quantity</th>
+							<th>Rate</th>
+							<th>Comments</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat="storedocket in storeIssueDocket">
+							<td><input type="checkbox" value="id"
+								ng-model="storedocket.selected"
+								ng-click="storeDocketRowSelect(storedocket)"></td>
+							<td>{{storedocket.rId}}</td>
+							<td>{{storedocket.rName}}</td>
+							<td>{{storedocket.rSubgId}}</td>
+							<td>{{storedocket.rSubgName}}</td>
+							<td>{{storedocket.poNum}}</td>
+							<td>{{storedocket.sceduleItemId}}</td>
+							<td>{{storedocket.suppId}}</td>
+							<td>{{storedocket.suppName}}</td>
+							<td>{{storedocket.measure}}</td>
+							<td>{{storedocket.quantity}}</td>
+							<td>{{storedocket.rate}}</td>
+							<td>{{storedocket.comments}}</td>
+						</tr>
+					</tbody>
+
+				</table>
+			</div>
+		</div>
+		<div class="panel-footer">
+			<div class="pull-right">
+				<input type="button" class="btn btn-brown"
+					ng-click="addStoreDocket('Add')" value="Create">
+			</div>
+			<div class="pull-left">
+				<input type="button" class="btn btn-brown"
+					ng-click="addStoreDocket('Edit')" value="Edit"> <input
+					type="button" class="btn btn-brown" ng-click="deleteStoreDocket()"
+					value="Deactivate">
+			</div>
+		</div>
+	</div>
+</div>

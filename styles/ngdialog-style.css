@@ -1,0 +1,169 @@
+.ngdialog.ngdialog-theme-plain.ng-dialogueCustom  .ngdialog-content {
+	width: 100% !important;
+	padding-bottom: 10px !important;
+	position: fixed;
+	top: 100px !important;
+	left: 30px !important;
+	right: 100px !important;
+	bottom: 100px !important;
+	background: none;
+	color: #444;
+}
+
+.ngdialog.ngdialog-theme-plain.ng-dialogueCustom0  .ngdialog-content {
+	width: 90% !important;
+	padding-bottom: 10px !important;
+	position: fixed;
+	top: 100px !important;
+	left: 150px !important;
+	right: 150px !important;
+	bottom: 100px !important;
+	background: none;
+	color: #444;
+}
+
+.ngdialog.ngdialog-theme-plain.ng-dialogueCustom1  .ngdialog-content {
+	width: 80% !important;
+	padding-bottom: 10px !important;
+	position: fixed;
+	top: 100px !important;
+	left: 150px !important;
+	right: 150px !important;
+	bottom: 100px !important;
+	background: none;
+	color: #444;
+}
+
+.ngdialog.ngdialog-theme-plain.ng-dialogueCustom1-t  .ngdialog-content {
+	width: 80% !important;
+	padding-bottom: 10px !important;
+	position: fixed;
+	top: 60px !important;
+	left: 140px !important;
+	right: 150px !important;
+	bottom: 100px !important;
+	background: none;
+	color: #444;
+}
+
+.ngdialog.ngdialog-theme-plain.ng-dialogueCustom2 .ngdialog-content {
+	width: 70% !important;
+	padding-bottom: 10px !important;
+	position: fixed;
+	top: 100px !important;
+	left: 150px !important;
+	right: 150px !important;
+	bottom: 100px !important;
+	background: none;
+	color: #444;
+}
+
+.ngdialog.ngdialog-theme-plain.ng-dialogueCustom3 .ngdialog-content {
+	width: 60% !important;
+	padding-bottom: 10px !important;
+	position: fixed;
+	top: 100px !important;
+	left: 150px !important;
+	right: 150px !important;
+	bottom: 100px !important;
+	background: none;
+	color: #444;
+}
+
+.ngdialog.ngdialog-theme-plain.ng-dialogueCustom4 .ngdialog-content {
+	width: 50% !important;
+	padding-bottom: 10px !important;
+	position: fixed;
+	top: 100px !important;
+	left: 150px !important;
+	right: 150px !important;
+	bottom: 100px !important;
+	background: none;
+	color: #444;
+}
+
+.ngdialog.ngdialog-theme-plain.ng-dialogueCustom5 .ngdialog-content {
+	width: 40% !important;
+	padding-bottom: 10px !important;
+	position: fixed;
+	top: 100px !important;
+	left: 150px !important;
+	right: 150px !important;
+	bottom: 100px !important;
+	background: none;
+	color: #444;
+}
+
+.ngdialog.ngdialog-theme-plain.ng-dialogueCustom6 .ngdialog-content {
+	width: 30% !important;
+	padding-bottom: 10px !important;
+	position: fixed;
+	top: 100px !important;
+	left: 150px !important;
+	right: 150px !important;
+	bottom: 100px !important;
+	background: none;
+	color: #444;
+}
+
+.ngdialog.ngdialog-theme-plain.ng-dialogueCustom7 .ngdialog-content {
+	width: 30% !important;
+	height:10% !important;
+	padding-bottom: 10px !important;
+	position: fixed;
+	top: 100px !important;
+	left: 150px !important;
+	right: 150px !important;
+	bottom: 100px !important;
+	background: none;
+	color: #444;
+}
+
+.ngdialog.ngdialog-theme-plain .ngdialog-close {
+	cursor: pointer;
+	position: absolute;
+	right: 0px !important;
+	bottom: 0px !important;
+	top: 0 !important;
+	color: #2e5b74 !important;
+}
+
+.ngdialog.ngdialog-theme-plain .ngdialog-close:before {
+	background: 0 0;
+	color: #2e5b74 !important;
+	content: "\00D7";
+	font-size: 26px;
+	font-weight: 400;
+	height: 30px;
+	line-height: 26px;
+	position: absolute;
+	right: 0px;
+	text-align: center;
+	top: 5px;
+	width: 30px
+}
+.ngdialog.ngdialog-theme-default .ngdialog-close:before {
+   color: #2e5b74 !important;
+}
+.ngdialog.ngdialog-theme-plain.ng-dialogueCustom-t  .ngdialog-content {
+	width: 100% !important;
+	padding-bottom: 10px !important;
+	position: fixed;
+	top: 50px !important;
+	left: 80px !important;
+	right: 80px !important;
+	bottom: 150px !important;
+	background: none;
+	color: #444;
+}
+.ngdialog.ngdialog-theme-plain.ng-dialogueCustom-l  .ngdialog-content {
+	width: 105% !important;
+	padding-bottom: 10px !important;
+	position: relative;
+	top: 100px !important;
+	left: 10px !important;
+	right:150px !important;
+	bottom: 100px !important;
+	background: none;
+	color: #444;
+}

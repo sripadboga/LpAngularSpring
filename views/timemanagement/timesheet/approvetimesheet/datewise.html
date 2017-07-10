@@ -1,0 +1,58 @@
+<div id="time-pannel" ng-controller="ApproveTimeSheetController">
+	<div class="panel-group panel panel-default" ng-init="getProjectEps()">
+		<div class="panel-body1 spacer1">
+			<div id="time-pannel" class="panel-group">
+				<div class="panel-group">
+
+					<div
+						class="timele-responsive panel-body20 panel-collapse collapse in">
+						<table class="table table-striped table-bordered">
+							<thead>
+								<tr>
+									<th rowspan=2 class="vert-align">select</th>
+									<th rowspan=2 class="vert-align">EmployeeID</th>
+									<th rowspan=2 class="vert-align">FirstName</th>
+									<th rowspan=2 class="vert-align">surName</th>
+									<th colspan=8 class="text-center">DatewiseHours worked &
+										TaskPerformed</th>
+								</tr>
+								<tr>
+									<th>mon</th>
+									<th>tue</th>
+									<th>wed</th>
+									<th>thu</th>
+									<th>fri</th>
+									<th>sat</th>
+									<th>sun</th>
+									<th rowspan=2 class="vert-align">Total</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr ng-repeat="date in dates">
+									<td><input type="checkbox" value="id"
+										ng-model="date.selected" ng-click="dateWiseRowSelect(date)"></td>
+									<td>{{date.employeeID}}</td>
+									<td>{{date.firstName}}</td>
+									<td>{{date.surName}}</td>
+									<td>{{date.mon}}</td>
+									<td>{{date.tue}}</td>
+									<td>{{date.wed}}</td>
+									<td>{{date.thu}}</td>
+									<td>{{date.fri}}</td>
+									<td>{{date.sat}}</td>
+									<td>{{date.sun}}</td>
+									<td>{{date.total}}</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+
+

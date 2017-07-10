@@ -1,0 +1,76 @@
+<div id="tab-pannel">
+<div class="panel-group">
+	<div class="panel panel-default panel-body20-4-1">
+		<div class="table-responsive">
+			<table class="table table-bordered table-striped">
+			<thead>
+				<tr>
+					<th>Select</th>
+					<th>Date</th>
+					<th>Project Docket</th>
+					<th>Resource Id</th>
+					<th>Resource Name</th>
+					<th>Resource Sub Group Id</th>
+					<th>Resource Sub Group Name</th>
+					<th>Origin Project</th>
+					<th>Origin Store Stock Yard</th>
+					<th>Destination Project</th>
+					<th>Destination Store Stock Yard</th>
+					<th>Supplier Id</th>
+					<th>Supplier Name</th>
+					<th>Issuer Employee Id</th>
+					<th>Issuer Employee Name</th>
+					<th>Receiver Employee Id</th>
+					<th>Receiver Employee Name</th>
+					<th>Unit Of Measure</th>
+					<th>Rate</th>
+					<th>Opening Balance Quantity</th>
+					<th>Issued Quantity</th>
+					<th>Date Wise Consumption Quantity</th>
+					<th>Cumulative Quantity Consumed</th>
+					<th>Closing Stock Balance Quantity On Site</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="storestock in storeStockBalance">
+					<td><input type="checkbox" value="id" ng-model="storestock.selected"
+						ng-click="storeRowSelect(storestock)"></td>
+					<td>{{storestock.date}}</td>
+					<td>{{storestock.projectDocket}}</td>
+					<td>{{storestock.resourceId}}</td>
+					<td>{{storestock.resourceName}}</td>
+					<td>{{storestock.resourceSubGroupId}}</td>
+					<td>{{storestock.resourceSubGroupName}}</td>
+					<td>{{storestock.originProject}}</td>
+					<td>{{storestock.originStoreStockYard}}</td>
+					<td>{{storestock.destinationProject}}</td>
+					<td>{{storestock.destinationStoreStockYard}}</td>
+					<td>{{storestock.supplierId}}</td>
+					<td>{{storestock.supplierName}}</td>
+					<td>{{storestock.issueEmployeeId}}</td>
+					<td>{{storestock.issueEmployeeName}}</td>
+					<td>{{storestock.receiverEmployeeId}}</td>
+					<td>{{storestock.receiverEmployeeName}}</td>
+					<td>{{storestock.unitOfMeasure}}</td>
+					<td>{{storestock.rate}}</td>
+					<td>{{storestock.openingBalanceQuantity}}</td>
+					<td>{{storestock.issuedQuantity}}</td>
+					<td>{{storestock.dateWiseConsumptionQuantity}}</td>
+					<td>{{storestock.cumulativeQuantityConsumed}}</td>
+					<td>{{storestock.closingStockBalanceQuantityOnSite}}</td>
+			</tbody>
+		</table>
+	</div>
+	</div>
+		<div class="panel-footer">
+<div class="pull-right">
+	<input type="button" class="btn btn-brown" ng-click="addStoresItemStock('Add')" value="Create">
+	</div>
+	<div class="pull-left">
+		  <input type="button" class="btn btn-brown" ng-click="addStoresItemStock('Edit')" value="Edit">
+		   <input	type="button" class="btn btn-brown" ng-click="deleteStoresItemStock()" value="Deactivate">
+		   </div>
+		   </div>
+		   </div>
+</div>
+

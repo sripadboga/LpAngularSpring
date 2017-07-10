@@ -1,0 +1,68 @@
+<div id="tab-pannel" class="panel-group">
+	<form name="workShiftForm" validate>
+		<div id="tab-pannel" class="panel-group">
+			<div id="tab-pannel" class="panel panel-default">
+				<div class="panel-heading">
+					<h4 class="panel-title">Working Shifts</h4>
+				</div>
+				<div class="panel-body10">
+					<div class="table-responsive">
+						<table class="table table-striped">
+							<thead>
+								<th ng-show="action=='Add'">Select</th>
+								<th>Shift</th>
+								<th>Start Hour</th>
+								<th>Duration in Hours</th>
+							</thead>
+							<tr ng-repeat="tab in addTableData ">
+								<td ng-show="action=='Add'">
+								<input type="checkbox" value="tab.id" name="id" ng-model="tab.select" ng-click="popUpRowSelect(tab)"/></td> 
+
+
+								
+								<td ng-form name="workshiftform">
+								<input type="text"  name="code" ng-model="tab.code" placeholder="Enter Shift" ng-required="true" pattern="[a-zA-Z\s]+"/>
+								 <span ng-show="workshiftform.code.$error.required"></span> 
+								 <span ng-show="workshiftform.code.$error.pattern">Enter only numbers </span>
+								  <span ng-show="workshiftform.code.$error.maxlength">Enter upto 30 chars only</span></td>
+								  
+								<td ng-form name="workshiftform1">
+								<input type="number" min=0   max=24 style="width: 60px;" placeholder="hr" name="startHours" ng-model="tab.startHours" ng-required="true" maxlength=2/>
+								<span ng-show="workshiftform1.startHours.$error.maxlength">Enter Only Two Digits</span>
+                                <input type="number" name="StartMintues" min=0  max=59 style="width: 60px;" placeholder="min" ng-model="tab.startMinutes" ng-required="true" maxlength=2/>
+                                <span ng-show="workshiftform1.StartMintues.$error.maxlength">Enter Only Two Digits</span></td>
+                                
+								<td ng-form name="workshiftform2">
+								<input type="number" min=0   max=24 style="width: 60px;"  placeholder="hr" name="finishHours" ng-model="tab.finishHours" ng-required="true" maxlength=2/>
+								<span ng-show="workshiftform2.finishHours.$error.maxlength">Enter Only Two Digits</span>
+								 <input type="number" min=0   max=59 style="width: 60px;"  placeholder="min" name="finishMinutes" ng-model="tab.finishMinutes" ng-required="true"  maxlength=2/>
+								 <span ng-show="workshiftform2.finishMinutes.$error.maxlength">Enter Only Two Digits</span></td>
+								 
+
+							</tr>
+						</table>
+					</div>
+				</div>
+				<div class="panel-footer">
+					<div class="pull-left">
+						<input type="submit" ng-click="workShiftForm.$valid && addRows()"
+							value="Add" ng-show="action =='Add'"
+							class="btn bottomaligned btn-brown btn-sm" validate> <input
+							type="button" ng-click="deleteRows()" value="Delete"
+							ng-show="action =='Add'"
+							class="btn bottomaligned btn-brown btn-sm" validate>
+					</div>
+					<div class="pull-right">
+						<input type="submit"
+							ng-click="workShiftForm.$valid && saveProjWorkShifts()"
+							value="Save" class="btn bottomaligned btn-brown btn-sm"  />
+					</div>
+				</div>
+			</div>
+		</div>
+	</form>
+</div>
+
+
+
+

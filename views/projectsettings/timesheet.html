@@ -1,0 +1,91 @@
+ <div id="table-panel">
+  <h5 align="center spacer0-tb">Weekly Time Sheet Submission and Approval Time Frame Settings</h5>
+ 	
+		 <table class="table borderless">
+		  	<tr><td class="box-border">
+			<table  class="table borderless">
+		    <tr><th colspan="3"><h5 class="text-center"><u>Normal Time Frame from Week Commencement Day</u></h5></th></tr>
+		    
+		    <tr>
+			<td>Week Commencing Day</td>
+			<td><select ng-model="settings.wkcomday"><option value="">-select-</option>
+			<option ng-repeat="day in days">{{day.name}}</option></select></td>
+			</tr>
+			
+			<tr>
+			<td>Week Ending Day</td>
+			<td><select ng-model="settings.wkendday"><option value="">-select-</option>
+			<option ng-repeat="day in days">{{day.name}}</option></select></td>
+			</tr>
+			
+			
+		  <tr>
+		    
+			<td align="center"></td>
+			<td>Cut off Time in Days</td>
+			<td>Cut off Time(24h)</td>
+			
+		  </tr>
+			<tr>
+			<td>Submission</td>
+			<td><input type="text"></td>
+			<td><input type="text"></td>
+			</tr>
+			
+			<tr>
+			<td>Approval</td>
+			<td><input type="text"></td>
+			<td><input type="text"></td>
+			</tr>
+			
+			
+			
+		</table>
+			</td>
+			<td class="box-border">
+		    <table class="table borderless">
+		    <tr>
+		    <th colspan="3"><h5 align="left">Additional Time Grant from Approval Date (Mid Night)</h5></th>
+		    </tr>
+			<!-- <tr>
+			<td><h5 align="left">Work Diary Selection</h5></td>
+			<td><h5 align="right">Grant Additional Time for</h5></td>
+			</tr> -->
+			
+			<tr>
+			<td align="left">Crew Name:<input type="text"></td>
+			</tr>
+			<tr>
+			<td align="left">Week Commencing: <input type="date" name="startDate" ng-model="tab.startDate" ng-required="true"/><p ng-bind="errMessage"></p></td>
+			</tr>
+			<tr>
+			<td align="left">Approver <input type="text"></td>
+			</tr>
+			<tr>
+			<td align="left">Time Sheet Number:<input type="text"></td>
+			</tr>
+			<tr>
+			<td align="left">Additional Time Granted In Hours: <input type="text"></td>
+			</tr>
+			<tr>
+				<td>
+					<table class="table borderless">
+						<tr>
+							<td align="left"><input type="checkbox"/>   For Submission</td>
+							</tr>
+							<tr>
+							<td align="left"><input type="checkbox" />  For Approval</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+			<tr>
+				<td align="right"><input type="submit" value="Approve" ng-click="checkErr(tab.startDate,tab.endDate)"></td>
+			</tr>
+		
+			</table>
+			</td>
+			</tr>
+		</table>
+	<input type="button" value="Save" ng-click="">
+</div>

@@ -1,0 +1,42 @@
+<div class="tab-pannel">
+	<form name="manpowerForm" validate>
+		<div class="panel-body13-2 table-responsive">
+			<table id="vert-align" class="table table-striped table-fixed-header">
+				<thead>
+					<tr>
+						<th>Item ID</th>
+						<th>Item Description</th>
+						<th>Employee Class</th>
+						<th>Qty</th>
+						<th>Estimate({{preContractObj.currencyTO.code}})</th>
+						<th>Cost Code</th>
+						<th>Balance</th>
+						<th>Start Date</th>
+						<th>Finish Date</th>
+						<th>Delivery Place</th>
+
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="item in preContractObj.preContractEmpDtlTOs">
+					
+					
+					<td><span>{{item.itemCode}} </span></td>
+					<td><span>{{item.itemDesc}}</span></td>
+						<td><span>{{projEmpClassmap[item.projEmpLabelKey.id].code}}</span></td>
+						<td><span>{{item.quantity}}</span></td>
+						<td><span>{{item.estimateCost}}</span></td>
+						<td><span>{{projcostCodeMap[item.projCostLabelKey.id].code}}</span></td>
+						<td><span>{{item.balanceBudget}}</span></td>
+						<td>{{item.startDate | date}}</td>
+						<td>{{item.finishDate | date}}</td>
+						<td><span ng-show="item.storeLabelKey.id > 0">
+								{{storeClassmap[item.storeLabelKey.id].code}}<span>{{projStoreClassmap[item.projStoreLabelKey.id].code}}</span></td>
+						
+			
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</form>
+</div>

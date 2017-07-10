@@ -1,0 +1,131 @@
+<div id="tab-pannel" class="panel-group">
+	<form name="proForm" validate>
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h4 class="panel-title">Progress</h4>
+			</div>
+			<div class="panel-body">
+				<div class="table-responsive panel-body12">
+					<table class="table table-bordered table-striped">
+						<thead>
+							<tr>
+								<th rowspan="2" ng-show="action=='Add'">Select</th>
+								<th rowspan="2">SOW Item Id</th>
+								<th rowspan="2">SOR Item Id</th>
+								<th rowspan="2">SOE Item Id</th>
+								<th rowspan="2">Cost Code Id</th>
+								<th rowspan="2">Work Description</th>
+								<th rowspan="2">Unit Of Measure</th>
+								<th colspan="2">Cost Code wise Work Progress</th>
+								<th rowspan="2">Total(Auto Sum)</th>
+								<th rowspan="2">Approval Status</th>
+							</tr>
+							<tr>
+								<th>Code1</th>
+								<th>Code2</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr ng-repeat="progress in addProgresses">
+
+								<td ng-show="action=='Add'"><input type="checkbox"
+									value="id" ng-click="progressPopupRowSelect(progress)" ng-model="progress.select"></td>
+
+								<td><input type="text" name="sowItemId"
+									ng-model="progress.sowItemId"
+									 ng-click="progressDetails()"></td>
+
+								<td><input type="text" name="sorItemId"
+									ng-model="progress.sorItemId" pattern="^[a-z A-Z\d\s\-_.,\%]+$"
+									maxlength="20" placeholder="SOR Item Id" required="required">
+									<span ng-show="proForm.sorItemI.$error.required"></span> <span
+									ng-show="proForm.sorItemI.$error.pattern">Not valid </span> <span
+									ng-show="proForm.sorItemI.$error.maxlength">enter upto
+										20 chars only</span></td>
+
+								<td><input type="text" name="soeItemId"
+									ng-model="progress.soeItemId"
+									pattern="^[a-z A-Z\d\s\-_.,\%]+$" maxlength="20"
+									placeholder="SOE Item Id" required="required"> <span
+									ng-show="proForm.soeItemId.$error.required"></span> <span
+									ng-show="proForm.soeItemId.$error.pattern">Not valid </span> <span
+									ng-show="proForm.soeItemId.$error.maxlength">enter upto
+										20 chars only</span></td>
+
+								<td><input type="text" name="costCodeId"
+									ng-model="progress.costCodeId"
+									pattern="^[a-z A-Z\d\s\-_.,\%]+$" maxlength="20"
+									placeholder="Cost Code Id" required="required"> <span
+									ng-show="proForm.costCodeId.$error.required"></span> <span
+									ng-show="proForm.costCodeId.$error.pattern">Not valid </span> <span
+									ng-show="proForm.costCodeId.$error.maxlength">enter upto
+										20 chars only</span></td>
+
+								<td><input type="text" name="workDescrp"
+									ng-model="progress.workDescrp"
+									pattern="^[a-z A-Z\d\s\-_.,\%]+$" maxlength="20"
+									placeholder="Work Description" required="required"> <span
+									ng-show="proForm.workDescrp.$error.required"></span> <span
+									ng-show="proForm.workDescrp.$error.pattern">Not valid </span> <span
+									ng-show="proForm.workDescrp.$error.maxlength">enter upto
+										20 chars only</span></td>
+								<td><input type="text" name="unitOfMeasure"
+									ng-model="progress.unitOfMeasure"
+									pattern="^[a-z A-Z\d\s\-_.,\%]+$" maxlength="20"
+									placeholder="Unit Of Measure" required="required"> <span
+									ng-show="matestoreForm.unitOfMeasure.$error.required"></span> <span
+									ng-show="matestoreForm.unitOfMeasure.$error.pattern">Not
+										valid </span> <span
+									ng-show="matestoreForm.unitOfMeasure.$error.maxlength">enter
+										upto 20 chars only</span></td>
+								<td><input type="text" name="code1"
+									ng-model="progress.code1" pattern="^[a-z A-Z\d\s\-_.,\%]+$"
+									maxlength="20" placeholder="code1" required="required">
+									<span ng-show="proForm.code1.$error.required"></span> <span
+									ng-show="proForm.code1.$error.pattern">Not valid </span> <span
+									ng-show="proForm.code1.$error.maxlength">enter upto 20
+										chars only</span></td>
+
+								<td><input type="text" name="code2"
+									ng-model="progress.code2" pattern="^[a-z A-Z\d\s\-_.,\%]+$"
+									maxlength="20" placeholder="code2" required="required">
+									<span ng-show="proForm.code2.$error.required"></span> <span
+									ng-show="proForm.code2.$error.pattern">Not valid </span> <span
+									ng-show="proForm.code2.$error.maxlength">enter upto 20
+										chars only</span></td>
+								<td><input type="text" name="total"
+									ng-model="progress.total" pattern="^[a-z A-Z\d\s\-_.,\%]+$"
+									maxlength="20" placeholder="Total" required="required">
+									<span ng-show="proForm.total.$error.required"></span> <span
+									ng-show="proForm.total.$error.pattern">Not valid </span> <span
+									ng-show="proForm.total.$error.maxlength">enter upto 20
+										chars only</span></td>
+								<td><input type="text" name="approvalStatus"
+									ng-model="progress.approvalStatus"
+									pattern="^[a-z A-Z\d\s\-_.,\%]+$" maxlength="20"
+									placeholder="Approval Status" required="required"> <span
+									ng-show="proForm.approvalStatus.$error.required"></span> <span
+									ng-show="proForm.approvalStatus.$error.pattern">Not
+										valid </span> <span ng-show="proForm.approvalStatus.$error.maxlength">enter
+										upto 20 chars only</span></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+			<div class="panel-footer">
+				<div class="pull-right">
+					<input type="button"  class="btn btn-brown bottomaligned"
+						ng-click="saveProgress()" value="Save">
+				</div>
+				<div class="pull-left">
+					<input type="button" class="btn btn-brown bottomaligned"
+						ng-show="action=='Add'" ng-click="addRows()"
+						value="AddRows"> <input type="button"
+						class="btn btn-brown bottomaligned" ng-show="action=='Add'"
+						ng-click="deleteRows()" value="DeleteRows">
+				</div>
+			</div>
+		</div>
+	</form>
+</div>

@@ -1,0 +1,27 @@
+<div id="tab-pannel" class="container-fluid" ng-init="getAttendenceId()">
+	<div class="panel-group">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h4 class="panel-title">leave Type List</h4>
+			</div>
+			<div class="table-responsive">
+				<table class="table table-striped table-fixed newTbl" fixed-header>
+					<thead id="tab-head">
+						<tr>
+							<th>Attendance Id</th>
+							<th>Month</th>
+							<th>Year</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat="attend in attendanceIdDtls | orderBy:['attendId']"" ng-click="selectdData(attend)">
+							<td>{{attend.attendId}}</td>
+							<td>{{attend.month}}</td>
+							<td>{{attend.year}}</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,53 @@
+<div id="tab-pannel">
+<div class="panel-group">
+		<div class="panel panel-body23-0">
+		<div class="table-responsive">
+			<table class="table table-bordered table-striped">
+				<thead>
+					<tr>
+						<th>Select</th>
+						<th>Date</th>
+						<th>Project Posting#</th>
+						<th>EPS ID</th>
+						<th>EPS Name</th>
+						<th>Project ID</th>
+						<th>Project Name</th>
+						<th>Record#</th>
+						<th>Item / Record</th>
+						<th>Particulars</th>
+						<th>Upload Documents</th>
+						<th>Notes</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="medicalrecords in empMedicalHistory">
+						<td><input type="checkbox" value="id"
+							ng-model="medicalrecords.selected" ng-click="medicalRecordsRowSelect(medicalrecords)"></td>
+						<td>{{medicalrecords.date|date}}</td>
+						<td>{{medicalrecords.projectPosting}}</td>
+						<td>{{medicalrecords.epsId}}</td>
+						<td>{{medicalrecords.epsName}}</td>
+						<td>{{medicalrecords.pId}}</td>
+						<td>{{medicalrecords.pName}}</td>
+						<td>{{medicalrecords.record}}</td>
+						<td>{{medicalrecords.itemRecord}}</td>
+						<td>{{medicalrecords.particulars}}</td>
+						<td>{{medicalrecords.documents}}</td>
+						<td>{{medicalrecords.notes}}</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+</div>
+<div class="panel-footer">
+<div class="pull-right">
+	<input type="button" class="btn btn-brown btn-sm" ng-click="addMedicalRecord('Add')" value="Create">
+	</div>
+	<div class="pull-left">
+	  <input type="button" class="btn btn-brown btn-sm" ng-click="addMedicalRecord('Edit')" value="Edit">
+	  	 <input type="button" class="btn btn-brown btn-sm" ng-click="deleteMedicalRecord()" value="Deactivate">
+</div>
+</div>
+</div>
+</div>
+

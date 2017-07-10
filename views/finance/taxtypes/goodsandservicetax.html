@@ -1,0 +1,62 @@
+<div id="tab-pannel" ng-controller="GoodsAndServiceController" ng-init="getServiceTax()">
+	<div class="panel-group panel panel-default">
+		<div class="panel-heading">
+			<h4 class="panel-title">GoodsAndService</h4>
+		</div>
+		<div class="panel-body25 spacer1">
+			
+		<div class="panel-group">
+		
+		<table class="table table-striped table-bordered">
+			<thead>
+        	<tr>
+        	<th>Select</th>
+        		<th>Invoice amount</th>
+        		<th>Tax Rate in %</th>
+        	    <th>Notes</th>
+        		
+        		
+        	</tr>
+        	
+        	</thead>
+        	<tbody>
+        	<tr ng-repeat="goods in servicetax">
+				
+				<td><input type="checkbox" ng-model="goods.select"
+							ng-click="goodstaxrowselect(goods)"></td>
+							
+				<td>{{goods.taxCalculationMstrTO.invoiceAmount}}</td>
+				<td>{{goods.taxCalculationMstrTO.taxRate}}</td>
+                <td>{{goods.taxCalculationMstrTO.comments}}</td>
+                
+              </tr>
+              </tbody>
+        </table>
+		</div>
+		</div>
+<div class="panel-footer">
+		<div class="pull-right">
+			<input type="button" class="btn bottomaligned btn-brown btn-sm"
+				value="Create" ng-click="addGoodsTax ('Add',null)">
+		</div>
+		<div class="pull-left">
+			<input type="button" class="btn bottomaligned btn-brown btn-sm"
+				value="Edit" ng-click="addGoodsTax ('Edit',null)">
+		</div>
+	
+		<div class="pull-left">
+			<input type="button" class="btn bottomaligned btn-brown btn-sm"
+				value="Deactivate" ng-click="deteteGoodsTax ('Deactivate',null)">
+		</div>
+		
+	</div>
+	
+</div>
+			
+	  </div>
+ 
+ 
+ 
+    
+    
+  

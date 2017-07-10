@@ -1,0 +1,77 @@
+<div id="tab-pannel" class="panel-group">
+	<form name="measureForm" validate>
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h4 class="panel-title">Measuring Units</h4>
+			</div>
+			<div class="panel-body10">
+				<div id="tableHeight8-2" class="table-responsive">
+					<table class="table table-striped" fixed-header>
+						<thead id="tab-head">
+							<tr>
+								<th ng-show="action =='Add'">Select</th>
+								<th>Measurement Code</th>
+								<th>Measurement Name</th>
+								<th>Classifications</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr ng-repeat="measurement in measureUnits">
+								<td class="checkbox" ng-show="action =='Add'"><input
+									type="checkbox" ng-model="measurement.selected"
+									ng-click="popUpRowSelect(measurement)"></td>
+
+								<td ng-form name="measureform"><input type="text"
+									name="code" ng-model="measurement.code"
+									pattern="^[a-zA-Z\d\s.,]+$" maxlength="20" minlength="2"
+									placeholder="Measurement  Code" ng-required="true"> <span
+									ng-show="measureform.code.$dirty && measureform.code.$error.required">This
+										field is required</span> <span
+									ng-show="measureform.code.$error.pattern">Special
+										characters not allowed</span> <span
+									ng-show="measureform.code.$error.maxlength">Enter upto
+										20 chars only</span> <span
+									ng-show="measureform.code.$error.minlength">To Short!</span></td>
+
+								<td ng-form name="measureform1"><input type="text"
+									name="name" ng-model="measurement.name"
+									pattern="^[a-z A-Z\d\s.,]+$" maxlength="30" minlength="3"
+									placeholder="Measurement Name" ng-required="true"> <span
+									ng-show="measureform1.name.$dirty && measureform1.name.$error.required">This
+										field is required</span> <span
+									ng-show="measureform1.name.$error.pattern">Special
+										characters not allowed </span> <span
+									ng-show="measureform1.name.$error.maxlength">Enter upto
+										30 chars only</span> <span
+									ng-show="measureform1.name.$error.minlength">To Short!</span></td>
+
+								<td ng-form name="measureform2"><select
+									ng-change="updateMeasurementCode(measurement.procurementTO,measurement);"
+									ng-options="cat.name  for cat in proCategory track by cat.name"
+									name="classification" ng-model="measurement.procurementTO"
+									ng-required="true">
+										<option value="">-select-</option>
+								</select></td>
+							</tr>
+
+						</tbody>
+					</table>
+				</div>
+			</div>
+			<div class="panel-footer">
+				<div class="pull-left">
+					<input type="submit" ng-click="measureForm.$valid && addRows()"
+						value="Add" class="btn bottomaligned btn-brown btn-sm"
+						ng-show="action =='Add'"> <input type="button"
+						ng-click="deleteRows()" value="Delete"
+						class="btn bottomaligned btn-brown btn-sm"
+						ng-show="action =='Add'">
+				</div>
+				<div class="pull-right">
+					<input type="submit" class="btn  bottomaligned btn-brown btn-sm"
+						value="Save" ng-click="measureForm.$valid && saveMeasurements()" />
+				</div>
+			</div>
+		</div>
+	</form>
+</div>

@@ -1,0 +1,75 @@
+<div id="tab-pannel" class="panel-group">
+<form name="medicalrecordsForm" validate>
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<h4 class="panel-title">Medical History</h4>
+		</div>
+		<div class="panel-body15">
+				<div class="table-responsive ">
+					<table class="table table-bordered table-striped">
+						<thead>
+							<tr>
+								<th>Select</th>
+								<th>Date</th>
+								<th>Project Posting#</th>
+								<th>EPS ID</th>
+								<th>EPS Name</th>
+								<th>Project ID</th>
+								<th>Project Name</th>
+								<th>Record#</th>
+								<th>Item / Record</th>
+								<th>Particulars</th>
+								<th>Upload Documents</th>
+								<th>Notes</th>
+							</tr>
+						</thead>
+						<tbody id="vert-align">
+							<tr ng-repeat="medicalrecords in addEmpMedicalHistory">
+								<td><input type="checkbox" value="medicalrecords.id"
+									ng-model="medicalrecords.selected" ng-click=medicalHistoryPopUpRowSelect(tab)></td>
+								<td><input type="date" name="date" ng-model="medicalrecords.date"
+									placeholder="date" ng-required="true"></td>
+								<td class="input-width"><input type="number" name="projectPosting"
+									ng-model="medicalrecords.projectPosting" placeholder="projectPosting"
+									ng-required="true"></td>
+								<td class="input-width"><input type="text" name="epsId" ng-model="medicalrecords.epsId"
+									placeholder="epsId" readonly="readonly"></td>
+								<td class="input-width"><input type="text" name="epsName"
+									ng-model="medicalrecords.epsName" placeholder="epsName"
+									readonly="readonly"></td>
+								<td class="input-width"><input type="text" name="pId" ng-model="medicalrecords.pId"
+									placeholder="pId" readonly="readonly"></td>
+								<td class="input-width"><input type="text" name="pName" ng-model="medicalrecords.pName"
+									placeholder="pName" readonly="readonly"></td>
+								<td class="input-width"><input type="text" name="record" ng-model="medicalrecords.record"
+									placeholder="record" ng-required="true"></td>
+								<td class="input-width"><input type="text" name="itemRecord"
+									ng-model="medicalrecords.itemRecord" placeholder="itemRecord"
+									ng-required="true"></td>
+								<td class="input-width"><input type="text" name="particulars"
+									ng-model="medicalrecords.particulars" placeholder="particulars"
+									ng-required="true"></td>
+								<td><input type="file" name="documents"
+									ng-model="medicalrecords.documents" placeholder="documents"
+									ng-required="true"></td>
+								<td class="input-width"><input type="text" data-toggle="tooltip" data-placement="top" title="{{medicalrecords.notes}}" name="notes"
+										ng-model="medicalrecords.notes" placeholder="notes" ng-required="true"></td>
+							</tr>
+						</tbody>
+					</table>
+		</div>
+		</div>
+		<div class="panel-footer">
+			<div class="pull-right">
+				<input type="button" class="btn btn-brown bottomaligned" ng-click="save()" value="Save">
+				</div>
+				<div class="pull-left">
+				<input type="button" class="btn btn-brown bottomaligned" ng-click="addRows()" value="Add" ng-show="action =='Add'">
+				<input type="button" class="btn btn-brown bottomaligned" ng-click="deleteRows()" value="Delete" ng-show="action =='Add'">
+			</div>
+			</div>
+		</div>
+			</form>
+	</div>
+
+

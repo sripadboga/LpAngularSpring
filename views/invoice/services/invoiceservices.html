@@ -1,0 +1,52 @@
+<div
+	class="table-responsive panel-body6 panel-collapse collapse in spacer0">
+	<table class="table table-striped" fixed-header>
+		<thead>
+			<tr>
+				<th>Item ID</th>
+				<th>Item Description</th>
+				<th>Service Type</th>
+				<th>Qty</th>
+				<th>Estimate({{preContractObj.currencyTO.code}})</th>
+				<th>Cost Code</th>
+				<th>Balance</th>
+				<th>Start Date</th>
+				<th>Finish Date</th>
+				<th>Delivery Place</th>
+				<th ng-repeat="cmp in companyList"><span
+					style="text-align: center">
+						{{companyMap[cmp.companyId].code}}</span></th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="item in preContractObj.preContractServiceDtlTOs">
+				<td><span>{{item.itemCode}}</span></td>
+				<td><span>{{item.itemDesc}}</span></td>
+				<td><span>{{projServiceClassmap[item.projServiceLabelKey.id].code}}</span></td>
+				<td><span>{{item.quantity}}</span></td>
+				<td><span>{{item.estimateCost}}</span></td>
+				<td><span>{{projcostCodeMap[item.projCostLabelKey.id].code}}</span></td>
+				<td><span>{{item.balanceBudget}}</span></td>
+				<td>{{item.startDate | date}}</td>
+				<td>{{item.finishDate | date}}</td>
+				<td><span ng-show="item.storeLabelKey.id > 0">
+						{{storeClassmap[item.storeLabelKey.id].code}}<span>{{projStoreClassmap[item.projStoreLabelKey.id].code}}</span>
+				</span></td>
+				<td><span
+					ng-repeat="itemCompany in item.preContractServiceCmpTOs">{{itemCompany.rate}}</span></td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+<div id="tabs" class="spacer0 panel-body13-2">
+	<div class="panel panel-default">
+		<ul class="nav  nav-tabs">
+			<li ng-repeat="childTab in invoiceDetailTabs[3].childTabs"
+				ng-class="{active:isActiveServiceTab(childTab.url)}"><a
+				data-toggle="tab" ng-click="onClickServiceTab(childTab)">{{childTab.title}}</a></li>
+		</ul>
+		<div class="tab-content">
+			<div ng-include="currentServiceTab"></div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,126 @@
+<div id="tab-pannel" class="panel-group">
+	<form name="plntRegForm5" validate>
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<h4 class="panel-title">Approval For Transfer</h4>
+		</div>
+		<div class="table-responsive">
+			<div id="tab-pannel" class="panel-body15">
+					<table class="table table-bordered table-striped">
+						<thead>
+							<tr>
+					<th>Select</th>
+					<th>Date of Request</th>
+					<th>Originator ID & Name</th>
+					<th>Requisition Notification #</th>
+					<th>Approval date</th>
+					<th>Approver Person ID & Name</th>
+					<th>Approver Decision   Notification #</th>
+					<th>Company Asset ID</th>
+					<th>Registration Number</th>
+					<th>Plant Description</th>
+					<th>Make</th>
+					<th>Model</th>
+					<th>Current Project ID</th>
+					<th>Current Project Name</th>
+					<th>For Project ID</th>
+					<th>For Project Name</th>
+					<th>Anticipated  de-mobilization date</th>
+					<th>Transfer Required Date</th>
+					<th>Multiple Plant Selection  for Transfer</th>
+					<th>Approver Decision</th>
+					<th>Agreed Date  for  Transfer</th>
+					
+
+							</tr>
+						</thead>
+						<tbody>
+
+
+							<tr ng-repeat="approval in addPendingApproval">
+								<td class="vert-align"><input type="checkbox" value="approval.id"
+									ng-model="approval.selected"></td>
+								<td class="input-width"><input type="text" name="dateofRequest" ng-model=approval.dateofRequest
+									placeholder="date" ng-required="true" pattern="[a-zA-Z-\d\s]+"><span
+									ng-show="plntRegForm5.dateofRequest.$error.pattern">only alpha
+										numerics allowed</span></td>
+								<td class="input-width"><input type="text" name="originatorIdName"
+									ng-model="approval.originatorIdName" placeholder="originatorIdName"
+									ng-required="true" pattern="[a-zA-Z-\s]+"><span
+									ng-show="plntRegForm5.originatorIdName.$error.pattern">only
+										alphabets allowed</span></td>
+
+								<td class="input-width"><input type="text" name="reqNotification" ng-model="approval.reqNotification"
+									placeholder="Eps" ng-required="true"></td>
+
+
+								<td class="input-width"><input type="text" name="approvaldate"
+									ng-model="approval.approvaldate" placeholder="approvaldate"
+									ng-required="true"></td>
+								<td class="input-width"><input type="text" name="approverpersonIdName"
+									ng-model="approval.approverpersonIdName" placeholder="approverpersonIdName"
+									ng-required="true"></td>
+								<td class="input-width"><input type="text" name="approverDecision"
+									ng-model="approval.approverDecision" placeholder="approverDecision"
+									ng-required="true"></td>
+
+
+								<td class="input-width"><input type="text" name="companyassetId"
+									ng-model="approval.companyassetId" placeholder="companyassetId"
+									ng-required="true"></td>
+								<td class="input-width"><input type="text" name="regNum"
+									ng-model="approval.regNum" placeholder="regNum"
+									ng-required="true"></td>
+								<td class="input-width"><input type="text" name="plntDes"
+									ng-model="approval.plntDes" placeholder="plntDes"
+									ng-required="true"></td>
+								<td class="input-width"><input type="text" name="make"
+									ng-model="approval.make" placeholder="make"
+									ng-required="true"></td>
+									
+									<td class="input-width"><input type="text" name="model"
+									ng-model="approval.model" placeholder="model"
+									ng-required="true"></td>
+									<td class="input-width"><input type="text" name="currentprojectId"
+									ng-model="approval.currentprojectId" placeholder="currentprojectId"
+									ng-required="true"></td>
+									<td class="input-width"><input type="text" name="currentprojectName"
+									ng-model="approval.currentprojectName" placeholder="currentprojectName"
+									ng-required="true"></td>
+									<td class="input-width"><input type="text" name="forprojId"
+									ng-model="approval.forprojId" placeholder="forprojId"
+									ng-required="true"></td>
+									<td class="input-width"><input type="text" name="forprojName"
+									ng-model="approval.forprojName" placeholder="forprojName"
+									ng-required="true"></td>
+									<td class="input-width"><input type="text" name="anticipateDemodate"
+									ng-model="approval.anticipateDemodate" placeholder="anticipateDemodate"
+									ng-required="true"></td>
+									<td class="input-width"><input type="text" name="transferReqDate"
+									ng-model="approval.transferReqDate" placeholder="transferReqDate"
+									ng-required="true"></td>
+									<td class="input-width"><input type="text" name="multipleplnt"
+									ng-model="approval.multipleplnt" placeholder="multipleplnt"
+									ng-required="true"></td>
+									 <td class="input-width"><input type="text" name="approverDecision"
+									ng-model="approval.approverDecision" placeholder="approverDecision"
+									ng-required="true"></td> 
+			
+									<td class="input-width"><input type="text" name="agreedDate"
+									ng-model="approval.agreedDate" placeholder="agreedDate"
+									ng-required="true"></td>
+									
+							</tr>
+						</tbody>
+					</table>
+			</div>
+		<div class="panel-footer">
+				<div class="pull-right">
+					<input type="button" class="btn  btn-brown btn-sm"
+						ng-click="save()" value="Save">
+				</div>
+			</div>
+		</div>
+	</div>
+	</form>
+</div>

@@ -1,0 +1,35 @@
+<div id="tab-pannel">
+	<div class="panel-group">
+		<div class="panel  panel-body23-0">
+			<div class="table-responsive">
+				<table class="table table-bordered table-striped">
+					<thead>
+						<tr>
+							<th rowspan=2>Country</th>
+							<th rowspan=2>Province</th>
+							<th colspan=2>Financial Year</th>
+							<th rowspan=2>Effective from Date</th>
+							<th rowspan=2>Pay Roll Period Cycle List #</th>
+							<th rowspan=2>More Details</th>
+						</tr>
+						<tr>
+							<th>From</th>
+							<th>To</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat="regularPayCode in regularPayCodeList">
+							<td>{{regularPayCode.country}}</td>
+							<td>{{regularPayCode.province}}</td>
+							<td>{{regularPayCode.fromDate}}</td>
+							<td>{{regularPayCode.toDate}}</td>
+							<td>{{regularPayCode.effectiveFrom}}</td>
+							<td>{{regularPayCode.payrollPeriodList}}</td>
+							<td>{{regularPayCode.moreDetails}}</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>

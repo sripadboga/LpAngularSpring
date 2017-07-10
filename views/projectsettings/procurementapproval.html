@@ -1,0 +1,49 @@
+<div id="tab-pannel" class="box-border text-black">
+	<div class="panel-body11-1">
+		<div class="row">
+			<div class="col-xs-12 col-sm-12 col-md-12">
+				<h5 class="text-center spacer2">
+					<span class="underline">Additional Time Frame For Approval</span>
+				</h5>
+				<div class="row spacer2">
+					<div class="col-xs-2 col-sm-2 col-md-2 ">
+						</div>
+					<div class="col-xs-6 col-sm-4 col-md-4 text-right">Requisition
+						Date:</div>
+					<div class="col-xs-6 col-sm-8 col-md-4">
+						<input type="text" potdate-picker id="startDate" style="width: 154px;"
+							ng-model="procureAppr.requisitionDate" ng-required="true" />
+					</div>
+				</div>
+				<div class="row spacer0">
+					<div class="col-xs-2 col-sm-2 col-md-2 "></div>
+					<div class="col-xs-6 col-sm-4 col-md-4 text-right">Notification
+						Number:</div>
+					<div class="col-xs-6 col-sm-4 col-md-4">
+						<input type="text" readonly="readonly"
+							ng-model="procureAppr.projProcureLabelKeyTO.code"
+							ng-click="getProcurementNotifications(procureAppr.projProcureLabelKeyTO)">
+					</div>
+				</div>
+				<div class="row spacer0">
+					<div class="col-xs-6 col-sm-4 col-md-4"></div>
+					<div class="col-xs-6 col-sm-8 col-md-8 spacer0">
+						<input type="checkbox" /> Stage 1 InternalApproval
+					</div>
+				</div>
+				<div class="row spacer0">
+					<div class="col-xs-6 col-sm-4 col-md-4"></div>
+					<div class="col-xs-6 col-sm-8 col-md-8 spacer0">
+						<input type="checkbox" /> Stage 2 InternalApproval
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="panel-footer">
+		<div class="pull-right">
+			<input type="button" class="btn bottomaligned btn-brown btn-sm"
+				value="Approval" ng-click="saveProjProcurementAppr()">
+		</div>
+	</div>
+</div>

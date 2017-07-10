@@ -1,0 +1,47 @@
+<div id="time-pannel" ng-controller="ApproveTimeSheetController">
+	<div class="panel-group panel panel-default" ng-init="getProjectEps()">
+    <div class="panel-body1 spacer1">
+	<div id="time-pannel" class="panel-group">
+	<div class="panel-group">
+		
+			<div class="timele-responsive panel-body20 panel-collapse collapse in">
+			<table class="table table-striped table-bordered">
+			<thead>
+        	<tr>
+        		<th>select</th>
+        		<th>Date</th>
+        		<th>EmployeeID</th>
+        		<th>FirstName</th>
+        		<th>surName</th>
+        		<th>costCodeId</th>
+        	    <th>Amount</th>
+        	    <th>Description</th>
+        	</tr>
+        	</thead>
+        <tbody>
+        	<tr ng-repeat="expenses in expensesList">
+				<td><input type="checkbox" value="id" ng-model="expenses.selectd" ng-click="expensesRowSelect(expenses)"></td>
+				<td>{{expenses.Date}}</td>
+				<td>{{expenses.employeeId}}</td>
+				<td>{{expenses.firstName}}</td>
+				<td>{{expenses.surName}}</td>
+				<td>{{expenses.costcodeId}}</td>
+				<td>{{expenses.amount}}</td>
+				<td>{{expenses.desc}}</td>
+			 </tr>
+          </tbody>
+          </table>
+        </div>
+      </div>
+      </div>
+</div>
+</div>
+</div>
+
+
+
+
+
+
+
+

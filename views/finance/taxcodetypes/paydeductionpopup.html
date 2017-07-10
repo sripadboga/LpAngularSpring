@@ -1,0 +1,78 @@
+<div id="tab-pannel" class="panel-group">
+	<form name="payDeductionForm" validate>
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h4 class="panel-title">PayDeduction</h4>
+			</div>
+			<div class="panel-body10">
+				<div id="tableHeight8-2" class=" table-responsive">
+					<table class="table table-striped" fixed-header>
+						<thead id="tab-head">
+							<tr>
+								<th ng-show="action =='Add'">Select</th>
+								<th>Code</th>
+								<th>Name</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr ng-repeat="payDeduction in addPayDeductionCodes">
+								<td ng-show="action =='Add'"><input type="checkbox"
+									ng-model="payDeduction.selected"
+									ng-click="popUpRowSelect(payDeduction)"></td>
+	
+								<td ng-form name="classform"><input type="text" name="code"
+									ng-model="payDeduction.payDeductionMstrTO.code"
+									pattern="^[a-zA-Z\d\s.,]+$" minlength="2" maxlength="20"
+									placeholder="Code" required="required"> <span
+									ng-show="classform.code.$dirty && classform.code.$error.required">This
+										field is required</span> <span
+									ng-show="classform.code.$error.minlength">Too Short!</span> <span
+									ng-show="classform.code.$error.pattern">Must enter
+										required format</span> <span ng-show="classform.code.$error.maxlength">You
+										reached max length</span></td>
+	
+								<td ng-form name="classform1"><input type="text" name="name"
+									ng-model="payDeduction.payDeductionMstrTO.name"
+									pattern="^[a-zA-Z\d\s.,]+$" minlength="3" maxlength="50"
+									placeholder="Name" required="required"> <span
+									ng-show="classform1.name.$dirty && classform1.name.$error.required">This
+										field is required</span> <span
+									ng-show="classform1.name.$error.minlength">Too Short!</span> <span
+									ng-show="classform1.name.$error.pattern">Must enter
+										required format</span> <span
+									ng-show="classform1.name.$error.maxlength">You reached
+										max length</span></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+			<div class="panel-footer">
+				<div class="pull-left">
+					<input type="submit"
+						ng-click="payDeductionForm.$valid && addRows()" value="Add"
+						ng-show="action =='Add'"
+						class="btn bottomaligned btn-brown btn-sm" value="Add" /> <input
+						type="button" ng-click="deleteRows()" value="Delete"
+						ng-show="action =='Add'"
+						class="btn bottomaligned btn-brown btn-sm">
+				</div>
+				<div class="pull-right">
+					<input type="submit"
+						ng-click="payDeductionForm.$valid && savePayDeductions()"
+						class="btn bottomaligned btn-brown btn-sm" value="Save"  />
+				</div>
+			</div>
+		</div>
+	</form>
+</div>
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,38 @@
+<div class="tab-content panel-body16">
+	<div class="panel-heading">
+		<h4 class="panel-title">Scope of Works List</h4>
+	</div>
+
+	<div class="table-responsive">
+		<table class="table table-bordered table-striped">
+			<thead>
+				<tr>
+					<!-- <th rowspan="2">Select</th> -->
+					<th rowspan="2">SOW Item Id</th>
+					<th rowspan="2">SOW Group Name</th>
+					<th rowspan="2">SOW Sub Group Name</th>
+					<th rowspan="2">SOR Item Id</th>
+					<th rowspan="2">SOE Item Id</th>
+					<th rowspan="2">SOW Item Description</th>
+					<th rowspan="2">Cost Code Id</th>
+					<th rowspan="2">Unit Of Measure</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="progressList in progressListDetails">
+					<!-- 	<td><input type="checkbox"
+								ng-click="progressRowSelect(progress)"
+								ng-model="progress.select"></td> -->
+					<td>{{progressList.sowItemId}}</td>
+					<td>{{progressList.sowGName}}</td>
+					<td>{{progressList.sowSubGName}}</td>
+					<td>{{progressList.sorItemId}}</td>
+					<td>{{progressList.soeItemId}}</td>
+					<td>{{progressList.desc}}</td>
+					<td>{{progressList.costCodeId}}</td>
+					<td>{{progressList.unitOfMeasure}}</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>

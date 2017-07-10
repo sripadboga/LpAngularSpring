@@ -1,0 +1,118 @@
+<div id="tab-pannel">
+	<div class="panel-group">
+		<div class="panel panel-body23-0">
+			<div class="table-responsive">
+				<table class="table table-bordered table-striped">
+					<thead>
+						<tr>
+							<th rowspan=4>Select</th>
+							<th rowspan=4>Project Posting#</th>
+							<th rowspan=4>Effective From</th>
+							<th rowspan=4>EPS ID</th>
+							<th rowspan=4>EPS Name</th>
+							<th rowspan=4>Project ID</th>
+							<th rowspan=4>Project Name</th>
+							<th rowspan=4>Parent Company ID</th>
+							<th rowspan=4>Parent Company Name</th>
+							<th rowspan=4>Employee Tax File Number</th>
+							<th rowspan=4>Currency</th>
+							<th rowspan=4>Unit of Pay Rate</th>
+							<th rowspan=4>Pay Cycle</th>
+							<th colspan=10 class="text-center">Tax and Levy Exemptions
+								related questionaries</th>
+							<th colspan=5 class="text-center">Applicable Pay Deductions
+								as per current year Tax rules and Employee declarations</th>
+							<th rowspan=4>Employee Documents</th>
+						</tr>
+						<tr>
+							<th rowspan=3>Resident or Non Resident for tax purposes</th>
+							<th rowspan=3>Married Status</th>
+							<th rowspan=3>Number of Dependent Children</th>
+							<th rowspan=3>Pay and allowances are Taxebale ?</th>
+							<th colspan=2 class="text-center">Eligibility for Tax Free
+								Threshold</th>
+							<th colspan=2 class="text-center">Eligibility for Medical
+								levy Tax Exemptions</th>
+							<th colspan=2 class="text-center">TSF</th>
+							<th colspan=2 class="text-center">HL <br>Home Loan
+								Deduction
+							</th>
+							<th colspan=1 class="text-center">LWP<br>Leave Without
+								Pay Deduction
+							</th>
+							<th colspan=2 class="text-center">HECS<br>Higher
+								Education Contribution Scheme Loan
+							</th>
+						</tr>
+						<tr>
+							<th rowspan=2>Yes or No</th>
+							<th rowspan=2>If Yes, eligble amount</th>
+							<th rowspan=2>Yes or No</th>
+							<th rowspan=2>If Yes, % on Medical levy tax</th>
+							<th colspan=1 class="text-center">Is super fund Contribution
+								from Company is Taxable</th>
+							<th colspan=1 class="text-center">Is super fund Contribution
+								from Employee is Taxable</th>
+							<th rowspan=2>% on BP</th>
+							<th rowspan=2>Fixed amount</th>
+							<th rowspan=2>Rate per Day</th>
+							<th rowspan=2>% on BP</th>
+							<th rowspan=2>Fixed amount</th>
+						</tr>
+						<tr>
+							<th>Yes or No</th>
+							<th>Yes or No</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat="deduction in empPayDeductionTax">
+							<td><input type="checkbox" value="id"
+								ng-model="deduction.selected"
+								ng-click="payDeductionRowSelect(deduction)"></td>
+							<td>{{deduction.projectPosting}}</td>
+							<td>{{deduction.effectiveFrom|date}}</td>
+							<td>{{deduction.epsId}}</td>
+							<td>{{deduction.epsName}}</td>
+							<td>{{deduction.pId}}</td>
+							<td>{{deduction.pName}}</td>
+							<td>{{deduction.pComId}}</td>
+							<td>{{deduction.pComName}}</td>
+							<td>{{deduction.taxNum}}</td>
+							<td>{{deduction.currency}}</td>
+							<td>{{deduction.payRate}}</td>
+							<td>{{deduction.payCycle}}</td>
+							<td>{{deduction.residentOrNonResident}}</td>
+							<td>{{deduction.marriedStatus}}</td>
+							<td>{{deduction.children}}</td>
+							<td>{{deduction.allowancesTaxable}}</td>
+							<td>{{deduction.yesOrNo1}}</td>
+							<td>{{deduction.eligibleAmount}}</td>
+							<td>{{deduction.yesOrNo2}}</td>
+							<td>{{deduction.medicalTax}}</td>
+							<td>{{deduction.yesOrNo3}}</td>
+							<td>{{deduction.yesOrNo4}}</td>
+							<td>{{deduction.bp1}}</td>
+							<td>{{deduction.fixedAmount1}}</td>
+							<td>{{deduction.ratePerDay}}</td>
+							<td>{{deduction.bp2}}</td>
+							<td>{{deduction.fixedAmount2}}</td>
+							<td>{{deduction.doc}}</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+			<div class="panel-footer">
+				<div class="pull-right">
+					<input type="button" class="btn btn-brown btn-sm"
+						ng-click="addPayDeduction('Add')" value="Create">
+				</div>
+				<div class="pull-left">
+					<input type="button" class="btn btn-brown btn-sm"
+						ng-click="addPayDeduction('Edit')" value="Edit"> <input
+						type="button" class="btn btn-brown btn-sm"
+						ng-click="deletePayDeduction()" value="Deactivate">
+				</div>
+			</div>
+		</div>
+	</div>

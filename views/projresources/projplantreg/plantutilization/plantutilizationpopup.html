@@ -1,0 +1,108 @@
+<div id="tab-pannel" class="panel-group">
+	<form name="plntRegForm9" validate>
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<h4 class="panel-title">Utilization Records</h4>
+		</div>
+		<div class="table-responsive">
+			<div id="tab-pannel" class="panel-body15">
+					<table class="table table-bordered table-striped">
+						<thead>
+							<tr>
+								<th>Project Deployment</th>
+								<th>EPS Name</th>
+								<th>Project Name</th>
+								<th>Assert ID</th>
+								<th>Project plant ID</th>
+								<th>Mobilization Date</th>
+								<th>De-mobilization Date</th>
+								<th>Unit of Measure</th>
+								<th>Project wise-used Units</th>
+								<th>Project Wise -Idle Time Units</th>
+								<th>Cumulative -Used Units</th>
+								<th>Cumulative -Idle Units</th>
+								<th>Odo meter reading-on Mobilization date</th>
+								<th>Odo meter reading-on de-mobilization date</th>
+								<th>Project wise Units of usage-as per meter</th>
+								<th>Notes</th>
+							</tr>
+						</thead>
+						<tbody>
+
+							<tr ng-repeat="utilization in addUtilizationData">
+								<td class="input-width"><input type="text" name="projectDeploy"
+									ng-model=utilization.projectDeploy placeholder="date"
+									ng-required="true" pattern="[a-zA-Z-\d\s]+"><span
+									ng-show="plntRegForm9.projectDeploy.$error.pattern">only
+										alpha numerics allowed</span></td>
+								<td class="input-width"><input type="text" name="epsName"
+									ng-model="utilization.epsName" placeholder="epsName"
+									ng-required="true" pattern="[a-zA-Z-\s]+"><span
+									ng-show="plntRegForm9.epsName.$error.pattern">only
+										alphabets allowed</span></td>
+
+								<td class="input-width"><input type="text" name="projectName"
+									ng-model="utilization.projectName" placeholder="projectName"
+									ng-required="true"></td>
+
+
+								<td class="input-width"><input type="text" name="assertId"
+									ng-model="utilization.assertId" placeholder="assertId"
+									ng-required="true"></td>
+								<td class="input-width"><input type="text" name="projectPlntId"
+									ng-model="utilization.projectPlntId" placeholder="projectPlntId"
+									ng-required="true"></td>
+								<td><input type="Date" name="mobilisationDate"
+									ng-model="utilization.mobilisationDate" placeholder="mobilisationDate"
+									ng-required="true"></td>
+
+
+
+
+								<td><input type="Date" name="deMobilisationDate"
+									ng-model="utilization.deMobilisationDate"
+									placeholder="deMobilisationDate" ng-required="true"></td>
+								<td class="input-width"><input type="text" name="unitOfMeasure"
+									ng-model="utilization.unitOfMeasure" placeholder="unitOfMeasure"
+									ng-required="true"></td>
+								<td class="input-width"><input type="text" name="projectWiseUsedUnit"
+									ng-model="utilization.projectWiseUsedUnit"
+									placeholder="projectWiseUsedUnit" ng-required="true"></td>
+								<td class="input-width"><input type="text" name="projectWiseIdleTime"
+									ng-model="utilization.projectWiseIdleTime"
+									placeholder="projectWiseIdleTime" ng-required="true"></td>
+
+
+								<td class="input-width"><input type="text" name="cumulativeUsed"
+									ng-model="utilization.cumulativeUsed" placeholder="cumulativeUsed"
+									ng-required="true"></td>
+								<td class="input-width"><input type="text" name="cumulativeIdle"
+									ng-model="utilization.cumulativeIdle" placeholder="cumulativeIdle"
+									ng-required="true"></td>
+								<td><input type="Date" name="odoMeterRdngOnMobilisation"
+									ng-model="utilization.odoMeterRdngOnMobilisation"
+									placeholder="odoMeterRdngOnMobilisation" ng-required="true"></td>
+								<td><input type="Date" name="odoMeterRdngOnDeMobilisation"
+									ng-model="utilization.odoMeterRdngOnDeMobilisation"
+									placeholder="odoMeterRdngOnDeMobilisation"
+									ng-required="true"></td>
+								<td class="input-width"><input type="text" name="projectWiseUnits"
+									ng-model="utilization.projectWiseUnits" placeholder="projectWiseUnits"
+									ng-required="true"></td>
+								<td class="input-width"><input type="text" name="notes"
+										ng-model="utilization.notes" placeholder="Notes" ng-required="true"></td>
+
+							</tr>
+						</tbody>
+					</table>
+			</div>
+				<div class="panel-footer"> 
+			<div class="pull-right">
+				<input type="button" class="btn bottomaligned btn-brown btn-sm"
+					ng-click="save()" value="Save">
+			</div>
+			 </div> 
+		</div>
+	</div>
+	</form>
+</div>

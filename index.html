@@ -1,0 +1,383 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>POT</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+        <!-- build:css({app,.tmp}) styles/main.css -->
+
+
+        <!-- bower:css -->
+        <link rel="stylesheet" href="bower_components/ng-table/dist/ng-table.min.css" />
+        <link rel="stylesheet" href="bower_components/angular-block-ui/dist/angular-block-ui.css" />
+        <link rel="stylesheet" href="bower_components/ng-dialog/css/ngDialog.css" />
+        <link rel="stylesheet" href="bower_components/ng-dialog/css/ngDialog-theme-default.css" />
+        <link rel="stylesheet" href="bower_components/angularjs-datepicker/dist/angular-datepicker.min.css" />
+        <link rel="stylesheet" href="bower_components/angular-tooltips/dist/angular-tooltips.min.css" />
+        <!-- endbower -->
+
+        <!-- injector:css -->
+        <link rel="stylesheet" href="styles/bootstrap.min.css">
+        <link rel="stylesheet" href="styles/button.css">
+        <link rel="stylesheet" href="styles/datepicker.css">
+        <link rel="stylesheet" href="styles/font-awesome.min.css">
+        <link rel="stylesheet" href="styles/media-styles.css">
+        <link rel="stylesheet" href="styles/ngdialog-style.css">
+        <link rel="stylesheet" href="styles/style.css">
+        <link rel="stylesheet" href="styles/theme.css">
+        <!-- endinjector -->
+
+        <!-- endbuild -->
+    </head>
+
+    <body ng-app="potApp" ng-controller="MainController" >
+
+        
+
+        <div  class="container-fluid">
+            <div  ng-include="'header.html'">
+            </div>
+            <div id="content" class="wrapper"> 
+            	<main ui-view="content"></main>
+            </div>
+             <footer>
+				<div class="container-fluid">
+					<p class="text-center">Copyright © 2015 Raju Tech Pty Ltd, . All Rights Reserved.</p>
+				</div>
+			</footer>
+        </div>
+		
+        <!-- Google Analytics: uncomment and change UA-XXXXX-X to be your site's ID.
+        <script>
+            (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+            function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+            e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+            e.src='//www.google-analytics.com/analytics.js';
+            r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+            ga('create','UA-XXXXX-X');ga('send','pageview');
+        </script>-->
+
+
+
+        <!-- build:js scripts/scripts.js -->
+        <!-- bower:js -->
+        <script src="bower_components/jquery/dist/jquery.js"></script>
+        <script src="bower_components/modernizr/modernizr.js"></script>
+        <script src="bower_components/bootstrap-sass/vendor/assets/javascripts/bootstrap/affix.js"></script>
+        <script src="bower_components/bootstrap-sass/vendor/assets/javascripts/bootstrap/alert.js"></script>
+        <script src="bower_components/bootstrap-sass/vendor/assets/javascripts/bootstrap/button.js"></script>
+        <script src="bower_components/bootstrap-sass/vendor/assets/javascripts/bootstrap/carousel.js"></script>
+        <script src="bower_components/bootstrap-sass/vendor/assets/javascripts/bootstrap/collapse.js"></script>
+        <script src="bower_components/bootstrap-sass/vendor/assets/javascripts/bootstrap/dropdown.js"></script>
+        <script src="bower_components/bootstrap-sass/vendor/assets/javascripts/bootstrap/tab.js"></script>
+        <script src="bower_components/bootstrap-sass/vendor/assets/javascripts/bootstrap/transition.js"></script>
+        <script src="bower_components/bootstrap-sass/vendor/assets/javascripts/bootstrap/scrollspy.js"></script>
+        <script src="bower_components/bootstrap-sass/vendor/assets/javascripts/bootstrap/modal.js"></script>
+        <script src="bower_components/bootstrap-sass/vendor/assets/javascripts/bootstrap/tooltip.js"></script>
+        <script src="bower_components/bootstrap-sass/vendor/assets/javascripts/bootstrap/popover.js"></script>
+        <script src="bower_components/angular/angular.js"></script>
+        <script src="bower_components/json3/lib/json3.js"></script>
+        <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+        <script src="bower_components/angular-resource/angular-resource.js"></script>
+        <script src="bower_components/angular-cookies/angular-cookies.js"></script>
+        <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+        <script src="bower_components/angular-translate/angular-translate.js"></script>
+        <script src="bower_components/angular-translate-storage-cookie/angular-translate-storage-cookie.js"></script>
+        <script src="bower_components/angular-translate-loader-static-files/angular-translate-loader-static-files.js"></script>
+        <script src="bower_components/angular-dynamic-locale/src/tmhDynamicLocale.js"></script>
+        <script src="bower_components/angular-local-storage/dist/angular-local-storage.js"></script>
+        <script src="bower_components/angular-cache-buster/angular-cache-buster.js"></script>
+        <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+        <script src="bower_components/ng-table/dist/ng-table.min.js"></script>
+        <script src="bower_components/angular-utils-pagination/dirPagination.js"></script>
+        <script src="bower_components/angular-block-ui/dist/angular-block-ui.js"></script>
+        <script src="bower_components/angular-animate/angular-animate.js"></script>
+        <script src="bower_components/angular-aria/angular-aria.js"></script>
+        <script src="bower_components/angular-messages/angular-messages.js"></script>
+        <script src="bower_components/angular-route/angular-route.js"></script>
+        <script src="bower_components/angular-touch/angular-touch.js"></script>
+        <script src="bower_components/ng-dialog/js/ngDialog.js"></script>
+        <script src="bower_components/angular-re-captcha/angular-re-captcha.js"></script>
+        <script src="bower_components/ng-file-upload/ng-file-upload.js"></script>
+        <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+        <script src="bower_components/lodash/lodash.js"></script>
+        <script src="bower_components/restangular/dist/restangular.js"></script>
+        <script src="bower_components/angular-filter/dist/angular-filter.js"></script>
+        <script src="bower_components/angular-fontawesome/dist/angular-fontawesome.js"></script>
+        <script src="bower_components/angular-fixed-table-header/src/fixed-table-header.js"></script>
+        <script src="bower_components/angu-fixed-header-table/angu-fixed-header-table.js"></script>
+        <script src="bower_components/angularjs-datepicker/dist/angular-datepicker.min.js"></script>
+        <script src="bower_components/angular-file-upload/dist/angular-file-upload.min.js"></script>
+        <script src="bower_components/angular-tooltips/dist/angular-tooltips.min.js"></script>
+        <script src="bower_components/angular-input-date/src/angular-input-date.js"></script>
+        <script src="bower_components/jquery-ui/jquery-ui.js"></script>
+        <script src="bower_components/moment/moment.js"></script>
+        <!-- endbower -->
+        <!-- injector:js -->
+        <script src="scripts/app.js"></script>
+        <script src="scripts/auth/controllers/internal.login.controller.js"></script>
+        <script src="scripts/auth/controllers/login.controller.js"></script>
+        <script src="scripts/auth/controllers/logout.controller.js"></script>
+        <script src="scripts/auth/services/account.service.js"></script>
+        <script src="scripts/auth/services/auth.service.js"></script>
+        <script src="scripts/auth/services/auth.session.service.js"></script>
+        <script src="scripts/auth/services/principal.service.js"></script>
+        <script src="scripts/auth/services/sessions.service.js"></script>
+        <script src="scripts/centrallib/controllers/companycontroller.js"></script>
+        <script src="scripts/centrallib/controllers/costcodecontroller.js"></script>
+        <script src="scripts/centrallib/controllers/empcontroller.js"></script>
+        <script src="scripts/centrallib/controllers/finance/companytaxcontroller.js"></script>
+        <script src="scripts/centrallib/controllers/finance/employeepayrollcontroller.js"></script>
+        <script src="scripts/centrallib/controllers/finance/goodscontroller.js"></script>
+        <script src="scripts/centrallib/controllers/finance/medicalleavecontroller.js"></script>
+        <script src="scripts/centrallib/controllers/finance/nonregularpayallowancecontroller.js"></script>
+        <script src="scripts/centrallib/controllers/finance/paydeductioncontroller.js"></script>
+        <script src="scripts/centrallib/controllers/finance/payrollcyclecontroller.js"></script>
+        <script src="scripts/centrallib/controllers/finance/personaltaxcontroller.js"></script>
+        <script src="scripts/centrallib/controllers/finance/regularpayallowancecontroller.js"></script>
+        <script src="scripts/centrallib/controllers/finance/superprovidentfundcontroller.js"></script>
+        <script src="scripts/centrallib/controllers/finance/taxcodecontroller.js"></script>
+        <script src="scripts/centrallib/controllers/finance/taxonsuperfundcontroller.js"></script>
+        <script src="scripts/centrallib/controllers/finance/taxpaymentcontroller.js"></script>
+        <script src="scripts/centrallib/controllers/finance/unitpayratecontroller.js"></script>
+        <script src="scripts/centrallib/controllers/materialcontroller.js"></script>
+        <script src="scripts/centrallib/controllers/measurecontroller.js"></script>
+        <script src="scripts/centrallib/controllers/plantcontroller.js"></script>
+        <script src="scripts/centrallib/controllers/procatcontroller.js"></script>
+        <script src="scripts/centrallib/controllers/serviceclasscontroller.js"></script>
+        <script src="scripts/centrallib/controllers/storestockcontroller.js"></script>
+        <script src="scripts/centrallib/controllers/wagescontroller.js"></script>
+        <script src="scripts/centrallib/controllers/weathercontroller.js"></script>
+        <script src="scripts/centrallib/factory/companyaddressservice.js"></script>
+        <script src="scripts/centrallib/factory/companycontactservice.js"></script>
+        <script src="scripts/centrallib/factory/companycurrentprojectservice.js"></script>
+        <script src="scripts/centrallib/factory/finance/companytaxfactory.js"></script>
+        <script src="scripts/centrallib/factory/finance/employeepayrollfactory.js"></script>
+        <script src="scripts/centrallib/factory/finance/goodstaxfactory.js"></script>
+        <script src="scripts/centrallib/factory/finance/medicalleavyfactory.js"></script>
+        <script src="scripts/centrallib/factory/finance/nonregularpayfactory.js"></script>
+        <script src="scripts/centrallib/factory/finance/paydeductionfactory.js"></script>
+        <script src="scripts/centrallib/factory/finance/payrollfactory.js"></script>
+        <script src="scripts/centrallib/factory/finance/personaltaxfactory.js"></script>
+        <script src="scripts/centrallib/factory/finance/regularpayfactory.js"></script>
+        <script src="scripts/centrallib/factory/finance/superfundfactory.js"></script>
+        <script src="scripts/centrallib/factory/finance/taxcodefactory.js"></script>
+        <script src="scripts/centrallib/factory/finance/taxcodeviewfactory.js"></script>
+        <script src="scripts/centrallib/factory/finance/taxonsuperfundfactory.js"></script>
+        <script src="scripts/centrallib/factory/finance/taxpaymentdetailsfactory.js"></script>
+        <script src="scripts/centrallib/factory/finance/unitpayratefactory.js"></script>
+        <script src="scripts/centrallib/services/companyservice.js"></script>
+        <script src="scripts/centrallib/services/costcodeservice.js"></script>
+        <script src="scripts/centrallib/services/empservice.js"></script>
+        <script src="scripts/centrallib/services/finance/companytaxservice.js"></script>
+        <script src="scripts/centrallib/services/finance/employeepayrollservice.js"></script>
+        <script src="scripts/centrallib/services/finance/goodstaxservice.js"></script>
+        <script src="scripts/centrallib/services/finance/medicaltaxservice.js"></script>
+        <script src="scripts/centrallib/services/finance/nonregularpayservice.js"></script>
+        <script src="scripts/centrallib/services/finance/paydeductionservice.js"></script>
+        <script src="scripts/centrallib/services/finance/payrollservice.js"></script>
+        <script src="scripts/centrallib/services/finance/personaltaxservice.js"></script>
+        <script src="scripts/centrallib/services/finance/regularpayservice.js"></script>
+        <script src="scripts/centrallib/services/finance/superfundservice.js"></script>
+        <script src="scripts/centrallib/services/finance/taxcodeservice.js"></script>
+        <script src="scripts/centrallib/services/finance/taxonservice.js"></script>
+        <script src="scripts/centrallib/services/finance/taxpaymentservice.js"></script>
+        <script src="scripts/centrallib/services/finance/unitpayrateservice.js"></script>
+        <script src="scripts/centrallib/services/materialservice.js"></script>
+        <script src="scripts/centrallib/services/measureservice.js"></script>
+        <script src="scripts/centrallib/services/plantclassservice.js"></script>
+        <script src="scripts/centrallib/services/procatservice.js"></script>
+        <script src="scripts/centrallib/services/serviceclasservice.js"></script>
+        <script src="scripts/centrallib/services/storeservice.js"></script>
+        <script src="scripts/centrallib/services/wagesservice.js"></script>
+        <script src="scripts/centrallib/services/weatherservice.js"></script>
+        <script src="scripts/clientreg/controllers/clientcontroller.js"></script>
+        <script src="scripts/clientreg/services/clientservice.js"></script>
+        <script src="scripts/common/constants/pot.constants.js"></script>
+        <script src="scripts/common/directives/datepicker.directive.js"></script>
+        <script src="scripts/common/directives/norecordfounddirective.js"></script>
+        <script src="scripts/common/filters/statusfilter.js"></script>
+        <script src="scripts/common/provider/appurl.provider.js"></script>
+        <script src="scripts/common/services/genericalertservice.js"></script>
+        <script src="scripts/emailsettings/controller/emailsetttingcontroller.js"></script>
+        <script src="scripts/emailsettings/service/emailsettingservice.js"></script>
+        <script src="scripts/eps/controllers/epscontroller.js"></script>
+        <script src="scripts/eps/services/epsservice.js"></script>
+        <script src="scripts/etc/angular-tree-control.js"></script>
+        <script src="scripts/etc/angular.treeview.js"></script>
+        <script src="scripts/etc/angular.treeview.min.js"></script>
+        <script src="scripts/etc/ivh-treeview.js"></script>
+        <script src="scripts/etc/ivh-treeview.min.js"></script>
+        <script src="scripts/etc/recaptcha_ajax.js"></script>
+        <script src="scripts/home/controllers/homecontroller.js"></script>
+        <script src="scripts/home/services/homeservice.js"></script>
+        <script src="scripts/invoice/controllers/invoicepaymentcontroller.js"></script>
+        <script src="scripts/invoice/controllers/invoicereportscontroller.js"></script>
+        <script src="scripts/invoice/factory/addinvoicepaymentfactory.js"></script>
+        <script src="scripts/invoice/factory/addpurchaseorderfactory.js"></script>
+        <script src="scripts/invoice/services/invoiceservice.js"></script>
+        <script src="scripts/main/controller/main.controller.js"></script>
+        <script src="scripts/module/controllers/modulecontroller.js"></script>
+        <script src="scripts/module/services/moduleservice.js"></script>
+        <script src="scripts/procurement/controllers/precontacts/precontractexternalcontroller.js"></script>
+        <script src="scripts/procurement/controllers/precontacts/precontractinternalcontroller.js"></script>
+        <script src="scripts/procurement/controllers/purchaseorder/purchaseordercontroller.js"></script>
+        <script src="scripts/procurement/factory/precontractaddcompanyfactory.js"></script>
+        <script src="scripts/procurement/factory/precontractapproverfactory.js"></script>
+        <script src="scripts/procurement/factory/precontractbidanalysisfactory.js"></script>
+        <script src="scripts/procurement/factory/precontractcoststatementfactory.js"></script>
+        <script src="scripts/procurement/factory/precontractempclasessfactory.js"></script>
+        <script src="scripts/procurement/factory/precontractexternalfactory.js"></script>
+        <script src="scripts/procurement/factory/precontractinternalfactory.js"></script>
+        <script src="scripts/procurement/factory/precontractmaterialclasessfactory.js"></script>
+        <script src="scripts/procurement/factory/precontractplantclasessfactory.js"></script>
+        <script src="scripts/procurement/factory/precontractprojstoreyardfactory.js"></script>
+        <script src="scripts/procurement/factory/precontractreqapprovalfactory.js"></script>
+        <script src="scripts/procurement/factory/precontractserviceclasessfactory.js"></script>
+        <script src="scripts/procurement/factory/precontractstorefactory.js"></script>
+        <script src="scripts/procurement/factory/precontractuploaddocumentsfactory.js"></script>
+        <script src="scripts/procurement/factory/purchaseorder/assetresourcedetailsfactory.js"></script>
+        <script src="scripts/procurement/factory/purchaseorder/invoicedetailsfactory.js"></script>
+        <script src="scripts/procurement/factory/purchaseorder/purchaseexternaldetailsfactory.js"></script>
+        <script src="scripts/procurement/factory/purchaseorder/purchaseinternalfactory.js"></script>
+        <script src="scripts/procurement/factory/purchaseorder/purchaseorderdetailsfactory.js"></script>
+        <script src="scripts/procurement/factory/purchaseorder/purchaseorderfactory.js"></script>
+        <script src="scripts/procurement/services/precontractexternalservice.js"></script>
+        <script src="scripts/procurement/services/precontractinternalservice.js"></script>
+        <script src="scripts/procurement/services/purchaseorder/purchaseorderservice.js"></script>
+        <script src="scripts/projectlib/common/services/userepsprojectservice.js"></script>
+        <script src="scripts/projectlib/controllers/projcostcontroller.js"></script>
+        <script src="scripts/projectlib/controllers/projcrewcontroller.js"></script>
+        <script src="scripts/projectlib/controllers/projempclasscontroller.js"></script>
+        <script src="scripts/projectlib/controllers/projleaveTypecontroller.js"></script>
+        <script src="scripts/projectlib/controllers/projmaterialclasscontroller.js"></script>
+        <script src="scripts/projectlib/controllers/projplantcontroller.js"></script>
+        <script src="scripts/projectlib/controllers/projsoecontroller.js"></script>
+        <script src="scripts/projectlib/controllers/projsorcontroller.js"></script>
+        <script src="scripts/projectlib/controllers/projsowcontroller.js"></script>
+        <script src="scripts/projectlib/controllers/projstorecontroller.js"></script>
+        <script src="scripts/projectlib/controllers/projworkshiftcontroller.js"></script>
+        <script src="scripts/projectlib/factory/projcostfatory.js"></script>
+        <script src="scripts/projectlib/factory/projcrewlistpopupservice.js"></script>
+        <script src="scripts/projectlib/factory/projempfactorypopupservice.js"></script>
+        <script src="scripts/projectlib/factory/projleavetypepopupservice.js"></script>
+        <script src="scripts/projectlib/factory/projmaterialpopupservice.js"></script>
+        <script src="scripts/projectlib/factory/projplantpopupservice.js"></script>
+        <script src="scripts/projectlib/factory/projsorfactory.js"></script>
+        <script src="scripts/projectlib/factory/projstorepopupservice.js"></script>
+        <script src="scripts/projectlib/factory/projworkshiftpopupservice.js"></script>
+        <script src="scripts/projectlib/services/projcostcodeservice.js"></script>
+        <script src="scripts/projectlib/services/projcrewlistservice.js"></script>
+        <script src="scripts/projectlib/services/projempclasservice.js"></script>
+        <script src="scripts/projectlib/services/projleavetypeservice.js"></script>
+        <script src="scripts/projectlib/services/projmaterialclasservice.js"></script>
+        <script src="scripts/projectlib/services/projplantservice.js"></script>
+        <script src="scripts/projectlib/services/projsoeservice.js"></script>
+        <script src="scripts/projectlib/services/projsorservice.js"></script>
+        <script src="scripts/projectlib/services/projsowservice.js"></script>
+        <script src="scripts/projectlib/services/projstorestockservice.js"></script>
+        <script src="scripts/projectlib/services/projworkshiftservice.js"></script>
+        <script src="scripts/projectsettings/controllers/projectsettingscontroller.js"></script>
+        <script src="scripts/projectsettings/factory/projectmanpowerfactory.js"></script>
+        <script src="scripts/projectsettings/factory/projectmaterialfactory.js"></script>
+        <script src="scripts/projectsettings/factory/projectplantfactory.js"></script>
+        <script src="scripts/projectsettings/factory/projectsettingcostitemfactory.js"></script>
+        <script src="scripts/projectsettings/factory/projectsettingsfactory.js"></script>
+        <script src="scripts/projectsettings/factory/projectsettingsowitemfactory.js"></script>
+        <script src="scripts/projectsettings/factory/projnotebookfactory.js"></script>
+        <script src="scripts/projectsettings/services/projectsettingsservice.js"></script>
+        <script src="scripts/projresources/controllers/empregcontroller.js"></script>
+        <script src="scripts/projresources/controllers/materialregcontroller.js"></script>
+        <script src="scripts/projresources/controllers/plantregcontroller.js"></script>
+        <script src="scripts/projresources/empfactory/approvaltransferfactory.js"></script>
+        <script src="scripts/projresources/empfactory/bankaccountfactory.js"></script>
+        <script src="scripts/projresources/empfactory/chargeoutratesfactory.js"></script>
+        <script src="scripts/projresources/empfactory/empdetailsfactory.js"></script>
+        <script src="scripts/projresources/empfactory/employeecontactfactory.js"></script>
+        <script src="scripts/projresources/empfactory/empnewrequestfactory.js"></script>
+        <script src="scripts/projresources/empfactory/empprovidentfoundfactory.js"></script>
+        <script src="scripts/projresources/empfactory/empservicehistoryfactory.js"></script>
+        <script src="scripts/projresources/empfactory/empstatusfactory.js"></script>
+        <script src="scripts/projresources/empfactory/enrollment&promotionfactory.js"></script>
+        <script src="scripts/projresources/empfactory/leave&attendencefactory.js"></script>
+        <script src="scripts/projresources/empfactory/medicalhistoryfactory.js"></script>
+        <script src="scripts/projresources/empfactory/newreqapprovalfactory.js"></script>
+        <script src="scripts/projresources/empfactory/nextofkinfactory.js"></script>
+        <script src="scripts/projresources/empfactory/nonregularfactory.js"></script>
+        <script src="scripts/projresources/empfactory/paydeductiontaxfactory.js"></script>
+        <script src="scripts/projresources/empfactory/regularpayfactory.js"></script>
+        <script src="scripts/projresources/materialfactory/ materialapprovaltransferfactory.js"></script>
+        <script src="scripts/projresources/materialfactory/ materialreqtransferfactory.js"></script>
+        <script src="scripts/projresources/materialfactory/ materialstockpilesfactory.js"></script>
+        <script src="scripts/projresources/materialfactory/datewiseconsumptionfactory.js"></script>
+        <script src="scripts/projresources/materialfactory/materialdailyissuefactory.js"></script>
+        <script src="scripts/projresources/materialfactory/materialdailysupplydetaillsfactory.js"></script>
+        <script src="scripts/projresources/materialfactory/materialissuedocketfactory.js"></script>
+        <script src="scripts/projresources/materialfactory/materialledgerdetailsfactory.js"></script>
+        <script src="scripts/projresources/materialfactory/storeitemstockbalfactory.js"></script>
+        <script src="scripts/projresources/plantfactory/pendingapprovalfactory.js"></script>
+        <script src="scripts/projresources/plantfactory/pendingrequestfactory.js"></script>
+        <script src="scripts/projresources/plantfactory/plantchargeoutfactory.js"></script>
+        <script src="scripts/projresources/plantfactory/plantdeploymentfactory.js"></script>
+        <script src="scripts/projresources/plantfactory/plantdepreciationsfactory.js"></script>
+        <script src="scripts/projresources/plantfactory/plantdetailsfactory.js"></script>
+        <script src="scripts/projresources/plantfactory/plantlogbookfactory.js"></script>
+        <script src="scripts/projresources/plantfactory/plantnewrequestfactory.js"></script>
+        <script src="scripts/projresources/plantfactory/plantprocurementfactory.js"></script>
+        <script src="scripts/projresources/plantfactory/plantservicehistoryfactory.js"></script>
+        <script src="scripts/projresources/plantfactory/plantutilizationfactory.js"></script>
+        <script src="scripts/projresources/services/empregservice.js"></script>
+        <script src="scripts/projresources/services/materialregservice.js"></script>
+        <script src="scripts/projresources/services/plantservice.js"></script>
+        <script src="scripts/role/controllers/rolecontroller.js"></script>
+        <script src="scripts/role/services/roleservice.js"></script>
+        <script src="scripts/timemanagement/common/addemployess.js"></script>
+        <script src="scripts/timemanagement/controllers/attendance/empattendancecontroller.js"></script>
+        <script src="scripts/timemanagement/controllers/attendance/plantattendancecontroller.js"></script>
+        <script src="scripts/timemanagement/controllers/timesheet/approvetimesheetcontroller.js"></script>
+        <script src="scripts/timemanagement/controllers/timesheet/createtimesheetcontroller.js"></script>
+        <script src="scripts/timemanagement/controllers/workdairy/approveworkdairycontroller.js"></script>
+        <script src="scripts/timemanagement/controllers/workdairy/createworkdairycontroller.js"></script>
+        <script src="scripts/timemanagement/factory/addplantsfactory.js"></script>
+        <script src="scripts/timemanagement/factory/attendence/addplantsfactory.js"></script>
+        <script src="scripts/timemanagement/factory/attendence/empattendpopupfactory.js"></script>
+        <script src="scripts/timemanagement/factory/attendence/leavetypespopupfactory.js"></script>
+        <script src="scripts/timemanagement/factory/attendence/plantattendpopupfactory.js"></script>
+        <script src="scripts/timemanagement/factory/attendence/projectsettingsfactory.js"></script>
+        <script src="scripts/timemanagement/factory/plantattendpopupfactory.js"></script>
+        <script src="scripts/timemanagement/factory/timesheet/approverfactory.js"></script>
+        <script src="scripts/timemanagement/factory/timesheet/createtimesheetfactory.js"></script>
+        <script src="scripts/timemanagement/factory/timesheet/datewisefactory.js"></script>
+        <script src="scripts/timemanagement/factory/timesheet/expensesfactory.js"></script>
+        <script src="scripts/timemanagement/factory/timesheet/supervisorfactory.js"></script>
+        <script src="scripts/timemanagement/factory/workdairy/approvemanpowerfactory.js"></script>
+        <script src="scripts/timemanagement/factory/workdairy/approvematerialfactory.js"></script>
+        <script src="scripts/timemanagement/factory/workdairy/approveplantfactory.js"></script>
+        <script src="scripts/timemanagement/factory/workdairy/approveprogressfactory.js"></script>
+        <script src="scripts/timemanagement/factory/workdairy/approverfactory.js"></script>
+        <script src="scripts/timemanagement/factory/workdairy/costcodefactory.js"></script>
+        <script src="scripts/timemanagement/factory/workdairy/manpowerfactory.js"></script>
+        <script src="scripts/timemanagement/factory/workdairy/materialfactory.js"></script>
+        <script src="scripts/timemanagement/factory/workdairy/plantfactory.js"></script>
+        <script src="scripts/timemanagement/factory/workdairy/progressfactory.js"></script>
+        <script src="scripts/timemanagement/services/attendence/empattendanceservice.js"></script>
+        <script src="scripts/timemanagement/services/attendence/plantattendanceservice.js"></script>
+        <script src="scripts/timemanagement/services/timesheet/approvetimesheetservice.js"></script>
+        <script src="scripts/timemanagement/services/timesheet/createtimesheetservices.js"></script>
+        <script src="scripts/timemanagement/services/workdairy/approveworkdiaryservice.js"></script>
+        <script src="scripts/timemanagement/services/workdairy/createworkdiaryservice.js"></script>
+        <script src="scripts/users/controllers/usercontroller.js"></script>
+        <script src="scripts/users/services/userservice.js"></script>
+        <!-- endinjector -->
+        <!-- endbuild -->
+		
+</body>
+</html>
+
+

@@ -1,0 +1,23 @@
+<div id="tab-pannel" class="panel-group" >
+	<div id="tab-pannel" class="panel panel-default">
+		<div class="panel-heading">
+			<th>Project List</th>
+		</div>
+		<div class="table-responsive panel-body6">
+			<table class="table table-striped table-bordered">
+				<thead>
+					<tr>
+						<th>Project Code</th>
+						<th>Project Name</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="project in projects" ng-dblclick="projectPopUpList(project)">
+						<td>{{project.projCode}}</td>
+						<td>{{project.projName}}</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>

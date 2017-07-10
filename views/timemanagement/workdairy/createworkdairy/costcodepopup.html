@@ -1,0 +1,69 @@
+<div id="tab-pannel" class="panel-group">
+	<form name="matestoreForm" validate>
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h4 class="panel-title">Material and Store</h4>
+			</div>
+			<div class="panel-body">
+				<div class="table-responsive panel-body12">
+					<table class="table table-bordered table-striped">
+						<thead>
+							<tr>
+								<th>Select</th>
+								<th>Cost Code Group Id</th>
+								<th>Cost Code Group Name</th>
+								<th>Cost Code Sub-Group Id</th>
+								<th>Cost Code Sub-Group Name</th>
+								<th>Cost Code Item Id</th>
+								<th>Cost Code Item Description</th>
+								<th>Start</th>
+								<th>Finish</th>
+								<th>Select Work Diary Entries</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr ng-repeat="cost in addCostCodeList">
+								<td ng-show="action=='Add'"><input type="checkbox"
+									value="id" ng-click="costCodePopupRowSelect(cost)"
+									ng-model="cost.select"></td>
+								<td><input type="text" name="groupId"
+									ng-model="cost.groupId"></td>
+								<td><input type="text" name="groupName"
+									ng-model="cost.groupName"></td>
+								<td><input type="text" name="subGroupId"
+									ng-model="cost.subGroupId"></td>
+								<td><input type="text" name="subGroupName"
+									ng-model="cost.subGroupName"></td>
+								<td><input type="text" name="itemId" ng-model="cost.itemId"></td>
+								<td><textarea rows=4 cols=20 name="itemDescription"
+										ng-model="cost.itemDescription"></textarea></td>
+								<td><input type="date" name="start" ng-model="cost.start"></td>
+								<td><input type="date" name="groupId"
+									ng-model="cost.finish"></td>
+
+								<td><select
+									ng-options="entry as entry.id for entry in entries track by entry.id"
+									ng-model="selected"></select>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+			<div class="panel-footer">
+				<div class="pull-right">
+					<input type="button" class="btn btn-brown bottomaligned"
+						ng-click="saveCostCode()" value="Save">
+
+				</div>
+				<div class="pull-left">
+					<input type="button" class="btn btn-brown bottomaligned"
+						ng-show="action=='Add'" ng-click="addRows()" value="AddRows">
+					<input type="button" class="btn btn-brown bottomaligned"
+						ng-show="action=='Add'" ng-click="deleteRows()" value="DeleteRows">
+				</div>
+			</div>
+		</div>
+	</form>
+</div>
+
+

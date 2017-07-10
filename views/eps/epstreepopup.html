@@ -1,0 +1,73 @@
+<div id="tab-pannel" class="panel-group" ng-init="getEPSProjectsById()">
+	<form name="epsForm" validate>
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h4 class="panel-title">
+					<span>({{pcode}})</span> Add/Edit Enterprise
+				</h4>
+			</div>
+			<div class="panel-body20">
+				<div id="tableHeight18" class="table-responsive">
+					<table id="tree" class="table table-striped" fixed-header>
+						<thead>
+							<tr>
+								<th>EPS ID</th>
+								<th>EPS Name</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr
+								ng-repeat="item in editTreeData |  editFilterTreeItem:itemId1:isExpand1"
+								class="abc{{item.level}}">
+								<td><span ng-show="item.level > 0" class="xyz"
+									style="padding-left: 30px;"></span> <span
+									ng-show="item.level > 1" class="xyz"
+									style="padding-left: 30px;"></span> <span
+									ng-show="item.level > 2" class="xyz"
+									style="padding-left: 30px;"></span> <fa
+										ng-show="((!item.leaf && item.expand) || (!item.leaf  && item.childProjs.length <= 0))"
+										ng-click="itemClick1(item.projId,item.expand);"
+										name="fa fa-minus"></fa> <fa
+										ng-show="(!item.leaf && !item.expand && item.childProjs.length > 0)"
+										ng-click="itemClick1(item.projId,item.expand);"
+										name="fa fa-plus" ng-show="(!item.leaf && !item.expand)"></fa>
+									<fa ng-show="(item.proj)" name="leaf"></fa></span> <input type="text"
+									placeholder="{{item.proj ? 'Project ID' : 'EPS ID'}}"
+									name="epsId" maxlength="20" ng-model="item.projCode"
+									ng-required="true">{{item.id}} <span
+									style="padding-left: 15px;"> <!-- <input type="button" data-toggle="tooltip" data-placement="" class="btn btn-brown2 btn-sm" value="Add EPS ID" ng-show="!item.proj" ng-click="addTreeSubGroup(item)"> -->
+										<fa data-toggle="tooltip" title="Add EPS ID"
+											ng-show="!item.proj" ng-click="addTreeSubGroup(item)"
+											name="fa fa-plus-square"> </fa></span> <span
+									style="padding-left: 15px;"> <fa
+											ng-click="addTreeItem(item)" ng-show="!item.proj"
+											name="fa fa-plus-square-o"> </fa>
+								</span> <span style="padding-left: 10px;"> <fa
+											ng-click="deleteTree(item)" ng-hide="item.projId>0"
+											name="fa fa-trash"> </fa></span></td>
+								<td><input type="text" name="name" ng-model="item.projName"
+									placeholder="{{item.proj ? 'Project Name' : 'EPS Name'}}"
+									pattern="^[a-zA-Z\d\s\-]+$" maxlength="50" required> <span
+									ng-show="epsForm.name.$dirty && epsForm.name.$error.required">required</span>
+									<span
+									ng-show="epsForm.name.$dirty && epsForm.name.$error.pattern">Not
+										valid </span></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+			<div class="panel-footer">
+				<div class="pull-left">
+					<input type="submit" class="btn  btn-brown btn-sm"
+						ng-show="action=='Add'" ng-click="addTreeGroup()"
+						value="Add Group">
+				</div>
+				<div class="pull-right">
+					<input type="submit" class="btn btn-brown btn-sm"
+						ng-click="saveProjects()" value="Save" />
+				</div>
+			</div>
+		</div>
+	</form>
+</div>

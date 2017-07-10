@@ -1,0 +1,65 @@
+<div id="tab-pannel">
+	<div class="panel-body23-0 table-responsive" >
+		<table class="table table-bordered table-striped">
+			<thead>
+				<tr>
+					<th>Select</th>
+					<th>Date of Request</th>
+					<th>Originator ID & Name</th>
+					<th>Requisition Notification #</th>
+					<th>Approval date</th>
+					<th>Approver Person ID & Name</th>
+					<th>Approver Decision   Notification #</th>
+					<th>Company Asset ID</th>
+					<th>Registration Number</th>
+					<th>Plant Description</th>
+					<th>Make</th>
+					<th>Model</th>
+					<th>Current Project ID</th>
+					<th>Current Project Name</th>
+					<th>For Project ID</th>
+					<th>For Project Name</th>
+					<th>Anticipated  de-mobilization date</th>
+					<th>Transfer Required Date</th>
+					<th>Multiple Plant Selection  for Transfer</th>
+					<th>Approver Decision</th>
+					<th>Agreed Date  for  Transfer</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="approved in approvedTransfer">
+					<td><input type="checkbox" value="id" ng-model="approved.selected"
+						ng-click="rowSelect(approved)"></td>
+					<td>{{approved.dateofRequest}}</td>
+					<td>{{approved.originatorIdName}}</td>
+					<td>{{approved.reqNotification}}</td>
+					<td>{{approved.approvaldate}}</td>
+					<td>{{approved.approverpersonIdName}}</td>
+                    <td>{{approved.approverDecision}}</td>
+					<td>{{approved.companyassetId}}</td>
+					<td>{{approved.regNum}}</td>
+					<td>{{approved.plntDes}}</td>
+					<td>{{approved.make}}</td>
+					<td>{{approved.model}}</td>
+					<td>{{approved.currentprojectId}}</td>
+					<td>{{approved.currentprojectName}}</td>
+					<td>{{approved.forprojId}}</td>
+					<td>{{approved.forprojName}}</td>
+                    <td>{{approved.anticipateDemodate}}</td>
+					<td>{{approved.transferReqDate}}</td>
+					<td>{{approved.multipleplnt}}</td>
+					<td>{{approved.approverDecision}}</td>
+					<td>{{approved.agreedDate}}</td>
+				</tr>
+			</tbody>
+		</table>
+	
+</div>
+</div>
+
+
+
+
+
+
+

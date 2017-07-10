@@ -1,0 +1,71 @@
+<div id="tab-pannel">
+  <h5 align="center">Procurement Approval Time Frame Settings</h5>
+ 	
+		 <table class="table borderless">
+		  	<tr><td class="box-border">
+			<table  class="table borderless">
+		    <tr><th colspan="3"><h5 class="text-center">Normal Time Frame for Approval From Requisition</h5></th></tr>
+		  <tr>
+		    
+			<td align="center"></td>
+			<td>Cut off Time in Days</td>
+			<td>Cut off Time(24h)</td>
+			
+		  </tr>
+			<tr>
+			<td>Stage 1 InternalApproval</td>
+			<td><input type="text"></td>
+			<td><input type="text"></td>
+			
+			
+			</tr>
+			
+			 </tr>
+			<tr>
+			<td>Stage 2 InternalApproval</td>
+			<td><input type="text"></td>
+			<td><input type="text"></td>
+			
+			
+			</tr>
+			
+			
+		</table>
+			</td>
+			<td class="box-border">
+		    <table class="table borderless">
+		    <tr>
+		    <th colspan="3"><h5 align="left">Additional Time Frame For Approval</h5></th>
+		    </tr>
+			
+			
+			
+			<tr>
+				<td>
+					<table class="table borderless">
+						<tr>
+							<td>Requisition Date: <input type="date" name="startDate" ng-model="tab.startDate" ng-required="true"/><p ng-bind="errMessage"></p></td>
+					    </tr>
+						<tr>
+			             <td align="left">Requisition  Number: <input type="text"></td>
+			             </tr>
+			             <tr>
+			             <td align="left"><input type="checkbox"> Stage 1 InternalApproval </td>
+			             </tr>
+					
+				<tr>
+				<td align="left"><input type="checkbox"/> Stage 2 InternalApproval </td>
+			</tr>
+			<tr>
+				<td><input type="submit" value="Approve" ng-click="checkErr(tab.startDate,tab.endDate)"></td>
+			</tr>
+		
+			</table>
+			</td>
+			</tr>
+		</table>
+		</td>
+		</tr>
+		</table>
+	<input type="button" value="Save" ng-click="">
+</div>

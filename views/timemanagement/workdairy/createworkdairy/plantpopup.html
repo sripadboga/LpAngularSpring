@@ -1,0 +1,139 @@
+<div id="tab-pannel" class="panel-group">
+	<form name="plantForm" validate>
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h4 class="panel-title">Plant Form</h4>
+			</div>
+			<div class="panel-body">
+				<div class="table-responsive panel-body12">
+					<table class="table table-bordered table-striped">
+						<thead>
+
+
+							<tr>
+								<th rowspan=3 ng-show="action=='Add'">Select</th>
+								<th rowspan="3">Resource Id</th>
+								<th rowspan="3">Rego</th>
+								<th rowspan="3">Description</th>
+								<th rowspan="3">Make</th>
+								<th rowspan="3">Model</th>
+								
+								<th rowspan="3">Mobilisation Date</th>
+								<th rowspan="3">Plant Charge Out Category</th>
+								<th colspan="6">Cost Code wise Plants Utilisation</th>
+								<th rowspan="3">Total used+idle(Auto Sum)</th>
+								<th rowspan="3">Approval Status</th>
+							</tr>
+							<tr>
+								<th colspan="3">Used Time</th>
+								<th colspan="3">Idle Time</th>
+							</tr>
+							<tr>
+								
+								<th>Code2</th>
+								<th>total</th>
+								
+								<th>Code2</th>
+								<th>total</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr ng-repeat="plant in addPlants">
+
+								<td ng-show="action=='Add'"><input type="checkbox"
+									value="id" ng-click="plantPopupRowSelect(plant)"
+									ng-model="plant.select"></td>
+
+								<td><input type="text" 
+									ng-click="addPlantRegDetails(plant.plantRegLableKeyTO)" ng-model="plant.plantRegLableKeyTO.RegName" required="required" readonly="readonly"></td>
+
+								<td><input type="text" ng-model="plant.plantRegLableKeyTO.regclsName" ng-click="addPlantRegDetails(plant.plantRegLableKeyTO)" readonly="readonly"></td>
+
+								<td><input type="text" 
+									ng-model="plant.plantRegLableKeyTO.regNum" ng-click="addPlantRegDetails(plant.plantRegLableKeyTO)" readonly="readonly">
+									</td>
+
+								<td><input type="text" ng-click="addPlantRegDetails(plant.plantRegLableKeyTO)"  ng-model="plant.plantRegLableKeyTO.make" readonly="readonly"></td>
+
+								<td><input type="text" ng-click="addPlantRegDetails(plant.plantRegLableKeyTO)" ng-model="plant.plantRegLableKeyTO.model" readonly="readonly"></td>
+
+							
+							
+
+								<td><input type="text" ng-click="addPlantRegDetails(plant.plantRegLableKeyTO)" ng-model="plant.plantRegLableKeyTO.mobilisation" readonly="readonly"></td>
+								
+								<td><input type="text" ng-click="addPlantRegDetails(plant.plantRegLableKeyTO)" ng-model="plant.plantRegLableKeyTO.plntPurchaseCat" readonly="readonly"></td>
+
+								
+
+								<td><input type="text" name="nbnb" ng-model="plant.nbnb"
+									pattern="^[a-z A-Z\d\s\-_.,\%]+$" maxlength="20"
+									placeholder="nbnb" required="required"> <span
+									ng-show="plantForm.nbnb.$error.required"></span> <span
+									ng-show="plantForm.nbnb.$error.pattern">Not valid </span> <span
+									ng-show="plantForm.nbnb.$error.maxlength">enter upto 20
+										chars only</span></td>
+
+								<td><input type="text" name="total" ng-model="plant.total"
+									pattern="^[a-z A-Z\d\s\-_.,\%]+$" maxlength="20"
+									placeholder="total" required="required"> <span
+									ng-show="plantForm.total.$error.required"></span> <span
+									ng-show="plantForm.total.$error.pattern">Not valid </span> <span
+									ng-show="plantForm.total.$error.maxlength">enter upto 20
+										chars only</span></td>
+
+								
+								<td><input type="text" name="nbnb" ng-model="plant.nbnb"
+									pattern="^[a-z A-Z\d\s\-_.,\%]+$" maxlength="20"
+									placeholder="nbnb" required="required"> <span
+									ng-show="plantForm.nbnb.$error.required"></span> <span
+									ng-show="plantForm.nbnb.$error.pattern">Not valid </span> <span
+									ng-show="plantForm.nbnb.$error.maxlength">enter upto 20
+										chars only</span></td>
+
+								<td><input type="text" name="total" ng-model="plant.total"
+									pattern="^[a-z A-Z\d\s\-_.,\%]+$" maxlength="20"
+									placeholder="total" required="required"> <span
+									ng-show="plantForm.total.$error.required"></span> <span
+									ng-show="plantForm.total.$error.pattern">Not valid </span> <span
+									ng-show="plantForm.total.$error.maxlength">enter upto 20
+										chars only</span></td>
+
+								<td><input type="text" name="totalAndIdle"
+									ng-model="plant.totalAndIdle" pattern="^[a-z A-Z\d\s\-_.,\%]+$"
+									maxlength="20" placeholder="Total and Idle" required="required">
+									<span ng-show="plantForm.totalAndIdle.$error.required"></span>
+									<span ng-show="plantForm.totalAndIdle.$error.pattern">Not
+										valid </span> <span ng-show="plantForm.totalAndIdle.$error.maxlength">enter
+										upto 20 chars only</span></td>
+
+								<td><input type="text" name="approvalStatus"
+									ng-model="plant.approvalStatus"
+									pattern="^[a-z A-Z\d\s\-_.,\%]+$" maxlength="20"
+									placeholder="approvalStatus" required="required"> <span
+									ng-show="plantForm.approvalStatus.$error.required"></span> <span
+									ng-show="plantForm.approvalStatus.$error.pattern">Not
+										valid </span> <span
+									ng-show="plantForm.approvalStatus.$error.maxlength">enter
+										upto 20 chars only</span></td>
+
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+			<div class="panel-footer">
+				<div class="pull-right">
+					<input type="button" class="btn btn-brown bottomaligned"
+						ng-click="savePlantDetails()" value="Save">
+				</div>
+				<div class="pull-left">
+					<input type="button" class="btn btn-brown bottomaligned"
+						ng-show="action=='Add'" ng-click="addPlantDetails()" value="AddRows">
+					<input type="button" class="btn btn-brown bottomaligned"
+						ng-show="action=='Add'" ng-click="deletePlantRows()" value="DeleteRows">
+				</div>
+			</div>
+		</div>
+	</form>
+</div>

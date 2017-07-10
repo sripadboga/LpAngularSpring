@@ -1,0 +1,93 @@
+<div id="tab-pannel" ng-controller="CreateWorkDairyController">
+	<div class="panel-group panel panel-default">
+		<div class="panel-heading">
+			<h4 class="panel-title">Create Work Diary</h4>
+		</div>
+		<div class="panel-body3 spacer2">
+
+			<div class="row spacer2">
+
+				<div class="col-xs12 col-xs-12 col-md-12 ">
+
+					<div class="input-width3 ">
+						<input type="text"
+							ng-model="workDairySearchReq.projectLabelKeyTO.parentName"
+							placeholder="EPS ID/EPS Name"
+							ng-click="getUserProjects(workDairySearchReq.projectLabelKeyTO)">
+
+						<input type="text"
+							ng-model="workDairySearchReq.projectLabelKeyTO.projName"
+							placeholder="Project ID/Project Name"
+							ng-click="getUserProjects(workDairySearchReq.projectLabelKeyTO)">
+							
+						<input type="text" placeholder="Select Crew"
+							ng-click="getCrewList(workDairySearchReq.projectLabelKeyTO.projId,workDairySearchReq.crewLabelKeyTO)"
+							ng-model="workDairySearchReq.crewLabelKeyTO.code"> <input
+							type="text" ng-model="workDairySearchReq.workDairyDate"
+							potdate-picker id="fromDate" placeholder="dd-mm-yyyy"> <input
+							type="text" ng-model="workDairyId" placeholder="Work Dairy Id">
+						<input type="text" placeholder="Select WorkShift"
+							class="input-width"
+							ng-click="getWorkingShiftId(workDairySearchReq.projectLabelKeyTO.projId,workDairySearchReq.shiftLabelKeyTO)"
+							ng-model="workDairySearchReq.shiftLabelKeyTO.code"> <input
+							class="input-width" type="text"
+							placeholder="Select WeatherClasification" class="input-width"
+							ng-click="getWeatherClassId(workDairySearchReq.projectLabelKeyTO.projId,workDairySearchReq.weatherLabelKeyTO)"
+							ng-model="workDairySearchReq.weatherLabelKeyTO.code"> <input
+							class="input-width" type="text"
+							ng-model=workDairySearchReq.userLabelKeyTO.name
+							" placeholder="ApproverPerson"
+							ng-click="approverPerson(workDairySearchReq.userLabelKeyTO)">
+						<span> Client Approval<input type="checkbox"
+							name="radiobutton" value="Client Approval"></span>
+
+					</div>
+				</div>
+			</div>
+
+			<div class="pull-right right-padding spacer2">
+				<input type="button" class="btn bottomaligned btn-brown btn-sm"
+					ng-click="addCostCodeItemsToWorkDairy(workDairySearchReq.projectLabelKeyTO.projId,costCodeList)"
+					value="Add Cost Codes" > <input
+					type="button"
+					ng-click="getCreateWorkDairySearch(workDairySearchReq.projectLabelKeyTO.projId)"
+					class="btn bottomaligned btn-brown btn-sm" value="Search"
+					ng-model="searchText"> <input type="reset"
+					class="btn bottomaligned btn-brown btn-sm"
+					ng-click="resetCreateWorkDairy()" value="Reset"> <input
+					type="button"
+					ng-click="getCopyTemplate()"
+					class="btn bottomaligned btn-brown btn-sm" value="Copy Template"
+					ng-model="searchText"> <input type="button"
+					class="btn bottomaligned btn-brown btn-sm" ng-click="resend()"
+					value="Resend">
+			</div>
+
+		</div>
+
+
+		<div class="panel-body20 table-responsive row spacer2">
+
+			<div>
+				<ul class="nav nav-tabs">
+					<li ng-repeat="tab in createWorkDiaryTabs"
+						ng-class="{active:isActiveTab(tab.url)}"><a data-toggle="tab"
+						ng-click="onClickTab(tab)">{{tab.title}}</a></li>
+				</ul>
+			</div>
+
+			<div class="tab-content panel-body18">
+				<div ng-include="currentTab"></div>
+			</div>
+
+		</div>
+		<div class="panel-footer">
+
+			<div class="pull-right">
+				<input type="button" class="btn bottomaligned btn-brown btn-sm"
+					ng-click="printPreview()" class="btnsub" value="Print Preview">
+				<input type="button" class="btn bottomaligned btn-brown btn-sm"
+					ng-click="submitForApproval()" value="Submit for Approval">
+			</div>
+		</div>
+	</div>

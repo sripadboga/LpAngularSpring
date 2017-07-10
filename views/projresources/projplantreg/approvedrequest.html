@@ -1,0 +1,53 @@
+<div id="tab-pannel">
+	<div class="panel-body21-1 table-responsive" >
+		<table class="table table-bordered table-striped">
+			<thead>
+				<tr>
+					<th>Select</th>
+					<th>Date of Request</th>
+					<th>Originator ID & Name</th>
+					<th>Approver Person ID & Name</th>
+					<th>Requisition Notification #</th>
+					<th>Company Asset ID</th>
+					<th>Registration Number</th>
+					<th>Plant Description</th>
+					<th>Make</th>
+					<th>Model</th>
+					<th>Current Project ID</th>
+					<th>Current Project Name</th>
+					<th>For Project ID</th>
+					<th>For Project Name</th>
+					<th>Anticipated de-mobilization date</th>
+					<th>Transfer Required Date</th>
+					<th>Approval Status</th>
+					<th>Date set for Asset Transfer</th>
+
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="approved in approvedRequest">
+					<td><input type="checkbox" value="id" ng-model="approved.selected"
+						ng-click="rowSelect(approved)"></td>
+					<td>{{approved.dateOfReq}}</td>
+					<td>{{approved.originatorIdName}}</td>
+					<td>{{approved.approverPersonIdName}}</td>
+					<td>{{approved.RequisitionNotification}}</td>
+					<td>{{approved.companyAssetId}}</td>
+					<td>{{approved.RegNum}}</td>
+					<td>{{approved.plantDes}}</td>
+					<td>{{approved.Make}}</td>
+					<td>{{approved.Model}}</td>
+					<td>{{approved.CurrentProjId}}</td>
+					<td>{{approved.CurrentProjName}}</td>
+					<td>{{approved.ProjectId}}</td>
+					<td>{{approved.ProjectName}}</td>
+					<td>{{approved.AnticipatedDemoDate}}</td>
+					<td>{{approved.TransferReqDate}}</td>
+					<td>{{approved.ApprvalStatus}}</td>
+					<td>{{approved.DateSet}}</td>
+
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	</div>

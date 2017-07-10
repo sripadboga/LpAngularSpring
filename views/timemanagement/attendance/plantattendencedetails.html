@@ -1,0 +1,42 @@
+<div id="tab-pannel" class="container-fluid"
+	ng-init="getPlantRegistersDtls()">
+	<div class="panel-group">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h4 class="panel-title">Plant Details</h4>
+			</div>
+			<div class="table-responsive">
+				<table class="table table-striped table-fixed newTbl" fixed-header>
+					<thead id="tab-head">
+						<tr>
+							<th>Select</th>
+							<th>Asset Id</th>
+							<th>Plant Description</th>
+							<th>Plant Make</th>
+							<th>Plant Model</th>
+							<th>Parent Company</th>
+							<th>Select</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat="emp in empDtls | filter: search">
+							<td>{{emp.empId}}</td>
+							<td>{{emp.firstName}}</td>
+							<td>{{emp.lastName}}</td>
+							<td>{{emp.trade}}</td>
+							<td>{{emp.category}}</td>
+							<td><input type="checkbox" ng-model="emp.select"
+								ng-click="popUpRowSelect(emp)"></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="panel-footer">
+				<div class="pull-right">
+					<input type="button" class="btn btn-brown bottomaligned"
+						ng-click="saveEmployeeDtls()" value="Save">
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

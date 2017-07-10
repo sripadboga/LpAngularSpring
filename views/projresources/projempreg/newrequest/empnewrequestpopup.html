@@ -1,0 +1,114 @@
+<div id="tab-pannel" class="panel-group">
+		<form name="reqForTransferForm" validate>
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<h4 class="panel-title">Request for Transfer</h4>
+		</div>
+		<div class="panel-body15">
+				<div class="table-responsive ">
+					<table class="table table-bordered table-striped">
+						<thead>
+							<tr>
+								<th>Select</th>
+								<th>Employee ID</th>
+								<th>First Name</th>
+								<th>Last Name</th>
+								<th>Gender</th>
+								<th>Project Name</th>
+								<th>Employee Designation</th>
+								<th>Parent Company ID</th>
+								<th>Parent Company Name</th>
+								<th>Current Project ID</th>
+								<th>Current Project Name</th>
+								<th>For Project ID</th>
+								<th>For Project Name</th>
+								<th>Originator Employee ID & Name</th>
+								<th>Approver Person ID & Name</th>
+								<th>Date of Request</th>
+								<th>Requisition Notification ID</th>
+								<th>Expected Date of Availability for Traansfer</th>
+								<th>Required Date of Transfer</th>
+								<th>Approver Decision</th>
+								<th>Proposed Date of Transfer by approver</th>
+							</tr>
+						</thead>
+						<tbody id="vert-align">
+							<tr ng-repeat="request in addEmpRequestTransfer">
+								<td><input type="checkbox" value="request.id"
+									ng-model="request.selected" ng-click="newReqPopUpRowSelect(request)"></td>
+								<td class="input-width"><input type="text" name="eId" ng-model="request.eId"
+									placeholder="eId" readonly="readonly"></td>
+								<td class="input-width"><input type="text" name="fName" ng-model="request.fName"
+									placeholder="fName" readonly="readonly"></td>
+
+
+								<td class="input-width"><input type="text" name="lName" ng-model="request.lName"
+									placeholder="lName" readonly="readonly"></td>
+								<td class="input-width"><input type="text" name="gender" ng-model="request.gender"
+									placeholder="gender" readonly="readonly"></td>
+								<td class="input-width"><input type="text" name="pName" ng-model="request.epsName"
+									placeholder="pName" readonly="readonly"></td>
+								<td class="input-width"><input type="text" name="designation"
+									ng-model="request.designation" placeholder="designation"
+									readonly="readonly"></td>
+								<td class="input-width"><input type="text" name="pCompId"
+									ng-model="request.pCompId" placeholder="pCompId"
+									readonly="readonly"></td>
+								<td class="input-width"><input type="text" name="pCompName"
+									ng-model="request.pCompName" placeholder="pCompName"
+									readonly="readonly"></td>
+
+								<td class="input-width"><input type="text" name="cpId" ng-model="request.cpId"
+									placeholder="cpId" readonly="readonly"></td>
+								<td class="input-width"><input type="text" name="cpName" ng-model="request.cpName"
+									placeholder="cpName" readonly="readonly"></td>
+								<td class="input-width"><input type="text" name="fpId" ng-model="request.fpId"
+									placeholder="fpId" ng-required="true"></td>
+								<td class="input-width"><input type="text" name="fpName" ng-model="request.fpName"
+									placeholder="fpName" ng-required="true"></td>
+
+								<td class="input-width"><input type="text" name="originaleIdName"
+									ng-model="request.originaleIdName" placeholder="originaleIdName"
+									readonly="readonly"></td>
+								<td class="input-width"><input type="text" name="approverPIDName"
+									ng-model="request.approverPIDName" placeholder="approverPIDName"
+									ng-required="true"></td>
+
+								<td><input type="date" name="dor" ng-model="request.dor"
+									placeholder="dor" ng-required="true"></td>
+								<td class="input-width"><input type="text" name="notfId" ng-model="request.notfId"
+									placeholder="notfId" readonly="readonly"></td>
+
+								<td><input type="date" name="expectedDate"
+									ng-model="request.expectedDate" placeholder="expectedDate"
+									ng-required="true"></td>
+
+								<td><input type="date" name="requiredDate"
+									ng-model="request.requiredDate" placeholder="requiredDate"
+									ng-required="true"></td>
+								<td class="input-width"><input type="text" name="approverDecision"
+									ng-model="request.approverDecision" placeholder="approverDecision"
+									readonly="readonly"></td>
+
+								<td><input type="date" name="proposedDate"
+									ng-model="request.proposedDate" placeholder="proposedDate"
+									readonly="readonly"></td>
+							</tr>
+						</tbody>
+					</table>
+			
+		</div>
+		</div>
+		<div class="panel-footer">
+			<div class="pull-right">
+				<input type="button" class="btn btn-brown btn-sm" ng-click="save()" value="Save">
+					</div>
+<div class="pull-left">
+				<input type="button" class="btn btn-brown btn-sm" ng-click="addRows()" value="Add" ng-show="action =='Add'">
+				<input type="button" class="btn btn-brown btn-sm" ng-click="deleteRows()" value="Delete" ng-show="action =='Add'">
+			</div>
+			</div>
+		</div>
+		</form>
+	</div>
+

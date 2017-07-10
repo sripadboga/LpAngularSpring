@@ -1,0 +1,209 @@
+<div id="tab-pannel" class="panel-group">
+<form name="storeItemForm" validate>
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<h4 class="panel-title">Stores Item Stock Balance</h4>
+		</div>
+		<div class="panel-body12">
+			<div id="tableHeight8" class="table-responsive">
+					<table class="table table-bordered table-striped" fixed-header>
+						<thead id="tab-head">
+							<tr>
+								<th>Select</th>
+								<th>Date</th>
+								<th>Project Docket</th>
+								<th>Resource Id</th>
+								<th>Resource Name</th>
+								<th>Resource Sub Group Id</th>
+								<th>Resource Sub Group Name</th>
+								<th>Origin Project</th>
+								<th>Origin Store Stock Yard</th>
+								<th>Destination Project</th>
+								<th>Destination Store Stock Yard</th>
+								<th>Supplier Id</th>
+								<th>Supplier Name</th>
+								<th>Issuer Employee Id</th>
+								<th>Issuer Employee Name</th>
+								<th>Receiver Employee Id</th>
+								<th>Receiver Employee Name</th>
+								<th>Unit Of Measure</th>
+								<th>Rate</th>
+								<th>Opening Balance Quantity</th>
+								<th>Issued Quantity</th>
+								<th>Date Wise Consumption Quantity</th>
+								<th>Cumulative Quantity Consumed</th>
+								<th>Closing Stock Balance Quantity On Site</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr ng-repeat="storestock in addStoreStockBalance">
+								<td><input type="checkbox" value="storestock.id"
+									ng-model="storestock.selected" ng-click="stockBalPopUpRowSelect(storestock)"></td>
+
+								<td><input type="text" name="date" ng-model=storestock.date
+									placeholder="Date" ng-required="true" pattern="[a-zA-Z-\d\s]+"><span
+									ng-show="storeItemForm.date.$error.pattern">only
+										alpha numerics allowed</span></td>
+
+								<td><input type="text" name="projectDocket"
+									ng-model="storestock.projectDocket" placeholder="Project Docket"
+									ng-required="true" pattern="[a-zA-Z-\s]+"><span
+									ng-show="storeItemForm.projectDocket.$error.pattern">only
+										alphabets allowed</span></td>
+
+								<td><input type="text" name="resourceId"
+									ng-model="storestock.resourceId" placeholder="Resource Id"
+									ng-required="true" pattern="[a-zA-Z-\s]+"><span
+									ng-show="storeItemForm.resourceId.$error.pattern">only
+										alphabets allowed</span></td>
+
+								<td><input type="text" name="resourceName"
+									ng-model="storestock.resourceName" placeholder="Resource Name"
+									ng-required="true" pattern="[a-zA-Z-\s]+"><span
+									ng-show="storeItemForm.resourceName.$error.pattern">only
+										alphabets allowed</span></td>
+
+								<td><input type="text" name="resourceSubGroupId"
+									ng-model="storestock.resourceSubGroupId"
+									placeholder="Resource Sub Group Id" ng-required="true"
+									pattern="[a-zA-Z-\s]+"><span
+									ng-show="storeItemForm.resourceSubGroupId.$error.pattern">only
+										alphabets allowed</span></td>
+
+								<td><input type="text" name="resourceSubGroupName"
+									ng-model="storestock.resourceSubGroupName"
+									placeholder="Resource Sub Group Name" ng-required="true"
+									pattern="[a-zA-Z-\s]+"><span
+									ng-show="storeItemForm.resourceSubGroupName.$error.pattern">only
+										alphabets allowed</span></td>
+
+								<td><input type="text" name="originProject"
+									ng-model="storestock.originProject" placeholder="Origin Project"
+									ng-required="true" pattern="[a-zA-Z-\s]+"><span
+									ng-show="storeItemForm.originProject.$error.pattern">only
+										alphabets allowed</span></td>
+
+								<td><input type="text" name="originStoreStockYard"
+									ng-model="storestock.originStoreStockYard"
+									placeholder="Origin Store Stock Yard" ng-required="true"
+									pattern="[a-zA-Z-\s]+"><span
+									ng-show="storeItemForm.originStoreStockYard.$error.pattern">only
+										alphabets allowed</span></td>
+
+								<td><input type="text" name="destinationProject"
+									ng-model="storestock.destinationProject"
+									placeholder="Destination Project" ng-required="true"
+									pattern="[a-zA-Z-\s]+"><span
+									ng-show="storeItemForm.destinationProject.$error.pattern">only
+										alphabets allowed</span></td>
+
+								<td><input type="text" name="destinationStoreStockYard"
+									ng-model="storestock.destinationStoreStockYard"
+									placeholder="Destination Store Stock Yard" ng-required="true"
+									pattern="[a-zA-Z-\s]+"><span
+									ng-show="storeItemForm.destinationStoreStockYard.$error.pattern">only
+										alphabets allowed</span></td>
+
+								<td><input type="text" name="supplierId"
+									ng-model="storestock.supplierId" placeholder="Supplier Id"
+									ng-required="true" pattern="[a-zA-Z-\s]+"><span
+									ng-show="storeItemForm.supplierId.$error.pattern">only
+										alphabets allowed</span></td>
+
+								<td><input type="text" name="supplierName"
+									ng-model="storestock.supplierName" placeholder="Supplier Name"
+									ng-required="true" pattern="[a-zA-Z-\s]+"><span
+									ng-show="storeItemForm.supplierName.$error.pattern">only
+										alphabets allowed</span></td>
+
+								<td><input type="text" name="issueEmployeeId"
+									ng-model="storestock.issueEmployeeId" placeholder="Issue Employee Id"
+									ng-required="true" pattern="[a-zA-Z-\s]+"><span
+									ng-show="storeItemForm.issueEmployeeId.$error.pattern">only
+										alphabets allowed</span></td>
+
+								<td><input type="text" name="issueEmployeeName"
+									ng-model="storestock.issueEmployeeName"
+									placeholder="Issue Employee Name" ng-required="true"
+									pattern="[a-zA-Z-\s]+"><span
+									ng-show="storeItemForm.issueEmployeeName.$error.pattern">only
+										alphabets allowed</span></td>
+
+								<td><input type="text" name="receiverEmployeeId"
+									ng-model="storestock.receiverEmployeeId"
+									placeholder="Receiver Employee Id" ng-required="true"
+									pattern="[a-zA-Z-\s]+"><span
+									ng-show="storeItemForm.receiverEmployeeId.$error.pattern">only
+										alphabets allowed</span></td>
+
+								<td><input type="text" name="receiverEmployeeName"
+									ng-model="storestock.receiverEmployeeName"
+									placeholder="Receiver Employee Name" ng-required="true"
+									pattern="[a-zA-Z-\s]+"><span
+									ng-show="storeItemForm.receiverEmployeeName.$error.pattern">only
+										alphabets allowed</span></td>
+
+								<td><input type="text" name="unitOfMeasure"
+									ng-model="storestock.unitOfMeasure" placeholder="Unit Of Measure"
+									ng-required="true" pattern="[a-zA-Z-\s]+"><span
+									ng-show="storeItemForm.unitOfMeasure.$error.pattern">only
+										alphabets allowed</span></td>
+
+								<td><input type="text" name="rate" ng-model="storestock.rate"
+									placeholder="Rate" ng-required="true" pattern="[a-zA-Z-\s]+"><span
+									ng-show="storeItemForm.rate.$error.pattern">only
+										alphabets allowed</span></td>
+
+								<td><input type="text" name="openingBalanceQuantity"
+									ng-model="storestock.openingBalanceQuantity"
+									placeholder="Opening Balance Quantity" ng-required="true"
+									pattern="[a-zA-Z-\s]+"><span
+									ng-show="storeItemForm.openingBalanceQuantity.$error.pattern">only
+										alphabets allowed</span></td>
+
+								<td><input type="text" name="issuedQuantity"
+									ng-model="storestock.issuedQuantity"
+									placeholder="Issued Quantity" ng-required="true"
+									pattern="[a-zA-Z-\s]+"><span
+									ng-show="storeItemForm.issuedQuantity.$error.pattern">only
+										alphabets allowed</span></td>
+
+								<td><input type="text" name="dateWiseConsumptionQuantity"
+									ng-model="storestock.dateWiseConsumptionQuantity"
+									placeholder="Date Wise Consumption Quantity" ng-required="true"
+									pattern="[a-zA-Z-\s]+"><span
+									ng-show="storeItemForm.dateWiseConsumptionQuantity.$error.pattern">only
+										alphabets allowed</span></td>
+
+								<td><input type="text" name="cumulativeQuantityConsumed"
+									ng-model="storestock.cumulativeQuantityConsumed"
+									placeholder="Cumulative Quantity Consumed" ng-required="true"
+									pattern="[a-zA-Z-\s]+"><span
+									ng-show="storeItemForm.cumulativeQuantityConsumed.$error.pattern">only
+										alphabets allowed</span></td>
+
+								<td><input type="text"
+									name="closingStock"
+									ng-model="storestock.closingStockBalanceQuantityOnSite"
+									placeholder="Closing Stock Balance Quantity On Site"
+									ng-required="true" pattern="[a-zA-Z-\s]+"><span
+									ng-show="storeItemForm.closingStock.$error.pattern">only
+										alphabets allowed</span></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+		</div>
+		<div class="panel-footer">
+			<div class="pull-left">
+				<input type="button" ng-click="addRows()" value="Add"  class="btn bottomaligned btn-brown btn-sm" ng-show="action =='Add'">
+				<input type="button" ng-click="deleteRows()" value="Delete"  class="btn bottomaligned btn-brown btn-sm" ng-show="action =='Add'">
+			</div>
+			<div class="pull-right">
+				<input type="button" ng-click="save()" value="Save" class="btn bottomaligned btn-brown btn-sm">
+			</div>
+		</div>
+	</div>
+	</form>
+</div>
+

@@ -1,0 +1,71 @@
+<div id="tab-pannel" class="panel-group">
+	<form name="addEmailSettingsForm">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h4 class="panel-title">Email Settings</h4>
+			</div>
+			<div class="panel-body12">
+				<div class="row spacer2 text-center">
+					<input type="text" ng-model="emailSetting.host" name="emailHost"
+						placeholder="Email Host" ng-required="true" minlength=4
+						maxlength=20 pattern="^[a-zA-Z\d\.,%]+$"> <span
+						ng-show="addEmailSettingsForm.emailHost.$dirty && addEmailSettingsForm.emailHost.$error.required">Please
+						enter Host</span> <span
+						ng-show="addEmailSettingsForm.emailHost.$error.pattern">Special
+						characters not allowed</span> <span
+						ng-show="addEmailSettingsForm.emailHost.$error.minlength">Too
+						short!</span>
+				</div>
+
+				<div class="row spacer2 text-center">
+					<input type="text" ng-model="emailSetting.port" name="emailPort"
+						placeholder="Email Port" pattern="^[\d\.,/]+$" minlength=4
+						maxlength=20 ng-required="true"> <span
+						ng-show="addEmailSettingsForm.emailPort.$dirty && addEmailSettingsForm.emailPort.$error.required">Please
+						enter port</span> <span
+						ng-show="addEmailSettingsForm.emailPort.$error.pattern">Enter
+						only numbers</span> <span
+						ng-show="addEmailSettingsForm.emailPort.$error.minlength">Too
+						short!</span>
+				</div>
+
+				<div class="row spacer2 text-center">
+					<input type="email" name="email" ng-model="emailSetting.fromEmail"
+						placeholder="Email" ng-required="true" maxlength=20> <span
+						ng-show="addEmailSettingsForm.email.$dirty && addEmailSettingsForm.email.$error.required">Please
+						enter email</span> <span
+						ng-show="addEmailSettingsForm.email.$dirty && addEmailSettingsForm.email.$invalid">Invalid
+						Email </span>
+				</div>
+
+				<div class="row spacer2 text-center">
+					<input type="text" ng-model="emailSetting.userName" name="userName"
+						placeholder="User Name" ng-required="true" minlength=3
+						maxlength=20> <span
+						ng-show="addEmailSettingsForm.userName.$dirty && addEmailSettingsForm.userName.$error.required">Please
+						enter setting user name</span> <span
+						ng-show="addEmailSettingsForm.userName.$error.minlength">Too
+						short!</span>
+				</div>
+
+				<div class="row spacer2 text-center">
+					<input type="Password" ng-model="emailSetting.password"
+						name="password" placeholder="Password" ng-required="true"
+						minlength=4 maxlength=20> <span
+						ng-show="addEmailSettingsForm.password.$dirty && addEmailSettingsForm.password.$error.required">Please
+						enter setting password</span> <span
+						ng-show="addEmailSettingsForm.password.$error.minlength">Too
+						short!</span>
+				</div>
+
+			</div>
+			<div class="panel-footer1">
+				<div class="text-center">
+					<input type="submit"
+						ng-click="addEmailSettingsForm.$valid && saveEmailSettings()"
+						class="btn bottomaligned btn-brown btn-sm" value="Save" ng-show="account.appCodeTemplate['ADMIN_EMAILSTG_ADD']" />
+				</div>
+			</div>
+		</div>
+	</form>
+</div>

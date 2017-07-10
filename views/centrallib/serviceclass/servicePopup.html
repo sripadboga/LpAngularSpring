@@ -1,0 +1,60 @@
+<div id="tab-pannel" class="panel-group">
+	<form name="classificationForm" validate>
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h4 class="panel-title">Service Classification</h4>
+			</div>
+			<div class="table-responsive panel-body15">
+				<table class="table table-striped">
+					<thead>
+						<tr>
+							<th ng-show="action =='Add'">Select</th>
+							<th>Service Classification ID</th>
+							<th>Service Classification Name</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat="classification in classService">
+							<td ng-show="action =='Add'">
+							<input type="checkbox" ng-model="classification.selected" ng-click="popUpRowSelect(classification)"></td>
+
+							<td ng-form name="classificationform">
+							<input type="text" name="code" ng-model="classification.code" pattern="^[a-zA-Z\d\s.,]+$" minlength="2" maxlength="20" placeholder="code" required="required"> 
+							<span ng-show="classificationform.code.$sdirty && classificationform.code.$error.required">This field is required</span> 
+							<span ng-show="classificationform.code.$error.minlength">Too Short!</span> 
+							<span ng-show="classificationform.code.$error.pattern">Special characters  are not allowed</span>
+							 <span ng-show="classificationform.code.$error.maxlength">you reached max length</span></td>
+							 
+							<td ng-form name="classificationform1">
+							<input type="text" name="name" ng-model="classification.name"  pattern="^[a-zA-Z\d\s.,]+$" minlength="3"  maxlength="50" placeholder="name" required="required"> 
+							<span ng-show="classificationform1.name.$dirty && classificationform1.name.$error.required">This field is required</span>
+							<span ng-show="classificationform1.name.$error.minlength">Too Short!</span> 
+							<span ng-show="classificationform1.name.$error.pattern">Special characters  are not allowed</span> 
+							<span ng-show="classificationform1.name.$error.maxlength">You reached max length</span></td>
+
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="panel-footer">
+				<div class="pull-left">
+					<input type="submit" ng-click="classificationForm.$valid && addRows()"  class="btn bottomaligned btn-brown btn-sm" ng-show="action =='Add'" value="Add"/>
+					<input type="button" ng-click="deleteRows()" value="Delete" class="btn bottomaligned btn-brown btn-sm" ng-show="action =='Add'">
+				</div>
+				<div class="pull-right">
+					<input type="submit" class="btn bottomaligned btn-brown btn-sm" value="Save" ng-click="classificationForm.$valid && saveServiceClasses()" />
+				</div>
+			</div>
+		</div>
+	</form>
+</div>
+
+
+
+
+
+
+
+
+
+

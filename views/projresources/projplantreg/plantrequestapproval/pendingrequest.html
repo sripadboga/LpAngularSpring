@@ -1,0 +1,62 @@
+<div id="tab-pannel" class="panel-group">
+	<div class="panel-body21-1 table-responsive" >
+		<table class="table table-bordered table-striped">
+			<thead>
+				<tr>
+					<th>Select</th>
+					<th>Date of Request</th>
+					<th>Originator ID & Name</th>
+					<th>Approver Person ID & Name</th>
+					<th>Requisition Notification #</th>
+					<th>Company Asset ID</th>
+					<th>Registration Number</th>
+					<th>Plant Description</th>
+					<th>Make</th>
+					<th>Model</th>
+					<th>Current Project ID</th>
+					<th>Current Project Name</th>
+					<th>For Project ID</th>
+					<th>For Project Name</th>
+					<th>Anticipated de-mobilization date</th>
+					<th>Transfer Required Date</th>
+					<th>Approval Status</th>
+					<th>Date set for Asset Transfer</th>
+
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="approval in pendingRequest">
+					<td class="vert-align"><input type="checkbox" value="id" ng-model="approval.selected"
+						ng-click="pendingRequestRowSelect(approval)"></td>
+					<td>{{approval.dateOfReq}}</td>
+					<td>{{approval.originatorIdName}}</td>
+					<td>{{approval.approverPersonIdName}}</td>
+					<td>{{approval.RequisitionNotification}}</td>
+					<td>{{approval.companyAssetId}}</td>
+					<td>{{approval.RegNum}}</td>
+					<td>{{approval.plantDes}}</td>
+					<td>{{approval.Make}}</td>
+					<td>{{approval.Model}}</td>
+					<td>{{approval.CurrentProjId}}</td>
+					<td>{{approval.CurrentProjName}}</td>
+					<td>{{approval.ProjectId}}</td>
+					<td>{{approval.ProjectName}}</td>
+					<td>{{approval.AnticipatedDemoDate}}</td>
+					<td>{{approval.TransferReqDate}}</td>
+					<td>{{approval.ApprvalStatus}}</td>
+					<td>{{approval.DateSet}}</td>
+
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<div class="panel-footer">
+	<div class="pull-left">
+		 <input type="button" class="btn btn-brown btn-sm" ng-click="addApprovalRequest('Edit')" value="Edit">
+			<input type="button" class="btn btn-brown btn-sm" ng-click="delete()" value="Deactivate"> 
+		</div>
+		<div class="pull-right">
+			<input type="button" class="btn btn-brown btn-sm" ng-click="MoveToApprovedRequest()" value="MoveToApprovedRequest">
+	</div>
+</div>
+</div>

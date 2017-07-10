@@ -1,0 +1,68 @@
+<div id="tab-pannel" class="panel-group">
+	<form name="superFundForm" validate>
+		<div id="tab-pannel" class="panel panel-default">
+			<div class="panel-heading">
+				<h4 class="panel-title">Super Fund / Provident Fund Codes</h4>
+			</div>
+			<div id="tab-pannel" class="panel-body10">
+				<table class="table table-striped">
+					<thead>
+						<tr>
+							<th ng-show="action=='Add'">Select</th>
+							<th>Code</th>
+							<th>Description</th>
+							<th>Taxable or Not</th>
+							<th>Credit Cycle</th>
+							<th>Due Date for Credit</th>
+						</tr>
+					</thead>
+					<tr ng-repeat="superFund in addSuperFund">
+						<td ng-show="action=='Add'"><input type="checkbox"
+							value="superFund.id" ng-model="superFund.selected"
+							ng-click="superFundPopupRowSelect(superFund)"></td>
+						<td><input type="text" name="code" ng-model="superFund.code"
+							placeholder="Code" ng-required="true" pattern="[a-zA-Z-\d\s]+"
+							maxlength=30> <span
+							ng-show="superFundForm.code.$error.pattern">Only alpha
+								numerics allowed</span> <span
+							ng-show="superFundForm.code.$error.maxlength">You reached
+								max length</span></td>
+						<td><input type="text" name="desc" ng-model="superFund.desc"
+							placeholder="Description" ng-required="true"
+							pattern="[a-zA-Z-\s]+" maxlength=30> <span
+							ng-show="superFundForm.desc.$error.pattern">only alphabets
+								allowed</span> <span ng-show="superFundForm.desc.$error.maxlength">You
+								reached max length</span></td>
+
+						<td><input type="text" name="taxableOrNot"
+							ng-model="superFund.taxableOrNot" placeholder="Taxable Or Not"
+							ng-required="true">
+						<td><input type="text" name="creditCycle"
+							ng-model="superFund.creditCycle" placeholder="creditCycle"></td>
+						<td><input type="text" name="dueDate"
+							ng-model="superFund.dueDate" placeholder="dueDate"></td>
+					</tr>
+				</table>
+			</div>
+			<div class="panel-footer">
+				<div class="pull-left">
+					<input type="submit" ng-click="superFundForm.$valid && addRows()"
+						class="btn bottomaligned btn-brown btn-sm" value="Add"
+						ng-show="action =='Add'" validate> <input type="button"
+						ng-click="deleteRows()" value="Delete" ng-show="action =='Add'"
+						class="btn bottomaligned btn-brown btn-sm" validate>
+				</div>
+				<div class="pull-right">
+					<input type="submit"
+						ng-click="superFundForm.$valid && saveSuperFund()"
+						value="Save" class="btn bottomaligned btn-brown btn-sm" />
+				</div>
+			</div>
+		</div>
+	</form>
+</div>
+
+
+
+
+

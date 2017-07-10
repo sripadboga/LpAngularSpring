@@ -1,0 +1,90 @@
+<div id="tab-pannel" class="panel-group">
+	<form name="plntRegForm" validate>
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<h4 class="panel-title">Master Plant List</h4>
+		</div>
+		<div class="panel-body15 table-responsive">
+				<table id="input-width" class="table table-bordered table-striped">
+					<thead>
+						<tr>
+							<th rowspan=2 ng-hide="action =='Edit'">Select</th>
+							<th colspan="11" class="text-center">AssetParticular</th>
+							<th rowspan="2">Plant Purchase Category</th>
+						</tr>
+						<tr>
+							<th>Asset Id</th>
+							<th>Registration Number</th>
+							<th>Resource Classification Id</th>
+							<th>Resource Classification Name</th>
+							<th>Unit of Measure</th>
+							<th>Plant Description</th>
+							<th>Make</th>
+							<th>Model</th>
+							<th>Existing New Asset</th>
+							<th>Plant Supplier Name</th>
+							<th>Plant Owner Name</th>
+						</tr>
+						<tr ng-repeat="plant in addPlantData">
+							<td ng-hide="action =='Edit'"><input type="checkbox" 
+								ng-model="plant.selected"
+								ng-click="plantDetailsPopUpRowSelect(plant)"></td>
+							<td><input type="text" name="assId" ng-model=plant.assertId
+								placeholder="AssId" ng-required="true" pattern="[a-zA-Z-\d\s]+"><span
+								ng-show="plntRegForm.assId.$error.pattern">only alpha
+									numerics allowed</span></td>
+							<td><input type="text" name="Reg Name"
+								ng-model="plant.regNumber" placeholder="RegName"
+								ng-required="true" pattern="[a-zA-Z-\s]+"><span
+								ng-show="plntRegForm.RegName.$error.pattern">only
+									alphabets allowed</span></td>
+							<td><select
+								ng-options="plantClass.code  for plantClass in  plantClassMstrMap track by plantClass.id"
+								ng-model="plant.plantClassMstrLKeyTO"  ng-required="true">
+							</select></td>
+
+							<td>{{plantClassMstrMap[plant.plantClassMstrLKeyTO.id].name}}</td>
+							<td>{{plantClassMstrMap[plant.plantClassMstrLKeyTO.id].unitOfMeasure}}</td>
+							<td><input type="text" name="plantdes"
+								ng-model="plant.desc" placeholder="Plant Description"
+								ng-required="true">
+							</td><td><input type="text" name="make" ng-model="plant.manfacture"
+								placeholder="Make" ng-required="true"></td>
+							<td><input type="text" name="model" ng-model="plant.model"
+								placeholder="Model" ng-required="true"></td>
+							<td><select
+								ng-options="plantClass  for plantClass in  assertTypes"
+								ng-model="plant.assetType" ng-required="true">
+							</select></td>
+
+							<td><select
+								ng-options="plantClass.name  for plantClass in  plantCompanyMap track by plantClass.id"
+								ng-model="plant.companyLabelKeyTO" ng-required="true">
+							</select></td>
+
+							<td>{{plantCompanyMap[plant.companyLabelKeyTO.id].cmpCatgName}}</td>
+
+
+							<td><select
+								ng-options="plantClass.name  for plantClass in  procureCatgMap track by plantClass.id"
+								ng-model="plant.procureCatgLabelKeyTO" ng-required="true">
+							</select></td>
+							
+						</tr>
+					</tbody>
+				</table>		</div>
+		<div class="panel-footer">
+			<div class="pull-left">
+				<input type="button" class="btn btn-brown bottomaligned btn-sm" 
+					ng-click="addRows()" value="Add" ng-show="action =='Add'">
+				<input type="button" class="btn btn-brown bottomaligned btn-sm"
+					ng-click="deleteRows()" value="Delete" ng-show="action =='Add'">
+			</div>
+			<div class="pull-right">
+				<input type="button" class="btn btn-brown bottomaligned btn-sm"
+					ng-click="save()" value="Save">
+			</div>
+		</div>
+	</div>
+		</form>
+</div>

@@ -1,0 +1,42 @@
+<div id="tab-pannel" class="panel-group">
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<h4 class="panel-title">Pre Contract Documents</h4>
+		</div>
+
+		<div id="tab-pannel" class="spacer2 panel-body15">
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<th>select</th>
+						<th>Document Name</th>
+						<th>Document Version</th>
+						<th>Upload</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="document in preContractDocsTOs">
+						<td><input type="checkbox" ng-model="document.select"
+							ng-click="documentRowSelect(document)" /></td>
+						<td><input type="text" ng-model="document.name" /></td>
+						<td><input type="text" ng-model="document.version" /></td>
+						<td><input type="file" id="file" name="file" multiple
+            onchange="angular.element(this).scope().getFileDetails(this)" /></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<div class="panel-footer">
+			<div class="pull-left">
+				<input class="btn bottomaligned btn-brown btn-sm" type="button"
+					ng-click="addPrecontractDocs()" value="Add"> <input
+					class="btn bottomaligned btn-brown btn-sm" type="button"
+					ng-click="deletePrecontractDocs()" value="Delete">
+			</div>
+			<div class="pull-right">
+				<input type="button" class="btn bottomaligned btn-brown btn-sm"
+					ng-Click="uploadFileToUrl()" value="Save">
+			</div>
+		</div>
+	</div>
+</div>

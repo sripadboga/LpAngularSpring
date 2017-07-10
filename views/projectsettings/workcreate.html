@@ -1,0 +1,48 @@
+<div id="tab-pannel" class="normal-fnt box-border">
+	<div class="panel-body11-1">
+		<div class="row">
+			<div class="col-xs-12 col-sm-12 col-md-12">
+				<h5 class="text-center spacer2">
+					<span class="underline">Normal Time Frame from Work Diary
+						Date</span>
+				</h5>
+			</div>
+			<div class="row spacer2 ">
+				<div class="col-xs-2 col-sm-2 col-md-3"></div>
+				<div class="col-xs-2 col-sm-2 col-md-2 spacer2">
+					Type<br />
+				</div>
+				<div class="col-xs-3 col-sm-3 col-md-3 spacer2" style="margin-left: 50px !important;">
+					Cut off Time in Days<br />
+				</div>
+				<div class="col-xs-3 col-sm-3 col-md-3 spacer2">
+					Cut off Time(24) <br />
+				</div>
+				<div class="col-xs-2 col-sm-2 col-md-2"></div>
+			</div>
+			<div class="row spacer1 text-center"
+				ng-repeat="work in projWorkDairys">
+				<div class="col-xs-1 col-sm-1 col-md-2"></div>
+				<div class="col-xs-3 col-sm-3 col-md-3 text-right"
+					ng-model="workDairyCreate.apprType">{{work.apprType}}</div>
+				<div class="col-xs-4 col-sm-4 col-md-3">
+					<input class="input-size" type="text" ng-model="work.cutOffDays">
+				</div>
+				<div class="col-xs-3 col-sm-3 col-md-3">
+					<input type="number" placeholder="hh" min=0 max=23
+						name="cutoffHours" ng-model="work.cutOffHours" ng-required="true"
+						maxlength=2 /> <input type="number" min=0 max=59 placeholder="mm"
+						name="cutoffMinutes" ng-model="work.cutOffMinutes" />
+				</div>
+
+				<div class="col-xs-1 col-sm-1 col-md-1"></div>
+			</div>
+		</div>
+	</div>
+	<div class="panel-footer">
+		<div class="pull-right">
+			<input type="button" class="btn bottomaligned btn-brown btn-sm"
+				value="Save" ng-click="saveWorkDairy()">
+		</div>
+	</div>
+</div>

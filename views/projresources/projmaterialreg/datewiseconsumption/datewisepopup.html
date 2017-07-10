@@ -1,0 +1,152 @@
+<div id="tab-pannel" class="panel-group">
+	<form name="consumptionForm" validate>	
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<h4 class="panel-title">Date Wise Consumption Quantity</h4>
+		</div>
+		<div class="panel-body12">
+			<div id="tableHeight8" class="table-responsive">
+					<table class="table table-bordered table-striped" fixed-header>
+						<thead id="tab-head">
+							<tr>
+								<th>Select</th>
+								<th>Date</th>
+								<th>Project Name</th>
+								<th>Eps Name</th>
+								<th>Resource Id</th>
+								<th>Resource Name</th>
+								<th>Resource Sub Group Name</th>
+								<th>Unit Of Measure</th>
+								<th>Material Supplier Name</th>
+								<th>Purchase Order Number</th>
+								<th>PO Schedule Item Id</th>
+								<th>Docket Date</th>
+								<th>Docket Number</th>
+								<th>WorkDiary Id</th>
+								<th>Supervisor Name</th>
+								<th>Date Wise Consumption Quantity</th>
+								<th>Docket Wise Cumulative Consumption</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr ng-repeat="consumption in addDateWiseConsumption">
+								<td><input type="checkbox" value="consumption.id"
+									ng-model="consumption.selected" ng-click="consumptionPopUpRowSelect(consumption)"></td>
+
+								<td><input type="date" name="date" ng-model=consumption.date
+									placeholder="Date" ng-required="true"></td>
+
+								<td><input type="text" name="projectName"
+									ng-model="consumption.projectName" placeholder="Project Name"
+									ng-required="true" pattern="[a-zA-Z-\s]+"><span
+									ng-show="consumptionForm.projectName.$error.pattern">only
+										alphabets allowed</span></td>
+
+								<td><input type="text" name="epsName"
+									ng-model="consumption.epsName" placeholder="Eps Name"
+									ng-required="true" pattern="[a-zA-Z-\s]+"><span
+									ng-show="consumptionForm.epsName.$error.pattern">only
+										alphabets allowed</span></td>
+
+								<td><input type="text" name="resourceId"
+									ng-model="consumption.resourceId" placeholder="resource Id"
+									ng-required="true" pattern="[a-zA-Z-\s]+"><span
+									ng-show="consumptionForm.resourceId.$error.pattern">only
+										alphabets allowed</span></td>
+
+								<td><input type="text" name="resourceName"
+									ng-model="consumption.resourceName" placeholder="resource Name"
+									ng-required="true" pattern="[a-zA-Z-\s]+"><span
+									ng-show="consumptionForm.resourceName.$error.pattern">only
+										alphabets allowed</span></td>
+
+								<td><input type="text" name="resourceSubGroupName"
+									ng-model="consumption.resourceSubGroupName"
+									placeholder="Resource Sub Group Name" ng-required="true"
+									pattern="[a-zA-Z-\s]+"><span
+									ng-show="consumptionForm.resourceSubGroupName.$error.pattern">only
+										alphabets allowed</span></td>
+
+								<td><input type="text" name="unitOfMeasure"
+									ng-model="consumption.unitOfMeasure" placeholder="Unit Of Measure"
+									ng-required="true" pattern="[a-zA-Z-\s]+"><span
+									ng-show="consumptionForm.unitOfMeasure.$error.pattern">only
+										alphabets allowed</span></td>
+
+								<td><input type="text" name="materialSupplierName"
+									ng-model="consumption.materialSupplierName"
+									placeholder="Material Supplier Name" ng-required="true"
+									pattern="[a-zA-Z-\s]+"><span
+									ng-show="consumptionForm.materialSupplierName.$error.pattern">only
+										alphabets allowed</span></td>
+
+								<td><input type="text" name="purchaseOrderNumber"
+									ng-model="consumption.purchaseOrderNumber"
+									placeholder="Purchase Order Number" ng-required="true"
+									pattern="[a-zA-Z-\s]+"><span
+									ng-show="consumptionForm.purchaseOrderNumber.$error.pattern">only
+										alphabets allowed</span></td>
+
+								<td><input type="text" name="poScheduleItemId"
+									ng-model="consumption.poScheduleItemId"
+									placeholder="PO Schedule Item Id" ng-required="true"
+									pattern="[a-zA-Z-\s]+"><span
+									ng-show="consumptionForm.poScheduleItemId.$error.pattern">only
+										alphabets allowed</span></td>
+
+								<td><input type="text" name="docketDate"
+									ng-model="consumption.docketDate" placeholder="Docket Date"
+									ng-required="true" pattern="[a-zA-Z-\s]+"><span
+									ng-show="consumptionForm.docketDate.$error.pattern">only
+										alphabets allowed</span></td>
+
+								<td><input type="text" name="docketNumber"
+									ng-model="consumption.docketNumber" placeholder="Docket Number"
+									ng-required="true" pattern="[a-zA-Z-\s]+"><span
+									ng-show="consumptionForm.docketNumber.$error.pattern">only
+										alphabets allowed</span></td>
+
+								<td><input type="text" name="workDiaryId"
+									ng-model="consumption.workDiaryId" placeholder="WorkDiary Id"
+									ng-required="true" pattern="[a-zA-Z-\s]+"><span
+									ng-show="consumptionForm.workDiaryId.$error.pattern">only
+										alphabets allowed</span></td>
+
+								<td><input type="text" name="supervisorName"
+									ng-model="consumption.supervisorName" placeholder="Supervisor Name"
+									ng-required="true" pattern="[a-zA-Z-\s]+"><span
+									ng-show="consumptionForm.supervisorName.$error.pattern">only
+										alphabets allowed</span></td>
+
+								<td><input type="text" name="consumptionFormQuantity"
+									ng-model="consumption.consumptionFormQuantity"
+									placeholder="Date Wise Consumption Quantity" ng-required="true"
+									pattern="[a-zA-Z-\s]+"><span
+									ng-show="consumptionForm.consumptionFormQuantity.$error.pattern">only
+										alphabets allowed</span></td>
+
+								<td><input type="text"
+									name="docketWiseCumulativeConsumption"
+									ng-model="consumption.docketWiseCumulativeConsumption"
+									placeholder="Docket Wise Cumulative Consumption"
+									ng-required="true" pattern="[a-zA-Z-\s]+"><span
+									ng-show="consumptionForm.docketWiseCumulativeConsumption.$error.pattern">only
+										alphabets allowed</span></td>
+
+							</tr>
+						</tbody>
+					</table>
+				</div>
+		</div>
+		<div class="panel-footer">
+			<div class="pull-left">
+				<input type="button" ng-click="addRows()" value="Add"  class="btn bottomaligned btn-brown btn-sm" ng-show="action =='Add'">
+				<input type="button" ng-click="deleteRows()" value="Delete"  class="btn bottomaligned btn-brown btn-sm" ng-show="action =='Add'">
+			</div>
+			<div class="pull-right">
+				<input type="button" ng-click="save()" value="Save" class="btn bottomaligned btn-brown btn-sm">
+			</div>
+		</div>
+	</div>	
+	</form>
+</div>

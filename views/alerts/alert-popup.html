@@ -1,0 +1,18 @@
+<div id="tab-pannel" class="panel-group">
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<h4 class="panel-title"><fa ng-show="header=='Warning'" name="fa fa-exclamation-circle"></fa>
+			<fa ng-show="header=='Info'"name="fa fa-check-circle-o"></fa>
+			<fa ng-show="header=='Error'" name="fa fa-times-circle-o"></fa> {{header}}</h4>
+		</div>
+		<div id="tab-pannel" class="spacer2 text-center panel-body0">
+			<span ng-show="header=='Warning'" ng-bind-html="message" class="text-warning"></span>
+			<span ng-show="header=='Info'" ng-bind-html="message" class="text-success "></span>
+			<span ng-show="header=='Error'" ng-bind-html="message" class="text-danger "></span>
+		</div>
+		<div class="pull-center">
+			<input type="button" value="Ok"
+				class="btn bottomaligned btn-brown btn-sm" ng-click="confirm()">
+		</div>
+	</div>
+</div>

@@ -1,0 +1,28 @@
+<div id="tab-pannel" ng-init="getExternalPrecontractDetails()">
+		<div id="tab-pannel" class="panel panel-default">
+			<div class="panel-heading">
+				<h4 class="panel-title">External Stage2 Approval</h4>
+			</div>
+			<div class="spacer2 panel-body17-1">
+					<div class="row" id="input-height">
+						<div class="col-md-2">
+							<input type="text" ng-model="preContractObj.code" readonly="readonly">
+						</div>
+						<div class="col-md-2" ng-form name="myForm1">
+							<input type="text" name="desc" ng-model="preContractObj.desc"
+								placeholder="Contract Description" maxlength="20" readonly="readonly">
+						</div>
+					</div>
+				<div id="tabs1" class="spacer2">
+					<ul class="nav  nav-tabs">
+						<li ng-repeat="preContarctDetailTab in preContrctDetailTabs"
+							ng-class="{active:isActiveTab1(preContarctDetailTab.url)}"><a
+							data-toggle="tab" ng-click="onClickTab1(preContarctDetailTab)">{{preContarctDetailTab.title}}</a></li>
+					</ul>
+					<div class="tab-content">
+						<div ng-include="currentTab1"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+</div>

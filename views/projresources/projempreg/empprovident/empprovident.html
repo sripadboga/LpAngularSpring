@@ -1,0 +1,95 @@
+<div id="tab-pannel">
+<div class="panel-group">
+		<div class="panel panel-body23-0">
+	<div class="table-responsive">
+		<table class="table table-bordered table-striped">
+			<thead>
+				<tr>
+					<th rowspan=2>Select</th>
+					<th colspan=2 class="text-center">Effective From</th>
+					<th rowspan=2>Project Posting#</th>
+					<th rowspan=2>EPS ID</th>
+					<th rowspan=2>EPS Name</th>
+					<th rowspan=2>Project ID</th>
+					<th rowspan=2>Project Name</th>
+					<th rowspan=2>Parent Company ID</th>
+					<th rowspan=2>Parent Company Name</th>
+					<th rowspan=2>Employee Tax File Number</th>
+					<th rowspan=2>Credit Cycle</th>
+					<th rowspan=2>Currency</th>
+					<th rowspan=2>Contribution type</th>
+					<th colspan=2 class="text-center">Employer Contribution</th>
+					<th colspan=2 class="text-center">Employee Contribution</th>
+					<th rowspan=2>Total Amount</th>
+					<th colspan=2 class="text-center">Tax on Super Fund</th>
+					<th colspan=6 class="text-center">Super annuation/ Provident Fund</th>
+					<th rowspan=2>Account Status</th>
+					<th rowspan=2>Upload / View documents</th>
+					<th rowspan=2>Notes</th>
+				</tr>
+				<tr>
+					<th>from</th>
+					<th>to</th>
+					<th>% rate on Base pay ( Variable)</th>
+					<th>Fixed amount</th>
+					<th>% on Base pay ( variable)</th>
+					<th>Fixed amount</th>
+					<th>% on super fund amount</th>
+					<th>Tax Amount</th>
+					<th>Fund Name</th>
+					<th>Fund Code #</th>
+					<th>Registered Address</th>
+					<th>Account Number</th>
+					<th>Bank/Institute Name</th>
+					<th>Bank Code</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="providentfund in empProvidentFund">
+					<td><input type="checkbox" value="id"
+						ng-model="providentfund.selected" ng-click="providentFoundRowSelect(providentfund)"></td>
+					<td>{{providentfund.from|date}}</td>
+					<td>{{providentfund.to|date}}</td>
+					<td>{{providentfund.projectPosting}}</td>
+					<td>{{providentfund.epsId}}</td>
+					<td>{{providentfund.epsName}}</td>
+					<td>{{providentfund.pId}}</td>
+					<td>{{providentfund.pName}}</td>
+					<td>{{providentfund.pComId}}</td>
+					<td>{{providentfund.pComName}}</td>
+					<td>{{providentfund.taxNum}}</td>
+					<td>{{providentfund.creditCycle}}</td>
+					<td>{{providentfund.currency}}</td>
+					<td>{{providentfund.contributionType}}</td>
+					<td>{{providentfund.bp1}}</td>
+					<td>{{providentfund.fixedAmount1}}</td>
+					<td>{{providentfund.bp2}}</td>
+					<td>{{providentfund.fixedAmount2}}</td>
+					<td>{{providentfund.totAmount}}</td>
+					<td>{{providentfund.percentOnSuperFund}}</td>
+					<td>{{providentfund.taxAmount}}</td>
+					<td>{{providentfund.fundName}}</td>
+					<td>{{providentfund.fundCode}}</td>
+					<td>{{providentfund.regAddress}}</td>
+					<td>{{providentfund.accNum}}</td>
+					<td>{{providentfund.bankName}}</td>
+					<td>{{providentfund.bankCode}}</td>
+					<td>{{providentfund.status}}</td>
+					<td>{{providentfund.doc}}</td>
+					<td>{{providentfund.codes}}</td>
+				</tr>
+			</tbody>
+		</table>
+		</div>
+</div>
+<div class="panel-footer">
+<div class="pull-right">
+	<input type="button" class="btn btn-brown btn-sm" ng-click="addFund('Add')" value="Create"> 
+		</div>
+		<div class="pull-left">
+		<input type="button" class="btn btn-brown btn-sm" ng-click="addFund('Edit')" value="Edit">
+		<input type="button" class="btn btn-brown btn-sm" ng-click="deletePayDeductionFund()" value="Deactivate"> 
+</div>
+</div>
+</div>
+</div>

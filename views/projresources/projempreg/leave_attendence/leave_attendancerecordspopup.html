@@ -1,0 +1,127 @@
+<div id="tab-pannel" class="panel-group">
+	<form name="leaveandAttendanceForm" validate>
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h4 class="panel-title">Leave and Attendance</h4>
+			</div>
+			<div class="panel-body12">
+
+				<div class="table-responsive ">
+
+					<table class="table table-bordered table-striped">
+						<thead>
+							<tr>
+								<th rowspan=2>Period ( Calander Year)</th>
+								<th rowspan=2>Unit</th>
+								<th colspan=5 class="text-center">Leave Accrued</th>
+								<th colspan=9 class="text-center">Days Account as per Daily
+									Attendance Records</th>
+								<th colspan=6 class="text-center">Balance leave on Credit</th>
+
+							</tr>
+							<tr>
+								<th>Annual / Earned Leave</th>
+								<th>Long Service Leave</th>
+								<th>Sick / Personal Leave</th>
+								<th>Casual Leave</th>
+								<th>Maternity Leave</th>
+								<th>Annual / Earned Leave</th>
+								<th>Long Service Leave</th>
+								<th>Sick / Personal Leave</th>
+								<th>Casual Leave</th>
+								<th>Maternity Leave</th>
+								<th>Unpaid Leave</th>
+								<th>Absent</th>
+								<th>Present</th>
+								<th>Total Days</th>
+								<th>Annual / Earned Leave</th>
+								<th>Long Service Leave</th>
+								<th>Sick / Personal Leave</th>
+								<th>Casual Leave</th>
+								<th>Maternity Leave</th>
+								<th>Total Days</th>
+							</tr>
+						</thead>
+						<tbody>
+						<tbody id="vert-align">
+							<tr ng-repeat="leave in addEmpLeaveAttendence">
+								<td><input type="date" name="period"
+									ng-model="leave.period" placeholder="period"
+									readonly="readonly"></td>
+								<td class="input-width5"><input type="text" name="unit"
+									ng-model="leave.unit" placeholder="unit" readonly="readonly"></td>
+								<td class="input-width"><input type="number"
+									name="anualLeave1" ng-model="leave.anualLeave1"
+									placeholder="anualLeave" ng-required="true"></td>
+								<td class="input-width"><input type="number"
+									name="serviceLeave1" ng-model="leave.serviceLeave1"
+									placeholder="serviceLeave" ng-required="true"></td>
+								<td class="input-width"><input type="number"
+									name="sickLeave1" ng-model="leave.sickLeave1"
+									placeholder="sickLeave" ng-required="true"></td>
+								<td class="input-width"><input type="number"
+									name="casualLeave1" ng-model="leave.casualLeave1"
+									placeholder="casualLeave" ng-required="true"></td>
+								<td class="input-width"><input type="number"
+									name="maternityLeave1" ng-model="leave.maternityLeave1"
+									placeholder="maternityLeave" ng-required="true"></td>
+								<td class="input-width"><input type="number"
+									name="anualLeave2" ng-model="leave.anualLeave2"
+									placeholder="anualLeave" readonly="readonly"></td>
+								<td class="input-width"><input type="number"
+									name="serviceLeave2" ng-model="leave.serviceLeave2"
+									placeholder="serviceLeave" readonly="readonly"></td>
+								<td class="input-width"><input type="number"
+									name="sickLeave2" ng-model="leave.sickLeave2"
+									placeholder="sickLeave" readonly="readonly"></td>
+								<td class="input-width"><input type="number"
+									name="casualLeave2" ng-model="leave.casualLeave2"
+									placeholder="casualLeave" readonly="readonly"></td>
+								<td class="input-width"><input type="number"
+									name="maternityLeave2" ng-model="leave.maternityLeave2"
+									placeholder="maternityLeave" readonly="readonly"></td>
+								<td class="input-width"><input type="number"
+									name="unpaidLeave" ng-model="leave.unpaidLeave"
+									placeholder="unpaidLeave" readonly="readonly"></td>
+								<td class="input-width"><input type="number" name="absent"
+									ng-model="leave.absent" placeholder="absent"
+									readonly="readonly"></td>
+								<td class="input-width"><input type="number" name="present"
+									ng-model="leave.present" placeholder="present"
+									readonly="readonly"></td>
+								<td class="input-width"><input type="number"
+									name="totDays2" ng-model="leave.totDays2"
+									placeholder="TotalDays" readonly="readonly"></td>
+								<td class="input-width"><input type="number"
+									name="anualLeave3" ng-model="leave.anualLeave3"
+									placeholder="anualLeave" readonly="readonly"></td>
+								<td class="input-width"><input type="number"
+									name="serviceLeave3" ng-model="leave.serviceLeave3"
+									placeholder="serviceLeave" readonly="readonly"></td>
+								<td class="input-width"><input type="number"
+									name="sickLeave3" ng-model="leave.sickLeave3"
+									placeholder="sickLeave" readonly="readonly"></td>
+								<td class="input-width"><input type="number"
+									name="casualLeave3" ng-model="leave.casualLeave3"
+									placeholder="casualLeave" readonly="readonly"></td>
+								<td class="input-width"><input type="number"
+									name="maternityLeave3" ng-model="leave.maternityLeave3"
+									placeholder="maternityLeave" readonly="readonly"></td>
+								<td class="input-width"><input type="number"
+									name="totDays3" ng-model="leave.totDays3"
+									placeholder="Total Days" readonly="readonly"></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+			<div class="panel-footer">
+				<div class="pull-right">
+					<input type="button" class="btn btn-brown btn-sm" ng-click="save()"
+						value="Save">
+				</div>
+			</div>
+		</div>
+	</form>
+</div>
+

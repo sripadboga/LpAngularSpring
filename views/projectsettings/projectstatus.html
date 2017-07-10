@@ -1,0 +1,109 @@
+<div id="tab-row" ng-init="getProjectStatus()">
+	<div id="tab-pannel">
+		<div id="vert-panel1">
+			<div class="col-xs-12 col-sm-12 col-md-12">
+
+				<div class="row">
+					<div class="col-xs-12 col-sm-12 col-md-3 box-border panel-body17">
+
+						<table class="table borderless normal-text">
+							<tr>
+								<th colspan="2"><h5 class="text-center">
+										<u>Project Dates - Status</u>
+									</h5></th>
+							</tr>
+							<tr>
+
+								<td></td>
+								<td>Project Dates</td>
+
+							</tr>
+							<tr>
+								<td class="col-md-4">Actual Start</td>
+								<td class="input-width1"><input type="text" potdate-picker id="startDate" ng-model="date.start"
+									name="startDate"></td>
+							</tr>
+							<tr>
+								<td class="col-md-4">Actual Finish</td>
+								<td class="input-width1"><input type="text" potdate-picker id="finishDate" ng-model="date.finish"
+									name="finishDate"></td>
+							</tr>
+
+							<tr>
+								<td class="col-md-4">Resume Date</td>
+								<td class="input-width1"><input type="text" potdate-picker id="resumeDate" ng-model="date.resume"
+									name="resumeDate"></td>
+							</tr>
+
+							<tr>
+								<td class="col-md-4">Suspended Date</td>
+								<td class="input-width1"><input type="text" potdate-picker id="suspendDate" ng-model="date.suspend"
+									name="suspendDate"></td>
+							</tr>
+							
+						</table>
+						<div class="pull-right right-padding">
+							<input type="button" class="btn bottomaligned btn-brown btn-sm"
+								value="Save">
+						</div>
+ 							
+					</div>
+
+					<div class="col-xs-12 col-sm-12 col-md-9 box-border panel-body17">
+
+						<table width="50%" class="table table-bordered normal-text ">
+							<thead>
+								<tr>
+									<th colspan="6" class="text-center">Project Duration &
+										Resource Status</th>
+									<th rowspan="2" class="vert-align">Estimate At Completion</th>
+								</tr>
+
+								<tr>
+									<th></th>
+									<th align="center">Original Budget</th>
+									<th align="center">Revised Budget</th>
+									<th align="center">Actual</th>
+									<th align="center">Remaining</th>
+									<th align="center">% Spent</th>
+								</tr>
+
+							</thead>
+
+							<tbody>
+								<tr>
+									<td>Duration</td>
+									<td>{{}}</td>
+									<td>{{}}</td>
+									<td>{{}}</td>
+									<td>{{}}</td>
+									<td>{{}}</td>
+									<td>{{}}</td>
+								</tr>
+								<tr ng-repeat="projManPowerStatus in projManPowerStatusTOs">
+									<td>{{projManPowerStatus.empCatgName}}</td>
+									<td>{{projManPowerStatus.originalQty}}</td>
+									<td>{{projManPowerStatus.revisedQty}}</td>
+									<td>{{projManPowerStatus.actualQty}}</td>
+									<td>{{projManPowerStatus.remainingQty}}</td>
+									<td>{{spent(projManPowerStatus)| number : 4}}</td>
+									<td>{{projManPowerStatus.estimateCompletion}}</td>
+								</tr>
+
+								<tr ng-repeat="projCostCatg in projCostStatementsSummaryTOs">
+									<td>{{projCostCatg.catgType}} Cost </td>                              
+									<td  ng-repeat="budgetCost in projCostCatg.projCostBugetTOs" ng-if="$index  < 4">
+										{{budgetCost.cost}}</td>
+									<td>
+										{{spentCost(projCostCatg.projCostBugetTOs)}}</td>
+									<td  ng-repeat="budgetCost in projCostCatg.projCostBugetTOs" ng-if="$index==5">
+										{{budgetCost.cost}}</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,28 @@
+<div id="tab-pannel">
+	<div class="panel-group">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h4 class="panel-title">Employee Designation List</h4>
+			</div>
+			<div class="table-responsive panel-body4 panel-collapse collapse in">
+				<table class="table table-striped table-bordered">
+					<thead>
+						<tr>
+							<th>Classification Code</th>
+							<th>Classification Name</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat="desgName in empDesignations"
+							ng-click="desigListPopUp(desgName)">
+							<td>{{desgName.code}}</td>
+							<td>{{desgName.name}}</td>
+							<td colspan="2" ng-show="empDesignations.length<=0" style="color: red">No Records Found</td>
+						</tr>
+					</tbody>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>

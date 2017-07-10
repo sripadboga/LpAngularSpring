@@ -1,0 +1,76 @@
+<div id="tab-pannel">
+<div class="panel-group">
+<div class="panel  panel-body23-0">
+	<form name="chargeoutratesForm">
+	<div class="table-responsive">
+		<table class="table table-bordered table-striped">
+			<thead>
+				<tr>
+					<th>Select</th>
+					<th>Project Posting#</th>
+					<th>Effective From</th>
+					<th>EPS ID</th>
+					<th>EPS Name</th>
+					<th>Project ID</th>
+					<th>Project Name</th>
+					<th>Parent Company ID</th>
+					<th>Parent Company Name</th>
+					<th>Charge out unit</th>
+					<th>Currency</th>
+					<th>Rate per Unit Normal Time</th>
+					<th>Rate per unit-Idle Time</th>
+					<th>Paid Leave-Rate per day</th>
+					<th>Paid Leave-Cost Code ID</th>
+					<th>Mobilization Cost code</th>
+					<th>Mobilization Rate</th>
+					<th>De-mobilization Cost Code</th>
+					<th>De-Mobilization Rate</th>
+					<th>Post De-mobilization Status</th>
+					<th>Notes</th>
+
+
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="charge in empChargeRates">
+					<td><input type="checkbox" value="id" ng-model="charge.selected" ng-click="empChargeOutRowSelect(charge)"></td>
+					<td>{{charge.projectPosting}}</td>
+					<td>{{charge.effectiveFrom|date}}</td>
+					<td>{{charge.epsId}}</td>
+					<td>{{charge.epsName}}</td>
+					<td>{{charge.pId}}</td>
+					<td>{{charge.pName}}</td>
+					<td>{{charge.pComId}}</td>
+					<td>{{charge.pComName}}</td>
+					<td>{{charge.chargeOutUnit}}</td>
+					<td>{{charge.currency}}</td>
+					<td>{{charge.ratePerNormalTime}}</td>
+					<td>{{charge.ratePerIdleTime}}</td>
+					<td>{{charge.plRateperDay}}</td>
+					<td>{{charge.plCostCodeId}}</td>
+					<td>{{charge.mobCostCode}}</td>
+					<td>{{charge.mobRate}}</td>
+					<td>{{charge.demobCostCode}}</td>
+					<td>{{charge.demobCostRate}}</td>
+					<td>{{charge.demobStatus}}</td>
+					<td>{{charge.notes}}</td>
+
+
+				</tr>
+			</tbody>
+
+		</table>
+		</div>
+	</form>
+</div>
+<div class="panel-footer">
+<div class="pull-right">
+	<input type="button" class="btn btn-brown btn-sm"  ng-click="addChargeOutrate('Add')" value="Create">
+	</div>
+	<div class="pull-left">
+	  <input type="button" class="btn btn-brown btn-sm" ng-click="addChargeOutrate('Edit')" value="Edit">
+	 <input type="button" class="btn btn-brown btn-sm" ng-click="deleteChargeOutrates()" value="Deactivate">
+</div>
+</div>
+</div>
+</div>

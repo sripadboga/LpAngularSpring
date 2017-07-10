@@ -1,0 +1,74 @@
+<div id="tab-pannel" class="panel-group">
+	<form name="regularPayForm" validate>
+		<div id="tab-pannel" class="panel panel-default">
+			<div class="panel-heading">
+				<h4 class="panel-title">Regular Pay and Allowances - Codes</h4>
+			</div>
+			<div id="tab-pannel" class="panel-body10">
+				<table class="table table-striped">
+					<thead>
+						<tr>
+							<th ng-show="action=='Add'">Select</th>
+							<th>Code</th>
+							<th>Description</th>
+							<th>Taxable or Not</th>
+							<th>Notes</th>
+						</tr>
+					</thead>
+					<tr ng-repeat="regularPay in addregularPayTOs">
+						<td ng-show="action=='Add'"><input type="checkbox"
+							value="regularPay.id" ng-model="regularPay.selected"
+							ng-click="regularPayRatePopupRowSelect(regularPay)"></td>
+
+						<td ng-form name="classform"><input type="text" name="code"
+							ng-model="regularPay.code" pattern="^[a-zA-Z\d\s.,]+$"
+							minlength="2" maxlength="20" placeholder="Code"
+							required="required"> <span
+							ng-show="classform.code.$dirty && classform.code.$error.required">This
+								field is required</span> <span
+							ng-show="classform.code.$error.minlength">Too Short!</span> <span
+							ng-show="classform.code.$error.pattern">Must enter
+								required format</span> <span ng-show="classform.code.$error.maxlength">You
+								reached max length</span></td>
+
+						<td ng-form name="classform1"><input type="text" name="name"
+							ng-model="regularPay.name" pattern="^[a-zA-Z\d\s.,]+$"
+							minlength="3" maxlength="50" placeholder="Description"
+							required="required"> <span
+							ng-show="classform1.name.$dirty && classform1.name.$error.required">This
+								field is required</span> <span
+							ng-show="classform1.name.$error.minlength">Too Short!</span> <span
+							ng-show="classform1.name.$error.pattern">Must enter
+								required format</span> <span ng-show="classform1.name.$error.maxlength">You
+								reached max length</span></td>
+
+						<td><select ng-model="regularPay.taxStatus"
+							ng-options="taxStatus for taxStatus in taxStatuss">
+						</select></td>
+						<td><textarea cols="20" rows="3"
+								ng-model="regularPay.comments" placeholder="Notes"></textarea></td>
+					</tr>
+				</table>
+			</div>
+			<div class="panel-footer">
+				<div class="pull-left">
+					<input type="submit" ng-click="regularPayForm.$valid && addRows()"
+						class="btn bottomaligned btn-brown btn-sm" value="Add"
+						ng-show="action =='Add'" validate> <input type="button"
+						ng-click="deleteRows()" value="Delete" ng-show="action =='Add'"
+						class="btn bottomaligned btn-brown btn-sm" validate>
+				</div>
+				<div class="pull-right">
+					<input type="submit"
+						ng-click="regularPayForm.$valid && saveregularPayRate()"
+						value="Save" class="btn bottomaligned btn-brown btn-sm" />
+				</div>
+			</div>
+		</div>
+	</form>
+</div>
+
+
+
+
+

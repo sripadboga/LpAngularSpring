@@ -1,0 +1,84 @@
+<div id="tab-pannel" class="panel-group">
+	<form name="plntRegForm" validate>
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<h4 class="panel-title">Add Purchase Order Plant List</h4>
+		</div>
+		<div class="panel-body15 table-responsive">
+				<table id="input-width" class="table table-bordered table-striped">
+					<thead>
+						<tr>
+							<th ng-hide="action =='Edit'">Select</th>
+							<th>Project Id</th>
+							<th>Purchase Order Number</th>
+							<th>Plant Type</th>
+							<th>Received By</th>
+							<th>Used Items</th>
+							<th>Actual Items</th>
+							<th>Quantity Delivered</th>
+							<th>Cummulative</th>
+						</tr>
+						<tr ng-repeat="po in addPoData">
+							<td ng-hide="action =='Edit'"><input type="checkbox" 
+								ng-model="po.selected"
+								ng-click="plantDetailsPopUpRowSelect(po)"></td>
+							<td>{{po.projId}}</td>
+							<td>{{po.purchaseLabelKeyTO.code}}</td>
+							<td><input type="text" name="plantType" ng-click="getPlantTypes(po)"
+								ng-model="po.purchasePlantTypeId" placeholder="Plant Type"
+								ng-required="true" >
+								</td>
+
+							<td><input type="text" name="receivedBy" 
+								ng-model="po.receivedBy" placeholder="Received By"
+								pattern="^[a-zA-Z\d\s.,]+$" maxlength="20" minlength="2"
+								ng-required="true" >
+								<span
+									ng-show="plntRegForm.receivedBy.$dirty && plntRegForm.receivedBy.$error.required">This
+										field is required</span> <span
+									ng-show="plntRegForm.receivedBy.$error.pattern">Special
+										characters not allowed</span> <span
+									ng-show="plntRegForm.receivedBy.$error.maxlength">Enter upto
+										20 chars only</span> <span
+									ng-show="plntRegForm.receivedBy.$error.minlength">To Short!</span>
+								</td>
+							<td><input type="text" name="usedItems" 
+								ng-model="po.usedItems" placeholder="Used Items" pattern="^[\d\.,%]+$" maxlength="10"
+								ng-required="true" >
+								<span ng-show="plntRegForm.usedItems.$dirty && plntRegForm.usedItems.$error.required">This field is required</span>
+								  <span ng-show="plntRegForm.usedItems.$error.pattern">Enter only numbers </span> 
+								  <span ng-show="plntRegForm.usedItems.$error.maxlength">Enter upto 10 numbers only</span>
+								</td>
+							<td><input type="text" name="actualItems"
+								ng-model="po.actualItems" placeholder="Actual Items" pattern="^[\d\.,%]+$" maxlength="10"
+								ng-required="true">
+								<span ng-show="plntRegForm.actualItems.$dirty && plntRegForm.actualItems.$error.required">This field is required</span>
+								  <span ng-show="plntRegForm.actualItems.$error.pattern">Enter only numbers </span> 
+								  <span ng-show="plntRegForm.actualItems.$error.maxlength">Enter upto 10 numbers only</span>
+							</td>
+							<td><input type="text" name="quantity" ng-model="po.quantity" pattern="^[\d\.,%]+$" maxlength="10"
+								placeholder="Quantity Delivered" ng-required="true">
+								<span ng-show="plntRegForm.quantity.$dirty && plntRegForm.quantity.$error.required">This field is required</span>
+								  <span ng-show="plntRegForm.quantity.$error.pattern">Enter only numbers </span> 
+								  <span ng-show="plntRegForm.quantity.$error.maxlength">Enter upto 10 numbers only</span>
+								</td>
+							<td><input type="text" name="cumulative" ng-model="po.cumulative"
+								placeholder="Cummulative" ng-required="true"></td>
+						</tr>
+					</tbody>
+				</table>		</div>
+		<div class="panel-footer">
+			<div class="pull-left">
+				<input type="button" class="btn btn-brown bottomaligned btn-sm" 
+					ng-click="addRows()" value="Add" ng-show="action =='Add'">
+				<input type="button" class="btn btn-brown bottomaligned btn-sm"
+					ng-click="deleteRows()" value="Delete" ng-show="action =='Add'">
+			</div>
+			<div class="pull-right">
+				<input type="button" class="btn btn-brown bottomaligned btn-sm"
+					ng-click="save()" value="Save">
+			</div>
+		</div>
+	</div>
+		</form>
+</div>

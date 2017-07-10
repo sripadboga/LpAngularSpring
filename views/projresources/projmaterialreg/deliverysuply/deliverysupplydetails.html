@@ -1,0 +1,81 @@
+	<div id="tab-pannel">
+<div class="panel-group">
+	<div class="panel panel-default panel-body20-4-1">
+		<div class="table-responsive">
+			<table class="table table-bordered table-striped">
+			<thead>
+				<tr>
+					<th>Select</th>
+					<th>Supply Delivery Date</th>
+					<th>Project Id</th>
+					<th>Project Name</th>
+					<th>Eps Id</th>
+					<th>Eps Name</th>
+					<th>Resource Id</th>
+					<th>Resource Name</th>
+					<th>Material Sub Group Id</th>
+					<th>Material Sub Group Name</th>
+					<th>Supplier Name</th>
+					<th>Unit Of Measure</th>
+					<th>Purchase Order(PO)</th>
+					<th>PO Schedule Item Id</th>
+					<th>PO Schedule Item Description</th>
+					<th>Delivery Docket No</th>
+					<th>Docket Date</th>
+					<th>Location Of Delivery</th>
+					<th>Quantity Received</th>
+					<th>Rate Per Unit</th>
+					<th>Received By</th>
+					<th>Defects If Any</th>
+					<th>Other Comments From Receiver</th>
+					<th>Record Of Delivery Dockets</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="supply in dailyMaterialSupply">
+					<td><input type="checkbox" value="id" ng-model="supply.selected"
+						ng-click="dailySupplyRowSelect(supply)"></td>
+					<td>{{supply.supplyDeliveryDate}}</td>
+					<td>{{supply.projectId}}</td>
+					<td>{{supply.projectName}}</td>
+					<td>{{supply.epsId}}</td>
+					<td>{{supply.epsName}}</td>
+					<td>{{supply.resourceId}}</td>
+					<td>{{supply.resourceName}}</td>
+					<td>{{supply.materialSubGroupId}}</td>
+					<td>{{supply.materialSubGroupName}}</td>
+					<td>{{supply.supplierName}}</td>
+					<td>{{supply.unitOfMeasure}}</td>
+					<td>{{supply.purchaseOrder(PO)}}</td>
+					<td>{{supply.poScheduleItemId}}</td>
+					<td>{{supply.poScheduleItemDescription}}</td>
+					<td>{{supply.deliveryDocketNo}}</td>
+					<td>{{supply.docketDate}}</td>
+					<td>{{supply.locationOfDelivery}}</td>
+					<td>{{supply.quantityReceived}}</td>
+					<td>{{supply.ratePerUnit}}</td>
+					<td>{{supply.receivedBy}}</td>
+					<td>{{supply.defectsIfAny}}</td>
+					<td>{{supply.otherCommentsFromReceiver}}</td>
+					<td>{{supply.recordOfDeliveryDockets}}</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	</div>
+	<div class="panel-footer">
+<div class="pull-right">
+	<input type="button" class="btn btn-brown"
+		ng-click="addDeliverySupply('Add')" value="Create">
+		</div>
+		<div class="pull-left">
+		<input type="button" class="btn btn-brown"
+		ng-click="addDeliverySupply('Edit')" value="Edit">
+		 <input
+		type="button" class="btn btn-brown" ng-click="deleteDeliverySupply()"
+		value="Deactivate"> 
+</div>
+</div>
+</div>
+</div>
+

@@ -1,0 +1,26 @@
+<div id="tab-pannel" class="panel-group" ng-init="getProjPlantClassDetails()">
+	<div id="tab-pannel" class="panel panel-default">
+		<div class="panel-heading">
+			<th>PlantList</th>
+		</div>
+		<div class="table-responsive panel-body9">
+			<table class="table table-striped table-bordered">
+				<thead>
+					<tr>
+						<th>Resource ID</th>
+						<th>Resource Name</th>
+						<th>Unit Of Measure</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="detail in projPlantClassDetails"
+						ng-click="projPlantClassPopUp(detail)">
+						<td>{{detail.plantClassTO.code}}</td>
+						<td>{{detail.plantClassTO.name}}</td>
+						<td>{{detail.measureUnitTO.name}}</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>

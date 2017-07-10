@@ -1,0 +1,80 @@
+<div id="tab-pannel">
+	<div class="panel-group">
+		<div class="panel-body22-0  table-responsive">
+			<table id="tab-width" class="table table-bordered table-striped">
+				<thead>
+					<tr>
+						<th>Cost Id</th>
+						<th>Cost Item Name</th>
+						<th>Cost Class Id</th>
+						<th>Cost Class Name</th>
+						<th>Start Date</th>
+						<th>Finish Date</th>
+						<th>Original Duration</th>
+
+						<th>Actual Start</th>
+						<th>Actual Finish</th>
+						<th>Actual Duration</th>
+
+						<th>Original Cost</th>
+						<th>Actual Cost to Date</th>
+						<th>% Spent Cost</th>
+						<th>% Progress of Work</th>
+						<th>Earned Value Cost</th>
+						<th>Cost Variance</th>
+						<th>Productivity Factor</th>
+						<th>Resource Curve</th>
+					</tr>
+
+				</thead>
+				<tbody>
+					<tr
+						ng-repeat="cost in scheduleCostStmtDtls | projCostStatementFilterTree:itemId:isExpand"
+						class="abc{{cost.level}}">
+						<td><span ng-show="cost.level > 0" class="xyz"
+							style="padding-left: 30px;"></span> <span
+							ng-show="cost.level > 1" class="xyz" style="padding-left: 30px;"></span>
+							<span ng-show="cost.level > 2" class="xyz"
+							style="padding-left: 30px;"></span> <fa
+								ng-show="((!cost.leaf && cost.expand) || (!cost.leaf  && cost.projCostStmtChildTOs.length <= 0))"
+								ng-click="itemClick(cost.id,cost.expand);" name="fa fa-minus"></fa>
+							<fa
+								ng-show="(!cost.leaf && !cost.expand && cost.projCostStmtChildTOs.length > 0)"
+								ng-click="itemClick(cost.id,cost.expand);" name="fa fa-plus"></fa>
+							<fa ng-show="(cost.leaf)" name="leaf"> </fa> <span
+							style="padding-left: 10px;">{{cost.code}} <span
+								style="padding-left: 5px;"></span></span></td>
+
+						<td>{{cost.name}}</td>
+						<td>{{cost.projCostItemTO.costCodeTO.code}}</td>
+						<td>{{cost.costCodeTO.name}}</td>
+						<td>{{cost.startDate | date}}</td>
+						<td>{{cost.finishDate | date }}</td>
+						<td>{{cost.startDate - cost.finishDate | date}}</td>
+						<td>{{cost.actualStart | date}}</td>
+						<td>{{cost.actualFinish | date }}</td>
+						<td>{{cost.actualStart - cost.actualFinish | date}}</td>
+						<td>{{}}</td>
+						<td>{{cost.costPercentage}}</td>
+						<td>{{cost.percentageOfWork}}</td>
+						<td>{{}}</td>
+						<td>{{cost.productivityFactor}}</td>
+						<td>{{cost.earnedValue}}</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+	<!-- <div class="panel-footer">
+		<div class="pull-left">
+			<input class="btn bottomaligned btn-brown btn-sm" type="button"
+				ng-click="deactivateCostStmt()" value="Deactivate"> <input
+				class="btn bottomaligned btn-brown btn-sm" type="button"
+				ng-click="editMode = false; saveCostStmts()" value="Save">
+		</div>
+		<div class="pull-right">
+			<input type="button" class="btn bottomaligned btn-brown btn-sm"
+				ng-click="addCostItemDetails()" value="Add">
+		</div>
+	</div> -->
+</div>

@@ -1,0 +1,65 @@
+<div id="tab-pannel" ng-controller="PlantRegController">
+	<div class="panel-group panel panel-default" ng-init="getProjectEps()" ng-show="showabout==1">
+		<div class="panel-heading">
+			<h4 class="panel-title">Plant Registration</h4>
+		</div>
+		<div class="panel-body1 spacer1">
+			<div class="pull-left left-padding">
+				<input type="text" ng-model="searchProject.parentName" placeholder="EPS ID/EPS Name" ng-click="getUserProjects()">
+				<input type="text" ng-model="searchProject.projName"
+					placeholder="Project ID/Project Name" ng-click="getUserProjects()">
+				<input type="text" placeholder="Plant Name">
+			</div>
+			<div class="pull-right right-padding">
+				<input type="button" ng-click="getPlantRegisters()"
+					class="btn btn-brown btn-sm" value="Search"
+					ng-model="searchText"> <input type="reset"
+					class="btn btn-brown btn-sm"
+					ng-click="resetData()" value="Reset">
+			</div>
+		</div>
+		<div class="panel-group">
+			<div class="panel-body24-0 table-responsive row">
+				<div>
+					<ul class="nav nav-tabs" ng-show="moreFlag==0">
+						<li ng-repeat="tab in plantDetailsTabs"
+							ng-class="{active:isActivePlantDetailsTab(tab.url)}"><a
+							data-toggle="tab" ng-click="onClickPlantDetailsTab(tab)">{{tab.title}}</a></li>
+					</ul>
+				</div>
+				<div id="home" class="tab-pane fade in active">
+					<div ng-include="currentPlantDetailsTab"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="panel-group panel panel-default" ng-show="showabout==2">
+<div class="pull-right right-padding">
+<input type=button  ng-click="Back()" value="Back" class="btn bottomaligned btn-brown btn-sm">
+</div>
+	<div class="panel-heading">
+		<h4 class="panel-title">Plant Registration Details</h4>
+	</div>
+		<div  class="panel-body27 table-responsive row">
+		
+		<ul style="margin-top: 3px !important;" class="nav nav-tabs" ng-show="moreFlag==0">
+			<li ng-repeat="tab in plantDetailsTabs[0].innerTabs | slice:0:6"
+				ng-class="{active:isActiveInnerTab(tab.url)}"><a
+				data-toggle="tab" ng-click="onClickInnerTab(tab)">{{tab.title}}</a></li>
+			<li><p class="arrow-font" ng-click="clickMore1(moreFlag);">&#x00BB;</p></li>
+		</ul>
+		
+		<ul style="margin-top: 3px !important;" class="nav nav-tabs " ng-show="moreFlag==1">
+			<li><p class="arrow-font" ng-click="clickMore(moreFlag);">&#x00AB;</p></li>
+			<li ng-repeat="tab in plantDetailsTabs[0].innerTabs| slice:6:9"
+				ng-class="{active:isActiveInnerTab(tab.url)}"><a
+				data-toggle="tab" ng-click="onClickInnerTab(tab)">{{tab.title}}</a></li>
+		</ul>
+		
+		<div class="tab-content">
+				<div ng-include="currentInnerTab"></div>
+				</div>
+		</div>
+	</div>
+	</div>
+	

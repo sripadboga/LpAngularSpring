@@ -1,0 +1,22 @@
+<div id="tab-pannel" class="panel-group" ng-init="getPlantPoDetails()">
+	<div id="tab-pannel" class="panel panel-default">
+		<div class="panel-heading">
+			<th>Purchase Order List</th>
+		</div>
+		<div class="table-responsive panel-body9">
+			<table class="table table-striped table-bordered">
+				<thead>
+					<tr>
+						<th>Purchase Order</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="detail in plantPurchaseOrderDetails"
+						ng-click="plantPurchaseOrderPopUp(detail)">
+						<td>{{detail.code}}</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>

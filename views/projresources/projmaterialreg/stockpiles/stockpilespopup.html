@@ -1,0 +1,221 @@
+<div id="tab-pannel" class="panel-group">
+	<form name="stockPiles" validate>
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<h4 class="panel-title">Stock Piles</h4>
+		</div>
+		<div class="panel-body15">
+			<div id="tableHeight8-2" class="table-responsive">
+					<table class="table table-bordered table-striped"  fixed-header>
+						<thead id="tab-head">
+							<tr>
+								<th>Select</th>
+								<th>Date</th>
+								<th>Eps Name</th>
+								<th>Project Id</th>
+								<th>Project Name</th>
+								<th>Stock piled Location</th>
+								<th>Pre Approval Notification Id</th>
+								<th>Project Docket</th>
+								<th>Supplier Id</th>
+								<th>Supplier Name</th>
+								<th>Supplier Docket Date</th>
+								<th>Supplier Docket</th>
+								<th>Resource Id</th>
+								<th>Resource Name</th>
+								<th>Resource Sub Group Id</th>
+								<th>Resource Sub Group Name</th>
+								<th>Stock Location(Place Of Delivery)</th>
+								<th>Unit Of Measure</th>
+								<th>Rate</th>
+								<th>Opening Balance</th>
+								<th>Date Wise Quantity Delivered</th>
+								<th>Cumulative Quantity Delivered</th>
+								<th>Date Wise Consumption Quantity</th>
+								<th>Cumulative Consumption Quantity</th>
+								<th>Quantity Transfer To Other Projects</th>
+								<th>Closing Stock Balance</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr ng-repeat="stock in addStockPiles">
+								<td><input type="checkbox" value="stock.id"
+									ng-model="stock.selected"  ng-click="stokePilesPopUpRowSelect(stock)"></td>
+	
+								<td><input type="text" name="date" ng-model=stock.date
+									placeholder="Date" ng-required="true" pattern="[a-zA-Z-\d\s]+"><span
+									ng-show="stockPiles.date.$error.pattern">only alpha
+										numerics allowed</span></td>
+	
+								<td><input type="text" name="epsName"
+									ng-model="stock.epsName" placeholder="Eps Name"
+									ng-required="true" pattern="[a-zA-Z-\s]+"><span
+									ng-show="stockPiles.epsName.$error.pattern">only
+										alphabets allowed</span></td>
+	
+								<td><input type="text" name="projectId"
+									ng-model="stock.projectId" placeholder="Project Id"
+									ng-required="true" pattern="[a-zA-Z-\s]+"><span
+									ng-show="stockPiles.projectId.$error.pattern">only
+										alphabets allowed</span></td>
+	
+								<td><input type="text" name="projectName"
+									ng-model="stock.projectName" placeholder="Project Name"
+									ng-required="true" pattern="[a-zA-Z-\s]+"><span
+									ng-show="stockPiles.projectName.$error.pattern">only
+										alphabets allowed</span></td>
+	
+								<td><input type="text" name="stockPiledLocation"
+									ng-model="stock.stockPiledLocation"
+									placeholder="Stock piled Location" ng-required="true"
+									pattern="[a-zA-Z-\s]+"><span
+									ng-show="stockPiles.stockPiledLocation.$error.pattern">only
+										alphabets allowed</span></td>
+	
+								<td><input type="text" name="preApprovalNotificationId"
+									ng-model="stock.preApprovalNotificationId"
+									placeholder="Pre Approval Notification Id" ng-required="true"
+									pattern="[a-zA-Z-\s]+"><span
+									ng-show="stockPiles.preApprovalNotificationId.$error.pattern">only
+										alphabets allowed</span></td>
+	
+								<td><input type="text" name="projectDocket"
+									ng-model="stock.projectDocket" placeholder="Project Docket"
+									ng-required="true" pattern="[a-zA-Z-\s]+"><span
+									ng-show="stockPiles.projectDocket.$error.pattern">only
+										alphabets allowed</span></td>
+	
+								<td><input type="text" name="supplierId"
+									ng-model="stock.supplierId" placeholder="Supplier Id"
+									ng-required="true" pattern="[a-zA-Z-\s]+"><span
+									ng-show="stockPiles.supplierId.$error.pattern">only
+										alphabets allowed</span></td>
+	
+								<td><input type="text" name="supplierName"
+									ng-model="stock.supplierName" placeholder="Supplier Name"
+									ng-required="true" pattern="[a-zA-Z-\s]+"><span
+									ng-show="stockPiles.supplierName.$error.pattern">only
+										alphabets allowed</span></td>
+	
+								<td><input type="text" name="supplierDocketDate"
+									ng-model="stock.supplierDocketDate"
+									placeholder="Supplier Docket Date" ng-required="true"
+									pattern="[a-zA-Z-\s]+"><span
+									ng-show="stockPiles.supplierDocketDate.$error.pattern">only
+										alphabets allowed</span></td>
+	
+								<td><input type="text" name="supplierDocket"
+									ng-model="stock.supplierDocket" placeholder="Supplier Docket"
+									ng-required="true" pattern="[a-zA-Z-\s]+"><span
+									ng-show="stockPiles.supplierDocket.$error.pattern">only
+										alphabets allowed</span></td>
+	
+								<td><input type="text" name="resourceId"
+									ng-model="stock.resourceId" placeholder="Resource Id"
+									ng-required="true" pattern="[a-zA-Z-\s]+"><span
+									ng-show="stockPiles.resourceId.$error.pattern">only
+										alphabets allowed</span></td>
+	
+								<td><input type="text" name="resourceName"
+									ng-model="stock.resourceName" placeholder="Resource Name"
+									ng-required="true" pattern="[a-zA-Z-\s]+"><span
+									ng-show="stockPiles.resourceName.$error.pattern">only
+										alphabets allowed</span></td>
+	
+								<td><input type="text" name="resourceSubGroupId"
+									ng-model="stock.resourceSubGroupId"
+									placeholder="Resource Sub Group Id" ng-required="true"
+									pattern="[a-zA-Z-\s]+"><span
+									ng-show="stockPiles.resourceSubGroupId.$error.pattern">only
+										alphabets allowed</span></td>
+	
+								<td><input type="text" name="resourceSubGroupName"
+									ng-model="stock.resourceSubGroupName"
+									placeholder="Resource Sub Group Name" ng-required="true"
+									pattern="[a-zA-Z-\s]+"><span
+									ng-show="stockPiles.resourceSubGroupName.$error.pattern">only
+										alphabets allowed</span></td>
+	
+								<td><input type="text" name="stockLocation"
+									ng-model="stock.stockLocation" placeholder="Stock Location"
+									ng-required="true" pattern="[a-zA-Z-\s]+"><span
+									ng-show="stockPiles.stockLocation.$error.pattern">only
+										alphabets allowed</span></td>
+	
+								<td><input type="text" name="unitOfMeasure"
+									ng-model="stock.unitOfMeasure" placeholder="Unit Of Measure"
+									ng-required="true" pattern="[a-zA-Z-\s]+"><span
+									ng-show="stockPiles.unitOfMeasure.$error.pattern">only
+										alphabets allowed</span></td>
+	
+								<td><input type="text" name="rate" ng-model="stock.rate"
+									placeholder="Rate" ng-required="true" pattern="[a-zA-Z-\s]+"><span
+									ng-show="stockPiles.rate.$error.pattern">only alphabets
+										allowed</span></td>
+	
+								<td><input type="text" name="openingBalance"
+									ng-model="stock.openingBalance" placeholder="Opening Balance"
+									ng-required="true" pattern="[a-zA-Z-\s]+"><span
+									ng-show="stockPiles.openingBalance.$error.pattern">only
+										alphabets allowed</span></td>
+	
+								<td><input type="text" name="dateWiseQuantityDelivered"
+									ng-model="stock.dateWiseQuantityDelivered"
+									placeholder="Date Wise Quantity Delivered" ng-required="true"
+									pattern="[a-zA-Z-\s]+"><span
+									ng-show="stockPiles.dateWiseQuantityDelivered.$error.pattern">only
+										alphabets allowed</span></td>
+	
+								<td><input type="text" name="cumulativeQuantityDelivered"
+									ng-model="stock.cumulativeQuantityDelivered"
+									placeholder="Cumulative Quantity Delivered" ng-required="true"
+									pattern="[a-zA-Z-\s]+"><span
+									ng-show="stockPiles.cumulativeQuantityDelivered.$error.pattern">only
+										alphabets allowed</span></td>
+	
+								<td><input type="text" name="dateWiseConsumptionQuantity"
+									ng-model="stock.dateWiseConsumptionQuantity"
+									placeholder="Date Wise Consumption Quantity" ng-required="true"
+									pattern="[a-zA-Z-\s]+"><span
+									ng-show="stockPiles.dateWiseConsumptionQuantity.$error.pattern">only
+										alphabets allowed</span></td>
+	
+								<td><input type="text" name="cumulativeConsumptionQuantity"
+									ng-model="stock.cumulativeConsumptionQuantity"
+									placeholder="Cumulative Consumption Quantity" ng-required="true"
+									pattern="[a-zA-Z-\s]+"><span
+									ng-show="stockPiles.cumulativeConsumptionQuantity.$error.pattern">only
+										alphabets allowed</span></td>
+	
+								<td><input type="text"
+									name="quantityTransferToOtherProjects"
+									ng-model="stock.quantityTransferToOtherProjects"
+									placeholder="Quantity Transfer To Other Projects"
+									ng-required="true" pattern="[a-zA-Z-\s]+"><span
+									ng-show="stockPiles.quantityTransferToOtherProjects.$error.pattern">only
+										alphabets allowed</span></td>
+	
+								<td><input type="text" name="closingStockBalance"
+									ng-model="stock.closingStockBalance"
+									placeholder="Closing Stock Balance" ng-required="true"
+									pattern="[a-zA-Z-\s]+"><span
+									ng-show="stockPiles.closingStockBalance.$error.pattern">only
+										alphabets allowed</span></td>
+							</tr>
+						</tbody>
+					</table>
+			</div>
+			<div class="panel-footer">
+				<div class="pull-left">
+					<input type="button" ng-click="addRows()" value="Add"  class="btn bottomaligned btn-brown btn-sm" ng-show="action =='Add'">
+					<input type="button" ng-click="deleteRows()" value="Delete"  class="btn bottomaligned btn-brown btn-sm" ng-show="action =='Add'">
+				</div>
+				<div class="pull-right">
+					<input type="button" ng-click="save()" value="Save" class="btn bottomaligned btn-brown btn-sm">
+				</div>
+			</div>
+		</div>
+	</div>
+	</form>
+</div>
+

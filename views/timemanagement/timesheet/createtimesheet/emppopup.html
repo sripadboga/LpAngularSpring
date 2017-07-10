@@ -1,0 +1,33 @@
+
+<div id="tab-pannel" class="panel-group" ng-init="getProjEmpDetails()">
+	<div id="tab-pannel" class="panel panel-default">
+		<div class="panel-heading">
+			 <th> Employee Details</th>
+		</div>
+		<div class="table-responsive panel-body9">
+			<table class="table table-striped table-bordered">
+				<thead>
+					<tr>
+						
+			              <th align="center">EmployeeId</th>
+			              <th align="center">firstName</th>
+			              <th align="center">SurName</th>
+			              <th align="center">tradeName</th>
+			              <th align="center">category</th>
+			              
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="detail in projEmpDetails"
+						ng-click="projEmpPopUp(detail)">
+						<td>{{detail.EmployeeId}}</td>
+						<td>{{detail.firstName}}</td>
+						<td>{{detail.SurName}}</td>
+						<td>{{detail.tradeName}}</td>
+						<td>{{detail.category}}</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>

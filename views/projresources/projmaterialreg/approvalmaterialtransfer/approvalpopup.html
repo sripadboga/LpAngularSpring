@@ -1,0 +1,201 @@
+<div id="tab-pannel" class="panel-group">
+<form name="approvalForMaterialTransfer" validate>
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<h4 class="panel-title">Approval Form</h4>
+		</div>
+		<div class="panel-body13">
+			<div id="tableHeight8" class="table-responsive">
+						<table class="table table-bordered table-striped" fixed-header>
+							<thead id="tab-head">
+								<tr>
+									<th>Select</th>
+									<th>Resource Id</th>
+									<th>Resource Name</th>
+									<th>Material Sub Group Name</th>
+									<th>Unit Of Measure</th>
+									<th>PO Schedule Item Id</th>
+									<th>Unit Rate</th>
+									<th>Expected Date Of Availability Transfer</th>
+									<th>From Project Id</th>
+									<th>From Project Name</th>
+									<th>Destination Project Id</th>
+									<th>Destination Project Name</th>
+									<th>Required Date Of Transfer</th>
+									<th>Actual Date Of Transfer</th>
+									<th>Records Of Requiests And Approvals Notifications</th>
+									<th>Approval Decision</th>
+									<th>Notify Originator</th>
+									<th>Multiple Selection Of Material List-Internal Project Use
+										Transfer</th>
+									<th>Multiple Selection Of Material List-External Project Use
+										Transfer</th>
+									<!-- <th>Select</th>
+									<th>Resource Id</th>
+									<th>Resource Name</th>
+									<th>Material Sub Group Name</th>
+									<th>Unit Of Measure</th>
+									<th>From Project Id</th>
+									<th>From Project Name</th>
+									<th>Originator Employee Id And Name</th>
+									<th>Requisition Number</th>
+									<th>Approver Person Id And Name</th>
+									<th>Destination Project Id</th>
+									<th>Destination Project Name</th>
+									<th>Unit Of Measure</th>
+									<th>Internal Project Use-Requested Transfer Quantity</th>
+									<th>External Project Use-Requested Transfer Quantity</th>
+									<th>Date Of Request</th>
+									<th>Required Date Of Transfer</th>
+									<th>Expected Date Of Transfer</th>
+									<th>Approval Status</th> -->
+								</tr>
+							</thead>
+							<tbody>
+								<tr ng-repeat="approval in addApprovalMaterialTransfer">
+									<td><input type="checkbox" value="approval.id"
+										ng-model="approval.selected" ng-click="approvalPopUpRowSelect(approval)"></td>
+		
+									<td><input type="text" name="resourceId"
+										ng-model=approval.resourceId placeholder="Resource Id"
+										ng-required="true" pattern="[a-zA-Z-\d\s]+"><span
+										ng-show="approvalForMaterialTransfer.resourceId.$error.pattern">only
+											alpha numerics allowed</span></td>
+		
+									<td><input type="text" name="resourceName"
+										ng-model="approval.resourceName" placeholder="Resource Name"
+										ng-required="true" pattern="[a-zA-Z-\s]+"><span
+										ng-show="approvalForMaterialTransfer.resourceName.$error.pattern">only
+											alphabets allowed</span></td>
+		
+									<td><input type="text" name="materialSubGroupName"
+										ng-model="approval.materialSubGroupName"
+										placeholder="Material Sub Group Name" ng-required="true"
+										pattern="[a-zA-Z-\s]+"><span
+										ng-show="approvalForMaterialTransfer.materialSubGroupName.$error.pattern">only
+											alphabets allowed</span></td>
+		
+									<td><input type="text" name="unitOfMeasure"
+										ng-model="approval.unitOfMeasure" placeholder="Unit Of Measure"
+										ng-required="true" pattern="[a-zA-Z-\s]+"><span
+										ng-show="approvalForMaterialTransfer.unitOfMeasure.$error.pattern">only
+											alphabets allowed</span></td>
+		
+									<td><input type="text" name="poScheduleItemId"
+										ng-model="approval.poScheduleItemId"
+										placeholder="PO Schedule Item Id" ng-required="true"
+										pattern="[a-zA-Z-\s]+"><span
+										ng-show="approvalForMaterialTransfer.poScheduleItemId.$error.pattern">only
+											alphabets allowed</span></td>
+		
+									<td><input type="text" name="unitRate"
+										ng-model="approval.unitRate" placeholder="Unit Rate"
+										ng-required="true" pattern="[a-zA-Z-\s]+"><span
+										ng-show="approvalForMaterialTransfer.unitRate.$error.pattern">only
+											alphabets allowed</span></td>
+		
+									<td><input type="text"
+										name="expectedDateOfAvailabilityTransfer"
+										ng-model="approval.expectedDateOfAvailabilityTransfer"
+										placeholder="Expected Date Of Availability Transfer"
+										ng-required="true" pattern="[a-zA-Z-\s]+"><span
+										ng-show="approvalForMaterialTransfer.expectedDateOfAvailabilityTransfer.$error.pattern">only
+											alphabets allowed</span></td>
+		
+									<td><input type="text" name="fromProjectId"
+										ng-model="approval.fromProjectId" placeholder="From Project Id"
+										ng-required="true" pattern="[a-zA-Z-\s]+"><span
+										ng-show="approvalForMaterialTransfer.fromProjectId.$error.pattern">only
+											alphabets allowed</span></td>
+		
+									<td><input type="text" name="fromProjectName"
+										ng-model="approval.fromProjectName" placeholder="From Project Name"
+										ng-required="true" pattern="[a-zA-Z-\s]+"><span
+										ng-show="approvalForMaterialTransfer.fromProjectName.$error.pattern">only
+											alphabets allowed</span></td>
+		
+									<td><input type="text" name=destinationProjectId
+										ng-model="approval.destinationProjectId"
+										placeholder="Destination Project Id" ng-required="true"
+										pattern="[a-zA-Z-\s]+"><span
+										ng-show="approvalForMaterialTransfer.destinationProjectId.$error.pattern">only
+											alphabets allowed</span></td>
+		
+									<td><input type="text" name="destinationProjectName"
+										ng-model="approval.destinationProjectName"
+										placeholder="Destination Project Name" ng-required="true"
+										pattern="[a-zA-Z-\s]+"><span
+										ng-show="approvalForMaterialTransfer.destinationProjectName.$error.pattern">only
+											alphabets allowed</span></td>
+		
+									<td><input type="text" name="requiredDateOfTransfer"
+										ng-model="approval.requiredDateOfTransfer"
+										placeholder="Required Date Of Transfer" ng-required="true"
+										pattern="[a-zA-Z-\s]+"><span
+										ng-show="approvalForMaterialTransfer.requiredDateOfTransfer.$error.pattern">only
+											alphabets allowed</span></td>
+		
+									<td><input type="text" name="actualDateOfTransfer"
+										ng-model="approval.actualDateOfTransfer"
+										placeholder="Actual Date Of Transfer" ng-required="true"
+										pattern="[a-zA-Z-\s]+"><span
+										ng-show="approvalForMaterialTransfer.actualDateOfTransfer.$error.pattern">only
+											alphabets allowed</span></td>
+		
+									<td><input type="text"
+										name="recordsOfRequiestsAndApprovalsNotifications"
+										ng-model="approval.recordsOfRequiestsAndApprovalsNotifications"
+										placeholder="Records Of Requiests And Approvals Notifications"
+										ng-required="true" pattern="[a-zA-Z-\s]+"><span
+										ng-show="approvalForMaterialTransfer.recordsOfRequiestsAndApprovalsNotifications.$error.pattern">only
+											alphabets allowed</span></td>
+		
+									<td><input type="text" name="approvalDecision"
+										ng-model="approval.approvalDecision"
+										placeholder="Approval Decision" ng-required="true"
+										pattern="[a-zA-Z-\s]+"><span
+										ng-show="approvalForMaterialTransfer.approvalDecision.$error.pattern">only
+											alphabets allowed</span></td>
+		
+									<td><input type="text" name="notifyOriginator"
+										ng-model="approval.notifyOriginator"
+										placeholder="Notify Originator" ng-required="true"
+										pattern="[a-zA-Z-\s]+"><span
+										ng-show="approvalForMaterialTransfer.notifyOriginator.$error.pattern">only
+											alphabets allowed</span></td>
+		
+									<td><input type="text"
+										name="multipleSelectionInternalProject"
+										ng-model="approval.multipleSelectionInternalProject"
+										placeholder="Multiple Selection Of Material Project"
+										ng-required="true" pattern="[a-zA-Z-\s]+"><span
+										ng-show="approvalForMaterialTransfer.multipleSelectionInternalProject.$error.pattern">only
+											alphabets allowed</span></td>
+		
+									<td><input type="text"
+										name="multipleSelectionExternalProject"
+										ng-model="approval.multipleSelectionExternalProject"
+										placeholder="Multiple Selection External Project"
+										ng-required="true" pattern="[a-zA-Z-\s]+"><span
+										ng-show="approvalForMaterialTransfer.multipleSelectionExternalProject.$error.pattern">only
+											alphabets allowed</span></td>
+		
+									
+		
+								</tr>
+							</tbody>
+						</table>
+					</div>
+			</div>
+			<div class="panel-footer">
+				<div class="pull-left">
+					<input type="button" ng-click="addRows()" value="Add"  class="btn bottomaligned btn-brown btn-sm" ng-show="action =='Add'">
+					<input type="button" ng-click="deleteRows()" value="Delete"  class="btn bottomaligned btn-brown btn-sm" ng-show="action =='Add'">
+				</div>
+				<div class="pull-right">
+					<input type="button" ng-click="save()" value="Save" class="btn bottomaligned btn-brown btn-sm">
+				</div>
+			</div>
+		</div>
+		</form>
+	</div>

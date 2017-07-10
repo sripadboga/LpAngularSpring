@@ -1,0 +1,57 @@
+<div id="tab-pannel" ng-controller="CostCodeController" ng-init="costcodeSearch()">
+	<div class="panel-group">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h4 class="panel-title">Cost Code</h4>
+			</div>
+			<div class="panel-body1 spacer2">
+				<div class="pull-left left-padding">
+					<input type="text" ng-model="costCodeReq.costCodeCode" placeholder="Cost Code ID"> 
+					<input type="text" ng-model="costCodeReq.costCodeName" placeholder="Cost Code Name">
+					<select ng-model="costCodeReq.status">
+						<option value="0" label="Select Status" class="statusSelect" selected="selected"></option>
+						<option value="1" label="Active"></option>
+						<option value="2" label="InActive"></option>
+					</select>
+				</div>
+				<div class="pull-right right-padding">
+					<input type="button" ng-click="costcodeSearch()" class="btn  btn-brown btn-sm" value="Search" /> 
+						<input type="reset" class="btn  btn-brown btn-sm" ng-click="reset()" value="Reset">
+				</div>
+			</div>
+			<div class="panel-body22">
+				<div id="tableHeight20-2" class="table-responsive  panel-collapse collapse in">
+					<table class="table table-striped" fixed-header>
+						<thead id="tab-head">
+							<tr>
+								<th>Select</th>
+								<th>Cost Code ID</th>
+								<th>Cost Code Name</th>
+								<th>Status</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr
+								ng-repeat="costCodes in costCodesClass | orderBy:['code','name']">
+								<td><input type="checkbox" ng-model="costCodes.selected" ng-click="rowSelect(costCodes)"></td>
+								<td>{{costCodes.code }}</td>
+								<td>{{costCodes.name }}</td>
+								<td>{{costCodes.status | potstatusfilter :costCodes.status}}</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+			<div class="panel-footer">
+				<div class="pull-right" >
+				 	<input type="submit" ng-click="costUnits('Add')" class="btn  btn-brown btn-sm" value="Create" ng-show="account.appCodeTemplate['ENTRPRSE_CENTLIB_COSTCODCLSFY_ADD'] && activeFlag==1" />
+				</div>
+				<div class="pull-left">
+					 <input type="button" ng-click="costUnits('Edit')" class="btn  btn-brown btn-sm" value="Edit" ng-show="account.appCodeTemplate['ENTRPRSE_CENTLIB_COSTCODCLSFY_ADD'] && activeFlag==1" />
+					 <input type="button" ng-click="deleteCostCodes()" class="btn  btn-brown btn-sm" value="Deactivate"  ng-show="account.appCodeTemplate['ENTRPRSE_CENTLIB_COSTCODCLSFY_DELETE'] && activeFlag==1" />
+					 <input type="button" class="btn btn-brown btn-sm"  value="Activate"  ng-click="activeCostCodes()"   ng-show="account.appCodeTemplate['ENTRPRSE_CENTLIB_COSTCODCLSFY_DELETE'] && activeFlag==2"/>		 
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

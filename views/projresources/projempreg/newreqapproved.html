@@ -1,0 +1,61 @@
+<div id="tab-pannel">
+<div class="panel-group">
+		<div class="panel-body23-0">
+		<div class="table-responsive">
+			<table class="table table-bordered table-striped">
+				<thead>
+					<tr>
+						<th>Select</th>
+						<th>Employee ID</th>
+						<th>First Name</th>
+						<th>Last Name</th>
+						<th>Gender</th>
+						<th>Employee Designation</th>
+						<th>Parent Company ID</th>
+						<th>Parent Company Name</th>
+						<th>Current Project ID</th>
+						<th>Current Project Name</th>
+						<th>For Project ID</th>
+						<th>For Project Name</th>
+						<th>Originator Employee ID & Name</th>
+						<th>Approver Person ID & Name</th>
+						<th>Date of Request</th>
+						<th>Approver Notification ID</th>
+						<th>Expected Date of Availability for Transfer</th>
+						<th>Required Date of Transfer</th>
+						<th>Proposed Date of Transfer</th>
+						<th>Approver Decision</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="approved in empApprovedRequest">
+						<td><input type="checkbox" value="id"
+							ng-model="approved.selected" ng-click="approvedRowSelect(approved)"></td>
+						<td>{{approved.eId}}</td>
+						<td>{{approved.fName}}</td>
+						<td>{{approved.lName}}</td>
+						<td>{{approved.gender}}</td>
+						<td>{{approved.designation}}</td>
+						<td>{{approved.pCompId}}</td>
+						<td>{{approved.pCompName}}</td>
+						<td>{{approved.cpId}}</td>
+						<td>{{approved.cpName}}</td>
+						<td>{{approved.fpId}}</td>
+						<td>{{approved.fpName}}</td>
+						<td>{{approved.originaleIdName}}</td>
+						<td>{{approved.approverPIDName}}</td>
+						<td>{{approved.doa}}</td>
+						<td>{{approved.notfId}}</td>
+						<td>{{approved.expectedDate}}</td>
+						<td>{{approved.requiredDate}}</td>
+						<td>{{approved.proposedDate|date}}</td>
+						<td>{{approved.approverDecision}}</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+</div>
+
+	</div>
+</div>
+

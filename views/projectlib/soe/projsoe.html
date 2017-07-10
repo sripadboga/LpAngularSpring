@@ -1,0 +1,63 @@
+<div id="tab-pannel" class="panel-group" ng-controller="ProjSOEController">
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<h4 class="panel-title">Scheduled of Estimated Quantities</h4>
+		</div>
+		<div id="tab-pannel" class="spacer2 panel-body1">
+			<div class="pull-left left-padding">
+				<input type="text" ng-model="searchProject.parentName" placeholder="EPS ID/EPS Name" ng-click="getUserProjects()">
+				<input type="text" ng-model="searchProject.projName" placeholder="Project ID/Project Name" ng-click="getUserProjects()">
+			</div>
+			<div class="pull-right right-padding">
+				<input type="submit"  ng-click="getSOEDetails(searchProject.projId)" class="btn bottomaligned btn-brown btn-sm" value="Search" ng-model="searchText"> 
+				<input  type="reset" class="btn bottomaligned btn-brown btn-sm" ng-click="resetSOEData()" value="Reset">
+			</div>
+		</div>
+		<div class="panel-body22">
+			<div id="tableHeight18" class="table-responsive">
+			<table id="tree" class="table table-striped"  fixed-header>
+					<thead  id="tab-head">
+						<tr>
+							<th>Select</th>
+							<th>SOE ID</th>
+							<th>SOE Name</th>
+							<th>Unit of Measure</th>
+							<th>Estimated Quantity</th>
+							<th>Comments</th>	
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat="tab in SOEData | soeFilterTree:itemId:isExpand" class="abc{{tab.level}}">
+							<td><input type="checkbox" ng-model="tab.select" ng-click="rowSelect(tab)"></td>
+							<td>
+								<span ng-show="tab.level > 0" class="xyz" style="padding-left:30px;"></span>
+								<span ng-show="tab.level > 1" class="xyz" style="padding-left:30px;"></span>
+								<span ng-show="tab.level > 2" class="xyz" style="padding-left:30px;"></span>
+								<fa ng-show="((!tab.leaf && tab.expand) || (!tab.leaf  && tab.childSOEItemTOs.length <= 0))" ng-click="itemClick(tab.id,tab.expand);" name="fa fa-minus"></fa> 
+								<fa ng-show="(!tab.leaf && !tab.expand && tab.childSOEItemTOs.length > 0)" ng-click="itemClick(tab.id,tab.expand);" name="fa fa-plus"></fa>
+								<fa ng-show="(tab.leaf)" name="leaf"> </fa> 
+								<span style="padding-left: 10px;">{{tab.code}} 
+								<span style="padding-left: 5px;"></span></span> 
+								<fa ng-hide="(tab.leaf)" ng-click="editSOEDetails('Edit',tab,searchProject.projId)" name="pencil"> </fa></span>
+							</td>
+							<td>{{tab.name}}</td>
+							<td>{{tab.measureUnitTO.name}}</td>
+							<td>{{tab.quantity}}</td>
+							<!-- <td>{{tab.comments}}</td> -->
+							<td><span class="fa fa-comment fa-flip-horizontal" ng-show="(tab.leaf)" aria-hidden="true" name="comment" flip="horizontal" ng-click="show(tab.comments)" role="button" tabindex="0"></span></td>
+							
+						</tr>
+					</tbody>
+				</table> 
+			</div>
+		</div>
+		<div class="panel-footer">
+			<div class="pull-left">
+			 	<input class="btn bottomaligned btn-brown btn-sm" type="button" ng-click="deactivateSOEDetails()" value="Deactivate" ng-show="account.appCodeTemplate['PRJ_PRJLIB_SCHEDOFESTQTY_DELETE']" />
+			 </div>
+			 <div class="pull-right">
+				 <input type="button" class="btn bottomaligned btn-brown btn-sm" ng-click="editSOEDetails('Add',null,searchProject.projId)" value="Create"  ng-show="account.appCodeTemplate['PRJ_PRJLIB_SCHEDOFESTQTY_ADD']"/>
+			 </div>
+		</div>
+	</div>
+</div>

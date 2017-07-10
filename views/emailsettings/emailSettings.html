@@ -1,0 +1,46 @@
+<div id="tab-pannel" class="panel-group"
+	ng-controller="EmailSettingController" ng-init="getEmailSettings()">
+	<form name="myForm">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h4 class="panel-title">Email Settings</h4>
+			</div>
+			<div class="panel-body25-0">
+			<div id="tableHeight24" class="table-responsive panel-collapse collapse in">
+				<table class="table table-striped" fixed-header>
+					<thead>
+						<th>Select</th>
+						<th>Host</th>
+						<th>Port</th>
+						<th>Email</th>
+						<th>User Name</th>
+						<th>Status</th>
+					</thead>
+					<tbody>
+						<tr ng-repeat="emailSetting in tableData"  >
+							<td><input type="checkbox" value="id"
+								class="ng-pristine ng-valid" ng-model="emailSetting.select"
+								ng-click="rowselect(emailSetting)"></td>
+							<td><span  ng-click="editEmailDetails('Edit',emailSetting)">{{emailSetting.host}}</span></td>
+							<td>{{emailSetting.port}}</td>
+							<td>{{emailSetting.fromEmail}}</td>
+							<td>{{emailSetting.userName}}</td>
+							<td>{{emailSetting.status | potstatusfilter:emailSetting.status}}</td>
+						</tr>
+					</tbody>
+
+				</table>
+			</div>
+			</div>
+			<div class="panel-footer">
+				<div class="pull-left" ng-show="tableData.length > 0">
+					<input type="button" ng-click="deactivateEmailSettings()"
+						class="btn bottomaligned btn-brown btn-sm" value="Deactivate" ng-show="account.appCodeTemplate['ADMIN_EMAILSTG_DELETE']" />
+				</div>
+				<div class="pull-right">
+					<input type="button" ng-click="editEmailDetails('Add',null)"
+						class="btn bottomaligned btn-brown btn-sm" value="Create" ng-show="account.appCodeTemplate['ADMIN_EMAILSTG_ADD']">
+				</div>
+			</div>
+	</form>
+</div>

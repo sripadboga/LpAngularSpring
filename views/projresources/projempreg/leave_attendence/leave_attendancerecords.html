@@ -1,0 +1,81 @@
+<div id="tab-pannel">
+<div class="panel-group">
+		<div class="panel  panel-body23-0">
+	<form name="leaveandAttendanceForm">
+		<div class="table-responsive">
+			<table class="table table-bordered table-striped">
+				<thead>
+					<tr>
+						<th rowspan=2>Select</th>
+						<th rowspan=2>Period ( Calander Year)</th>
+						<th rowspan=2>Unit</th>
+						<th colspan=5 class="text-center">Leave Accrued</th>
+						<th colspan=9 class="text-center">Days Account as per Daily
+							Attendance Records</th>
+						<th colspan=6 class="text-center">Balance leave on Credit</th>
+					</tr>
+					<tr>
+						<th>Annual / Earned Leave</th>
+						<th>Long Service Leave</th>
+						<th>Sick / Personal Leave</th>
+						<th>Casual Leave</th>
+						<th>Maternity Leave</th>
+						<th>Annual / Earned Leave</th>
+						<th>Long Service Leave</th>
+						<th>Sick / Personal Leave</th>
+						<th>Casual Leave</th>
+						<th>Maternity Leave</th>
+						<th>Unpaid Leave</th>
+						<th>Absent</th>
+						<th>Present</th>
+						<th>Total Days</th>
+						<th>Annual / Earned Leave</th>
+						<th>Long Service Leave</th>
+						<th>Sick / Personal Leave</th>
+						<th>Casual Leave</th>
+						<th>Maternity Leave</th>
+						<th>Total Days</th>
+					</tr>
+				</thead>
+				<tbody>
+				<tbody>
+					<tr ng-repeat="leave in empLeaveAttendence">
+						<td><input type="checkbox" value="id"
+							ng-model="leave.selected" ng-click="empLeaveRowSelect(leave)"></td>
+						<td>{{leave.period|date}}</td>
+						<td>{{leave.unit}}</td>
+						<td>{{leave.anualLeave1}}</td>
+						<td>{{leave.serviceLeave1}}</td>
+						<td>{{leave.sickLeave1}}</td>
+						<td>{{leave.casualLeave1}}</td>
+						<td>{{leave.maternityLeave1}}</td>
+						<td>{{leave.anualLeave2}}</td>
+						<td>{{leave.serviceLeave2}}</td>
+						<td>{{leave.sickLeave2}}</td>
+						<td>{{leave.casualLeave2}}</td>
+						<td>{{leave.maternityLeave2}}</td>
+						<td>{{leave.unpaidLeave}}</td>
+						<td>{{leave.absent}}</td>
+						<td>{{leave.present}}</td>
+						<td>{{leave.totDays2}}</td>
+						<td>{{leave.anualLeave3}}</td>
+						<td>{{leave.serviceLeave3}}</td>
+						<td>{{leave.sickLeave3}}</td>
+						<td>{{leave.casualLeave3}}</td>
+						<td>{{leave.maternityLeave3}}</td>
+						<td>{{leave.totDays3}}</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</form>
+</div>
+<div class="panel-footer">
+<div class="pull-right">
+	<input type="button" class="btn btn-brown btn-sm"
+		ng-click="editLeaveAttendance('Edit')" value="Edit">
+</div>
+</div>
+</div>
+</div>
+

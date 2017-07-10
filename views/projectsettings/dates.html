@@ -1,0 +1,87 @@
+<div id="tab-pannel" ng-init="getDateUnitsRecords()">
+	<form name="dateForm" validate>
+		<div class="table-responsive panel-body13-0">
+			<table class="table table-bordered table-striped">
+				<thead>
+					<tr>
+						<th></th>
+						<th class="text-center">Schedule</th>
+						<th class="text-center">Forecast</th>
+						<th class="text-center">Actual</th>
+						<th class="text-center">Variance</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="date in dateunits">
+						<td>{{date.dateType}}</td>
+						<td class="input-width1"><input type="text" potdate-picker
+							id="scheduleDate" ng-model="date.scheduledDeate" ng-trim="false"
+							placeholder="Schedule Date" ng-required="true" /></td>
+
+						<td class="input-width1"><input type="text" potdate-picker
+							id="foreCastDate" ng-model="date.ForeCastDeate" ng-trim="false"
+							placeholder="ForeCast Date" ng-required="true" /></td>
+
+						<td class="input-width1"><input type="text" potdate-picker
+							id="actualDate" ng-model="date.actualDeate" ng-trim="false"
+							placeholder="Actual Date" ng-required="true" /></td>
+
+						<td>{{date.varience}}</td>
+					</tr>
+					<!-- <tr>
+						<td>Start</td>
+						<td><input type="date" ng-model="tab.scheduleStartDate"
+							ng-required="true" ng-hide="tab.editMode"> <span
+							ng-dblclick="editTabItem(tab)" ng-show="tab.editMode">{{tab.scheduleStartDate
+								| date}}</span></td>
+
+						<td><input type="date" ng-model="tab.forecastStartDate"
+							date-greater-than="dateForm.tab.forecastStartDate"
+							ng-required="true" ng-hide="tab.editMode"><span
+							ng-dblclick="editTabItem(tab)" ng-show="tab.editMode">{{tab.forecastStartDate
+								| date}}</span></td>
+
+						<td><input type="date" ng-model="tab.actualStartDate"
+							date-greater-than="dateForm.tab.actualStartDate"
+							ng-required="true" ng-hide="tab.editMode"> <span
+							ng-dblclick="editTabItem(tab)" ng-show="tab.editMode">{{tab.actualStartDate
+								| date}}</span></td>
+
+						<td> {{ tab.actualStartDate | amDifference : tab.scheduleStartDate : 'days' }} days</td>
+
+					</tr>
+					<tr>
+						<td>Finish</td>
+						<td><input type="date" ng-model="tab.scheduleFinishDate"
+							ng-change='checkErr1(tab.scheduleStartDate,tab.scheduleFinishDate)'
+							ng-required="true" ng-hide="tab.editMode"> <span
+							ng-dblclick="editTabItem(tab)" ng-show="tab.editMode">{{tab.scheduleFinishDate
+								| date}}
+								<p>{{errMessage}}</p>
+						</span></td>
+						<td><input type="date" ng-model="tab.forecastFinishDate"
+							ng-change='checkErr1(tab.forecastStartDate,tab.forecastFinishDate)'
+							ng-required="true" ng-hide="tab.editMode"> <span
+							ng-dblclick="editTabItem(tab)" ng-show="tab.editMode">{{tab.forecastFinishDate
+								| date}}</span></td>
+						<td><input type="date" ng-model="tab.actualFinishDate"
+							ng-change='checkErr1(tab.actualStartDate,tab.actualFinishDate)'
+							ng-required="true" ng-hide="tab.editMode"> <span
+							ng-dblclick="editTabItem(tab)" ng-show="tab.editMode">{{tab.actualFinishDate
+								| date}}</span></td>
+						<td> {{ tab.actualFinishDate | amDifference : tab.scheduleFinishDate : 'days' }} days</td>
+					</tr>
+ -->
+				</tbody>
+			</table>
+		</div>
+		<div class="panel-footer">
+			<div class="pull-right">
+				<input type="submit" class="btn  btn-brown btn-sm" value="Save"
+					ng-click="saveDate()" />
+			</div>
+		</div>
+
+	</form>
+</div>
+

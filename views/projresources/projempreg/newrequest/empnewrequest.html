@@ -1,0 +1,71 @@
+<div id="tab-pannel">
+<div class="panel-group">
+	<div class="panel panel-body21-1">
+		<div class="table-responsive">
+			<table class="table table-bordered table-striped">
+				<thead>
+					<tr>
+						<th>Select</th>
+						<th>Employee ID</th>
+						<th>First Name</th>
+						<th>Last Name</th>
+						<th>Gender</th>
+						<th>Project Name</th>
+						<th>Employee Designation</th>
+						<th>Parent Company ID</th>
+						<th>Parent Company Name</th>
+						<th>Current Project ID</th>
+						<th>Current Project Name</th>
+						<th>For Project ID</th>
+						<th>For Project Name</th>
+						<th>Originator Employee ID & Name</th>
+						<th>Approver Person ID & Name</th>
+						<th>Date of Request</th>
+						<th>Requisition Notification ID</th>
+						<th>Expected Date of Availability for Transfer</th>
+						<th>Required Date of Transfer</th>
+						<th>Approver Decision</th>
+						<th>Proposed Date of Transfer by approver</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="request in empRequestTransfer">
+						<td><input type="checkbox" value="id"
+							ng-model="request.selected" ng-click="empRequestRowSelect(request)"></td>
+						<td>{{request.eId}}</td>
+						<td>{{request.fName}}</td>
+						<td>{{request.lName}}</td>
+						<td>{{request.gender}}</td>
+						<td>{{request.pName}}</td>
+						<td>{{request.designation}}</td>
+						<td>{{request.pCompId}}</td>
+						<td>{{request.pCompName}}</td>
+						<td>{{request.cpId}}</td>
+						<td>{{request.cpName}}</td>
+						<td>{{request.fpId}}</td>
+						<td>{{request.fpName}}</td>
+						<td>{{request.originaleIdName}}</td>
+						<td>{{request.approverPIDName}}</td>
+						<td>{{request.dor}}</td>
+						<td>{{request.notfId}}</td>
+						<td>{{request.expectedDate}}</td>
+						<td>{{request.requiredDate}}</td>
+						<td>{{request.approverDecision}}</td>
+						<td>{{request.proposedDate}}</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+</div>
+<div class="panel-footer">
+<div class="pull-right">
+	<input type="button" class="btn btn-brown btn-sm" ng-click="addRequestForTransfer('Add')" value="Create">
+		  <input type="button" class="btn btn-brown btn-sm" ng-click="submitRequestForTransfer()" value="Submit Request">
+	</div>
+	<div class="pull-left">
+	 <input type="button" class="btn btn-brown btn-sm" ng-click="addRequestForTransfer('Edit')" value="Edit">
+	  <input type="button" class="btn btn-brown btn-sm" ng-click="deleteRequestForTransfer()" value="Deactivate"> 
+</div>
+</div>
+</div>
+</div>

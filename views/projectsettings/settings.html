@@ -1,0 +1,18 @@
+<div class="panel-body17 table-responsive">
+	<ul class="nav nav-tabs" ng-show="moreFlag=='0'">
+		<li ng-repeat="tab in projTabs[0].childTabs | slice:0:7"
+			ng-class="{active:isActiveTab1(tab.urlValue)}"><a
+			data-toggle="tab" ng-click="onClickTab1(tab)">{{tab.name}}</a></li>
+		<li><p class="arrow-font" ng-click="clickMore1(moreFlag);">&#x00BB;</p></li>
+	</ul>
+	<ul class="nav nav-tabs " ng-show="moreFlag=='1'">
+		<li><p class="arrow-font" ng-click="clickMore(moreFlag);">&#x00AB;</p></li>
+		<li ng-repeat="tab in projTabs[0].childTabs | slice:7:13"
+			ng-class="{active:isActiveTab1(tab.urlValue)}"><a
+			data-toggle="tab" ng-click="onClickTab1(tab)">{{tab.name}}</a></li>
+	</ul>
+	<div class="tab-content">
+		<div ng-include="currentTab1"></div>
+	</div>
+
+</div>

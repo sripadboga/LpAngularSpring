@@ -1,0 +1,58 @@
+<div id="tab-pannel">
+	<div class="panel-body22-0 table-responsive">
+		<table class="table table-bordered table-striped">
+			<thead>
+				<tr>
+					<!-- <th align="center">Select</th> -->
+					<th align="center">Material ID</th>
+					<th align="center">Material Name</th>
+					<th align="center">Unit of Measure</th>
+					<th align="center">Original Budget Quantity</th>
+					<th align="center">Revised Budget Quantity</th>
+					<th align="center">Actual Quantity to Date</th>
+					<th align="center">Remaining Quantity</th>
+					<th align="center">Estimate to Complete</th>
+					<th align="center">Estimation at Completion Quantity</th>
+					<th align="center">Schedule Start</th>
+					<th align="center">Schedule Finish</th>
+					<th align="center">Resource Curve</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="material in scheduleMaterialDetails">
+					<!-- <td><input type="checkbox" ng-model="material.select"
+							ng-click="rowSelectMaterial(material)"></td> -->
+					<td>{{material.projMaterialClassTO.materialSubGroupTO.code}}</td>
+					<td>{{material.projMaterialClassTO.materialSubGroupTO.name}}</td>
+					<td>{{material.projMaterialClassTO.measureUnitTO.name}}</td>
+					<td>{{material.originalQty}}</td>
+					<td>{{material.revisedQty}}</td>
+					<td>{{material.actualQty}}</td>
+					<td>{{material.remainingQty}}</td>
+					<td>{{material.estimateComplete}}</td>
+					<td>{{material.estimateCompletion}}</td>
+					<td>{{material.schStartDate | date}}</td>
+					<td>{{material.schFinishDate | date}}</td>
+
+				</tr>
+
+			</tbody>
+		</table>
+		<canvas id="line" class="chart chart-line" chart-data="data"
+			chart-labels="labels" chart-series="series" chart-options="options"
+			chart-dataset-override="datasetOverride" chart-click="onClick">
+</canvas>
+	</div>
+
+	<!-- <div class="panel-footer">
+		<div class="pull-right">
+			<input type="button" class="btn bottomaligned btn-brown btn-sm"
+				value="Add" ng-click="editMaterialDetails('Add',null)">
+		</div>
+		<div class="pull-left">
+						<input type="button" class="btn bottomaligned btn-brown btn-sm"
+							ng-click="editMaterialDetails('Edit',null)" value="Edit"> 
+					</div>
+		
+	</div> -->
+</div>

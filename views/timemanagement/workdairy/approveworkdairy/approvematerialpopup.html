@@ -1,0 +1,32 @@
+<div id="tab-pannel" class="panel-group">
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<h4 class="panel-title">Material and Store</h4>
+		</div>
+
+		<div class="table-responsive panel-body12">
+			<table class="table table-bordered table-striped">
+				<thead>
+					<tr>
+						<th>code</th>
+						<th>Total</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="matestore in addMatestore">
+						<td><input type="text" name="code" ng-model="matestore.code"></td>
+						<td><input type="text" name="total"
+							ng-model="matestore.total"></td>
+				</tbody>
+			</table>
+		</div>
+
+		<div class="panel-footer">
+			<div class="pull-right">
+				<input type="button" class="btn btn-brown bottomaligned"
+					ng-click="save()" value="Save">
+			</div>
+		</div>
+	</div>
+</div>
+

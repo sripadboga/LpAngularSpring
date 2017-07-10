@@ -1,0 +1,72 @@
+<div id="tab-pannel" ng-controller="TaxCodeController">
+	<div class="panel-group ">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h4 class="panel-title">Tax Codes</h4>
+			</div>
+			<div class="panel-body1 spacer2">
+
+				<div class="row spacer2">
+					<span>Tax Code</span> <input type="text" ng-model="code">
+				</div>
+
+				<div class="pull-right right-padding">
+					<input type="button" ng-click="getTaxDetails()"
+						class="btn bottomaligned btn-brown btn-sm" value="Search"
+						ng-model="searchText"> <input type="reset"
+						class="btn bottomaligned btn-brown btn-sm"
+						ng-click="resetTaxDetails()" value="Reset" />
+
+
+				</div>
+			</div>
+			<div class="panel-body21 spacer2">
+
+				<table class="table table-striped">
+					<thead>
+						<tr>
+							<th>Select</th>
+							<th>Tax Code</th>
+							<th>Description</th>
+							<th>Applicable</th>
+						</tr>
+
+					</thead>
+					<tbody>
+						<tr ng-repeat="taxcode in taxDetails | filter : code || name | orderBy:['taxcode.code'] ">
+
+							<td><input type="checkbox" ng-model="taxcode.selected"
+								ng-click="taxcoderowselect(taxcode)"></td>
+
+							<td>{{taxcode.code}}</td>
+							<td>{{taxcode.name}}</td>
+							<td>{{taxcode.taxType}}</td>
+						</tr>
+					</tbody>
+				</table>
+
+			</div>
+			<div class="panel-footer">
+				<div class="pull-right">
+					<input type="button" class="btn bottomaligned btn-brown btn-sm"
+						value="ViewPastRecords" ng-model="views.taxCalculationMstrTO.code"
+						ng-click="viewTaxCode()">
+				</div>
+
+				<div class="pull-right">
+					<input type="button" class="btn bottomaligned btn-brown btn-sm"
+						value="Create" ng-click="addTaxCode('Add')">
+				</div>
+				<div class="pull-left">
+					<input type="button" class="btn bottomaligned btn-brown btn-sm"
+						value="Edit" ng-click="addTaxCode('Edit')">
+				</div>
+
+				<div class="pull-left">
+					<input type="button" class="btn bottomaligned btn-brown btn-sm"
+						value="Deactivate" ng-click="deteteTaxCode('Deactivate')">
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

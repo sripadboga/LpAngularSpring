@@ -1,0 +1,82 @@
+<div id="tab-pannel" class="panel-group"
+	ng-controller="PlantPoController">
+	<div class="panel-group">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h4 class="panel-title">Plant Purchase Order Details</h4>
+			</div>
+			 <div class="spacer2 panel-body1">
+				<div class="pull-left left-padding">
+					<input type="text" ng-model="searchProject.parentName"
+						placeholder="EPS ID/EPS Name" ng-click="getUserProjects()">
+					<input type="text" ng-model="searchProject.projName"
+						placeholder="Project ID/Project Name" ng-click="getUserProjects()">
+					<input type="text" ng-model="code"
+					placeholder="Purchase Order" ng-click="plantPoDetails(searchProject.projId)">
+				</div>
+				<div class="pull-right right-padding">
+					<input type="button"
+						ng-click="getPlantPoDetails(searchProject.projId)"
+						class="btn bottomaligned btn-brown btn-sm" value="Search"
+						ng-model="searchText"> <input type="reset"
+						class="btn bottomaligned btn-brown btn-sm"
+						ng-click="resetPurchaseOrderData()" value="Reset">
+				</div>
+			</div> 
+			<div class="panel-body22">
+				<table id="vert-align" class="table table-striped">
+					<thead>
+						<tr>
+							<th>Select</th>
+							<th>Project Id</th>
+							<th>Purchase Order Number</th>
+							<th>Plant Type</th>
+							<th>Received By</th>
+							<th>Used Items</th>
+							<th>Actual Items</th>
+							<th>Quantity Delivered</th>
+							<th>Cummulative</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat="plantPo in plantPoList"
+							ng-dblclick="plantDocketDetails();">
+							<td><input type="checkbox" ng-model="plantPo.selected" ng-click="poRowSelect(plantPo)"></td>
+							<td>{{plantPo.projId}}</td>
+							<td>{{plantProjPurchaseType[plantPo.purchasePlantTypeId].code}}</td>
+							<td>{{plantPo.purchasePlantTypeId}}</td>
+							<td>{{plantPo.receivedBy}}</td>
+							<td>{{plantPo.usedItems}}</td>
+							<td>{{plantPo.actualItems}}</td>
+							<td>{{plantPo.quantity}}</td>
+							<td>{{plantPo.cumulative}}</td>
+						</tr> 
+						<!--  <tr 
+							ng-click="plantDocketDetails()">
+							<td><input type="checkbox"></td>
+							<td>1</td>
+							<td>2</td>
+							<td>3</td>
+							<td>4</td>
+							<td>5</td>
+							<td>6</td>
+							<td>7</td>
+							<td>8</td>
+						</tr>  -->
+					</tbody>
+				</table>
+			</div>
+			<div class="panel-footer">
+			<div class="pull-left">
+					 <input type="button" class="btn btn-brown btn-sm" ng-click="addplantpoList('Edit',searchProject.projId)" value="Edit">
+				<input type="button" class="btn btn-brown btn-sm" ng-click="deletePlantPo()" value="Deactivate">
+				</div>
+				<div class="pull-right">
+					<input type="Submit" value="Create" ng-click="addplantpoList('Add',searchProject.projId)"
+						class="btn  btn-brown btn-sm" />
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+

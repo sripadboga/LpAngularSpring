@@ -1,0 +1,24 @@
+<div id="tab-pannel" class="panel-group">
+	<div id="tab-pannel" class="panel panel-default">
+		<div class="panel-heading">
+			<th>Notifications List</th>
+		</div>
+		<div class="table-responsive panel-body6">
+			<table class="table table-striped table-bordered">
+				<thead>
+					<tr>
+						<th>Notification Id</th>
+						<th>Notification Number</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="notification in notifications"
+						ng-dblclick="notifiNumberListPopUp(notification)">
+						<td>{{notification.id}}</td>
+						<td>{{notification.code}}</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>

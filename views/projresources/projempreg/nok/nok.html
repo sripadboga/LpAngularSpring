@@ -1,0 +1,55 @@
+<div id="tab-pannel">
+	<div class="panel-group">
+		<div class="panel  panel-body23-0">
+			<div class="table-responsive">
+				<table class="table table-bordered table-striped">
+					<thead>
+						<tr>
+							<th>Select</th>
+							<th>Contact</th>
+							<th>First Name</th>
+							<th>Last Name</th>
+							<th>Relationship with Employee</th>
+							<th>Residential Address</th>
+							<th>Postal Address</th>
+							<th>Main Phone Number</th>
+							<th>Alternative Phone Number</th>
+							<th>Email Address</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat="nok in empNOK">
+							<td><input type="checkbox" value="id"
+								ng-model="nok.selected" ng-click="nokRowSelect(nok)"></td>
+							<td>{{nok.contactType}}</td>
+							<td>{{nok.firstName}}</td>
+							<td>{{nok.lastName}}</td>
+							<td>{{nok.relationWithEmp}}</td>
+							<td>{{nok.residentialAddr}}</td>
+							<td>{{nok.postalAddr}}</td>
+							<td>{{nok.phoneNumber}}</td>
+							<td>{{nok.alternatePhoneNumber}}</td>
+							<td>{{nok.email}}</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<div class="panel-footer">
+		<div class="pull-right">
+			<input type="button" class="btn btn-brown btn-sm" ng-click="addEmpNOKDetails('Add')"
+				value="Create">
+		</div>
+		<div class="pull-left">
+			<input type="button" class="btn btn-brown btn-sm" ng-click="addEmpNOKDetails('Edit')"
+				value="Edit"> <input type="button" class="btn btn-brown  btn-sm"
+				ng-click="deactivateEmpNOKDetails()" value="Deactivate">
+		</div>
+	</div>
+	</div>
+</div>
+
+
+
+
+

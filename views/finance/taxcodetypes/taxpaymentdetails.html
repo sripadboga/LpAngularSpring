@@ -1,0 +1,65 @@
+<div id="tab-pannel" ng-controller="TaxPaymentController" ng-init="taxPaymentSearch()">
+	<div class="panel-group">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h4 class="panel-title">Tax Payment Details</h4>
+			</div>
+			<div class="panel-body1 spacer2">
+				<div class="pull-left left-padding">
+				<select style="width: 154px;"
+						ng-options="coun.code   for  coun  in  countries  track by  coun.code"
+						ng-change="getCountryDetailsById(generalValues.countryTO.id);"
+						ng-model="generalValues.countryTO" ng-required="true" placeholder = "Country">
+						<option value = "">Country</option></select>
+				<select style="width: 154px;"
+						ng-options="province.name  for province  in  generalValues.countryTO.provisionTOs  track by province.name"
+						ng-model="generalValues.countryTO.provisionTO" ng-required="true">
+						<option value = "">Province</option></select>
+				</div>
+				<div class="pull-right right-padding">
+					<input type="button" ng-click="taxPaymentSearch()" value="Search" class="btn bottomaligned btn-brown btn-sm" /> 
+					<input type="reset" class="btn bottomaligned btn-brown btn-sm" ng-click="reset()" value="Reset" />
+				</div>
+			</div>
+			<div class="panel-body22">
+				<div id="tableHeight20" class="table-responsive panel-collapse collapse in">
+					<table class="table table-striped" fixed-header>
+						<thead id="tab-head">
+							<tr>
+								<th>Select</th>
+								<th>Department Name</th>
+								<th>Registered Address</th>
+								<th>Account Number</th>
+								<th>Bank Name</th>
+								<th>Bank Code</th>
+								<th>Status</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr ng-repeat="taxdetails in taxPaymentDetails">
+								<td>
+									<input type="checkbox" ng-model="taxdetails.selected" ng-click="rowSelect(taxdetails)">
+								</td>
+								<td>{{taxdetails.deptName}}</td>
+								<td>{{taxdetails.regAddr}}</td>
+								<td>{{taxdetails.accNumber}}</td>
+								<td>{{taxdetails.bankName}}</td>
+								<td>{{taxdetails.bankCode}}</td>
+								<td>{{taxdetails.status | potstatusfilter :taxdetails.status}}</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+			<div class="panel-footer">
+				<div class="pull-right">
+					<input type="button" class="btn bottomaligned btn-brown btn-sm" ng-click="addTaxPayment('Add')" value="Create">
+				</div>
+				<div class="pull-left">
+					<input type="button" class="btn bottomaligned btn-brown btn-sm" ng-click="addTaxPayment('Edit')" value="Edit">
+					<input type="button" class="btn bottomaligned btn-brown btn-sm" ng-click="deleteTaxPayment()" value="Deactivate">
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

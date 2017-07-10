@@ -1,0 +1,68 @@
+<div id="tab-pannel" class="panel-group">
+	<div class="panel panel-default">
+			<div class="table-responsive  panel-body15">
+				<table class="table table-bordered table-striped">
+					<thead>
+						<tr>
+							<th>SOW Item ID</th>
+							<th>SOW Item Description</th>
+							<th>Unit of Measure</th>
+							<th>Original Estimated Quantity</th>
+							<th>Revised Estimated Quantity</th>
+							<th>Actual Quantity to Previous Period</th>
+							<th>Actual Quantity to During the Period</th>
+							<th>Actual Update Quantity</th>
+							<th>Balance Quantity</th>
+							<th>Schedule Start</th>
+							<th>Schedule Finish</th>
+							<th>Actual Start</th>
+							<th>Actual Finish</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr
+							ng-repeat="progMeasure in projMeasureDetails | sowProgMeasureFilterTree:itemId:isExpand"
+							class="abc{{progMeasure.level}}">
+							<td style="width: 200px"><span
+								style="padding-left: {{progMeasure.level*30"> <fa
+										ng-show="((!progMeasure.leaf && progMeasure.expand) || (!progMeasure.leaf  && progMeasure.childProjProgressTOs.length <= 0))"
+										ng-click="itemClick(progMeasure.id,progMeasure.expand);"
+										name="fa fa-minus"></fa> <fa
+										ng-click="itemClick(progMeasure.id,progMeasure.expand);"
+										name="fa fa-plus"
+										ng-show="(!progMeasure.leaf && !progMeasure.expand && progMeasure.childProjProgressTOs.length > 0)"></fa>
+									<fa ng-click="itemClick(progMeasure.id,progMeasure.expand);"
+										ng-show="(progMeasure.leaf)" name="leaf"> </fa>
+									{{progMeasure.code}} </fa>
+							</span></td>
+
+							<td>{{progMeasure.name}}</td>
+							<td>{{progMeasure.measureUnitTO.name}}</td>
+							<td>{{progMeasure.startDate | date }}</td>
+							<td>{{progMeasure.finishDate | date }}</td>
+							<td>{{progMeasure.quantity}}</td>
+							<td>{{progMeasure.revisedQty}}</td>
+							<td>{{progMeasure.actualQty}}</td>
+							<td>{{progMeasure.balance}}</td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="panel-footer">
+				<div class="pull-left">
+					<input class="btn bottomaligned btn-brown btn-sm" type="button"
+						ng-click="deactivateProgMeasure()" value="Deactivate"> <input
+						class="btn bottomaligned btn-brown btn-sm" type="button"
+						ng-click="saveProgMeasures()" value="Save">
+				</div>
+				<div class="pull-right">
+					<input type="button" class="btn bottomaligned btn-brown btn-sm"
+						ng-click="addSOWItems()" value="Add">
+				</div>
+			</div>
+		</div>
+	</div>

@@ -1,0 +1,57 @@
+<div id="tab-pannel" class="panel-group">
+	<div class="panel-body23-0 table-responsive" >
+		<table class="table table-bordered table-striped">
+<thead>
+ <tr>
+          <th rowspan=2>Select</th>  
+        <th rowspan=2>Project  Deployment  </th>
+        <th rowspan=2>Effective From</th>
+           <th rowspan=2>EPS Name</th>
+           <th rowspan=2>Project Name</th>
+           <th rowspan=2>Project Plant ID</th>
+           <th rowspan=2>Date of Purchase or Commissioning Date</th>
+           <th rowspan=2>Mobilization Date</th>
+           <th rowspan=2>De-mobilization Date</th>
+           
+           
+           <th colspan=4>Plants  Life  Status</th>
+           
+
+        </tr>
+<tr>
+
+<th>Unit of measures</th>
+<th>Estimated   use full Life</th>
+<th>Upto Date stage</th>
+<th>Remaining  Use full Life</th>
+
+</tr>
+</thead>
+<tbody>
+<tr ng-repeat="depreciation in depreciationData">
+<td><input type="checkbox" value="id" ng-model="depreciation.selected"
+						ng-click="depreciationRowSelect(depreciation)"></td>
+				
+				<td>{{depreciation.projectDeploy}}</td>
+				<td>{{depreciation.effectiveFrom}}</td>
+				<td>{{depreciation.epsName}}</td>
+				<td>{{depreciation.projectName}}</td>
+				<td>{{depreciation.projectPlntId}}</td>
+				<td>{{depreciation.dateOfPurchaseOrcommissioningDate}}</td>
+				<td>{{depreciation.MobilisationDate}}</td>
+				<td>{{depreciation.deMobilisationDate}}</td>
+				 <td>{{depreciation.unitOfMeasure}}</td>
+				<td>{{depreciation.estimatedUsefullLife}}</td>
+				<td>{{depreciation.uptoDateStage}}</td>
+				<td>{{depreciation.remainingUsefullLife}}</td>
+				
+</tr>  
+</tbody>
+</table>
+</div>
+<div class="panel-footer"> 
+				<div class="pull-right">
+		<input type="button" class="btn btn-brown btn-sm" ng-click="addDepreciation('Edit')" value="Edit">
+		</div>
+	</div>
+	</div>

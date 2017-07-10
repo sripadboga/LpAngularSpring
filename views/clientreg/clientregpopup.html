@@ -1,0 +1,338 @@
+<div id="tab-pannel" ng-required="true">
+	<div ng-controller="ClientController" ng-init="getClients()">
+	<form name="clientForm" validate>
+		<div class="panel-group">
+		
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h4 class="panel-title">Client Registration</h4>
+					</div>
+					<div class="panel-body24" id="lable">
+						<div class="row">
+							<div class="col-xs-12 col-sm-12 col-md-12">
+								<div class="row spacer0">
+									<div class="col-xs-12 col-sm-6 col-md-3">
+
+										<div class="form-group" 	ng-class="{ 'has-error' : clientForm.clientCode.$invalid && !clientForm.clientCode.$pristine }">
+											<label>Client Code</label> 
+											<input type="text" name="clientCode" id="client_code" class="form-control input-md" ng-model="addClient.code" placeholder="Client Code" tabindex="4" minlength="3" maxlength="20"  ng-required="true">
+											 <span ng-show="clientForm.clientCode.$error.minlength">Client Code is too short.</span> 
+											 <span ng-show="clientForm.clientCode.$error.maxlength">Client Code is too long.</span>
+											  <span class="help-block" ng-show="clientForm.clientCode.$dirty&&clientForm.clientCode.$error.required">Client Code is Required</span>
+
+										</div>
+									</div>
+									<div class="col-xs-12 col-sm-6 col-md-3">
+										<!-- CLIENT Name -->
+										<div class="form-group" ng-class="{ 'has-error' : clientForm.clientName.$invalid && !clientForm.clientName.$pristine }">
+											<label>Client Name</label>
+											 <input type="text" name="clientName" id="client_code" class="form-control input-md" ng-model="addClient.name" placeholder="Client Name" tabindex="4" minlength="3" maxlength="30" 
+												ng-required="true"> <span class="help-block"
+												ng-show="clientForm.clientName.$dirty&&clientForm.clientName.$error.required">Client
+												Name is Required</span>
+											<p ng-show="clientForm.clientName.$error.minlength"
+												class="help-block">Client Name is too short.</p>
+											<p ng-show="clientForm.clientName.$error.maxlength"
+												class="help-block">Client Name is too long.</p>
+										</div>
+									</div>
+
+									<div class="col-xs-12 col-sm-6 col-md-3">
+										<!-- USER NAME -->
+										<div class="form-group"
+											ng-class="{ 'has-error' : clientForm.userName.$invalid && !clientForm.userName.$pristine }">
+											<label>User Name</label> <input type="text" name="userName"
+												id="userName" class="form-control input-md"
+												ng-model="addClient.userTO.userName" placeholder="User Name" 	 
+												tabindex="10" minlength="3" maxlength="20"
+												ng-required="true"> <span class="help-block"
+												ng-show="clientForm.userName.$dirty&&clientForm.userName.$error.required">User
+												Name is Required</span>
+											<p ng-show="clientForm.userName.$error.minlength"
+												class="help-block">User Name is too short.</p>
+											<p ng-show="clientForm.userName.$error.maxlength"
+												class="help-block">User Name is too long.</p>
+										</div>
+									</div>
+
+									<div class="col-xs-12 col-sm-6 col-md-3">
+										<div class="form-group"
+											ng-class="{ 'has-error' : clientForm.password.$invalid && !clientForm.password.$pristine }">
+											<label>Password</label> <input type="password" 	 
+												name="password" id="password" class="form-control input-md"
+												ng-model="addClient.userTO.password" placeholder="Password"
+												tabindex="7" minlength="3" maxlength="20"> <span
+												class="help-block"
+												ng-show="clientForm.password.$dirty&&clientForm.password.$error.required">Password
+												is Required</span>
+											<p ng-show="clientForm.password.$error.minlength"
+												class="help-block">Password is too short.</p>
+										</div>
+									</div>
+								</div>
+								<div class="row">
+
+									<!-- FIRST NAME -->
+									<div class="col-xs-12 col-sm-6 col-md-3">
+										<div class="form-group"
+											ng-class="{ 'has-error' : clientForm.firstName.$invalid && !clientForm.firstName.$pristine }">
+											<label>First Name</label> <input type="text" name="firstName"
+												id="first_name" class="form-control input-md"
+												placeholder="First Name" tabindex="1" minlength="3" 	 pattern=[^\w\d]*((.*[A-Za-z]+.*)|[A-Za-z]+.*([0-9]+.*))
+												maxlength="10" ng-model="addClient.userTO.firstName"
+											 ng-required="true">
+											<p ng-show="clientForm.firstName.$error.minlength"
+												class="help-block">First Name is too short.</p>
+											<p ng-show="clientForm.firstName.$error.maxlength"
+												class="help-block">First Name is too long.</p>
+											<span class="help-block"
+												ng-show="clientForm.firstName.$dirty&&clientForm.firstName.$error.required">First
+												Name is Required</span>
+												  <span  ng-show="clientForm.firstName.$error.pattern">Atlist One Alphabet is mandatory </span>
+										</div>
+									</div>
+
+									<!-- LAST NAME -->
+									<div class="col-xs-12 col-sm-6 col-md-3">
+										<div class="form-group"
+											ng-class="{ 'has-error' : clientForm.lastName.$invalid && !clientForm.lastName.$pristine }">
+											<label>Last Name</label> <input type="text" name="lastName"
+												id="last_name" class="form-control input-md"
+												ng-model="addClient.userTO.lastName" placeholder="Last Name" pattern=[^\w\d]*((.*[A-Za-z]+.*)|[A-Za-z]+.*([0-9]+.*))
+												tabindex="2"  maxlength="15"
+												ng-required="true"> <span
+												class="help-block"
+												ng-show="clientForm.lastName.$dirty&&clientForm.lastName.$error.required">Last
+												Name is Required</span>
+											<p ng-show="clientForm.lastName.$error.maxlength"
+												class="help-block">Last Name is too long.</p>
+												  <span  ng-show="clientForm.lastName.$error.pattern">Atlist One Alphabet is mandatory </span>
+												
+										</div>
+									</div>
+									<div class="col-xs-12 col-sm-6 col-md-3">
+
+										<!-- DISPLAY NAME -->
+										<div class="form-group"
+											ng-class="{ 'has-error' : clientForm.displayName.$invalid && !clientForm.displayName.$pristine }">
+											<label>Display Name</label> <input type="text"
+												name="displayName" id="display_name"
+												class="form-control input-md"
+												ng-model="addClient.userTO.dispName"
+												placeholder="Display Name" tabindex="3" minlength="3" 	 pattern=[^\w\d]*((.*[A-Za-z]+.*)|[A-Za-z]+.*([0-9]+.*))
+												maxlength="30" ng-required="true"> <span
+												class="help-block"
+												ng-show="clientForm.displayName.$dirty&&clientForm.displayName.$error.required">Display
+												Name is Required</span>
+											<p ng-show="clientForm.displayName.$error.maxlength"
+												class="help-block">Display Name is too long.</p>
+											<p ng-show="clientForm.displayName.$error.minlength"
+												class="help-block">Display Name is too short.</p>
+												  <span  ng-show="clientForm.displayName.$error.pattern">Atlist One Alphabet is mandatory </span>
+
+										</div>
+									</div>
+
+									<div class="col-xs-12 col-sm-6 col-md-3">
+										<!-- EMAIL ID -->
+										<div class="form-group"
+											ng-class="{ 'has-error' : clientForm.email.$invalid && !clientForm.email.$pristine }">
+											<label>Email Address</label> <input type="email" name="email"
+												id="email" class="form-control input-md"
+												ng-model="addClient.email" placeholder="Email Address"
+												tabindex="6" ng-required="true"> <span
+												class="help-block"
+												ng-show="clientForm.email.$dirty&&clientForm.email.$error.required">Email
+												ID is Required</span>
+											<p class="help-block" ng-show="clientForm.email.$error.email">Your
+												Email ID is Invalid</p>
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-xs-12 col-sm-6 col-md-3">
+										<!-- BUSINESS TYPE -->
+										<div class="form-group"
+											ng-class="{ 'has-error' : clientForm.businessType.$invalid && !clientForm.businessType.$pristine }">
+											<label>Business Type</label> <input type="text"
+												name="businessType" id="business_type"
+												class="form-control input-md"
+												ng-model="addClient.businessType"
+												placeholder="Business Type" tabindex="5" 
+												maxlength="20" ng-required="true"> <span
+												class="help-block"
+												ng-show="clientForm.businessType.$dirty&&clientForm.businessType.$error.required">Business
+												Type is Required</span>
+											<p ng-show="clientForm.businessType.$error.maxlength"
+												class="help-block">Business Type is too long.</p>
+										</div>
+									</div>
+									<div class="col-xs-12 col-sm-6 col-md-3">
+										<!-- FAX -->
+										<div class="form-group"
+											ng-class="{ 'has-error' : clientForm.fax.$invalid && !clientForm.fax.$pristine }">
+											<label>Fax</label> <input type="text" name="fax" id="fax"
+												class="form-control input-md" ng-model="addClient.fax"
+												placeholder="Fax" tabindex="7" maxlength="20" pattern="^[\d\.,]+$" 
+												ng-required="true">
+											<span ng-show="clientForm.fax.$error.pattern">Enter Only Numbers
+												with Pattern</span>
+												 <span class="help-block" ng-show="clientForm.fax.$dirty&&clientForm.fax.$error.required">FAX
+												is Required</span>
+												
+											<!-- <p class="help-block" ng-show="clientForm.fax.$error.fax">Your FAX is Invalid</p> -->
+										</div>
+									</div>
+									<div class="col-xs-12 col-sm-6 col-md-3">
+										<!-- MOBILE NUMBER -->
+										<div class="form-group"
+											ng-class="{ 'has-error' : clientForm.mobile.$invalid && !clientForm.mobile.$pristine }">
+											<label>Mobile Number</label> <input type="text" name="mobile"
+												id="mobile_number" class="form-control input-md"
+												ng-model="addClient.mobile" placeholder="Mobile Number"
+												pattern="^[\d\.,]+$" tabindex="8" minlength=10
+												maxlength="10" ng-required="true">
+												<span class="help-block"
+												ng-show="clientForm.mobile.$dirty&&clientForm.mobile.$error.required">Mobile
+												Number is Required</span> <span
+												ng-show="clientForm.mobile.$error.pattern">Enter Only
+												Numbers</span> 
+												<span ng-show="clientForm.mobile.$error.minlength">Mobile number must be 10 characters</span> 
+										</div>
+									</div>
+									<div class="col-xs-12 col-sm-6 col-md-3">
+										<!-- PHONE NUMBER -->
+										<div class="form-group"
+											ng-class="{ 'has-error' : clientForm.phone.$invalid && !clientForm.phone.$pristine }">
+											<label>Phone Number</label> <input type="text" name="phone"
+												id="phone_number" class="form-control input-md"
+												ng-model="addClient.phone" placeholder="Phone Number"
+												pattern="^[\d\.,]+$"  tabindex="9" maxlength="10" minlength=10
+												ng-required="true"> <span
+												ng-show="clientForm.phone.$error.pattern">Enter Only
+												Digit </span> <span class="help-block"
+												ng-show="clientForm.phone.$dirty&&clientForm.phone.$error.required">Phone
+												Number is Required</span>
+												<span ng-show="clientForm.phone.$error.minlength">Mobile number must be 10 characters</span> 
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-xs-12 col-sm-6 col-md-3">
+										<!-- REGISTERED USERS -->
+										<div class="form-group"
+											ng-class="{ 'has-error' : clientForm.regUsers.$invalid && !clientForm.regUsers.$pristine }">
+											<label>No.of Registered Users</label> <input type="text"
+												name="regUsers" id="no_of_users"
+												class="form-control input-md"
+												ng-model="addClient.maxRegUsers"
+												placeholder="No.of Registered Users"  pattern="^[\d\.,]+$"  tabindex="13"
+												ng-required="true" maxlength=15> <span class="help-block"
+												ng-show="clientForm.regUsers.$dirty&&clientForm.regUsers.$error.required">Registered
+												Users Count is Required</span>
+												<span ng-show="clientForm.regUsers.$error.pattern">Enter Only Numbers</span> 
+										</div>
+									</div>
+									<div class="col-xs-12 col-sm-6 col-md-3">
+										<!-- ACTIVE USERS -->
+										<div class="form-group"
+											ng-class="{ 'has-error' : clientForm.activeUsers.$invalid && !clientForm.activeUsers.$pristine }">
+											<label>No.of Active Users</label> <input type="text"
+												name="activeUsers" id="no_of_users"
+												class="form-control input-md"
+												ng-model="addClient.maxActiveUsers"
+												onkeypress='return event.charCode>=48 && event.charCode<=57'
+												placeholder="No.of Active Users" tabindex="14"  maxlength=15 pattern="^[\d\.,]+$"
+												ng-required="true"> <span class="help-block"
+												ng-show="clientForm.activeUsers.$dirty&&clientForm.activeUsers.$error.required">Active
+												Users Count is Required</span>
+													<span ng-show="clientForm.activeUsers.$error.pattern">Enter Only Numbers</span> 
+										</div>
+									</div>
+									<div class="col-xs-12 col-sm-6 col-md-3">
+										<!-- EPS LEVEL -->
+										<div class="form-group"
+											ng-class="{ 'has-error' : clientForm.epsLevel.$invalid && !clientForm.epsLevel.$pristine }">
+											<label>EPS Level</label> <input type="text" name="epsLevel" 
+												id="no_of_users" class="form-control input-md"
+												ng-model="addClient.maxEPSLevel"
+												  maxlength=15 pattern="^[\d\.,]+$"
+												placeholder="Enter EPS Level" tabindex="15"
+												ng-required="true"> <span class="help-block"
+												ng-show="clientForm.epsLevel.$dirty&&clientForm.epsLevel.$error.required">EPS
+												Level is Required</span>
+													<span ng-show="clientForm.epsLevel.$error.pattern">Enter Only Numbers</span> 
+										</div>
+									</div>
+									<div class="col-xs-12 col-sm-6 col-md-3">
+										<!-- LOGIN ATTEMPTS -->
+										<div class="form-group"
+											ng-class="{ 'has-error' : clientForm.loginAttempts.$invalid && !clientForm.loginAttempts.$pristine }">
+											<label>Login Attempts</label> <input type="text"
+												name="loginAttempts" id="no_of_users"
+												class="form-control input-md"
+												ng-model="addClient.maxLoginAttempts"
+												placeholder="Enter Max Login Attempts" tabindex="16" pattern="^[\d\.,]+$"
+												ng-required="true"> <span class="help-block"
+												ng-show="clientForm.loginAttempts.$dirty&&clientForm.loginAttempts.$error.required">Login
+												Attempts Number is Required</span>
+													<span ng-show="clientForm.loginAttempts.$error.pattern">Enter Only Numbers</span> 
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-xs-12 col-sm-6 col-md-6">
+										<!-- COMMENTS -->
+										<div class="form-group"
+											ng-class="{ 'has-error' : clientForm.comments.$invalid && !clientForm.comments.$pristine }">
+											<label>Comment</label>
+											<textarea name="comment" id="msg" 
+												class="form-control input-lg" ng-model="addClient.remarks"
+												placeholder="Enter Message" tabindex="12" minlength="3"
+												ng-required="true"></textarea>
+											<span class="help-block"
+												ng-show="clientForm.comment.$dirty&&clientForm.comment.$error.required">Comment
+												is Required</span>
+												  <span  ng-show="weatherform1.name.$error.pattern">Atlist One Alphabet is mandatory </span>
+										</div>
+									</div>
+<!-- 									<div class="col-xs-12 col-sm-6 col-md-6">
+										MAIL TEMPLATE
+
+										<label>Mail Template</label><br /> <label> <span
+											class="btn btn-brown"> <input type="file" ngf-select
+												ng-model="file" name="file" ngf-accept="'*'">
+										</span>
+										</label>
+									</div>
+									<div class="row">
+										<div class="col-xs-12 col-sm-12 col-md-12">
+											CAPTCHA
+											<div class="form-group"
+												ng-class="{ 'has-error' : clientForm.captcha.$invalid && !clientForm.captcha.$pristine }">
+												<label>Captcha</label>
+												<div re-captcha ng-model="captcha">
+													<input type="text" name="captcha" id="captcha"
+									class="form-control input-md" placeholder="Enter Captcha"
+									tabindex="17"> <span
+									class="help-block"
+									ng-show="clientForm.captcha.$dirty&&clientForm.captcha.$error.required">Captcha
+									is Required</span>
+												</div>
+ -->											
+ </div>
+
+										</div>
+									
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="panel-footer1">
+						<div class="text-center">
+							<input type="Submit" value="Register" ng-click="clientForm.$valid && saveClient(addClient)" class="btn btn-brown btn-sm"  validate/> 
+						</div>
+					</div>
+					</form>
+				</div>
+		</div>

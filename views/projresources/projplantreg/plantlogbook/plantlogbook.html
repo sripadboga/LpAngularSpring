@@ -1,0 +1,58 @@
+<div id="tab-pannel" class="panel-group">
+	<div class="panel-body23-0 table-responsive">
+		<table class="table table-bordered table-striped">
+			<thead>
+				<tr>
+					<th>Select</th>
+					<th>Date</th>
+					<th>Asset Id</th>
+					<th>EPS</th>
+					<th>Project</th>
+					<th>Driver or operator ID</th>
+					<th>Driver or operator Name</th>
+					<th>start meter reading</th>
+					<th>End meter reading</th>
+					<th>Net Unit Used</th>
+					<th>Purpose</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="logbook in logBookData">
+					<td><input type="checkbox" value="id" ng-model="logbook.selected"
+						ng-click="logBookRowSelect(logbook)"></td>
+					<td>{{logbook.date}}</td>
+					<td>{{logbook.AssName}}</td>
+					<td>{{logbook.Eps}}</td>
+					<td>{{logbook.Project}}</td>
+					<td>{{logbook.DriverId}}</td>
+					<td>{{logbook.DriverName}}</td>
+					<td>{{logbook.StrtMtrRdng}}</td>
+					<td>{{logbook.EndMeterRdng}}</td>
+					<td>{{logbook.NetUnit}}</td>
+					<td>{{logbook.Purpose}}</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<div class="panel-footer">
+		<div class="pull-right">
+			<input type="button" class="btn btn-brown btn-sm"
+				ng-click="addLogBook('Add')" value="Create">
+		</div>
+		<div class="pull-left">
+			<input
+				type="button" class="btn btn-brown btn-sm"
+				ng-click="addLogBook('Edit')" value="Edit">
+				<input type="button" class="btn btn-brown btn-sm"
+				ng-click="deleteLogBook()" value="Deactivate"> 
+		</div>
+	</div>
+</div>
+
+
+
+
+
+
+
+

@@ -1,0 +1,59 @@
+<div id="tab-pannel" ng-controller="UnitPayRateController" ng-init="unitPaySearch()">
+	<div class="panel-group">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h4 class="panel-title">Unit Of Pay Rate For Employees</h4>
+			</div>
+			<div class="panel-body1 spacer2">
+				<div class="pull-left left-padding">
+				<input type="text" ng-model="unitPayReq.code" placeholder="Code"> 
+				<input type="text" ng-model="unitPayReq.name" placeholder="Name"> 
+				<select ng-model="unitPayReq.status">
+						<option value="1" label="Active" selected="selected" ></option>
+						<option value="2" label="InActive"></option>
+				</select>
+				</div>
+				<div class="pull-right right-padding">
+					<input type="button" ng-click="unitPaySearch()" value="Search" ng-model="searchText" class="btn bottomaligned btn-brown btn-sm" /> 
+					<input type="reset" class="btn bottomaligned btn-brown btn-sm" ng-click="reset()" value="Reset" />
+				</div>
+			</div>
+			<div class="panel-body22">
+				<div id="tableHeight20" class="table-responsive panel-collapse collapse in">
+					<table class="table table-striped" fixed-header>
+						<thead id="tab-head">
+							<tr>
+								<th>Select</th>
+								<th>Code</th>
+								<th>Description</th>
+								<th>Notes</th>
+								 <th>Status</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr ng-repeat="unitPay in unitPayrates | orderBy:['code','name'] ">
+								<td>
+									<input type="checkbox" ng-model="unitPay.selected" ng-click="unitPayRowSelect(unitPay)">
+								</td>
+								<td>{{unitPay.code}}</td>
+								<td>{{unitPay.name}}</td>
+								<td>{{unitPay.notes}}</td>
+								<td>{{unitPay.status | potstatusfilter :unitPay.status}}</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+			<div class="panel-footer">
+				<div class="pull-right">
+					<input type="button" class="btn bottomaligned btn-brown btn-sm" ng-click="addPayRates('Add')" value="Create">
+				</div>
+				<div class="pull-left">
+					<input type="button" class="btn bottomaligned btn-brown btn-sm" ng-click="addPayRates('Edit')" value="Edit">
+					<input type="button" class="btn bottomaligned btn-brown btn-sm" ng-click="deletePayRates()" value="Deactivate"  ng-show="activeFlag==1">
+						 <input type="button" class="btn btn-brown btn-sm"  value="Activate"  ng-click="activeCompanies()" ng-show="activeFlag==2" />
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

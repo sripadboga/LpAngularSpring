@@ -1,0 +1,89 @@
+	<div id="tab-pannel">
+<div class="panel-group">
+	<div class="panel panel-default panel-body20-4-1">
+		<div class="table-responsive">
+			<table class="table table-bordered table-striped">
+			<thead>
+				<tr>
+					<th>Select</th>
+					<th>Date</th>
+					<th>Eps Name</th>
+					<th>Project Id</th>
+					<th>Project Name</th>
+					<th>Stock piled Location</th>
+					<th>Pre Approval Notification Id</th>
+					<th>Project Docket</th>
+					<th>Supplier Id</th>
+					<th>Supplier Name</th>
+					<th>Supplier Docket Date</th>
+					<th>Supplier Docket</th>
+					<th>Resource Id</th>
+					<th>Resource Name</th>
+					<th>Resource Sub Group Id</th>
+					<th>Resource Sub Group Name</th>
+					<th>Stock Location(Place Of Delivery)</th>
+					<th>Unit Of Measure</th>
+					<th>Rate</th>
+					<th>Opening Balance</th>
+					<th>Date Wise Quantity Delivered</th>
+					<th>Cumulative Quantity Delivered</th>
+					<th>Date Wise Consumption Quantity</th>
+					<th>Cumulative Consumption Quantity</th>
+					<th>Quantity Transfer To Other Projects</th>
+					<th>Closing Stock Balance</th>
+				</tr>
+
+			</thead>
+			<tbody>
+				<tr ng-repeat="stock in stockPiles">
+					<td><input type="checkbox" value="id" ng-model="tab3.selected"
+						ng-click="stockPileRowSelect(stock)"></td>
+					<td>{{stock.date}}</td>
+					<td>{{stock.epsName}}</td>
+					<td>{{stock.projectId}}</td>
+
+					<td>{{stock.projectName}}</td>
+					<td>{{stock.stockPiledLocation}}</td>
+					<td>{{stock.preApprovalNotificationId}}</td>
+					<td>{{stock.projectDocket}}</td>
+					<td>{{stock.supplierId}}</td>
+					<td>{{stock.supplierName}}</td>
+					<td>{{stock.supplierDocketDate}}</td>
+					<td>{{stock.supplierDocket}}</td>
+					<td>{{stock.resourceId}}</td>
+					<td>{{stock.resourceName}}</td>
+					<td>{{stock.resourceSubGroupId}}</td>
+					<td>{{stock.resourceSubGroupName}}</td>
+					<td>{{stock.stockLocation}}</td>
+					<td>{{stock.unitOfMeasure}}</td>
+					<td>{{stock.rate}}</td>
+					<td>{{stock.openingBalance}}</td>
+					<td>{{stock.dateWiseQuantityDelivered}}</td>
+					<td>{{stock.cumulativeQuantityDelivered}}</td>
+					
+					
+					<td>{{stock.dateWiseConsumptionQuantity}}</td>
+					<td>{{stock.cumulativeConsumptionQuantity}}</td>
+					<td>{{stock.quantityTransferToOtherProjects}}</td>
+					<td>{{stock.closingStockBalance}}</td>
+					
+			</tbody>
+		</table>
+	</div>
+	</div>
+		<div class="panel-footer">
+<div class="pull-right">
+	<input type="button" class="btn btn-brown"
+		ng-click="addStockPiles('Add')" value="Create"> 
+		</div>
+				<div class="pull-left">
+		<input
+		type="button" class="btn btn-brown"
+		ng-click="addStockPiles('Edit')" value="Edit">
+		<input
+		type="button" class="btn btn-brown"
+		ng-click="deleteStockPiles()" value="Deactivate"> 
+</div>
+</div>
+</div>
+</div>

@@ -1,0 +1,96 @@
+<div id="tab-pannel" class="panel-group" ng-init="projSorifOnLoad()">
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<h4 class="panel-title">Schedule Of Rates</h4>
+		</div>
+		<div id="input-width" class="panel-body18">
+			<div  id="tableHeight10-2">
+				<table id="tree" class="table table-striped">
+					<thead>
+						<tr>
+							<th>SOR Id</th>
+							<th>SOR Name</th>
+							<th>Measurement</th>
+							<th>Man Power Hrs</th>
+							<th>Labour</th>
+							<th>Plant</th>
+							<th>Material</th>
+							<th>Others Rate</th>
+							<th>Amount</th>
+							<th>Quantity</th>
+							<th>Total</th>
+							<th>Comments</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat="tab in addSORData |  sorEditFilterTree:itemId1:isExpand1" class="abc{{tab.level}}">	
+							<td>
+								<span ng-show="tab.level > 0" class="xyz" style="padding-left:30px;"></span>
+								<span ng-show="tab.level > 1" class="xyz" style="padding-left:30px;"></span>
+								<span ng-show="tab.level > 2" class="xyz" style="padding-left:30px;"></span>
+								<fa ng-click="itemClick1(tab.id,tab.expand);" ng-show="((!tab.leaf && tab.expand) || (!tab.leaf  && tab.childSORItemTOs.length <= 0))" name="fa fa-minus"></fa> 
+								<fa ng-click="itemClick1(tab.id,tab.expand);" ng-show="(!tab.leaf && !tab.expand && tab.childSORItemTOs.length > 0)" name="fa fa-plus"> </fa>
+								<fa ng-click="itemClick1(tab.id,tab.expand);" ng-show="(tab.leaf)" name="leaf"> </fa>
+								<span style="padding-left: {{tab.level*30}}px;">
+								<input type="text" placeholder="SOR ID" name="soeId" maxlength="20" ng-model="tab.code" milength=3 pattern="^[a-zA-Z\d\s\-]+$" ng-required="true">
+								<fa ng-click="addSORSUBGroup(tab,searchProject.projId)" ng-hide="tab.item" name="fa fa-plus-square"> </fa> 
+								<span style="padding-left: 5px;">	
+								<fa ng-click="addSORItem(tab,searchProject.projId)" ng-hide="tab.item" name="fa fa-plus-square-o"> </fa> </span>
+								<span style="padding-left: 5px;"> 
+								<fa ng-click="deleteSOR(tab)" ng-hide="tab.id>0" name="fa fa-trash"> </fa> </span>
+									 <span ng-show="soeForm1.soeId.$dirty && soeForm1.soeId.$error.required">This field is required</span>
+									<span ng-show="soeForm1.soeId.$error.pattern">Special characters not allowed</span>
+								              <span ng-show="soeForm1.soeId.$error.minlength">To Short!</span></span></td>		              
+							<td ng-form name="soeForm2">
+									<input data-toggle="tooltip" title="{{tab.name}}" type="text" placeholder="SOR Name" name="itemName" maxlength="50" pattern="^[a-zA-Z\d\s\-]+$" ng-model="tab.name" ng-required="true"> 
+									<span ng-show="soeForm2.itemName.$dirty && soeForm2.itemName.$error.pattern">Enter Only Characters</span>
+							</td>
+							<td>
+								<select id="sel" name="measure" ng-show="tab.item" ng-model="tab.measureUnitTO" ng-change="updateMeasureId(tab,tab.measureUnitTO);"
+								ng-options="measureObj.name for measureObj in measurements" ng-required="true"><option value="">select</option></select>
+							</td>
+							<td><input type="text" ng-model="tab.manPowerHrs" ng-show="tab.item" maxlength="3"
+								onkeypress='return event.charCode >= 48 && event.charCode <= 57'ng-required="true">
+							</td>
+							<td><input type="text" ng-model="tab.labourRate" ng-show="tab.item" maxlength="3"
+								onkeypress='return event.charCode >= 48 && event.charCode <= 57' ng-required="true">
+							</td>
+							<td><input type="text" ng-model="tab.plantRate" ng-show="tab.item" maxlength="3"
+								onkeypress='return event.charCode >= 48 && event.charCode <= 57' ng-required="true">
+							</td>
+							<td><input type="text" ng-model="tab.materialRate" ng-show="tab.item"
+								onkeypress='return event.charCode >= 48 && event.charCode <= 57' maxlength="3" ng-required="true">
+							</td>
+							<td><input type="text" ng-model="tab.othersRate"ng-show="tab.item"
+								onkeypress='return event.charCode >= 48 && event.charCode <= 57' maxlength="3" ng-required="true">
+							</td>
+							<td><input type="text" ng-model="tab.amount" ng-show="tab.item"
+								onkeypress='return event.charCode >= 48 && event.charCode <= 57' maxlength="3" ng-required="true">
+							</td>
+							<td><input type="text" ng-model="tab.quantity" ng-show="tab.item"
+								onkeypress='return event.charCode >= 48 && event.charCode <= 57'maxlength="3" ng-required="true">
+							</td>
+							<td><input type="text" ng-model="tab.total" ng-show="tab.item"
+								onkeypress='return event.charCode >= 48 && event.charCode <= 57'maxlength="3" ng-required="true">
+							</td>
+							<td><input type="text" name="comments" ng-model="tab.comments" maxlength="30" ng-show="tab.item" ng-required="true"> 
+								<span ng-show="sorForm.comments.$error.maxlength">enter upto 30 chars only</span>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<div class="panel-footer">
+				<div class="pull-left">
+			<input type="button" class="btn bottomaligned btn-brown btn-sm"
+				ng-click="addSORGroup()" value="Add Group" > 
+				</div>
+				<div class="pull-right">
+				<input
+				type="button" class="btn bottomaligned btn-brown btn-sm" ng-click="saveSORDetails()" value="Save" />
+
+		</div>
+	</div>
+</div>
+</div>

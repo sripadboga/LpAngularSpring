@@ -1,0 +1,193 @@
+@media only screen and (min-width: 0px) and (max-width: 320px){
+/* 	.panel-body0 {
+	height: auto !important;
+}
+
+.panel-body1 {
+	height: auto !important;
+}
+
+.panel-body2 {
+	height: auto !important;
+}
+
+.panel-body3 {
+	height: auto !important;
+}
+
+.panel-body4 {
+	height: auto !important;
+}
+
+.panel-body5 {
+	height: auto !important;
+}
+
+.panel-body6 {
+	height: auto !important;
+}
+
+.panel-body7 {
+	height: auto !important;
+}
+
+.panel-body8 {
+	height: auto !important;
+}
+
+.panel-body9 {
+	height: auto !important;
+}
+
+.panel-body10 {
+	height: auto !important;
+}
+
+.panel-body11 {
+	height: auto !important;
+}
+
+.panel-body12 {
+	height: auto !important;
+}
+
+.panel-body13 {
+	height: auto !important;
+}
+
+.panel-body14 {
+	height: auto !important;
+}
+
+.panel-body15 {
+	height: auto !important;
+}
+
+.panel-body16 {
+	height: auto !important;
+}
+
+.panel-body17 {
+	height: auto !important;
+}
+
+.panel-body18 {
+	height: auto !important;
+}
+
+.panel-body19 {
+	height: auto !important;
+}
+
+.panel-body20 {
+	height: auto !important;
+}
+
+.panel-body21 {
+	height: auto !important;
+}
+
+.panel-body22 {
+	height: auto !important;
+}
+
+.panel-body23 {
+	height: auto !important;
+}
+
+.panel-body24 {
+	height: auto !important;
+}
+.panel-body25 {
+	height: auto !important;
+}
+
+.panel-body26 {
+	height: auto !important;
+}
+
+.panel-body27 {
+	height: auto !important;
+}
+
+.panel-body28 {
+	height: auto !important;
+}
+
+.panel-body29 {
+	height: auto !important;
+}
+
+.panel-body30 {
+	height: auto !important;
+}
+ 
+ #content {
+	padding-top: 48px !important;
+	padding-bottom: 45px !important;
+	padding-left: 50px;
+	padding-right: 50px;
+	height: 100%;
+    overflow: auto;
+}*/
+ 
+}
+@media only screen and (min-width: 321px) and (max-width: 480px)
+{
+	
+	/* #content {
+	padding-top: 45px !important;
+	padding-bottom: 45px !important;
+	padding-left: 50px;
+	padding-right: 50px;
+	height: 100%;
+    overflow: auto; }*/
+.ngdialog.ngdialog-theme-plain.ng-dialogueCustom-t  .ngdialog-content {
+	width: 50% !important;
+	height: 100% !important;
+	padding-bottom: 10px !important;
+	position: fixed;
+	top: 50px !important;
+	left: 0px !important;
+	right: 0px !important;
+	background: none;
+	color: #444;
+}
+.panel-body24 {
+	height: 600px;
+	overflow: auto;
+	background-color: #f2f7fa !important;
+}
+}
+
+
+@media only screen and (min-width: 481px) and (max-width: 768px){
+/* 	#content {
+	padding-top: 48px !important;
+	padding-bottom: 45px !important;
+	padding-left: 50px;
+	padding-right: 50px;
+	height: 100%;
+    overflow: auto;
+    
+}
+ */
+#textarea textarea.input-lg {
+	height: 80px !important;
+	width: 90% !important;
+	margin-left: 5px !important;
+	margin-top: 5px !important;
+}
+
+}
+@media only screen and (min-width: 769px) and (max-width: 1300px){
+	/* #content {
+	padding-top: 48px !important;
+	padding-bottom: 45px;
+	padding-left: 50px;
+	padding-right: 50px;
+	height: 100%;
+    overflow: auto;
+} */
+
+}

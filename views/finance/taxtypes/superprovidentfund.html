@@ -1,0 +1,79 @@
+<div id="tab-pannel" ng-controller="SuperProvidentFundController"
+	ng-init="superFundSearch()">
+	<div class="panel-group">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h4 class="panel-title">Super Fund / Provident Fund Codes</h4>
+			</div>
+			<div class="panel-body1 spacer2">
+				<div class="pull-left left-padding">
+
+					<select style="width: 80px;" ng-click="getCountry()"
+						ng-options="country.code  for  country  in  countryList  track by  country.code"
+						ng-model="contry.countryName" ng-required="true"><option
+							value="" selected="selected">Country</option>
+					</select> <select style="width: 80px;"
+						ng-click="getProvience(contry.countryName)"
+						ng-options="provience.code  for  provience  in  provienceList  track by  provience.code"
+						ng-model="provience.provienceTO" ng-required="true"><option
+							value="" selected="selected">Province</option></select> Financial Year :
+					From<input type="date" ng-model="financialYear.fromDate">
+					To<input type="date" ng-model="financialYear.ToDate">
+
+					Effective Date :<input type="date"
+						ng-model="financialYear.effectiveDate"> <input type="text"
+						ng-model="superFundCode" placeholder="Super Fund Code">
+				</div>
+				<div class="pull-right right-padding">
+					<input type="button" ng-click="superFundSearch()" value="Search" ng-model="searchText" class="btn bottomaligned btn-brown btn-sm" /> 
+					<input type="reset" class="btn bottomaligned btn-brown btn-sm" ng-click="reset()" value="Reset" />
+				</div>
+			</div>
+			<div class="panel-body22">
+				<div id="tableHeight20"
+					class="table-responsive panel-collapse collapse in">
+					<table class="table table-striped" fixed-header>
+						<thead id="tab-head">
+							<tr>
+								<th>Select</th>
+								<th>Code</th>
+								<th>Description</th>
+								<th>Taxable or Not</th>
+								<th>Credit Cycle</th>
+								<th>Due Date for Credit</th>
+								<th>Status</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr ng-repeat="superFund in superFundList | orderBy:['code'] ">
+								<td><input type="checkbox" ng-model="superFund.selected"
+									ng-click="superFundRowSelect(superFund)"></td>
+								<td>{{superFund.code}}</td>
+								<td>{{superFund.desc}}</td>
+								<td>{{superFund.taxableOrNot}}</td>
+								<td>{{superFund.creditCycle}}</td>
+								<td>{{superFund.dueDate}}</td>
+								<td>{{superFund.status | potstatusfilter:superFund.status}}</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+			<div class="panel-footer">
+				<div class="pull-right">
+					<input type="button" class="btn bottomaligned btn-brown btn-sm"
+						ng-click="addSuperFund('Add')" value="Create">
+				</div>
+				<div class="pull-left">
+					<input type="button" class="btn bottomaligned btn-brown btn-sm"
+						ng-click="addSuperFund('Edit')" value="Edit"> <input
+						type="button" class="btn bottomaligned btn-brown btn-sm"
+						ng-click="deleteSuperFund()" value="Deactivate"> <input
+						type="button" class="btn bottomaligned btn-brown btn-sm"
+						ng-click="viewSuperFund()" value="View Past Records">
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+

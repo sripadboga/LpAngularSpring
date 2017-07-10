@@ -1,0 +1,73 @@
+<div id="tab-pannel">
+	<div class="panel-group">
+		<div class="panel panel-default panel-body20-4-1">
+			<div class="table-responsive">
+				<table class="table table-bordered table-striped">
+					<thead>
+						<tr>
+							<th>Select</th>
+							<th>Date Of Issue</th>
+							<th>Pre Approval Notification Id</th>
+							<th>Project Docket</th>
+							<th>Resource Id</th>
+							<th>Resource Name</th>
+							<th>Resource Sub Group Id</th>
+							<th>Resource Sub Group Name</th>
+							<th>Origin Project</th>
+							<th>Origin Store Stock Yard</th>
+							<th>Destination Project</th>
+							<th>Destination Store Stock Yard</th>
+							<th>Supplier Id</th>
+							<th>Supplier Name</th>
+							<th>Issuer Employee Id</th>
+							<th>Issuer Employee Name</th>
+							<th>Receiver Employee Id</th>
+							<th>Receiver Employee Name</th>
+							<th>Unit Of Measure</th>
+							<th>Quantity</th>
+							<th>Rate</th>
+							<th>Comments</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat="dailyissue in dailyIssueRecords">
+							<td><input type="checkbox" value="id"
+								ng-model="dailyissue.selected"
+								ng-click="dailyIssueRowSelect(dailyissue)"></td>
+							<td>{{dailyissue.dateOfIssue}}</td>
+							<td>{{dailyissue.preApprovalNotfId}}</td>
+							<td>{{dailyissue.projectDocket}}</td>
+							<td>{{dailyissue.resourceId}}</td>
+							<td>{{dailyissue.resourceName}}</td>
+							<td>{{dailyissue.resourceSubGroupId}}</td>
+							<td>{{dailyissue.resourceSubGroupName}}</td>
+							<td>{{dailyissue.originProject}}</td>
+							<td>{{dailyissue.originStoreStockYard}}</td>
+							<td>{{dailyissue.destinationProject}}</td>
+							<td>{{dailyissue.destinationStoreStockYard}}</td>
+							<td>{{dailyissue.supplierId}}</td>
+							<td>{{dailyissue.supplierName}}</td>
+							<td>{{dailyissue.issueEmployeeId}}</td>
+							<td>{{dailyissue.issueEmployeeName}}</td>
+							<td>{{dailyissue.receiverEmployeeId}}</td>
+							<td>{{dailyissue.receiverEmployeeName}}</td>
+							<td>{{dailyissue.unitOfMeasure}}</td>
+							<td>{{dailyissue.quantity}}</td>
+							<td>{{dailyissue.rate}}</td>
+							<td>{{dailyissue.comments}}</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<div class="panel-footer">
+			<div class="pull-right">
+				<input type="button" class="btn btn-brown" ng-click="addDailyIssueRecords('Add')" value="Create">
+			</div>
+			<div class="pull-left">
+				<input type="button" class="btn btn-brown" ng-click="addDailyIssueRecords('Edit')" value="Edit"> 
+				<input type="button" class="btn btn-brown" ng-click="deleteDailyIssueRecords()" value="Deactivate">
+			</div>
+		</div>
+	</div>
+</div>

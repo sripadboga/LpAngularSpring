@@ -1,0 +1,87 @@
+<div id="tab-pannel" class="panel-group"
+	ng-controller="PurchaseOrderController">
+	<div class="panel-group">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h4 class="panel-title">Purchase Order List</h4>
+			</div>
+			<div class="spacer2 panel-body1">
+				<div class="pull-left left-padding">
+					<input type="text" ng-model="searchProject.parentName"
+						placeholder="EPS ID/EPS Name" ng-click="getUserProjects()">
+					<input type="text" ng-model="searchProject.projName"
+						placeholder="Project ID/Project Name" ng-click="getUserProjects()">
+				</div>
+				<div class="pull-right right-padding">
+					<input type="button"
+						ng-click="getPurchaseOrderSearch(searchProject.projId)"
+						class="btn bottomaligned btn-brown btn-sm" value="Search"
+						ng-model="searchText"> <input type="reset"
+						class="btn bottomaligned btn-brown btn-sm"
+						ng-click="resetPurchaseOrderData()" value="Reset">
+				</div>
+			</div>
+			<div class="panel-body22">
+				<table id="vert-align" class="table table-striped">
+					<thead>
+						<tr>
+							<th rowspan="2">Purchase Order</th>
+							<th rowspan="2">Company</th>
+							<th rowspan="2">Approver Name</th>
+							<th rowspan="2">PO Amount</th>
+							<th rowspan="2">Start Date</th>
+							<th rowspan="2">Finish Date</th>
+							<th rowspan="2">Payment In Days</th>
+							<th rowspan="2">Status</th>
+							<th class="text-center" rowspan="1" colspan="2">Pre-Contract
+								Details</th>
+							<th rowspan="2">Invoice Details</th>
+							<th rowspan="2">Delivery Details</th>
+							<th rowspan="2">Re-Order</th>
+						</tr>
+						<tr>
+							<th>Internal</th>
+							<th>External</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat="purchaseOrder in purchaseOrdersList"
+							ng-dblclick="selectPurchaseOrders(purchaseOrder);">
+							<td>{{purchaseOrder.code}}</td>
+							<td>{{companyMap[purchaseOrder.preContractCmpTO.companyId].code}}</td>
+							<td>{{usersMap[purchaseOrder.apprUserId].name}}</td>
+							<td>{{purchaseOrder.amount}}</td>
+							<td class="input-width1"><span
+								ng-show="!purchaseOrder.editMode">{{purchaseOrder.startDate
+									| date}}</span> <input type="date" ng-show="purchaseOrder.editMode"
+								ng-model="purchaseOrder.startDate"></td>
+							<td class="input-width1"><span
+								ng-show="!purchaseOrder.editMode">{{purchaseOrder.finsihDate
+									| date}}</span> <input type="date" ng-show="purchaseOrder.editMode"
+								ng-model="purchaseOrder.finishDate"></td>
+
+							<td class="input-width1"><span
+								ng-show="!purchaseOrder.editMode">{{purchaseOrder.paymentInDays}}</span>
+								<input type="text" ng-show="purchaseOrder.editMode"
+								ng-model="purchaseOrder.paymentInDays"></td>
+							<td>{{purchaseOrder.status | potstatusfilter
+								:purchaseOrder.status}}</td>
+							<td ng-click="getInternalPrecontractDetails(purchaseOrder)">view</td>
+							<td ng-click="getExternalRequest(purchaseOrder)">view</td>
+							<td ng-click="getInvoiceDetails(purchaseOrder)">view</td>
+							<td ng-click="getAssetsResourceDetails(purchaseOrder)">view</td>
+							<td
+								ng-click="viewPurchaseOrderDetails(searchProject,purchaseOrder)">Repeat</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="panel-footer">
+				<div class="pull-right">
+					<input type="Submit" value="Save" ng-click="savePurchaseOrders()"
+						class="btn  btn-brown btn-sm" />
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

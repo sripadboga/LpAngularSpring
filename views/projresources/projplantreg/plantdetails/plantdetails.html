@@ -1,0 +1,52 @@
+<div id="tab-pannel" class="panel-group" ng-init="getPlantRegisters()">
+		<div style="margin-top: 4px !important;" class="table-responsive panel-body20-1">
+			<table class="table table-bordered table-striped">
+			<thead>
+				<tr>
+					<th>Select</th>
+					<th>Asset Id</th>
+					<th>Registration Number</th>
+					<th>Resource Classification Id</th>
+					<th>Resource Classification Name</th>
+					<th>Unit of Measure</th>
+					<th>Plant Description</th>
+					<th>Make</th>
+					<th>Model</th>
+					<th>Existing New Asset</th>
+					<th>Plant Supplier Name</th>
+					<th>Plant Owner Name</th>
+					<th>Plant Purchase Category</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="plant in plantData">
+					<td><input type="checkbox" value="id"
+						ng-model="plant.selected" ng-click="plantRowSelect(plant)"></td>
+					<td ng-click="go()">{{plant.assertId}}</td>
+					<td>{{plant.regNumber}}</td>
+					<td>{{plantClassMstrMap[plant.plantClassMstrId].code}}</td>
+					<td>{{plantClassMstrMap[plant.plantClassMstrId].name}}</td>
+					<td>{{plantClassMstrMap[plant.plantClassMstrId].unitOfMeasure}}</td>
+					<td>{{plant.desc}}</td>
+					<td>{{plant.manfacture}}</td>
+					<td>{{plant.model}}</td>
+					<td>{{plant.assetType}}</td>
+					<td>{{plantCompanyMap[plant.cmpId].name}}</td>
+					<td>{{plantCompanyMap[plant.cmpId].cmpCatgName}}</td>
+					<td>{{procureCatgMap[plant.procurecatgId].name}}</td>
+				</tr>
+			</tbody>
+		</table>
+</div>
+
+<div class="panel-footer">
+	<div class="pull-right">
+		<input type="button" class="btn btn-brown btn-sm" ng-click="addplantList('Add')"
+			value="Create"> 
+	</div>
+	<div class="pull-left">
+ <input type="button" class="btn btn-brown btn-sm" ng-click="addplantList('Edit')" value="Edit">
+				<input type="button" class="btn btn-brown btn-sm" ng-click="deletePlantRegisters()" value="Deactivate">
+	</div>
+</div>
+</div>

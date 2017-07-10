@@ -1,0 +1,41 @@
+<div id="tab-pannel" class="panel-group">
+	<div id='views/companylist/contacts.html'>
+			<form id="contacts">
+				<div class="table-responsive panel-body10">
+					<table class="table table-striped table-bordered">
+							<thead>
+								<tr>
+									<th>Select</th>
+									<th>Contact Name</th>
+									<th>Email</th>
+									<th>Mobile</th>
+									<th>phone</th>
+									<th>Designation</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr ng-repeat="cont in contacts">
+									<td>
+										<input type="checkbox" ng-model="cont.selected" ng-click="contactsRowSelect(cont)"/>
+									</td>
+									<td>{{cont.contactName}}</td>
+									<td>{{cont.email}}</td>
+									<td>{{cont.mobile}}</td>
+									<td>{{cont.phone}}</td>
+									<td>{{cont.designation}}</td>
+								</tr>
+							</tbody>
+					</table>
+				 </div>
+				 <div class="panel-footer">
+					<div class="pull-right">
+						<input type="button" class="btn bottomaligned btn-brown btn-sm" ng-click="addContacts('Add')" value="Create"  ng-show="account.appCodeTemplate['ENTRPRSE_CENTLIB_CMPLIST_ADD']"    />
+					</div>
+					<div class="pull-left">
+						<input type="button" class="btn bottomaligned btn-brown btn-sm" ng-click="addContacts('Edit')" value="Edit"   ng-show="account.appCodeTemplate['ENTRPRSE_CENTLIB_CMPLIST_ADD']"    /> 
+						<input type="button" class="btn bottomaligned btn-brown btn-sm" ng-click="deleteContacts()" value="Deactivate"   ng-show="account.appCodeTemplate['ENTRPRSE_CENTLIB_CMPLIST_DELETE']" />
+					</div>
+				</div>
+			</form>
+	</div>
+</div>

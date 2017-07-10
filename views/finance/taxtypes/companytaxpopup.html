@@ -1,0 +1,105 @@
+<div id="tab-pannel" class="panel-group">
+	<form name="companyForm" validate>
+		<div id="tab-pannel" class="panel panel-default">
+			<div class="panel-heading">
+				<h4 class="panel-title" ng-show="action =='Add'">Add Project</h4>
+				<h4 class="panel-title" ng-show="action =='Edit'">Edit Project</h4>
+			</div>
+			
+			<div id="tab-pannel" class="panel-body5 panel panel-default">
+				<div class="table-responsive">
+
+					<table class="table">
+						<thead>
+							<tr>
+						    <th ng-hide="action =='Edit'">Select</th>
+							<th colspan=2 class="vert-align">Annual Taxable Income Range</th>
+        		            <th rowspan=2 class="vert-align">Fixed amount of Tax</th>
+        		            <th rowspan=2 class="vert-align">variable Tax Rate in % over the lower range value</th>
+        		            <th rowspan=2 class="vert-align">Notes</th>
+        		            </tr>
+							
+							<tr>
+						    <th> </th>
+        	                <th> </th>
+        		            </tr>
+						</thead>
+						<tbody>
+							<tr ng-repeat="company in companyList">
+								<td ng-hide="action =='Edit'"><input type="checkbox"
+									ng-model="company.selected" value="company.id"
+									ng-click="companyPopUpRowSelect(company)"></td>
+
+						         <td><input type="text" 
+									ng-model="company.annualMinTax" name="annualMinTax"
+									 placeholder="annualMinTax" pattern="^[0-9<>]+$"
+									ng-required="true"/> <span
+									ng-show="companyForm.annualMinTax.$dirty && companyForm.annualMinTax.required">annualMinTax is mandatory</span> 
+									<span ng-show="companyForm.annualMinTax.$error.pattern">Enter
+										correct annualMinTax</span> <span
+									ng-show="companyForm.annualMinTax.$error.minlength">To Short!</span></td>
+									
+									  <td><input type="text" 
+									ng-model="company.annualMaxTax" name="annualMaxTax"
+									 placeholder="annualMaxTax"  pattern="^[0-9<>]+$"
+									ng-required="true"/> <span
+									ng-show="companyForm.annualMaxTax.$dirty && companyForm.annualMaxTax.required">annualMaxTax is mandatory</span> 
+									<span ng-show="companyForm.annualMaxTax.$error.pattern">Enter
+										correct annualMaxTax</span> <span
+									ng-show="companyForm.annualMaxTax.$error.minlength">To Short!</span></td>
+									
+									 <td><input type="text" 
+									ng-model="company.fixedTax" name="fixedTax"
+									 placeholder="fixedTax"  pattern="^[0-9<>]+$"
+									ng-required="true" /> <span
+									ng-show="companyForm.fixedTax.$dirty && companyForm.fixedTax.required">fixedTax is mandatory</span> 
+									<span ng-show="companyForm.fixedTax.$error.pattern">Enter
+										correct fixedTax</span> <span
+									ng-show="companyForm.fixedTax.$error.minlength">To Short!</span></td>
+									
+									 <td><input type="text"
+									ng-model="company.variableTax" name="variableTax"
+									 placeholder="variableTax" pattern="^[0-9<>%.]+$"
+									ng-required="true" /> <span
+									ng-show="companyForm.variableTax.$dirty && companyForm.variableTax.required">variableTax is mandatory</span> 
+									<span ng-show="companyForm.variableTax.$error.pattern">Enter
+										correct variableTax</span> <span
+									ng-show="companyForm.variableTax.$error.minlength">To Short!</span></td>
+									
+									 <td><input type="text" 
+									ng-model="company.comments" name="comments"
+									 placeholder="notes" pattern="^[a-zA-Z0-9-_%,$]+$"
+									 minlength="3" maxlength="50"
+									ng-required="true" /> <span
+									ng-show="companyForm.comments.$dirty && companyForm.comments.required">comments is mandatory</span> 
+									<span ng-show="companyForm.comments.$error.pattern">Enter
+										correct comments</span> <span
+									ng-show="companyForm.comments.$error.minlength">To Short!</span></td>					
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+			<div class="panel-footer">
+				<div class="pull-left">
+					<input type="submit" class="btn bottomaligned btn-brown btn-sm"
+						ng-click="addCompanyTaxRows()" value="Add"
+						ng-show="action =='Add'" /> <input type="button"
+						class="btn bottomaligned btn-brown btn-sm"
+						ng-click="deleteProjRows()" value="Delete"
+						ng-show="action =='Add'" />
+				</div>
+				<div class="pull-right">
+					<input type="submit" class="btn bottomaligned btn-brown btn-sm"
+						value="Save" ng-click="companyForm.$valid && savecompany()" />
+				</div>
+			</div>
+		</div>
+	</form>
+</div>
+ 
+ 
+ 
+ 
+ 
+ 

@@ -1,0 +1,26 @@
+<div id="tab-pannel" class="container-fluid" ng-init="getLeaveTypes()">
+	<div class="panel-group">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h4 class="panel-title">leave Type List</h4>
+			</div>
+			<div class="table-responsive">
+				<table class="table table-striped table-fixed newTbl" fixed-header>
+					<thead id="tab-head">
+						<tr>
+							<th>Code</th>
+							<th>Leave Type</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat="leaveTypeTO in leaveTypes | orderBy:['leaveTypeTO.code']"
+							" ng-click="selectdType(leaveTypeTO)">
+							<td>{{leaveTypeTO.code}}</td>
+							<td>{{leaveTypeTO.desc}}</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>

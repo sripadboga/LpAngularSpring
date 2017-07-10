@@ -1,0 +1,107 @@
+<div id="tab-pannel" class="panel-group">
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<h4 class="panel-title">Deployment</h4>
+		</div>
+		<div class="table-responsive">
+			<div class="panel-body15">
+				<form name="plntRegForm7" validate>
+					<table  class="table table-bordered table-striped">
+						<thead>
+						<tr>
+							<th>Project Deployment</th>
+							<th>EPS ID</th>
+							<th>EPS Name</th>
+							<th>Project Id</th>
+							<th>Project Name</th>
+							<th>Commissioning Date of new asset</th>
+							<th>Asset ID</th>
+							<th>Project Plant ID</th>
+							<th>Mobilization Date</th>
+							<th>Anticipated De-mobilization Date</th>
+							<th>De-Mobilization Date</th>
+							<th>Post De-mobilization status</th>
+							<th>Odo meter reading on Mobilization</th>
+							<th>Odo meter reading on De-mobilization</th>
+							<th>Notes</th>
+			</tr>
+		</thead>
+		<tbody>
+							<tr ng-repeat="deployment in addDeploymentData">
+								<td class="input-width"><input type="text" name="projectDeploy" ng-model=deployment.projectDeploy
+									placeholder="Project Deploy" ng-required="true" pattern="[a-zA-Z-\d\s]+"><span
+									ng-show="plntRegForm7.projectDeploy.$error.pattern">only alpha
+										numerics allowed</span></td>
+								<td class="input-width"><input type="text" name="epsId"
+									ng-model="deployment.epsId" placeholder="Eps Id"
+									ng-required="true" pattern="[a-zA-Z-\s]+"><span
+									ng-show="plntRegForm7.ProjectName.$error.pattern">only
+										alphabets allowed</span></td>
+
+								<td class="input-width"><input type="text" name="EpsName" ng-model="deployment.psName"
+									placeholder="Eps Name" ng-required="true"></td>
+
+
+								<td class="input-width"><input type="text" name="projectId"
+									ng-model="deployment.projectId" placeholder="Project Id"
+									ng-required="true"></td>
+								<td class="input-width"><input type="text" name="projectName"
+									ng-model="deployment.projectName" placeholder="Project Name"
+									ng-required="true"></td>
+								<td><input type="date" name="commissioningDate"
+									ng-model="deployment.commissioningDate" placeholder="Commissioning Date"
+									ng-required="true"></td>
+
+
+
+
+								<td class="input-width"><input type="text" name="assetId"
+									ng-model="deployment.assetId" placeholder="assetId"
+									ng-required="true"></td>
+								<td class="input-width"><input type="text" name="projectplntId"
+									ng-model="deployment.projectplntId" placeholder="projectplntId"
+									ng-required="true"></td>
+								<td><input type="Date" name="mobilisationDate"
+									ng-model="deployment.mobilisationDate" placeholder="mobilisationDate"
+									ng-required="true"></td>
+									
+								<td><input type="Date" name="antiDemobilisationDate"
+									ng-model="deployment.antiDemobilisationDate" placeholder="antiDemobilisationDate"
+									ng-required="true"></td>
+									
+							
+									
+									
+									<td><input type="Date" name="demobilisationDate"
+									ng-model="deployment.demobilisationDate" placeholder="demobilisationDate"
+									ng-required="true"></td>
+									<!-- <td><input type="text" name="postDemobilisation"
+									ng-model="deployment.postDemobilisation" placeholder="postDemobilisation"
+									ng-required="true"></td> -->
+										<td class="input-width"><select ng-model="deployment.postDemobilisation" ng-required="true">
+			<option ng-repeat = "postDemobilisation in postDemobilisations">{{postDemobilisation.name}}</option>
+			</select></td>
+									<td class="input-width"><input type="text" name="odoMeterRdngMobi"
+									ng-model="deployment.odoMeterRdngMobi" placeholder="odoMeterRdngMobi"
+									ng-required="true"></td>
+									<td class="input-width"><input type="text" name="odoMeterRdngDeMobi"
+									ng-model="deployment.odoMeterRdngDeMobi" placeholder="odoMeterRdngDeMobi"
+									ng-required="true"></td>
+									<td class="input-width">
+									<input type="text" name="notes" ng-model="deployment.notes" placeholder="notes"
+									ng-required="true" data-toggle="tooltip" title="{{deployment.notes}}">
+							</tr>
+						</tbody>
+					</table>
+				</form>
+			</div>
+		<div class="panel-footer"> 
+				<div class="pull-right">
+					<input type="button" class="btn bottomaligned btn-brown btn-sm"
+						ng-click="save()" value="Save">
+				</div>
+			</div> 
+		</div>
+	</div>
+	</div>
+		

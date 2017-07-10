@@ -1,0 +1,28 @@
+<div id="tab-pannel" class="panel-group" ng-init="getProjEmpClassDetails()">
+	<div id="tab-pannel" class="panel panel-default">
+		<div class="panel-heading">
+			<th>TradeList</th>
+		</div>
+		<div class="table-responsive panel-body9">
+			<table class="table table-striped table-bordered">
+				<thead>
+					<tr>
+						<th>Resource ID</th>
+						<th>Resource Name</th>
+						<th>Employee Category</th>
+						<th>Unit Of Measure</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="detail in projEmpClassDetails"
+						ng-click="projEmpClassPopUp(detail)">
+						<td>{{detail.empClassTO.code}}</td>
+						<td>{{detail.empClassTO.name}}</td>
+						<td>{{detail.projEmpCatgTO.code}}</td>
+						<td>{{detail.measureUnitTO.name}}</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>

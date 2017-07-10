@@ -1,0 +1,37 @@
+<div id="tab-pannel" ng-controller="ApproveWorkDairyController">
+
+	<div class="panel-group panel panel-default">
+		<div class="panel-heading">
+			<h4 class="panel-title">Approve WorkDairy</h4>
+		</div>
+		<div class="panel-body1 spacer1 left-padding">
+
+			<input type="text" ng-model="searchProject.parentName"
+				placeholder="EPS ID/EPS Name" ng-click="getUserProjects()">
+			<input type="text" ng-model="searchProject.projName"
+				placeholder="Project ID/Project Name" ng-click="getUserProjects()">
+			<select id="sel" ng-model="dailyCrewId"
+				ng-options="obj.id as obj.name for obj in dailycrewid.data" required><option
+					value="">Crew Id</option></select> <input type="text" ng-model="workDairyId"
+				placeholder="Work Dairy Id"> <input type="text"
+				potdate-picker id="fromDate" ng-model="date"
+				placeholder="dd-mm-yyyy"> <select id="sel"
+				ng-model="superVisorId"
+				ng-options="obj.id as obj.name for obj in superVisorId.data"
+				required><option value="">Super VisorId</option></select>
+		</div>
+
+
+		<div class="panel-body24-0 table-responsive row">
+			<ul class="nav nav-tabs">
+				<li ng-repeat="tab in approveWorkDiaryTabs"
+					ng-class="{active:isActiveTab(tab.url)}"><a data-toggle="tab"
+					ng-click="onClickTab(tab)">{{tab.title}}</a></li>
+			</ul>
+
+			<div class="tab-content">
+				<div ng-include="currentTab"></div>
+			</div>
+		</div>
+	</div>
+</div>

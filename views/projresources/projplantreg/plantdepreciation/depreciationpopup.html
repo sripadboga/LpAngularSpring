@@ -1,0 +1,105 @@
+<div id="tab-pannel" class="panel-group">
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<h4 class="panel-title">Depreciation and Salvage Value</h4>
+		</div>
+		<div class="table-responsive">
+			<div class="panel-body15">
+				<form name="plntRegForm10" validate>
+					<table class="table table-bordered table-striped">
+					<thead>
+ <tr>
+        
+        <th rowspan=2>Project  Deployment  </th>
+        <th rowspan=2>Effective From</th>
+           <th rowspan=2>EPS Name</th>
+           <th rowspan=2>Project Name</th>
+           <th rowspan=2>Project Plant ID</th>
+           <th rowspan=2>Date of Purchase / Commissioning Date</th>
+           <th rowspan=2>Mobilisation Date</th>
+           <th rowspan=2>De-mobilisation Date</th>
+           
+           
+           <th colspan=4>Plants  Life  Status</th>
+           
+
+        </tr>
+<tr>
+
+<th>Unit of measures</th>
+<th>Estimated   usefull Life</th>
+<th>Upto Date stage</th>
+<th>Remaining  Usefull Life</th>
+
+</tr>
+</thead>
+<tbody>
+<tr ng-repeat="depreciation in addDepreciationData">
+								
+								<td class="input-width"><input type="text" name="projectDeploy" ng-model=depreciation.projectDeploy
+									placeholder="projectDeploy" ng-required="true" pattern="[a-zA-Z-\d\s]+"><span
+									ng-show="plntRegForm10.projectDeploy.$error.pattern">only alpha
+										numerics allowed</span></td>
+								<td class="input-width"><input type="text" name="effectiveFrom"
+									ng-model="depreciation.effectiveFrom" placeholder="effectiveFrom"
+									ng-required="true" pattern="[a-zA-Z-\s]+"><span
+									ng-show="plntRegForm10.effectiveFrom.$error.pattern">only
+										alphabets allowed</span></td>
+
+								<td class="input-width"><input type="text" name="epsName" ng-model="depreciation.epsName"
+									placeholder="epsName" ng-required="true"></td>
+
+
+								<td class="input-width"><input type="text" name="projectName"
+									ng-model="depreciation.projectName" placeholder="projectName"
+									ng-required="true"></td>
+								<td class="input-width"><input type="text" name="projectPlntId"
+									ng-model="depreciation.projectPlntId" placeholder="projectPlntId"
+									ng-required="true"></td>
+								<td class="input-width"><input type="text" name="dateOfPurchaseOrcommissioningDate"
+									ng-model="depreciation.dateOfPurchaseOrcommissioningDate" placeholder="dateOfPurchaseOrcommissioningDate"
+									ng-required="true"></td>
+
+
+
+
+								<td class="input-width"><input type="text" name="MobilisationDate"
+									ng-model="depreciation.MobilisationDate" placeholder="MobilisationDate"
+									ng-required="true"></td>
+								<td class="input-width"><input type="text" name="deMobilisationDate"
+									ng-model="depreciation.deMobilisationDate" placeholder="deMobilisationDate"
+									ng-required="true"></td>
+								<td class="input-width"><input type="text" name="unitOfMeasure"
+									ng-model="depreciation.unitOfMeasure" placeholder="unitOfMeasure"
+									ng-required="true"></td>
+								<td class="input-width"><input type="text" name="estimatedUsefullLife"
+									ng-model="depreciation.estimatedUsefullLife" placeholder="estimatedUsefullLife"
+									ng-required="true"></td>
+									
+									
+									
+									
+									<td class="input-width"><input type="text" name="uptoDateStage"
+									ng-model="depreciation.uptoDateStage" placeholder="uptoDateStage"
+									ng-required="true"></td>
+									<td class="input-width"><input type="text" name="remainingUsefullLife"
+									ng-model="depreciation.remainingUsefullLife" placeholder="remainingUsefullLife"
+									ng-required="true"></td>
+									
+									
+							</tr>
+						</tbody>
+					</table>
+				</form>
+			</div>
+		<div class="panel-footer">
+				<div class="pull-right">
+					
+					
+					<input type="button" class="btn bottomaligned btn-brown btn-sm"
+						ng-click="save()" value="Save">
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

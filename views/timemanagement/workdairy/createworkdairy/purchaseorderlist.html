@@ -1,0 +1,38 @@
+<div id="tab-pannel">
+	<div class="panel-group">
+	<div class="panel panel-default panel-body16">
+		<div class="panel-heading">
+			<h4 class="panel-title">Job purchase Order</h4>
+		</div>
+		
+			<div class="table-responsive">
+				<table class="table table-bordered table-striped">
+					<thead>
+						<tr>
+							<th>Purchase Order Number</th>
+							<th>PO Schedule Item Id</th>
+							<th>Rate</th>
+							<th>Quantity Received</th>
+							<th>Vendor Supplier Id</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat="purchaseOrder in purchaseOrderList">
+							<td>{{purchaseOrder.pNum}}</td>
+							<td>{{purchaseOrder.itemId}}</td>
+							<td>{{purchaseOrder.rate}}</td>
+							<td>{{purchaseOrder.qtyreceived}}</td>
+							<td>{{purchaseOrder.supplierId}}</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+
+		</div>
+	</div>
+</div>
+
+
+
+
+

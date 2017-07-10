@@ -1,0 +1,52 @@
+<div id="tab-pannel" class="panel-group">
+	<form name="storeform" validate>
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h4 class="panel-title">Store And Stock</h4>
+			</div>
+			<div class="panel-body10">
+				<div id="tableHeight8-2" class="table-responsive">
+					<table class="table table-striped" fixed-header>
+						<thead id="tab-head">
+							<tr>
+								<th ng-show="action=='Add'">Select</th>
+								<th>Store/Location ID</th>
+								<th>Store/Location Name</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr ng-repeat="stock in addStocks">
+								<td ng-show="action=='Add'">
+								<input type="checkbox" ng-model="stock.selected"  ng-click="popUpRowSelect(stock)"></td>
+	
+								<td ng-form name="storeForm">
+								<input type="text" name="code"  ng-model="stock.code" pattern="^[a-z A-Z\d\s.,]+$" minlength="2" maxlength="20" placeholder="Store/Location ID" required>
+									<span ng-show="storeForm.code.$dirty && storeForm.code.$error.required">This field is required</span> 
+									<span ng-show="storeForm.code.$error.minlength">Too Short</span>
+									<span ng-show="storeForm.code.$error.pattern">Special characters are not allowed </span> 
+									<span ng-show="storeForm.code.$error.maxlength">Enter upto 20 chars only</span></td>
+									
+								<td ng-form name="storeForm1">
+								<input type="text" name="name" ng-model="stock.desc" pattern="^[a-z A-Z\d\s.,]+$" minlength="3" maxlength="30" placeholder="Store/Location Name" required>
+									<span ng-show="storeForm1.name.$dirty && storeForm1.name.$error.required">This field is required</span>
+									<span ng-show="storeForm1.name.$error.minlength">Too Short!</span>
+									  <span  ng-show="storeForm1.name.$error.pattern">Special characters are not allowed</span> 
+									  <span ng-show="storeForm1.name.$error.maxlength">Enter upto30 chars only</span></td>
+	
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+			<div class="panel-footer">
+				<div class="pull-left">
+					<input type="submit" class="btn btn-brown btn-sm" ng-show="action=='Add'" ng-click="storeform.$valid && addRows()"  value="Add" />
+					 <input type="button" class="btn btn-brown btn-sm" ng-click="deleteRows()" ng-show="action=='Add'" value="Delete" />
+				</div>
+				<div class="pull-right">
+					<input type="submit" class="btn btn-brown btn-sm" ng-click="storeform.$valid && saveStocks()" value="Save" />
+				</div>
+			</div>
+		</div>
+	</form>
+</div>

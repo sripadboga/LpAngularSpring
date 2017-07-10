@@ -1,0 +1,249 @@
+<div id="tab-pannel" class="panel-group"
+	ng-init="getPurchaseOrderDetails()">
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<h4 class="panel-title">Purchase Order Details</h4>
+		</div>
+
+		<div class=" panel-body4">
+			<div class="row spacer1">
+				<div class="row  col-xs-12 col-sm-12 col-md-12">
+					<div class=" col-xs-2 col-sm-2 col-md-2">Contract ID</div>
+					<div class=" col-xs-2 col-sm-2 col-md-2">Description</div>
+					<div class=" col-xs-2 col-sm-2 col-md-2">Contract Type</div>
+					<div class=" col-xs-2 col-sm-2 col-md-2">Currency</div>
+					<div class=" col-xs-2 col-sm-2 col-md-2">Approver Comments</div>
+				</div>
+			</div>
+			<div class="row  col-xs-12 col-sm-12 col-md-12">
+				<div class=" col-xs-2 col-sm-2 col-md-2">
+					<input disabled="disabled" type="text"
+						ng-model="preContractData.code" />
+				</div>
+				<div class=" col-xs-2 col-sm-2 col-md-2">
+					<input disabled="disabled" type="text"
+						ng-model="preContractData.desc" />
+				</div>
+
+				<div class=" col-xs-2 col-sm-2 col-md-2">
+					<input type="text" name="contractType"
+						ng-model="preContractData.preContractTypeTO.code"
+						ng-disabled="true">
+
+				</div>
+
+				<div class=" col-xs-2 col-sm-2 col-md-2">
+					<input type="text" name="currency"
+						ng-model="preContractData.currencyTO.code" ng-disabled="true">
+				</div>
+				<div class=" col-xs-2 col-sm-2 col-md-2">
+					<div ng-form name="myForm3">
+						<input type="text"
+							ng-model="preContractData.preContractReqApprTO.apprComments"
+							maxlength="100" name="appr" ng-disabled="true"
+							placeholder="Approver Comments"> <span
+							ng-show="myForm3.appr.$error.maxlength">You Reached Max
+							length</span>
+					</div>
+				</div>
+			</div>
+
+			<div class="pull-right1 right-padding spacer0">
+				<input class="btn bottomaligned btn-brown btn-sm" type="button"
+					ng-click="regeneratePurchaseOrder()" value="Approve">
+			</div>
+		</div>
+
+		<div class="spacer1 panel-body15">
+			<table id="vert-align" class="table table-striped">
+				<thead>
+					<tr>
+						<th rowspan="2">Type</th>
+						<th rowspan="2">Item ID</th>
+						<th rowspan="2">Item Description</th>
+						<th rowspan="2">Type</th>
+						<th rowspan="2">Qty</th>
+						<th rowspan="2">
+							Estimate({{preContractData.currencyTO.code}})</th>
+						<th rowspan="2">Cost Code</th>
+						<th rowspan="2">Balance</th>
+
+						<th rowspan="2">Start Date</th>
+
+						<th rowspan="2">Finish Date</th>
+
+						<th rowspan="2">Delivery Place</th>
+						<th style="width: 180px;"><span
+							style="padding-left: 65px; !important">{{companyMap[companyId].code}}</span></th>
+
+					</tr>
+					<tr>
+						<th style="width: 180px;"><span
+							style="padding-right: 30px; width: 50px; !important"> Rate</span><span
+							style="padding-right: 15px; width: 50px; !important"> Qty</span><span>
+								Bid</span></th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-show="preContractData.preContractEmpDtlTOs.length > 0">
+						<td colspan="13"><fa name="fa fa-plus"
+								ng-show="!manpowerFlag"
+								ng-click="expandCollapseManpower(manpowerFlag)"></fa> <fa
+								name="fa fa-minus" ng-show="manpowerFlag"
+								ng-click="expandCollapseManpower(manpowerFlag)"></fa><span
+							style="position: relative; left: 10px;">Man Power</span></td>
+					</tr>
+					<tr
+						ng-show="preContractData.preContractEmpDtlTOs.length > 0 && manpowerFlag"
+						ng-repeat="manpowerObj in preContractData.preContractEmpDtlTOs">
+						<td></td>
+						<td><span>{{manpowerObj.itemCode}}</span></td>
+						<td><span>{{manpowerObj.itemDesc}}</span></td>
+						<td><span><span>{{projEmpClassmap[manpowerObj.projEmpLabelKey.id].code}}</span></td>
+						<td><span>{{manpowerObj.quantity}}</span></td>
+						<td><span>{{manpowerObj.estimateCost}}</span></td>
+						<td><span><span>{{
+									projcostCodeMap[manpowerObj.projCostLabelKey.id].code}}</td>
+						<td><span></span>{{manpowerObj.balanceBudget}}</td>
+
+						<td><span>{{manpowerObj.startDate | date}}</span></td>
+						<td><span>{{manpowerObj.finishDate | date}}</span></td>
+						<td><span><span
+								ng-show="manpowerObj.storeLabelKey.id > 0">{{
+									storeClassmap[manpowerObj.storeLabelKey.id].code}}<span
+									ng-show="manpowerObj.storeLabelKey.id <= 0 || manpowerObj.projStoreLabelKey.id > 0">{{projStoreClassmap[manpowerObj.projStoreLabelKey.id].code}}</span>
+							</span></td>
+
+						<td ng-form="rateForm"><span
+							ng-repeat="itemCompany in manpowerObj.preContractsEmpCmpTOs">
+								<span><input style="width: 50px;" type="text"
+									ng-model="itemCompany.rate" placeholder="Rate" name="rate"
+									disabled="true"> <input style="width: 50px;"
+									type="text" ng-model="itemCompany.quantity" placeholder="Qty"
+									pattern="^[\d]+$" name="Quantity"> <input
+									ng-click="itemapproveFlag(itemCompany)" type="checkbox"
+									ng-model="itemCompany.approveFlag"> </span>
+						</span></td>
+					</tr>
+					<tr ng-show="preContractData.preContractPlantDtlTOs.length > 0">
+						<td colspan="13"><fa name="fa fa-plus"
+								ng-click="expandCollapsePlant(plantFlag)" ng-show="!plantFlag"></fa>
+							<fa name="fa fa-minus" ng-click="expandCollapsePlant(plantFlag)"
+								ng-show="plantFlag"></fa> <span
+							style="position: relative; left: 10px;">Plants</span></td>
+					</tr>
+					<tr
+						ng-show="preContractData.preContractPlantDtlTOs.length > 0 && plantFlag"
+						ng-repeat="plantObj in preContractData.preContractPlantDtlTOs">
+						<td></td>
+						<td><span>{{plantObj.itemCode}}</span></span></td>
+						<td><span>{{plantObj.itemDesc}}</span></td>
+						<td><span>{{projPlantClassmap[plantObj.projPlantLabelKey.id].code}}</span></td>
+						<td><span>{{plantObj.quantity}}</span></td>
+						<td><span>{{plantObj.estimateCost}}</span></td>
+						<td>{{projcostCodeMap[plantObj.projCostLabelKey.id].code}}</td>
+						<td><span>{{plantObj.balanceBudget}}</span></td>
+						<td><span>{{plantObj.startDate | date}}</span></td>
+						<td><span>{{plantObj.finishDate | date}}</span></td>
+
+						<td><span ng-show="plantObj.storeLabelKey.id > 0">{{
+								storeClassmap[plantObj.storeLabelKey.id].code}}<span
+								ng-show="plantObj.storeLabelKey.id <= 0 ||plantObj.projStoreLabelKey.id > 0">{{projStoreClassmap[plantObj.projStoreLabelKey.id].code}}</span>
+						</span></td>
+
+						<td ng-form="rateForm"><span
+							ng-repeat="itemCompany in plantObj.preContractPlantCmpTOs">
+								<span><input style="width: 50px;" type="text"
+									ng-model="itemCompany.rate" placeholder="Rate" name="rate"
+									disabled="true"> <input style="width: 50px;"
+									type="text" ng-model="itemCompany.quantity" placeholder="Qty"
+									pattern="^[\d]+$" name="Quantity"> <input
+									ng-click="itemapproveFlag(itemCompany)" type="checkbox"
+									ng-model="itemCompany.approveFlag"> </span>
+						</span></td>
+					</tr>
+					<tr ng-show="preContractData.preContractMaterialDtlTOs.length> 0">
+						<td colspan="13"><fa name="fa fa-plus"
+								ng-click="expandCollapseMaterial(materialFlag)"
+								ng-show="!materialFlag"></fa> <fa name="fa fa-minus"
+								ng-click="expandCollapseMaterial(materialFlag)"
+								ng-show="materialFlag"></fa><span
+							style="position: relative; left: 10px;">Materials</span></td>
+					</tr>
+
+					<tr
+						ng-show="preContractData.preContractMaterialDtlTOs.length> 0 && materialFlag"
+						ng-repeat="materialObj in preContractData.preContractMaterialDtlTOs">
+						<td></td>
+						<td><span>{{materialObj.itemCode}}</span></td>
+						<td><span>{{materialObj.itemDesc}}</span></td>
+						<td><span><span>{{projMaterialClassmap[materialObj.projMaterialLabelKey.id].code}}</span></span></td>
+						<td><span>{{materialObj.quantity}}</span></td>
+						<td><span>{{materialObj.estimateCost}}</span></td>
+						<td><span>{{
+								projcostCodeMap[materialObj.projCostLabelKey.id].code}}</span></td>
+						<td><span>{{materialObj.balanceBudget}}</span></td>
+						<td><span>{{materialObj.startDate | date}}</span></td>
+						<td><span>{{materialObj.finishDate | date}}</span></td>
+						<td><span ng-show="materialObj.storeLabelKey.id > 0">{{
+								storeClassmap[materialObj.storeLabelKey.id].code}}<span
+								ng-show="materialObj.storeLabelKey.id <= 0 || materialObj.projStoreLabelKey.id > 0">{{projStoreClassmap[materialObj.projStoreLabelKey.id].code}}</span>
+						</span></td>
+
+						<td ng-repeat="cmp in companyList" ng-form="rateForm"><span
+							ng-repeat="itemCompany in materialObj.preContractMaterialCmpTOs">
+								<span><input style="width: 50px;" type="text"
+									ng-model="itemCompany.rate" placeholder="Rate" name="rate"
+									disabled="true"> <input style="width: 50px;"
+									type="text" ng-model="itemCompany.quantity" placeholder="Qty"
+									pattern="^[\d]+$" name="Quantity"> <input
+									ng-click="itemapproveFlag(itemCompany)" type="checkbox"
+									ng-model="itemCompany.approveFlag"> </span>
+						</span></td>
+					</tr>
+					<tr ng-show="preContractData.preContractServiceDtlTOs.length > 0">
+						<td colspan="13"><fa name="fa fa-plus"
+								ng-click="expandCollapseService(serviceFlag)"
+								ng-show="!serviceFlag"> </fa> <fa class="fa fa-minus"
+								ng-click="expandCollapseService(serviceFlag)"
+								ng-show="serviceFlag"></fa> <span
+							style="position: relative; left: 10px;">Services</span></td>
+					</tr>
+					<tr
+						ng-show="preContractData.preContractServiceDtlTOs.length > 0 && serviceFlag"
+						style="padding: left:30px;"
+						ng-repeat="servciesObj in preContractData.preContractServiceDtlTOs">
+						<td></td>
+						<td><span>{{servciesObj.itemCode}}</span></td>
+						<td><span>{{servciesObj.itemDesc}}</span></td>
+						<td><span>{{projServiceClassmap[servciesObj.projServiceLabelKey.id].code}}</span></td>
+						<td><span>{{servciesObj.quantity}}</span></td>
+						<td><span>{{servciesObj.estimateCost}}</span></td>
+						<td><span ng-show="servciesObj.projCostLabelKey.id > 0">{{
+								projcostCodeMap[servciesObj.projCostLabelKey.id].code}}</span></td>
+						<td><span>{{servciesObj.balanceBudget}}</span></td>
+						<td><span>{{servciesObj.startDate | date}}</span></td>
+						<td><span>{{servciesObj.finishDate | date}}</span></td>
+
+						<td><span ng-show="servciesObj.storeLabelKey.id > 0">{{
+								storeClassmap[servciesObj.storeLabelKey.id].code}}<span
+								ng-show="servciesObj.storeLabelKey.id <= 0 ||servciesObj.projStoreLabelKey.id > 0">{{projStoreClassmap[servciesObj.projStoreLabelKey.id].code}}</span>
+						</span></td>
+						<td ng-repeat="cmp in companyList" ng-form="rateForm"><span
+							ng-repeat="itemCompany in servciesObj.preContractServiceCmpTOs">
+								<span><input style="width: 50px;" type="text"
+									ng-model="itemCompany.rate" placeholder="Rate" name="rate"
+									disabled="true"> <input style="width: 50px;"
+									type="text" ng-model="itemCompany.quantity" placeholder="Qty"
+									pattern="^[\d]+$" name="Quantity"> <input
+									ng-click="itemapproveFlag(itemCompany)" type="checkbox"
+									ng-model="itemCompany.approveFlag"> </span>
+						</span></td>
+					</tr>
+				</tbody>
+
+			</table>
+		</div>
+
+	</div>
+</div>

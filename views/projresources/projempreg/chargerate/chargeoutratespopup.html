@@ -1,0 +1,112 @@
+<div id="tab-pannel" class="panel-group">
+<form name="chargeoutratesForm" validate>
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<h4 class="panel-title">Charge Out Rate</h4>
+		</div>
+		<div class="panel-body15">
+				<div class="table-responsive">
+					<table class="table table-bordered table-striped">
+						<thead>
+							<tr>
+								<th>Select</th>
+								<th>Project Posting#</th>
+								<th>Effective From</th>
+								<th>EPS ID</th>
+								<th>EPS Name</th>
+								<th>Project ID</th>
+								<th>Project Name</th>
+								<th>Parent Company ID</th>
+								<th>Parent Company Name</th>
+								<th>Charge out unit</th>
+								<th>Currency</th>
+								<th>Rate per Unit Normal Time</th>
+								<th>Rate per unit-Idle Time</th>
+								<th>Paid Leave-Rate per day</th>
+								<th>Paid Leave-Cost Code ID</th>
+								<th>Mobilization Cost code</th>
+								<th>Mobilization Rate</th>
+								<th>De-mobilization Cost Code</th>
+								<th>De-Mobilization Rate</th>
+								<th>Post De-mobilization Status</th>
+								<th>Notes</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr ng-repeat="charge in addEmpChargeRates">
+								<td class="vert-middle"><input type="checkbox" value="charge.id"
+									ng-model="charge.selected" ng-click="chareRatePopUpRowSelect(charge)"></td>
+								<td class="input-width"><input type="text" name="projectPosting"
+									onkeypress='return event.charCode >= 48 && event.charCode <= 57'
+									ng-model=charge.projectPosting placeholder="projectPosting"
+									ng-required="true" pattern="[a-zA-Z-\d\s]+"></td>
+								<td class="input-width"><input type="text" name="effectiveFrom"
+									ng-model="charge.effectiveFrom" placeholder="effectiveFrom"
+									readonly="readonly" pattern="[a-zA-Z-\s]+"></td>
+								<td class="input-width"><input type="text" name="epsId" ng-model="charge.epsId"
+									placeholder="epsId" readonly="readonly"></td>
+								<td class="input-width"><input type="text" name="epsName"
+									ng-model="charge.epsName" placeholder="epsName"
+									readonly="readonly"></td>
+								<td class="input-width"><input type="text" name="pId" ng-model="charge.pId"
+									placeholder="pId" readonly="readonly"></td>
+								<td class="input-width"><input type="text" name="pName" ng-model="charge.pName"
+									placeholder="pName" readonly="readonly"></td>
+								<td class="input-width"><input type="text" name="pComId" ng-model="charge.pComId"
+									placeholder="pComId" readonly="readonly"></td>
+								<td class="input-width"><input type="text" name="pComName"
+									ng-model="charge.pComName" placeholder="pComName"
+									readonly="readonly"></td>
+								<td class="input-width"><input type="text" name="chargeOutUnit"
+									ng-model="charge.chargeOutUnit" placeholder="chargeOutUnit"
+									readonly="readonly"></td>
+								<td class="input-width"><input type="text" name="currency"
+									ng-model="charge.currency" placeholder="currency"
+									readonly="readonly"></td>
+								<td class="input-width"><input type="number" name="ratePerNormalTime"
+									ng-model="charge.ratePerNormalTime"
+									placeholder="ratePerNormalTime" ng-required="true"></td>
+								<td class="input-width"><input type="number" name="ratePerIdleTime"
+									ng-model="charge.ratePerIdleTime" placeholder="ratePerIdleTime"
+									ng-required="true"></td>
+								<td class="input-width"><input type="number" name="plRateperDay"
+									ng-model="charge.plRateperDay" placeholder="plRateperDay"
+									ng-required="true"></td>
+								<td class="input-width"><input type="text" name="plCostCodeId"
+									ng-model="charge.plCostCodeId" placeholder="plCostCodeId"
+									ng-required="true"></td>
+								<td class="input-width"><input type="text" name="mobCostCode"
+									ng-model="charge.mobCostCode" placeholder="mobCostCode"
+									ng-required="true"></td>
+								<td class="input-width"><input type="number" name="mobRate"
+									ng-model="charge.mobRate" placeholder="mobRate"
+									ng-required="true"></td>
+								<td class="input-width"><input type="text" name="demobCostCode"
+									ng-model="charge.demobCostCode" placeholder="demobCostCode"
+									ng-required="true"></td>
+								<td class="input-width"><input type="number" name="demobCostRate"
+									ng-model="charge.demobCostRate" placeholder="demobCostRate"
+									ng-required="true"></td>
+								<td class="input-width"><input type="text" name="demobStatus"
+									ng-model="charge.demobStatus" placeholder="demobStatus"
+									readonly="readonly"></td>
+								<td class="input-width"><input type="text" name="notes"
+										data-toggle="tooltip" data-placement="left"
+        title="{{charge.notes}}" ng-model="charge.notes" placeholder="notes" ng-required="true"></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+		</div>
+		<div class="panel-footer">
+			<div class="pull-right ">
+				<input type="button" class="btn btn-brown btn-sm" ng-click="saveEmpChargeOutRates()" value="Save">
+					</div>
+		<div class="pull-left ">
+				<input type="button" class="btn btn-brown btn-sm" ng-click="addRows()" value="Add" ng-show="action =='Add'">
+				<input type="button" class="btn btn-brown btn-sm" ng-click="deleteRows()" value="Delete" ng-show="action =='Add'">
+			</div>
+		</div>
+	</div>
+</form>
+</div>

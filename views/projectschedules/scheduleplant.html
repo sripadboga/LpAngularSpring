@@ -1,0 +1,53 @@
+<div id="tab-pannel">
+	<div class="panel-group">
+		<div class="panel-body22-0  table-responsive">
+			<table class="table table-bordered table-striped">
+				<thead>
+					<tr>
+					<!-- <th align="center">Select</th> -->
+						<th align="center">Plant Classification ID</th>
+						<th align="center">Plant Classification Name</th>
+						<th align="center">Unit of Measure</th>
+						<th align="center">Original Budget Quantity</th>
+						<th align="center">Revised Budget Quantity</th>
+						<th align="center">Actual Quantity to Date</th>
+						<th align="center">Remaining Quantity</th>
+						<th align="center">Estimate to Complete</th>
+						<th align="center">Estimation at Completion Quantity</th>
+						<th align="center">Schedule Start</th>
+						<th align="center">Schedule Finish</th>
+						<th align="center">Resource Curve</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="plant in schedulePlantsDetails">
+					<!-- <td><input type="checkbox" ng-model="plant.select"
+									ng-click="rowSelectPlant(plant)"></td> -->					
+					<td>{{plant.projPlantClassTO.plantClassTO.code}}</td>
+					<td>{{plant.projPlantClassTO.plantClassTO.name}}</td>
+					<td>{{plant.projPlantClassTO.plantClassTO.measureUnitTO.name}}</td>			
+					<td>{{plant.originalQty}}</td>
+					<td>{{plant.revisedQty}}</td>
+					<td>{{plant.actualQty}}</td>
+					<td>{{plant.remainingQty}}</td>
+					<td>{{plant.estimateComplete}}</td>
+					<td>{{plant.estimateCompletion}}</td>
+					<td>{{plant.startDate | date}}</td>
+					<td>{{plant.finishDate |date}}</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>	
+	</div>
+	<!-- <div class="panel-footer">
+		<div class="pull-right">
+			<input type="button" class="btn bottomaligned btn-brown btn-sm"
+				value="Add" ng-click="editPlantDetails('Add',null)">
+		</div>
+		<div class="pull-left">
+			<input type="button" class="btn bottomaligned btn-brown btn-sm"
+							ng-click="editPlantDetails('Edit',null)" value="Edit"> 
+		</div>
+		
+	</div> -->
+</div>

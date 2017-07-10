@@ -1,0 +1,116 @@
+<div id="tab-pannel" class="panel-group">
+	<form name="storeIssueForm" validate>
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h4 class="panel-title">Store Issue Docket</h4>
+			</div>
+			<div class="panel-body12">
+				<div id="tableHeight8-2" class="table-responsive">
+
+					<table class="table table-bordered table-striped" fixed-header>
+						<thead id="tab-head">
+							<tr>
+								<th>Select</th>
+								<th>Resource Id</th>
+								<th>Resource Name</th>
+								<th>Resource Sub Group Id</th>
+								<th>Resource Sub Group Name</th>
+								<th>PO Number</th>
+								<th>Schedule Item Id</th>
+								<th>Supplier Id</th>
+								<th>Supplier Name</th>
+								<th>Unit Of Measure</th>
+								<th>Quantity</th>
+								<th>Rate</th>
+								<th>Comments</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr ng-repeat="storedocket in addStoreIssueDocket">
+								<td><input type="checkbox" value="storedocket.id"
+									ng-model="storedocket.selected"
+									ng-click="issueDocketPopUpRowSelect(storedocket)"></td>
+								<td><input type="text" name="rId" ng-model=storedocket.rId
+									placeholder="Resource Id" ng-required="true"
+									pattern="[a-zA-Z-\d\s]+"><span
+									ng-show="storeIssueDocket.rId.$error.pattern">only alpha
+										numerics allowed</span></td>
+								<td><input type="text" name="rName"
+									ng-model="storedocket.rName" placeholder="Resource Name"
+									ng-required="true" pattern="[a-zA-Z-\s]+"><span
+									ng-show="storeIssueDocket.rName.$error.pattern">only
+										alphabets allowed</span></td>
+								<td><input type="text" name="rSubgId "
+									ng-model="storedocket.rSubgId" placeholder="resourceSubGroupId"
+									ng-required="true" pattern="[a-zA-Z-\s]+"><span
+									ng-show="storeIssueDocket.rSubgId.$error.pattern">only
+										alphabets allowed</span></td>
+								<td><input type="text" name="rSubgName"
+									ng-model="storedocket.rSubgName"
+									placeholder="Resource Sub Group Name" ng-required="true"
+									pattern="[a-zA-Z-\s]+"><span
+									ng-show="storeIssueDocket.rSubgName.$error.pattern">only
+										alphabets allowed</span></td>
+								<td><input type="text" name="poNum"
+									ng-model="storedocket.poNum" placeholder="PO Number"
+									ng-required="true" pattern="[a-zA-Z-\s]+"><span
+									ng-show="storeIssueDocket.poNum.$error.pattern">only
+										alphabets allowed</span></td>
+								<td><input type="text" name="sceduleItemId"
+									ng-model="storedocket.sceduleItemId"
+									placeholder="Schedule Item Id" ng-required="true"
+									pattern="[a-zA-Z-\s]+"><span
+									ng-show="storeIssueDocket.sceduleItemId.$error.pattern">only
+										alphabets allowed</span></td>
+								<td><input type="text" name="suppId"
+									ng-model="storedocket.suppId" placeholder="Supplier Id"
+									ng-required="true" pattern="[a-zA-Z-\s]+"><span
+									ng-show="storeIssueDocket.suppId.$error.pattern">only
+										alphabets allowed</span></td>
+								<td><input type="text" name="suppName"
+									ng-model="storedocket.suppName" placeholder="Supplier Name"
+									ng-required="true" pattern="[a-zA-Z-\s]+"><span
+									ng-show="storeIssueDocket.suppName.$error.pattern">only
+										alphabets allowed</span></td>
+								<td><input type="text" name="measure"
+									ng-model="storedocket.measure" placeholder="Unit Of Measure"
+									ng-required="true" pattern="[a-zA-Z-\s]+"><span
+									ng-show="storeIssueDocket.measure.$error.pattern">only
+										alphabets allowed</span></td>
+								<td><input type="text" name="quantity"
+									ng-model="storedocket.quantity" placeholder="Quantity"
+									ng-required="true" pattern="[a-zA-Z-\s]+"><span
+									ng-show="storeIssueDocket.quantity.$error.pattern">only
+										alphabets allowed</span></td>
+								<td><input type="text" name="rate"
+									ng-model="storedocket.rate" placeholder="Rate"
+									ng-required="true" pattern="[a-zA-Z-\s]+"><span
+									ng-show="storeIssueDocket.rate.$error.pattern">only
+										alphabets allowed</span></td>
+								<td><input type="text" name="comments"
+									ng-model="storedocket.comments" placeholder="Comments"
+									ng-required="true" pattern="[a-zA-Z-\s]+"><span
+									ng-show="storeIssueDocket.comments.$error.pattern">only
+										alphabets allowed</span></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+			<div class="panel-footer">
+				<div class="pull-left">
+					<input type="button" ng-click="addRows()" value="Add"
+						class="btn bottomaligned btn-brown btn-sm"
+						ng-show="action =='Add'"> <input type="button"
+						ng-click="deleteRows()" value="Delete"
+						class="btn bottomaligned btn-brown btn-sm"
+						ng-show="action =='Add'">
+				</div>
+				<div class="pull-right">
+					<input type="button" ng-click="save()" value="Save"
+						class="btn bottomaligned btn-brown btn-sm">
+				</div>
+			</div>
+		</div>
+	</form>
+</div>

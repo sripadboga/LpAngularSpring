@@ -1,0 +1,56 @@
+<div id="tab-pannel" class="panel-group">
+	<div class="panel-group">
+		<form name="empRegForm">
+			<div class="table-responsive panel-body20 panel-collapse collapse in">
+				<table class="table table-striped table-bordered">
+					<thead>
+						<tr>
+							<th>Select</th>
+							<th>Employee ID</th>
+							<th>First Name</th>
+							<th>Last Name</th>
+							<th>Parent Company ID</th>
+							<th>Parent Company Name</th>
+							<th>Gender</th>
+							<th>Date of Birth</th>
+							<th>Employee Designation</th>
+							<th>Local or Non-Local </th>
+							<th>Employment Type</th>
+							<th>Existing or New Employee</th>
+							<th>Date of Enrollment</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat="promotion in empDetails">
+							<td><input type="checkbox" value="id"
+								ng-model="promotion.selected" ng-click="rowSelect(promotion)"></td>
+							<td ng-click="go()">{{promotion.eId}}</td>
+							<td>{{promotion.fName}}</td>
+							<td>{{promotion.lName}}</td>
+							<td>{{promotion.pComId}}</td>
+							<td>{{promotion.pComName}}</td>
+							<td>{{promotion.gender}}</td>
+							<td>{{promotion.dob|date}}</td>
+							<td>{{promotion.tradeName}}</td>
+							<td>{{promotion.locOrNonLoc}}</td>
+							<td>{{promotion.empType}}</td>
+							<td>{{promotion.existOrNew}}</td>
+							<td>{{promotion.dateOfEnroll|date}}</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+
+
+			<div class="panel-footer">
+				<div class="pull-right">
+					<input type="button" class="btn btn-brown" ng-click="addEmp('Add')" value="SaveEmpPromotion">
+				</div>
+				<div class="pull-left">
+					<input type="button" class="btn btn-brown" ng-click="addEmp('Edit')" value="Edit"> 
+					<input  type="button" class="btn btn-brown" ng-click="deleteEmpRegisters()"value="Deactivate">
+				</div>
+			</div>
+		</form>
+	</div>
+</div>

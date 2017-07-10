@@ -1,0 +1,103 @@
+<div id="tab-pannel" ng-controller="RoleController" ng-init="getRoles()">
+	<div class="panel-group">
+		<form name="roleForm">
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h4 class="panel-title">User Profiles</h4>
+				</div>
+				<div class="panel-body8-2">
+					<div id="tableHeight7-1" class="table-responsive">
+						<table class="table table-striped" fixed-header>
+							<thead>
+								<tr>
+									<th>Select</th>
+									<th>Profile name</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr ng-repeat="userProfile in userProfiles">
+									<td><input type="checkbox"
+										ng-disabled="userProfile.defaultRole"
+										ng-model="userProfile.select"
+										ng-click="rowSelect(userProfile)" /></td>
+									<td style="width: 750px;"><span
+										ng-show="userProfile.roleId > 0"
+										ng-click="getRolePermissions(userProfile)">{{userProfile.roleName}}</span>
+										<input type="text" ng-show="userProfile.roleId <= 0"
+										ng-model="userProfile.roleName" ng-required="true"
+										placeholder="Profile Name" tabindex="1" ng-minlength="3"
+										pattern="^[a-zA-Z\d\s\-_.,&]+$" name="clientCode"
+										maxlength="50"> <span class="help-block"
+										ng-show="clientForm.clientCode.$dirty && clientForm.clientCode.$error.required">Profile
+											Name is Required</span> <span
+										ng-show="clientForm.clientCode.$error.pattern">Special
+											characters not allowed</span></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+				<div class="panel-footer">
+					<div class="pull-right">
+						<input type="submit" class="btn bottomaligned btn-brown btn-sm"
+							ng-click="roleForm.$valid && addProfile()" value="Create"
+							ng-show="account.appCodeTemplate['ADMIN_USRPRFLANDPRVLG_ADD']" />
+						<input type="submit" class="btn bottomaligned btn-brown btn-sm"
+							ng-click="roleForm.$valid && saveRoles()"
+							ng-disabled="roleForm.clientCode.$pristine" value="Save"
+							ng-show="account.appCodeTemplate['ADMIN_USRPRFLANDPRVLG_ADD']" />
+					</div>
+					<div class="pull-left">
+						<input type="button" class="btn bottomaligned btn-brown btn-sm"
+							ng-click="deleteRoles()" value="Deactivate"
+							ng-show="account.appCodeTemplate['ADMIN_USRPRFLANDPRVLG_DELETE']" />
+					</div>
+				</div>
+			</div>
+		</form>
+	</div>
+	<div class="panel-group">
+		<div class="panel panel-default spacer0">
+			<div class="panel-heading">
+				<h4 class="panel-title">User Privileges</h4>
+			</div>
+			<div class="panel-body13">
+				<div id="tableHeight11-2" class="table-responsive">
+					<table class="table table-striped" fixed-header>
+						<thead>
+							<tr>
+								<th>Module Name</th>
+								<th>Permissions</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr
+								ng-repeat="item in moduleTreeData | roleFilterTree:itemId:isExpand">
+								<td><span style="padding-left: {{item.level*50}}px;"> <span
+										ng-click="itemClick(item.moduleId,item.expand);"
+										ng-class="{'fa fa-minus': !item.leaf && item.expand, 'fa fa-plus': !item.leaf && !item.expand, 'fa fa-leaf': item.leaf}"></span>
+										{{item.moduleName}}
+								</span></td>
+								<td style="width: 750px;"><span class="control-label1"
+									ng-repeat="modulePerm in item.permissionTOs"> <input
+										type="checkbox" ng-disabled="defaultRole"
+										ng-model="modulePerm.permission" /> <span>{{modulePerm.actionName}}</span>
+										<span style="padding-left: 20px;"></span>
+								</span></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+			<div class="panel-footer">
+				<div class="pull-right">
+					<input type="submit" value="Save Permissions"
+						class="btn btn-brown btn-sm"
+						ng-click="saveRolePermission(moduleTreeData)"
+						ng-hide="defaultRole"
+						ng-show="account.appCodeTemplate['ADMIN_USRPRFLANDPRVLG_ADD']">
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

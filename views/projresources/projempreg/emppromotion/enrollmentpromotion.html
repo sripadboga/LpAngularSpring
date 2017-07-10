@@ -1,0 +1,82 @@
+<div id="tab-pannel">
+	<div class="panel-group">
+		<div class="panel panel-body23-0">
+			<table class="table table-bordered table-striped">
+				<thead>
+					<tr>
+						<th>Select</th>
+						<th>Employee Id</th>
+						<th>First Name</th>
+						<th>Last Name</th>
+						<th>Parent Company ID</th>
+						<th>Parent Company Name</th>
+						<th>Gender</th>
+						<th>Date Of Birth</th>
+						<th>Employee Designation</th>
+						<th>Local or Non Local</th>
+						<th>Employment Type</th>
+						<th>Existing or New Employee</th>
+						<th>EPS ID</th>
+						<th>EPS Name</th>
+						<th>Project ID</th>
+						<th>Project Name</th>
+						<th>Purchase Order Number</th>
+						<th>PO Schedule Item Id</th>
+						<th>Resource ID</th>
+						<th>Resource Name</th>
+						<th>New Employee Enrollment Date</th>
+						<th>Enrollment Place/Location</th>
+						<th>Reporting to-Employee</th>
+						<th>Employment Contract Date</th>
+						<th>Employment Contract Number</th>
+						<th>Employment Contract Document</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="promotion in empPromotions">
+						<td><input type="checkbox" value="id"
+							ng-model="promotion.selected"
+							ng-click="empPromotionRowSelect(promotion)"></td>
+						<td>{{promotion2.eId}}</td>
+						<td>{{promotion.fName}}</td>
+						<td>{{promotion.lName}}</td>
+						<td>{{promotion.pComId}}</td>
+						<td>{{promotion.pComName}}</td>
+						<td>{{promotion.gender}}</td>
+						<td>{{promotion.dob}}</td>
+						<td>{{promotion.tradeName}}</td>
+						<td>{{promotion.locOrNonLoc}}</td>
+						<td>{{promotion.empType}}</td>
+						<td>{{promotion.existOrNew}}</td>
+						<td>{{promotion.parentName}}</td>
+						<td>{{promotion.parentEPSCode}}</td>
+						<td>{{promotion.projCode}}</td>
+						<td>{{promotion.projName}}</td>
+						<td>{{promotion.pon}}</td>
+						<td>{{promotion.posItemId}}</td>
+						<td>{{promotion.resourceClassId}}</td>
+						<td>{{promotion.resourceClassName}}</td>
+						<td>{{promotion.enrolDate|date}}</td>
+						<td>{{promotion.enrolLoc}}</td>
+						<td>{{promotion.empIdName}}</td>
+						<td>{{promotion.empCDate|date}}</td>
+						<td>{{promotion.empCNum}}</td>
+						<td>{{promotion.empCDoc}}</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<div class="panel-footer">
+			<div class="pull-right">
+				<input type="button" class="btn btn-brown btn-sm"
+					ng-click="addPromotions('Add')" value="Create">
+			</div>
+			<div class="pull-left">
+				<input type="button" class="btn btn-brown btn-sm"
+					ng-click="addPromotions('Edit')" value="Edit"> <input
+					type="button" class="btn btn-brown btn-sm"
+					ng-click="deactivatePromotions()" value="Deactivate">
+			</div>
+		</div>
+	</div>
+</div>

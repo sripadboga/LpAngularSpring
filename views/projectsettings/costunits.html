@@ -1,0 +1,57 @@
+<div id="tab-pannel">
+	<div class="panel-group">
+		<div class="panel panel-default">
+			<div class="panel-body15-0 table-responsive">
+				<table class="table table-bordered table-striped">
+					<thead>
+						<tr>
+							<th class="vert-align">Cost Category Name</th>
+							<th class="text-center">Budget Units</th>
+							<th class="text-center">Revised Units</th>
+							<th class="text-center">Actual Units</th>
+							<th class="text-center">Remaining Units</th>
+							<th class="text-center">% Age Spent</th>
+							<th class="text-center">Estimate to Complete</th>
+							<th class="text-center">Estimate at Completion Quality</th>
+							<th class="text-center">Completion Variance</th>
+						</tr>
+					</thead>
+					<tbody>
+					<!-- <tr ng-repeat="cost in costunits">
+								<td>{{cost.catgType}}</td>
+								<td  ng-repeat="budgetCost in projCostCatg.projCostBugetTOs" ng-if="$index  < 4">
+										{{budgetCost.cost}}</td>
+								<td>
+										{{spentCost(projCostCatg.projCostBugetTOs)}}</td>
+								<td  ng-repeat="budgetCost in projCostCatg.projCostBugetTOs" ng-if="$index==5">
+										{{budgetCost.cost}}</td>
+								<td>{{cost.projCostBugetTOs[0].cost}}</td>
+								<td>{{cost.measureName}}</td>
+								<td>{{cost.originalQty}}</td>
+								<td>{{cost.revisedQty}}</td>
+								<td>{{cost.actualQty}}</td>
+								<td>{{cost.remainingQty}}</td>
+								<td>{{(cost.actualQty/cost.originalQty)*100 | number:4}}</td>
+								<td>{{cost.estimateComplete}}</td>
+								<td>{{cost.estimateCompletion}}</td>
+								<td>{{cost.revisedQty-cost.estimateCompletion}}</td>
+						</tr> -->
+						<tr ng-repeat="projCostCatg in projCostStatementsSummaryTOs">
+							<td>{{projCostCatg.catgType}} Cost</td>
+							<td ng-repeat="budgetCost in projCostCatg.projCostBugetTOs"
+								ng-if="$index  < 4">{{budgetCost.cost}}</td>
+							<td>{{spentCost(projCostCatg.projCostBugetTOs) | number:4}}</td>
+							<td ng-repeat="budgetCost in projCostCatg.projCostBugetTOs"
+								ng-if="$index==4">{{budgetCost.cost}}</td>
+							<td ng-repeat="budgetCost in projCostCatg.projCostBugetTOs"
+								ng-if="$index==5">{{budgetCost.cost}}</td>
+							<td ng-repeat="budgetCost in projCostCatg.projCostBugetTOs"
+								ng-if="$index==6">{{budgetCost.cost}}</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>
+

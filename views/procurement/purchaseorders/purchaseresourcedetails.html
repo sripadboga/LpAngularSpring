@@ -1,0 +1,33 @@
+<div id="tab-pannel" class="panel-group">
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<h4 class="panel-title">Assets Resource Details</h4>
+		</div>
+
+		<div class="panel-body12">
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<th>Purchase Order Number</th>
+						<th>Description Of Contract</th>
+						<th>Cost Code</th>
+						<th>Make</th>
+						<th>Model</th>
+						<th>Delivery Docket Date</th>
+						<th>Place Of Delivery</th>
+						<th>Received By</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="resource in resourceDetailsList">
+						<td>{{resource.number}}</td>
+						<td>{{resource.date}}</td>
+						<td>{{resource.reqUserTO.dispName}}</td>
+						<td>{{resource.amount}}</td>
+						<td>{{resource.status}}</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>

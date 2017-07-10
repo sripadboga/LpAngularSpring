@@ -1,0 +1,62 @@
+<div id="tab-pannel" ng-controller="ProCategoryController" ng-init="getprocures();procureSearch();">
+	<form name="cmpForm">
+		<div class="panel-group">
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h4 class="panel-title">Procurement Category</h4>
+				</div>
+				<div class="panel-body1 spacer2">
+					<div class="pull-left left-padding">
+						<select ng-change="updateCatgCode(procReq.procurement);" ng-options="cat.name for cat in proCategory track by cat.name" ng-model="procReq.procurement " >
+							<option value="">Select</option>
+						</select>
+					 	<input type="text" ng-model="procReq.procureId" ng-hide="true">
+					 	<input type="text"  ng-model="procReq.subProcureName" placeholder="Sub Catagory Name">
+						 <select ng-model="procReq.status">
+							<option value="1">Active</option>
+							<option value="2">InActive</option>
+						</select>
+					</div>
+					<div class="pull-right right-padding">
+						<input type="submit" ng-click="procureSearch()" value="Search" class="btn btn-brown btn-sm" />
+						 <input type="reset" value="Reset" ng-click="reset()" class="btn btn-brown btn-sm" />
+					</div>
+				</div>
+				<div class="panel-body22">
+					<div id="tableHeight20-2" class="table-responsive  panel-collapse collapse in">
+						<table class="table table-striped" fixed-header>
+							<thead>
+								<tr>
+									<th>Select</th>
+									<th>Procurement Category</th>
+									<th>Sub Category Code</th>
+									<th>Sub Category Name</th>
+									<th>Status</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr ng-repeat="proCat in categories | orderBy:['code','desc']">
+									<td><input type="checkbox" ng-model="proCat.selected" ng-click="rowSelect(proCat)" /></td>
+									<td>{{proCat.procurement.name}}</td>
+									<td>{{proCat.code}}</td>
+									<td>{{proCat.desc}}</td>
+									<td>{{proCat.status | potstatusfilter:proCat.status}}</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+				<div class="panel-footer">
+					<div class="pull-right">
+						<input type="button" ng-click="addCategories('Add')" value="Create" class="btn btn-brown btn-sm" ng-show="account.appCodeTemplate['ENTRPRSE_CENTLIB_PROCURCATGRY_ADD'] && activeFlag==1"  />
+					</div>
+					<div class="pull-left">
+						<input type="button" ng-click="addCategories('Edit')" value="Edit" class="btn btn-brown btn-sm" ng-show="account.appCodeTemplate['ENTRPRSE_CENTLIB_PROCURCATGRY_ADD'] && activeFlag==1" />
+						<input type="button" ng-click="deleteProcureCatgs()" value="Deactivate" class="btn btn-brown btn-sm"  ng-show="account.appCodeTemplate['ENTRPRSE_CENTLIB_PROCURCATGRY_DELETE'] && activeFlag==1"/>
+						<input type="button" ng-click="activeProcureCatgs()" value="Activate" class="btn btn-brown btn-sm"  ng-show="account.appCodeTemplate['ENTRPRSE_CENTLIB_PROCURCATGRY_DELETE'] && activeFlag==2" />
+					</div>
+				</div>
+			</div>
+		</div>
+	</form>
+</div>

@@ -1,0 +1,165 @@
+<div id="tab-pannel" class="panel-group">
+				<form name="ReqforMaterialForm" validate>
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<h4 class="panel-title">Request For Material Transfer</h4>
+		</div>
+		<div class="panel-body12">
+			<div id="tableHeight8" class="table-responsive">
+						<table class="table table-striped" fixed-header>
+							<thead id="tab-head">
+								<tr>
+									<th>Select</th>
+									<th>Resource Id</th>
+									<th>Resource Name</th>
+									<th>Material Sub Group Name</th>
+									<th>From Project Id</th>
+									<th>From Project Name</th>
+									<th>Originator Employee Id And Name</th>
+									<th>Requisition Number</th>
+									<th>Approver Person Id And Name</th>
+									<th>Destination Project Id</th>
+									<th>Destination Project Name</th>
+									<th>Unit Of Measure</th>
+									<th>Internal Project Use-Requested Transfer Quantity</th>
+									<th>External Project Use-Requested Transfer Quantity</th>
+									<th>Date Of Request</th>
+									<th>Required Date Of Transfer</th>
+									<th>Expected Date Of Transfer</th>
+									<th>Approval Status</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr ng-repeat=" request in addReqMaterialTransfer">
+									<td><input type="checkbox" value="request.id"
+										ng-model="request.selected" ng-click="reqPopUpRowSelect(request)"></td>
+	
+									<td><input type="text" name="resourceId"
+										ng-model=request.resourceId placeholder="Resource Id"
+										ng-required="true" pattern="[a-zA-Z-\d\s]+"><span
+										ng-show="ReqforMaterialForm.resourceId.$error.pattern">only
+											alpha numerics allowed</span></td>
+	
+									<td><input type="text" name="resourceName"
+										ng-model="request.resourceName" placeholder="Resource Name"
+										ng-required="true" pattern="[a-zA-Z-\s]+"><span
+										ng-show="ReqforMaterialForm.resourceName.$error.pattern">only
+											alphabets allowed</span></td>
+	
+									<td><input type="text" name="materialSubGroupName"
+										ng-model="request.materialSubGroupName"
+										placeholder="Material Sub Group Name" ng-required="true"
+										pattern="[a-zA-Z-\s]+"><span
+										ng-show="ReqforMaterialForm.materialSubGroupName.$error.pattern">only
+											alphabets allowed</span></td>
+	
+									<td><input type="text" name="fromProjectId"
+										ng-model="request.fromProjectId" placeholder="From Project Id"
+										ng-required="true" pattern="[a-zA-Z-\s]+"><span
+										ng-show="ReqforMaterialForm.fromProjectId.$error.pattern">only
+											alphabets allowed</span></td>
+	
+									<td><input type="text" name="fromProjectName"
+										ng-model="request.fromProjectName" placeholder="From Project Name"
+										ng-required="true" pattern="[a-zA-Z-\s]+"><span
+										ng-show="ReqforMaterialForm.fromProjectName.$error.pattern">only
+											alphabets allowed</span></td>
+	
+									<td><input type="text" name="originatorEmployeeIdAndName"
+										ng-model="request.originatorEmployeeIdAndName"
+										placeholder="Originator Employee Id And Name"
+										ng-required="true" pattern="[a-zA-Z-\s]+"><span
+										ng-show="ReqforMaterialForm.originatorEmployeeIdAndName.$error.pattern">only
+											alphabets allowed</span></td>
+	
+									<td><input type="text" name="requisitionNumber"
+										ng-model="request.requisitionNumber"
+										placeholder="Requisition Number" ng-required="true"
+										pattern="[a-zA-Z-\s]+"><span
+										ng-show="ReqforMaterialForm.requisitionNumber.$error.pattern">only
+											alphabets allowed</span></td>
+	
+									<td><input type="text" name="approverPersonIdAndName"
+										ng-model="request.approverPersonIdAndName"
+										placeholder="Approver Person Id And Name" ng-required="true"
+										pattern="[a-zA-Z-\s]+"><span
+										ng-show="ReqforMaterialForm.approverPersonIdAndName.$error.pattern">only
+											alphabets allowed</span></td>
+	
+									<td><input type="text" name="destinationProjectId"
+										ng-model="request.destinationProjectId"
+										placeholder="Destination Project Id" ng-required="true"
+										pattern="[a-zA-Z-\s]+"><span
+										ng-show="ReqforMaterialForm.destinationProjectId.$error.pattern">only
+											alphabets allowed</span></td>
+	
+									<td><input type="text" name=destinationProjectName
+										ng-model="request.destinationProjectName"
+										placeholder="Destination Project Name" ng-required="true"
+										pattern="[a-zA-Z-\s]+"><span
+										ng-show="ReqforMaterialForm.destinationProjectName.$error.pattern">only
+											alphabets allowed</span></td>
+	
+									<td><input type="text" name="unitOfMeasure"
+										ng-model="request.unitOfMeasure" placeholder="Unit Of Measure"
+										ng-required="true" pattern="[a-zA-Z-\s]+"><span
+										ng-show="ReqforMaterialForm.unitOfMeasure.$error.pattern">only
+											alphabets allowed</span></td>
+	
+									<td><input type="text" name="internalProjectTransfer"
+										ng-model="request.internalProjectTransfer"
+										placeholder="Internal Project Transfer" ng-required="true"
+										pattern="[a-zA-Z-\s]+"><span
+										ng-show="ReqforMaterialForm.internalProjectTransfer.$error.pattern">only
+											alphabets allowed</span></td>
+	
+									<td><input type="text" name="externalProjectTransfer"
+										ng-model="request.externalProjectTransfer"
+										placeholder="External Project Transfer" ng-required="true"
+										pattern="[a-zA-Z-\s]+"><span
+										ng-show="ReqforMaterialForm.externalProjectTransfer.$error.pattern">only
+											alphabets allowed</span></td>
+	
+									<td><input type="text" name="dateOfRequest"
+										ng-model="request.dateOfRequest" placeholder="Date Of Request"
+										ng-required="true" pattern="[a-zA-Z-\s]+"><span
+										ng-show="ReqforMaterialForm.dateOfRequest.$error.pattern">only
+											alphabets allowed</span></td>
+	
+									<td><input type="text" name="requiredDateOfTransfer"
+										ng-model="request.requiredDateOfTransfer"
+										placeholder="Required Date Of Transfer" ng-required="true"
+										pattern="[a-zA-Z-\s]+"><span
+										ng-show="ReqforMaterialForm.requiredDateOfTransfer.$error.pattern">only
+											alphabets allowed</span></td>
+	
+									<td><input type="text" name="expectedDateOfTransfer"
+										ng-model="request.expectedDateOfTransfer"
+										placeholder="Expected Date Of Transfer" ng-required="true"
+										pattern="[a-zA-Z-\s]+"><span
+										ng-show="ReqforMaterialForm.expectedDateOfTransfer.$error.pattern">only
+											alphabets allowed</span></td>
+	
+									<td><input type="text" name="approvalStatus"
+										ng-model="request.approvalStatus" placeholder="Approval Status"
+										ng-required="true" pattern="[a-zA-Z-\s]+"><span
+										ng-show="ReqforMaterialForm.approvalStatus.$error.pattern">only
+											alphabets allowed</span></td>
+	
+								</tr>
+							</tbody>
+						</table>
+			</div>
+		</div>
+		<div class="panel-footer">
+			<div class="pull-left">
+				<input type="button" ng-click="addRows()" value="Add"  class="btn bottomaligned btn-brown btn-sm" ng-show="action =='Add'">
+				<input type="button" ng-click="deleteRows()" value="Delete"  class="btn bottomaligned btn-brown btn-sm" ng-show="action =='Add'">
+			</div>
+			<div class="pull-right">
+				<input type="button" ng-click="save()" value="Save" class="btn bottomaligned btn-brown btn-sm">
+			</div>
+		</div>
+	</div>
+	</form>
+</div>

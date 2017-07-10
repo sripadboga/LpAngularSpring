@@ -1,0 +1,104 @@
+<div id="tab-pannel" class="panel-group">
+	<form name="personalForm" validate>
+		<div id="tab-pannel" class="panel panel-default">
+			<div class="panel-heading">
+				<h4 class="panel-title" ng-show="action =='Add'">Add Project</h4>
+				<h4 class="panel-title" ng-show="action =='Edit'">Edit Project</h4>
+			</div>
+			
+			<div id="tab-pannel" class="panel-body5 panel panel-default">
+				<div class="table-responsive">
+
+					<table class="table">
+						<thead>
+							<tr>
+						    <th ng-hide="action =='Edit'">Select</th>
+							<th colspan=2 class="vert-align">Employee Annual Taxable Income Range</th>
+        		            <th rowspan=2 class="vert-align">Fixed amount of Tax</th>
+        		            <th rowspan=2 class="vert-align">variable Tax Rate in % over the lower range value</th>
+        		            <th rowspan=2 class="vert-align">Notes</th>
+        		            </tr>
+							
+							<tr>
+						    <th> </th>
+        	                <th> </th>
+        		            </tr>
+						</thead>
+						<tbody>
+							<tr ng-repeat="personal in personalList">
+								<td ng-hide="action =='Edit'"><input type="checkbox"
+									ng-model="personal .selected"
+									ng-click="personalPopUpRowSelect(personal)"></td>
+
+						         <td><input type="text" 
+									ng-model="personal.annualMinTax" name="annualMinTax"
+								    placeholder="annualMinTax" pattern="^[0-9<>]+$"
+									ng-required="true"/> <span
+									ng-show="personalForm.annualMinTax.$dirty && personalForm.annualMinTax.required">annualMinTax is mandatory</span> 
+									<span ng-show="personalForm.annualMinTax.$error.pattern">Enter
+										correct annualMinTax</span> <span
+									ng-show="personalForm.annualMinTax.$error.minlength">To Short!</span></td>
+									
+									  <td><input type="text" 
+									ng-model="personal.annualMaxTax" name="annualMaxTax"
+								    placeholder="annualMaxTax" pattern="^[0-9<>]+$"
+									ng-required="true"/> <span
+									ng-show="personalForm.annualMaxTax.$dirty && personalForm.annualMaxTax.required">annualMaxTax is mandatory</span> 
+									<span ng-show="personalForm.annualMaxTax.$error.pattern">Enter
+										correct annualMaxTax</span> <span
+									ng-show="personalForm.annualMaxTax.$error.minlength">To Short!</span></td>
+									
+									 <td><input type="text" 
+									ng-model="personal.fixedTax" name="fixedTax"
+									 placeholder="fixedTax" pattern="^[0-9<>]+$"
+									ng-required="true" /> <span
+									ng-show="personalForm.fixedTax.$dirty && personalForm.fixedTax.required">fixedTax is mandatory</span> 
+									<span ng-show="personalForm.fixedTax.$error.pattern">Enter
+										correct fixedTax</span> <span
+									ng-show="personalForm.fixedTax.$error.minlength">To Short!</span></td>
+									
+									 <td><input type="text"
+									ng-model="personal.variableTax" name="variableTax"
+									 placeholder="variableTax" pattern="^[0-9<>%.]+$"
+									ng-required="true" /> <span
+									ng-show="personalForm.variableTax.$dirty && personalForm.variableTax.required">variableTax is mandatory</span> 
+									<span ng-show="personalForm.variableTax.$error.pattern">Enter
+										correct variableTax</span> <span
+									ng-show="personalForm.variableTax.$error.minlength">To Short!</span></td>
+									
+									 <td><input type="text" 
+									ng-model="personal.comments" name="comments"
+									 placeholder="comments" pattern="^[a-zA-Z0-9-_,$]+$"
+									ng-required="true" /> <span
+									ng-show="personalForm.comments.$dirty && personalForm.comments.required">comments is mandatory</span> 
+									<span ng-show="personalForm.comments.$error.pattern">Enter
+										correct comments</span> <span
+									ng-show="personalForm.comments.$error.minlength">To Short!</span></td>					
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+			<div class="panel-footer">
+				<div class="pull-left">
+					<input type="submit" class="btn bottomaligned btn-brown btn-sm"
+						ng-click="addPersonalTaxRows()" value="Add"
+						ng-show="action =='Add'" /> <input type="button"
+						class="btn bottomaligned btn-brown btn-sm"
+						ng-click="deleteProjRows()" value="Delete"
+						ng-show="action =='Add'" />
+				</div>
+				<div class="pull-right">
+					<input type="submit" class="btn bottomaligned btn-brown btn-sm"
+						value="Save" ng-click="personalForm.$valid && savepersonal()" />
+				</div>
+			</div>
+		</div>
+	</form>
+</div>
+ 
+ 
+ 
+ 
+ 
+ 

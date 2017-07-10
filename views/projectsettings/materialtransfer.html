@@ -1,0 +1,58 @@
+<div id="tab-pannel">
+	<h5 align="center">Material Transfer Approval Time Frame Settings</h5>
+	<table class="table borderless">
+		<tr>
+			<td class="box-border">
+				<table class="table borderless">
+					<tr>
+						<th colspan="3"><h5 class="text-center">Normal Time
+								Frame for Approval From Requisition Date</h5></th>
+					</tr>
+					<tr>
+						<td align="center"></td>
+						<td>Cut off Time in Days</td>
+						<td>Cut off Time(24h)</td>
+					</tr>
+					<tr>
+						<td>Internal Project Transfer</td>
+						<td><input type="text" ng-model="materialInternal.cutOffTime"></td>
+						<td><input type="text"  ng-model="materialInternal.cutOffTime"></td>
+					</tr>
+					<tr>
+						<td>External Project Transfer</td>
+						<td><input type="text" ng-model="materialExternal.cutOffTime"></td>
+						<td><input type="text" ng-model="materialExternal.cutOffTime"></td>
+					</tr>
+				</table>
+			</td>
+			<td class="box-border">
+				<table class="table borderless">
+					<tr>
+						<th colspan="3"><h5 align="left">Additional Time For a
+								Selected Requisition Number</h5></th>
+					</tr>
+					<tr>
+						<td>
+							<table class="table borderless">
+								<tr>
+									<td>Requisition Date: <input type="date" name="startDate"
+										ng-model="tab.startDate" ng-required="true" />
+									<p ng-bind="errMessage"></p></td>
+								</tr>
+								<tr>
+									<td align="left">Requisition Notification Number: <input
+										type="text"></td>
+								</tr>
+								<tr>
+									<td><input type="submit" value="Approve"
+										ng-click="checkErr(tab.startDate)"></td>
+								</tr>
+							</table>
+						</td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+	</table>
+	<input type="button" value="Save" ng-click="">
+</div>

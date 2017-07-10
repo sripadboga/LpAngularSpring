@@ -1,0 +1,81 @@
+<div id="tab-pannel" class="panel-group">
+	<div class="panel-body23-0 table-responsive">
+		<table class="table table-bordered table-striped">
+			<thead>
+				
+				<tr>
+					<th rowspan="2">Select</th>
+					<th colspan="4" class="text-center">Current or last service carried out</th>
+					<th colspan="3" class="text-center">Next service due</th>
+					<th colspan="10" class="text-center">Records of repair</th>
+					</tr>
+					<tr>
+					<th>Date</th>
+
+					<th>Odo meter reading</th>
+					<th>Service category</th>
+					<th>Service sub category</th>
+					<th>Odo meter reading reaches</th>
+					<th>Service category</th>
+					<th>Service sub category</th>
+					<th>Date</th>
+					<th>Odo meter reading</th>
+					<th>Repair Category</th>
+					<th>Item of repair</th>
+					<th>Major Spare Part items Replaced</th>
+					<th>Unit of measure</th>
+					<th>Qty</th>
+					<th>Project Docket</th>
+					<th>Notes</th>
+
+				</tr>
+			</thead>
+			<tbody>
+
+				<tr ng-repeat="servicehistory in serviceHistoryData">
+					<td><input type="checkbox" value="id" ng-model="servicehistory.selected"
+						ng-click="serviceHistoryRowSelect(servicehistory)"></td>
+					<td>{{servicehistory.date}}</td>
+					<td>{{servicehistory.odoMeterRdng}}</td>
+					<td>{{servicehistory.ServiceCateg}}</td>
+					<td>{{servicehistory.ServiceSubCate}}</td>
+					<td>{{servicehistory.OdoMtrReaches}}</td>
+					<td>{{servicehistory.ServiceCate2}}</td>
+					<td>{{servicehistory.ServiceSubCate2}}</td>
+					<td>{{servicehistory.Date2}}</td>
+					<td>{{servicehistory.OdoMeterRdng2}}</td>
+					<td>{{servicehistory.RepairCate}}</td>
+					<td>{{servicehistory.ItemOfRepair}}</td>
+					<td>{{servicehistory.MajorSpare}}</td>
+					<td>{{servicehistory.UnitOfMeasure}}</td>
+					<td>{{servicehistory.Qty}}</td>
+					<td>{{servicehistory.ProjectDocket}}</td>
+					<td>{{servicehistory.Notes}}</td>
+
+				</tr>
+			</tbody>
+		</table>
+		
+
+
+	</div>
+	<div class="panel-footer">
+	<div class="pull-right">
+	
+			<input type="button" class="btn btn-brown btn-sm" ng-click="addServiceHistory('Add')"
+				value="Create"> 
+			</div>
+			<div class="pull-left">
+				 <input type="button"
+				class="btn btn-brown btn-sm" ng-click="addServiceHistory('Edit')" value="Edit">
+				<input type="button" class="btn btn-brown btn-sm"
+				ng-click="deleteService()" value="Deactivate">
+		</div>
+</div>
+</div>
+
+
+
+
+
+

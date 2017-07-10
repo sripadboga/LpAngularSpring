@@ -1,0 +1,43 @@
+<div id="tab-pannel" class="panel-group">
+	<div id="tab-pannel" class="panel panel-default">
+		<div class="panel-heading">
+			<h4 class="panel-title">Country Provisions</h4>
+		</div>
+
+		<input type="text" ng-model="countryProvisionObj.name" name="name"
+			placeholder="country" ng-click="getCountryDetails(countryProvisionObj)"
+			readonly="readonly" ng-required="true" /> <select
+			style="width: 154px;"
+			ng-options="province.name  for province  in  provisions  track by province.name"
+			ng-model="countryProvisionObj.provisions" ng-required="true">
+			<option value="">select</option>
+			
+		</select> <span>Financial Year:From</span><input type="text" potdate-picker id="frmDate"
+			ng-model="countryProvisionObj.fromDate" name="fromDate" 
+			placeholder="dd-mm-yyyy"/> <span>To</span>
+			
+			<input type="text"
+			potdate-picker placeholder="dd-mm-yyyy" id="toDate"
+			ng-model="countryProvisionObj.toDate" name="toDate"
+			ng-change='checkErr(countryProvisionObj.fromDate,countryProvisionObj.toDate)'><span>{{errMessage}}</span>
+		<span>Effective Date</span>
+		
+		<input type="text" placeholder="dd-mm-yyyy"
+			potdate-picker id="effectiveDate"
+			ng-model="countryProvisionObj.effectiveDate">
+
+		<div class="panel-footer">
+			<div class="pull-right">
+				<input type="submit" class="btn bottomaligned btn-brown btn-sm"
+					value="Save" ng-click="saveCountryProvision()" />
+			</div>
+
+		</div>
+
+	</div>
+</div>
+
+
+
+
+

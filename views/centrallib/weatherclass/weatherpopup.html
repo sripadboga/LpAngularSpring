@@ -1,0 +1,55 @@
+<div id="tab-pannel" class="panel-group">
+	<form name="weatherForm" validate>
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h4 class="panel-title">Weather Classification</h4>
+			</div>
+			<div class="panel-body10">
+				<div id="tableHeight8-2" class="table-responsive">
+					<table class="table table-striped" fixed-header>
+							<thead id="tab-head">
+								<tr>
+									<th ng-show="action =='Add'">Select</th>
+									<th>Weather classification Code</th>
+									<th>Weather Classification Name</th>
+	                			 </tr>
+							</thead>
+							<tbody>
+								<tr ng-repeat="weather in weatherCls">
+									<td ng-show="action =='Add'">
+									<input type="checkbox" ng-model="weather.selected" ng-click="popUpRowSelect(weather)"></td>
+									
+									<td ng-form name="weatherform">  
+									<input type="text" name="code" ng-model="weather.code" pattern="^[a-z A-Z\d\s.,]+$" minlength="2"  maxlength="20" placeholder="Weather Classification Code" ng-required="true">
+										<span ng-show="weatherform.code.$dirty && weatherform.code.$error.required">This field is required</span> 
+										<span ng-show="weatherform.code.$error.minlength">Too Short!</span>
+										<span ng-show="weatherform.code.$error.pattern">Special characters are not allowed </span> 
+										<span ng-show="weatherform.code.$error.maxlength">Enter upto 20 chars only</span></td>	
+									<td ng-form name="weatherform1">
+									<input type="text"name="name" ng-model="weather.name" pattern=[^\w\d]*((.*[A-Za-z]+.*)|[A-Za-z]+.*([0-9]+.*)) minlength="3" maxlength="30" placeholder="Weather Classification Name" ng-required="true">
+										<span ng-show="weatherform1.name.$dirty && weatherform1.name.$error.required">This field is required</span>
+										<span ng-show="weatherform1.name.$error.minlength">Too Short!</span>
+	                                   <span  ng-show="weatherform1.name.$error.pattern">Atlist One Alphabet is mandatory </span>
+	                                    <span ng-show="weatherform1.name.$error.maxlength">Enter Upto 30 chars only</span></td>
+	                                    
+								</tr>
+							</tbody>
+					
+				</table>
+			</div>
+		</div>
+			<div class="panel-footer">
+				<div class="pull-left">
+					<input type="submit" ng-click="weatherForm.$valid && addRows()" value="Add" class="btn bottomaligned btn-brown btn-sm" ng-show="action =='Add'" /> 
+					<input type="button" ng-click="deleteRows()" value="Delete" ng-show="action =='Add'" class="btn bottomaligned btn-brown btn-sm" />
+				</div>
+				<div class="pull-right">
+					<input type="submit" ng-click="weatherForm.$valid && saveWeathers()" class="btn bottomaligned btn-brown btn-sm" value="Save"  />
+				</div>	
+			</div>
+		</div>
+	</form>
+	</div>
+
+
+

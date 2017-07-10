@@ -1,0 +1,64 @@
+<div id="tab-pannel" class="panel-group"
+	ng-controller="ModuleController" ng-init="getModules()">
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<h4 class="panel-title">Modules</h4>
+		</div>
+		<div class="panel-body25-0">
+		<div id="tableHeight24" class=" table-responsive">
+			<table class="table table-striped" fixed-header>
+				<thead id="tab-head">
+
+					<tr>
+						<th><input type="checkbox" ng-model="selectedAll"
+							ng-click="checkAll()" /></th>
+						<th>Module name</th>
+						<th>Permissions</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr
+						ng-repeat="item in moduleTreeData | moduleFilterTree:itemId:isExpand">
+						<td><input type="checkbox" ng-model="item.selected"
+							ng-click="moduleRowSelect(item)"></td>
+						<td><span style="padding-left: {{item.level*30}}px;">
+						 <fa
+									ng-show="(!item.leaf && item.expand)"
+									ng-click="itemClick(item.moduleId,item.expand);" name="minus">
+								</fa> 
+								<fa ng-click="itemClick(item.moduleId,item.expand);"
+									name="plus" ng-show="(!item.leaf && !item.expand)">
+							         </fa>
+							          <fa
+									ng-click="itemClick(item.moduleId,item.expand);"
+									ng-show="(item.leaf && item.expand)" name="leaf"> </fa> {{item.moduleName}} 
+								<fa
+									name="plus" flip="vertical" ng-hide="item.tabValue==1"
+									ng-click="addModule('Add',item.moduleId)" /> <fa name="pencil"
+									flip="horizontal" ng-hide="item.tabValue==1"
+									ng-click="addModule('Edit',item.moduleId)" />
+
+						</span></td>
+						<td><span ng-repeat="modulePerm in item.permissionTOs">
+								<input type="checkbox" ng-model="modulePerm.permission" />
+								{{modulePerm.actionName}}
+						</span></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		</div>
+		<div class="panel-footer">
+		<div class="pull-left">
+				<input Type="button" 
+				value="Deactivate" class="btn bottomaligned btn-brown btn-sm"
+				ng-click="deactivateModules()" ng-show="account.appCodeTemplate['ADMIN_MODULE_DELETE']" />
+				</div>
+		<div class="pull-right">
+			<input Type="button" value="Create"
+				class="btn bottomaligned btn-brown btn-sm"
+				ng-click="addModule('Add',0)"  ng-show="account.appCodeTemplate['ADMIN_MODULE_ADD']"  /> 
+				</div>
+		</div>
+		</div>
+	</div>

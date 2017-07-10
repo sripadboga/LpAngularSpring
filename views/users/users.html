@@ -1,0 +1,126 @@
+<div id="tab-pannel" ng-controller="UserController"
+	ng-init="searchUsers()">
+	<div class="panel-group">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h4 class="panel-title">Users Details</h4>
+			</div>
+			<div class="panel-body1 spacer2 left-padding">
+				<input type="text" ng-model="userReq.userName"
+					placeholder="User name"> <input type="text" class="regfrm"
+					ng-model="userReq.empCode" placeholder="Employee code"> <input
+					type="text" class="regfrm" ng-model="userReq.dispName"
+					placeholder="Display Name"> <select
+					ng-model="userReq.status">
+					<option value="1" label="Active" selected="selected"
+						label="InActive"></option>
+					<option value="2" label="InActive"></option>
+				</select>
+				<div class="pull-right right-padding">
+					<input type="button" ng-click="searchUsers(searchText)"
+						class="btn bottomaligned btn-brown btn-sm" value="Search"
+						ng-model="searchText"> <input type="reset"
+						class="btn bottomaligned btn-brown btn-sm" ng-click="resetUser()"
+						value="Reset">
+				</div>
+			</div>
+			<div class="panel-body9">
+				<div id="tableHeight6-0"
+					class="table-responsive  panel-collapse collapse in">
+					<table class="table table-striped" fixed-header>
+						<thead>
+							<tr>
+								<th>Select</th>
+								<th>User Name</th>
+								<th>Employee Code</th>
+								<th>Employee Designation</th>
+								<th>Display Name</th>
+								<th>First Name</th>
+								<th>Last Name</th>
+								<th>Email</th>
+								<th>Phone</th>
+								<th>Mobile</th>
+								<th>Profile Name</th>
+								<th>Remarks</th>
+								<th>Status</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr ng-repeat="user in users">
+								<td><input type="checkbox" value="id"
+									class="ng-pristine ng-valid" ng-model="user.select"
+									ng-click="rowSelect(user)"></td>
+								<td><span ng-click="getUserProjects(user)">{{user.userName}}</span></td>
+								<td>{{user.empCode}}</td>
+								<td>{{user.empDesg}}</td>
+								<td>{{user.dispName}}</td>
+								<td>{{user.firstName}}</td>
+								<td>{{user.lastName}}</td>
+								<td>{{user.email}}</td>
+								<td>{{user.phone}}</td>
+								<td>{{user.mobile}}</td>
+								<td><div ng-repeat="userRole in user.userRoles">{{userRole.roleName}}</div></td>
+								<td>{{user.remarks}}</td>
+								<td>{{user.status | potstatusfilter:user.status}}</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+			<div class="panel-footer">
+				<div class="pull-right">
+					<input type="button" class="btn bottomaligned btn-brown btn-sm"
+						ng-click="addUsers('Add')" value="Create" />
+				</div>
+				<div class="pull-left">
+					<input type="button" class="btn bottomaligned btn-brown btn-sm"
+						ng-click="addUsers('Edit')" value="Edit" /> <input type="button"
+						class="btn bottomaligned btn-brown btn-sm" ng-click="deleteUser()"
+						value="Deactivate" />
+				</div>
+			</div>
+		</div>
+		<div class="spacer0 panel panel-default">
+			<div class="panel-body11">
+				<ul class="nav nav-tabs responsive" id="myTab">
+					<li class="active"><a data-toggle="tab"
+						ng-click="tabActivate('home');">Assign Projects</a></li>
+				</ul>
+				<div class="tab-content">
+					<div class="panel-body9-0">
+						<div id="tableHeight8"
+							class="panel-body3 panel-collapse collapse in">
+							<div class="tab-pane active" ng-show="tabopen=='home'">
+								<table class="table table-fixed table-striped" fixed-header>
+									<thead>
+										<tr>
+											<th>EPS Name</th>
+											<th>Project Name</th>
+											<th>Project Access</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr ng-repeat="proj in userProjects">
+											<td>{{ proj.projCode}}</td>
+											<td>{{ proj.projName }}</td>
+											<td><input type="checkbox" align="center"
+												class="ng-pristine ng-valid" ng-model="proj.usrProj"></td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="panel-footer">
+				<div class="pull-right">
+					<input type="button" ng-click="assignProjects(userProjects)"
+						class="btn bottomaligned btn-brown btn-sm" value="Assign"
+						ng-show="account.appCodeTemplate['ADMIN_USRLIST_ADD']"
+						style="float: right;" />
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

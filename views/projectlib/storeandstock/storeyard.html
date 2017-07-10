@@ -1,0 +1,56 @@
+<div id="tab-pannel" ng-controller="ProjStoreController" >
+	<div  class="panel-group">
+		<div  class="panel panel-default">
+			<div class="panel-heading">
+				<h4 class="panel-title">Store and stock</h4>
+			</div>
+			<div class="spacer2 panel-body1">
+				<div class="pull-left left-padding">
+					<input type="text" ng-model="searchProject.parentName" placeholder="EPS ID/EPS Name" ng-click="getUserProjects()">
+					<input type="text" ng-model="searchProject.projName" placeholder="Project ID/Project Name" ng-click="getUserProjects()">
+					<select ng-model="storeReq.status">
+						<option value="0" label="Select Status" class="statusSelect" selected="selected"></option>
+						<option value="1">Active</option>
+						<option value="2">InActive</option>
+					</select>
+				</div>
+				<div class="pull-right right-padding">
+					<input type="button" ng-click="getProjStoreStocks(projects.proj.projId)" class="btn bottomaligned btn-brown btn-sm" value="Search"ng-model="searchText">
+					 <input type="reset" class="btn bottomaligned btn-brown btn-sm" ng-click="resetProjStoreStock()" value="Reset"> 
+				</div>
+			</div>
+			<div class="panel-body22">
+			<div id="tableHeight20" class="table-responsive">
+				<table class="table table-striped" fixed-header>
+			      	<thead>
+						<th>Select</th>
+						<th>Store/LocationId</th>
+						<th>Store/LocationDescription</th>
+						<th>Status</th>
+					</thead>
+		            <tbody>
+						<tr ng-repeat="tab in tableData | orderBy:['code','desc']">
+							<td><input type="checkbox" ng-model="tab.select"ng-click="rowSelect(tab)"></td>
+							<td>{{tab.code}}</td>
+							<td>{{tab.desc}}</td>
+							<td>{{tab.status | potstatusfilter:tab.status}}</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			</div>
+			<div class="panel-footer">
+				<div class="pull-left">
+					<input type="button" ng-click="addpopup('Edit',searchProject)" value="Edit" class="btn btn-brown btn-sm" ng-show="account.appCodeTemplate['PRJ_PRJLIB_STOREANDSTOKITM_ADD'] && activeFlag==1"/>
+					<input type="button"ng-click="deleteStoreClass()" value="Deactivate" class="btn  btn-brown btn-sm" ng-show="account.appCodeTemplate['PRJ_PRJLIB_STOREANDSTOKITM_DELETE'] && activeFlag==1" />
+						<input type="button"ng-click="activeStoreClass()" value="Activate" class="btn  btn-brown btn-sm" ng-show="account.appCodeTemplate['PRJ_PRJLIB_STOREANDSTOKITM_DELETE'] && activeFlag==2"  />
+				</div> 
+				<div class="pull-right">
+					<input type="button" ng-click="addpopup('Add',searchProject)" value="Create" class="btn bottomaligned btn-brown btn-sm" ng-show="account.appCodeTemplate['PRJ_PRJLIB_STOREANDSTOKITM_DELETE'] && activeFlag==1"/> 	
+				</div>
+			</div>
+		</div>
+		</div>
+	</div>
+
+

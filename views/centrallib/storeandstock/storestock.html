@@ -1,0 +1,57 @@
+<div id="tab-pannel" ng-controller="StoreStockController" ng-init="storeSearch()">
+	<div class="panel-group">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h4 class="panel-title">Store And Stock</h4>
+			</div>
+			<div class="panel-body1 spacer2">
+				<div class="pull-left left-padding">
+					<input type="text" ng-model="storeReq.stockCode"placeholder="Store/Location ID">
+				 	<input type="text" ng-model="storeReq.stockName" placeholder="Store/Location Name">
+					<select ng-model="storeReq.status">
+						<option value="0" label="Select Status" class="statusSelect" selected="selected"></option>
+						<option value="1">Active</option>
+						<option value="2">InActive</option>
+					</select>
+				</div>
+				<div class="pull-right right-padding">
+					<input type="button" ng-click="storeSearch()" value="Search" class="btn bottomaligned btn-brown btn-sm" /> 
+					<input type="reset" class="btn bottomaligned btn-brown btn-sm" ng-click="reset()" value="Reset" />
+				</div>
+			</div>
+			<div class="panel-body22">
+				<div id="tableHeight20-2" class="table-responsive  panel-collapse collapse in">
+					<table class="table table-striped" fixed-header>
+						<thead id="tab-head">
+							<tr>
+								<th>Select</th>
+								<th>Store/Location ID</th>
+								<th>Store/Location Name</th>
+								<th>Status</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr ng-repeat="stock in stocks | orderBy:['code','name'] ">
+								<td><input type="checkbox" ng-model="stock.selected" ng-click="rowSelect(stock)"></td>
+								<td>{{stock.code}}</td>
+								<td>{{stock.desc}}</td>
+								<td>{{stock.status | potstatusfilter :stock.status }}</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+			<div class="panel-footer">
+				<div class="pull-right"> 
+					<input type="button" ng-click="addStocks('Add')" class="btn bottomaligned btn-brown btn-sm" value="Create" ng-show="account.appCodeTemplate['ENTRPRSE_CENTLIB_STORANDSTOK_ADD'] && activeFlag==1" /> 
+				</div>
+				<div class="pull-left">
+					<input  type="button" class="btn bottomaligned btn-brown btn-sm" ng-click="addStocks('Edit')" value="Edit" ng-show="account.appCodeTemplate['ENTRPRSE_CENTLIB_STORANDSTOK_ADD'] && activeFlag==1"  />
+					<input type="button" class="btn bottomaligned btn-brown btn-sm" ng-click="deleteStocks()" value="Deactivate"  ng-show="account.appCodeTemplate['ENTRPRSE_CENTLIB_STORANDSTOK_DELETE'] && activeFlag==1"/>
+										<input type="button" class="btn bottomaligned btn-brown btn-sm" ng-click="activeStocks()" value="Activate"   ng-show="account.appCodeTemplate['ENTRPRSE_CENTLIB_STORANDSTOK_DELETE'] && activeFlag==2" />
+					
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

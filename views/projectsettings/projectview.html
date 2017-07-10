@@ -1,0 +1,67 @@
+<div id="tab-pannel" ng-controller="ProjectSettingsController"
+	class="container-fluid" ng-init="getEPSDetails();getProjSettings();">
+	<div class="panel-group">
+		<div class="panel panel-body11-1 panel-default">
+			<div class="panel-heading">
+				<h4 class="panel-title">Projects</h4>
+			</div>
+			<div id="tableHeight8" class="table-responsive">
+				<table id="tree" class="table table-striped table-fixed newTbl" fixed-header>
+					<thead id="tab-head">
+						<tr>
+							<th>EPS ID</th>
+							<th>EPS Name</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat="item in epsData | epsFilterTreeItem:itemId:isExpand" class="abc{{item.level}}"
+							ng-click="item.leaf && openSettings(item.projId)">
+							<td>
+								<span ng-show="item.level > 0" class="xyz" style="padding-left:30px;"></span>
+								<span ng-show="item.level > 1" class="xyz" style="padding-left:30px;"></span>
+								<span ng-show="item.level > 2" class="xyz" style="padding-left:30px;"></span> 
+							<fa
+										ng-show="((!item.leaf && item.expand) || (!item.leaf && item.childProjs.length<=0))"
+										ng-click="itemClick(item.projId,item.expand);"
+										name="fa fa-minus"></fa> <fa
+										ng-show="(!item.leaf && !item.expand && item.childProjs.length>0)"
+										ng-click="itemClick(item.projId,item.expand);"
+										name="fa fa-plus"></fa> <fa ng-show="item.leaf"
+										name="fa fa-leaf"></fa> <span style="padding-left: 10px;">{{item.projCode}}
+										<span style="padding-left: 5px;"></span>
+								</span>
+							</span></td>
+							<td>{{item.projName}}</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+	<div class="panel-group spacer0">
+		<div class="panel panel-default">
+			<div class="vertical-tab-body">
+				<div class="row">
+					<div class="col-md-12 col-sm-12 col-xs-12 vertical-tab-container">
+						<div id="vert-panel">
+							<div class="col-md-2 vertical-tab-menu">
+								<div class="list-group">
+
+									<a class="list-group-item  text-center"
+										ng-class="{active:isActiveTab(tab.urlValue)}"
+										data-toggle="tab" ng-repeat="tab in projTabs" ng-show="tab"
+										ng-click="onClickTab(tab)">{{tab.name}}</a>
+								</div>
+							</div>
+							<div class="col-md-10 vertical-tab">
+								<div class="panel-body17 panel-collapse collapse in">
+									<div ng-include="currentTab"></div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

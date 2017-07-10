@@ -1,0 +1,93 @@
+<div id="tab-pannel" class="panel-group">
+				<form name="plantChargeForm" validate>
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<h4 class="panel-title">Charge Out Rate</h4>
+		</div>
+		<div class="table-responsive">
+			<div id="tab-pannel" class="panel-body15">
+					<table class="table table-bordered table-striped">
+						<thead>
+							<tr>
+								<th>Project Deployment</th>
+								<th>Effective-From</th>
+								<th>EPS Name</th>
+								<th>Project Name</th>
+								<th>Assert ID</th>
+								<th>Project plant ID</th>
+								<th>charge out Unit</th>
+								<th>Plant Charge out Category</th>
+								<th>Currency</th>
+								<th>Rates with fuel-Normal Shift</th>
+								<th>Rates without fuel-Normal shift</th>
+								<th>Rates with fuel-Double shift</th>
+								<th>Rates without fuel-double shift</th>
+								<th>Plant Idle Time-Charge out rate</th>
+								<th>plant mobilization -cost code ID</th>
+								<th>Plant mobilization rate</th>
+								<th>Plant De-mobilization Cost Code ID</th>
+								<th>Plant De-mobilization Rate</th>
+								<th>Notes</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr ng-repeat="charge in addChargeData">
+							
+								<td class="input-width"><input type="text" name="projectDeploy" ng-model=charge.projectDeploy placeholder="Date" ng-required="true" pattern="[a-zA-Z-\d\s]+">
+								<span ng-show="plantChargeForm.projectDeploy.$error.pattern">only alpha numerics allowed</span></td>
+								
+								<td><input type="date" name="effectiveFrom" ng-model="charge.effectiveFrom" placeholder="Effective From" ng-required="true"></td>
+
+								<td class="input-width"><input type="text" name="epsName"  ng-model="charge.epsName" placeholder="Eps Name" ng-required="true">
+								<span ng-show="plantChargeForm.projectDeploy.$error.pattern">only alpha numerics allowed</span></td></td>
+
+
+								<td class="input-width"><input type="text" name="projecName" ng-model="charge.projecName" placeholder="Project Name" ng-required="true"></td>
+								
+								<td class="input-width"><input type="text" name="assertId" ng-model="charge.assertId" placeholder="AssertId" ng-required="true"></td>
+								
+								<td class="input-width"><input type="text" name="projectPlntId"  ng-model="charge.projectPlntId" placeholder="ProjectPlntId" ng-required="true"></td>
+								
+								<td class="input-width"><input type="text" name="chargeoutUnit" ng-model="charge.chargeoutUnit" placeholder="ChargeoutUnit" ng-required="true"></td>
+
+
+								<td><select ng-model="charge.plntchrgOutCateg" ng-required="true">
+										<option ng-repeat="plntchrgOutCateg in plntchrgOutCategs">{{plntchrgOutCateg.name}}</option>
+								</select></td>
+								
+								<td class="input-width"><input type="text" name="currency" ng-model="charge.currency" placeholder="Currency" ng-required="true"></td>
+								
+								<td class="input-width"><input type="text" name="RateswithfuelNormal" ng-model="charge.rateswithfuelNormal" placeholder="rateswithfuelNormal" ng-required="true"></td>
+								
+								<td class="input-width"><input type="text" name="RateswithoufuelNormal" 	ng-model="charge.RateswithoufuelNormal" placeholder="RateswithoufuelNormal" ng-required="true"></td>
+
+								<td class="input-width"><input type="text" name="RateswithfuelDouble" ng-model="charge.RateswithfuelDouble" placeholder="RateswithfuelDouble" ng-required="true"></td>
+								
+								<td class="input-width"><input type="text" name="Rateswithoutfueldouble" ng-model="charge.Rateswithoutfueldouble" placeholder="Rateswithoutfueldouble" ng-required="true"></td>
+								
+								<td class="input-width"><input type="text" name="PlantIdleTimeCharge" ng-model="charge.PlantIdleTimeCharge" placeholder="PlantIdleTimeCharge" ng-required="true"></td>
+								
+								<td class="input-width"><input type="text" name="plantmobilizationcostcode" ng-model="charge.plantmobilizationcostcode" placeholder="plantmobilizationcostcode" ng-required="true"></td>
+								
+								<td class="input-width"><input type="text" name="Plantmobilizationrate" ng-model="charge.Plantmobilizationrate" placeholder="Plantmobilizationrate" ng-required="true"></td>
+								
+								<td class="input-width"><input type="text" name="PlantDemobilizationCostCode" ng-model="charge.PlantDemobilizationCostCode" placeholder="PlantDemobilizationCostCode" ng-required="true"></td>
+								 
+								<td class="input-width"><input type="text" name="PlantDemobilization" ng-model="charge.PlantDemobilization" placeholder="Plant Demobilization" ng-required="true"></td>
+								
+								<td class="input-width"><input type="text" name="Notes" ng-model="charge.notes" placeholder="notes" ng-required="true">
+								</td>
+							</tr>
+						</tbody>
+					</table>
+			</div>
+			 	<div class="panel-footer"> 
+			<div class="pull-right">
+				<input type="button" class="btn bottomaligned btn-brown btn-sm" 
+					ng-click="save()" value="Save">
+			</div>
+			 </div> 
+		</div>
+	</div>
+	</form>
+</div>

@@ -1,0 +1,109 @@
+<div class="text-black  panel-group panel-group">
+<div class="panel panel-default">
+<div class="panel-body13-0">
+	<form name="generalFrm" validate>
+		<div style="margin-top: 1px !important;">
+			<div class="row">
+				<div class="col-xs-3 col-sm-3 col-md-3 spacer1">Responsible
+					Manager</div>
+				<div class="col-xs-3 col-sm-3 col-md-3 spacer1">Default
+					Calendar</div>
+				<div class="col-xs-3 col-sm-3 col-md-3 spacer1">Default Hours
+					Per Day</div>
+				<div class="col-xs-3 col-sm-3 col-md-3 spacer1">Maximum Hours
+					Per Day</div>
+			</div>
+			<div class="row">
+				<div class="col-xs-3 col-sm-3 col-md-3 spacer0">
+					<select style="width: 154px;"
+						ng-options="manager.name  for  manager  in  responsibleManagers  track by  manager.name"
+						ng-model="generalValues.userLabelKeyTO" ng-required="true"></select>
+				</div>
+				<div class="col-xs-3 col-sm-3 col-md-3 spacer0">
+					<select style="width: 154px;"
+						ng-options="cal.calName  for  cal  in  calenders  track by  cal.calName"
+						ng-model="generalValues.calenderTO" ng-required="true"></select>
+				</div>
+				<div class="col-xs-3 col-sm-3 col-md-3 spacer0">
+					<input type="number" placeholder="HH" name="defHrs"
+						style="width: 154px;" ng-required="true"
+						ng-model="generalValues.defualtHrs" min="0" max="8">
+				</div>
+				<div class="col-xs-3 col-sm-3 col-md-3 spacer0">
+					<input type="number" ng-model="generalValues.maxHrs"
+						style="width: 154px;" min="0" max="12" ng-required="true">
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-xs-3 col-sm-3 col-md-3 spacer1">Country</div>
+				<div class="col-xs-3 col-sm-3 col-md-3 spacer1">Currency</div>
+				<div class="col-xs-3 col-sm-3 col-md-3 spacer1">Province</div>
+				<div class="col-xs-3 col-sm-3 col-md-3 spacer1">Time Zone</div>
+
+			</div>
+			<div class="row">
+				<div class="col-xs-3 col-sm-3 col-md-3 spacer0">
+					<select style="width: 154px;"
+						ng-options="coun.code   for  coun  in  countries  track by  coun.code"
+						ng-change="getCountryDetailsById(generalValues.countryTO.id);"
+						ng-model="generalValues.countryTO" ng-required="true"></select>
+				</div>
+				<div class="col-xs-3 col-sm-3 col-md-3 spacer0">
+					<input type="text" placeholder="Currency" style="width: 154px;"
+						ng-required="true"
+						ng-model="generalValues.countryTO.currencyTO.code">
+				</div>
+
+				<div class="col-xs-3 col-sm-3 col-md-3 spacer0">
+					<select style="width: 154px;"
+						ng-options="province.name  for province  in  generalValues.countryTO.provisionTOs  track by province.name"
+						ng-model="generalValues.countryTO.provisionTO" ng-required="true"></select>
+				</div>
+				<div class="col-xs-3 col-sm-3 col-md-3 spacer0">
+					<input type="text" placeholder="Time Zone" style="width: 154px;"
+						ng-required="true"
+						ng-model="generalValues.countryTO.provisionTO.timeZoneTO.code">
+				</div>
+
+			</div>
+			<div class="row">
+				<div class="col-xs-3 col-sm-3 col-md-3 spacer1">Resource Curve</div>
+				<div class="col-xs-3 col-sm-3 col-md-3 spacer1">Project Owner</div>
+				<div class="col-xs-3 col-sm-3 col-md-3 spacer1">Contract
+					Number</div>
+				<div class="col-xs-3 col-sm-3 col-md-3 spacer1">Project
+					Address</div>
+			</div>
+			<div class="row">
+				<div class="col-xs-3 col-sm-3 col-md-3 spacer0">
+					<select style="width: 154px;"
+						ng-options="resCurve.curveType   for  resCurve  in  resourceCurves  track by  resCurve.curveType"
+						ng-model="generalValues.resourceCurveTO" ng-required="true"></select>
+				</div>
+				<div class="col-xs-3 col-sm-3 col-md-3 spacer0">
+					<select style="width: 154px;"
+						ng-options="owner.cmpName   for  owner  in  projectOwners  track by  owner.cmpName"
+						ng-model="generalValues.companyTO" ng-required="true"></select>
+				</div>
+				<div class="col-xs-3 col-sm-3 col-md-3 spacer0">
+					<input type="text" style="width: 154px;"
+						ng-model="generalValues.contractNumber" ng-required="true">
+				</div>
+				<div class="col-xs-3 col-sm-3 col-md-3 spacer0">
+					<textarea cols="20" rows="3" maxlength="500" minlength="2"
+						id="addr" name="projAddr" ng-model="generalValues.address"
+						placeholder="Address" placeholder="Project Address"
+						ng-required="true"></textarea>
+				</div>
+			</div>
+		</div>
+	</form>
+</div>
+	<div class="panel-footer">
+		<div class="pull-right">
+			<input type="button" class="btn bottomaligned btn-brown btn-sm"
+				value="Save" ng-click="saveGeneralValues()">
+		</div>
+	</div>
+</div>
+</div>

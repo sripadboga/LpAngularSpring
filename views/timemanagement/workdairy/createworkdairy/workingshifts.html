@@ -1,0 +1,37 @@
+
+<div id="tab-pannel" class="panel-group">
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<h4 class="panel-title">Working Shift</h4>
+		</div>
+
+		<div class="panel-body20">
+			<div id="tableHeight20-2"
+				class="table-responsive  panel-collapse collapse in">
+				<table class="table table-striped" fixed-header>
+					<thead id="tab-head">
+
+						<th>Shift</th>
+						<th>Start Hour</th>
+						<th>Duration in Hours</th>
+
+					</thead>
+					<tbody>
+						<tr ng-repeat="shift in shifts"
+							ng-dblclick="workShiftpopup(shift)">
+							<td>{{shift.code}}</td>
+							<td>{{shift.startHours}} <span>:</span>{{shift.startMinutes}}
+							</td>
+							<td>{{shift.finishHours}}<span>:</span>{{shift.finishMinutes}}
+							</td>
+
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+

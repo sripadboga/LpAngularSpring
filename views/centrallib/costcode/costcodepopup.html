@@ -1,0 +1,56 @@
+<div id="tab-pannel" class="panel-group">
+	<form name="codeForm" validate>
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h4 class="panel-title">Cost Code</h4>
+			</div>
+			<div class="panel-body10">
+				<div id="tableHeight8-2" class="table-responsive">
+					<table class="table table-striped" fixed-header>
+						<thead id="tab-head">
+							<tr>
+								<th ng-show="action =='Add'">Select</th>
+								<th>Cost Code ID</th>
+								<th>Cost Code Name</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr ng-repeat="costCodes in costUnits">
+								<td ng-show="action =='Add'">
+								<input type="checkbox" ng-model="costCodes.selected" ng-click="popUpRowSelect(costCodes)"></td>
+	
+								<td ng-form name="costform"> 
+								<input type="text" name="code" 	ng-model="costCodes.code" pattern="^[a-zA-Z\d\s\-,_]+$" maxlength="20" minlength=2  placeholder="Cost Code ID" ng-required="true">
+									<span ng-show="costform.code.$dirty && costform.code.$error.required">This field is required</span> 
+									<span ng-show="costform.code.$error.pattern">Must be required pattern </span>
+									 <span ng-show="costform.code.$error.maxlength">Enter upto 20 chars only</span>
+									 <span ng-show="costform.code.$error.minlength">To Short!</span></td>
+									 
+								<td ng-form name="costform1">
+								<input type="text" name="name" ng-model="costCodes.name" pattern="^[a-z A-Z\d\s\-,_]+$" maxlength="30" minlength=3 placeholder="Cost Code Name" ng-required="true">
+									<span ng-show="costform1.name.$dirty && costform1.name.$error.required">This field is required</span> 
+									<span ng-show="costform1.name.$error.pattern">Must be required pattern </span> 
+									<span ng-show="costform1.name.$error.maxlength">Enter upto 30 chars only</span>
+									<span ng-show="costform1.name.$error.minlength">To Short!</span></td> 
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+			<div class="panel-footer">
+				<div class="pull-left">
+					<input type="submit" ng-click="codeForm.$valid && addRows()" value="Add" ng-show="action =='Add'" class="btn btn-brown btn-sm" />
+					<input type="button" ng-click="deleteRows()" value="Delete" ng-show="action =='Add'" class="btn btn-brown btn-sm">
+				</div>
+				<div class="pull-right">
+					<input type="submit" ng-click="codeForm.$valid && saveCostCodes()" class="btn btn-brown btn-sm" value="Save"    validate />
+				</div>
+			</div>
+		</div>
+	</form>
+</div>
+
+
+
+
+

@@ -1,0 +1,93 @@
+
+<div id="tab-pannel">
+<div class="panel-group">
+		<div class="panel  panel-body23-0">
+	<form name="nonRegularpayForm">
+	<div class="table-responsive">
+		<table class="table table-bordered table-striped">
+			<thead>
+				<tr>
+					<th rowspan="4">Select</th>
+					<th rowspan="4">Project Posting#</th>
+					<th rowspan="4">Effective From</th>
+					<th rowspan="4">EPS ID</th>
+					<th rowspan="4">EPS Name</th>
+					<th rowspan="4">Project ID</th>
+					<th rowspan="4">Project Name</th>
+					<th rowspan="4">Parent Company ID</th>
+					<th rowspan="4">Parent Company Name</th>
+					<th rowspan="4">Employee Tax File Number</th>
+					<th rowspan="4">Currency</th>
+					<th rowspan="4">Unit of Pay Rate</th>
+					<th rowspan="4">Pay Cycle</th>
+					<th rowspan="4">Basic Pay</th>
+					<th colspan="6" class="text-center">Non Regular Pay and
+						Allowances-Code wise applicable rates</th>
+					<th rowspan="4">Special Pay roll run Date</th>
+					<th rowspan="4">Employee Documents</th>
+				</tr>
+				<tr>
+					<th colspan="2" class="text-center">BSP</th>
+					<th colspan="1" class="text-center">TP</th>
+					<th colspan="1" class="text-center">MLP</th>
+					<th colspan="1" class="text-center">UALP</th>
+					<th colspan="1" class="text-center">USLP</th>
+				</tr>
+				<tr>
+					<th colspan="2" class="text-center">Bonus Pay</th>
+					<th colspan="1" class="text-center">Termination Pay</th>
+					<th colspan="1" class="text-center">Matarnity Leave Pay</th>
+					<th colspan="1" class="text-center">Unused Anual Leave Pay</th>
+					<th colspan="1" class="text-center">Unused Long Service Leave Pay</th>
+				</tr>
+				<tr>
+					<th>% on BP</th>
+					<th>Fixed amount</th>
+					<th>Fixed amount</th>
+					<th>Fixed amount</th>
+					<th>Fixed amount</th>
+					<th>Fixed amount</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="nonregpay in empNonRegularPay">
+					<td><input type="checkbox" value="id" ng-model="nonregpay.selected"
+						ng-click="NonRegularAllowanceRowSelect(nonregpay)"></td>
+					<td>{{nonregpay.projectPosting}}</td>
+					<td>{{nonregpay.effectiveFrom|date}}</td>
+					<td>{{nonregpay.epsId}}</td>
+					<td>{{nonregpay.epsName}}</td>
+					<td>{{nonregpay.pId}}</td>
+					<td>{{nonregpay.pName}}</td>
+					<td>{{nonregpay.pComId}}</td>
+					<td>{{nonregpay.pComName}}</td>
+					<td>{{nonregpay.taxNum}}</td>
+					<td>{{nonregpay.currency}}</td>
+					<td>{{nonregpay.payRate}}</td>
+					<td>{{nonregpay.payCycle}}</td>
+					<td>{{nonregpay.basicPay}}</td>
+					<td>{{nonregpay.bp1}}</td>
+					<td>{{nonregpay.bp2}}</td>
+					<td>{{nonregpay.tp}}</td>
+					<td>{{nonregpay.mlp}}</td>
+					<td>{{nonregpay.ualp}}</td>
+					<td>{{nonregpay.uslp}}</td>
+					<td>{{nonregpay.runDate|date}}</td>
+					<td>{{nonregpay.doc}}</td>
+				</tr>
+			</tbody>
+		</table>
+		</div>
+	</form>
+</div>
+<div class="panel-footer">
+<div class="pull-right">
+	<input type="button" class="btn btn-brown btn-sm" ng-click="addNonRegularPay('Add')" value="Create"> 
+	</div>
+	<div class="pull-left">
+	 <input type="button" class="btn btn-brown btn-sm" ng-click="addNonRegularPay('Edit')" value="Edit">
+	 	<input type="button" class="btn btn-brown btn-sm" ng-click="deleteNonRegularPay()" value="Deactivate">
+</div>
+</div>
+</div>
+</div>

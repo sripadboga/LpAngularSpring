@@ -1,0 +1,69 @@
+<div id="tab-pannel">
+	<div class="panel-group">
+		<div class="panel  panel-body23-0">
+			<div class="table-responsive">
+				<table class="table table-striped">
+					<thead>
+						<tr>
+							<th>Select</th>
+							<th>Project Posting#</th>
+							<th>EPS ID</th>
+							<th>EPS Name</th>
+							<th>Project ID</th>
+							<th>Project Name</th>
+							<th>Employee Designation as per Pay Roll</th>
+							<th>Designation as per Project Contract</th>
+							<th>Designation as per Trade Union</th>
+							<th>Category</th>
+							<th>Actual Mobilization Date</th>
+							<th>Expected De-mobilization Date</th>
+							<th>Actual De-mobilization Date</th>
+							<th>Responsibilities in Brief</th>
+							<th>Post De-mobilization Status</th>
+							<th>Notes</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat="serviceHistory in empServiceHistory">
+							<td><input type="checkbox" value="id"
+								ng-model="serviceHistory.selected"
+								ng-click="empServiceHistoryRowSelect(serviceHistory)"></td>
+							<td>{{serviceHistory.projectPosting}}</td>
+							<td>{{serviceHistory.epsId}}</td>
+							<td>{{serviceHistory.epsName}}</td>
+							<td>{{serviceHistory.pId}}</td>
+							<td>{{serviceHistory.pName}}</td>
+							<td>{{serviceHistory.tradeName}}</td>
+							<td>{{serviceHistory.projectContract}}</td>
+							<td>{{serviceHistory.tradeUnion}}</td>
+							<td>{{serviceHistory.category}}</td>
+							<td>{{serviceHistory.actualmobDate|date}}</td>
+							<td>{{serviceHistory.expectedDeMobDate|date}}</td>
+							<td>{{serviceHistory.actualDeMobDate|date}}</td>
+							<td>{{serviceHistory.responsibilities}}</td>
+							<td>{{serviceHistory.status}}</td>
+							<td>{{serviceHistory.notes}}</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<div class="panel-footer">
+			<div class="pull-right">
+				<input type="button" class="btn btn-brown btn-sm"
+					ng-click="addEmpServiceHistory('Add')" value="Create">
+			</div>
+			<div class="pull-left">
+				<input type="button" class="btn btn-brown btn-sm"
+					ng-click="addEmpServiceHistory('Edit')" value="Edit"> <input
+					type="button" class="btn btn-brown btn-sm"
+					ng-click="deactivateEmpServiceHistory()" value="Deactivate">
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+
+

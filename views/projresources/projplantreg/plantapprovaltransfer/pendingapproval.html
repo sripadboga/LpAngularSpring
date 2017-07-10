@@ -1,0 +1,75 @@
+<div id="tab-pannel" class="panel-group">
+	<div class="panel-body21-1 table-responsive" ng-init="getData5()">
+		<table class="table table-bordered table-striped">
+			<thead>
+				<tr>
+					<th>Select</th>
+					<th>Date of Request</th>
+					<th>Originator ID & Name</th>
+					<th>Requisition Notification #</th>
+					<th>Approval date</th>
+					<th>Approver Person ID & Name</th>
+					<th>Approver Decision   Notification #</th>
+					<th>Company Asset ID</th>
+					<th>Registration Number</th>
+					<th>Plant Description</th>
+					<th>Make</th>
+					<th>Model</th>
+					<th>Current Project ID</th>
+					<th>Current Project Name</th>
+					<th>For Project ID</th>
+					<th>For Project Name</th>
+					<th>Anticipated  de-mobilization date</th>
+					<th>Transfer Required Date</th>
+					<th>Multiple Plant Selection  for Transfer</th>
+					<th>Approver Decision</th>
+					<th>Agreed Date  for  Transfer</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="approval in pendingApproval">
+					<td><input type="checkbox" value="id" ng-model="approval.selected"
+						ng-click="pendingApprovalRowSelect(approval)"></td>
+					<td>{{approval.dateofRequest}}</td>
+					<td>{{approval.originatorIdName}}</td>
+					<td>{{approval.reqNotification}}</td>
+					<td>{{approval.approvaldate}}</td>
+					<td>{{approval.approverpersonIdName}}</td>
+                    <td>{{approval.approverDecision}}</td>
+					<td>{{approval.companyassetId}}</td>
+					<td>{{approval.regNum}}</td>
+					<td>{{approval.plntDes}}</td>
+					<td>{{approval.make}}</td>
+					<td>{{approval.model}}</td>
+					<td>{{approval.currentprojectId}}</td>
+					<td>{{approval.currentprojectName}}</td>
+					<td>{{approval.forprojId}}</td>
+					<td>{{approval.forprojName}}</td>
+                    <td>{{approval.anticipateDemodate}}</td>
+					<td>{{approval.transferReqDate}}</td>
+					<td>{{approval.multipleplnt}}</td>
+					<td>{{approval.approverDecision}}</td>
+					<td>{{approval.agreedDate}}</td>
+				</tr>
+
+
+
+			</tbody>
+		</table>
+	</div>
+	
+		<div class="panel-footer">
+		<div class="pull-left">
+		<input type="button" class="btn btn-brown btn-sm" ng-click="addApprovalFortransfer('Edit')"
+			value="Edit">
+		</div>
+		<div class="pull-right">
+			<input type="button" class="btn btn-brown btn-sm" ng-click="sendApproval()"  
+			value="Send Approval">
+	</div>
+</div>
+</div>
+
+
+
+

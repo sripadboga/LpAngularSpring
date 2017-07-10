@@ -1,0 +1,29 @@
+<div id="tab-pannel" class="panel-group">
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<h4 class="panel-title">Invoice Details</h4>
+		</div>
+
+		<div class="panel-body12">
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<th>Invoice Number</th>
+						<th>Invoice Date</th>
+						<th>Invoice Amount</th>
+						<th>Payment Status</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="invoice in invoiceDetails">
+						<td>{{invoice.number}}</td>
+						<td>{{invoice.date}}</td>
+						<td>{{invoice.reqUserTO.dispName}}</td>
+						<td>{{invoice.amount}}</td>
+						<td>{{invoice.status}}</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>

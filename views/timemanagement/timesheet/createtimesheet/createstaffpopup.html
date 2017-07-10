@@ -1,0 +1,105 @@
+<div id="tab-pannel" class="panel-group">
+	<form name="staffForm" validate>
+		<div id="tab-pannel" class="panel panel-default">
+			<div class="panel-heading">
+				<h4 class="panel-title" ng-show="action =='Add'">Add Project</h4>
+				<h4 class="panel-title" ng-show="action =='Edit'">Edit Project</h4>
+			</div>
+			
+			 <div class="panel-body1 panel panel-default">
+				 <input type="text" readonly="readonly" ng-required="true"
+						placeholder="CrewName" ng-model="crew.crewName"
+						ng-click="addCrew(crew)">
+			</div> 
+			<div id="tab-pannel" class="panel-body5 panel panel-default">
+				<div class="table-responsive">
+					<ta
+					ble class="table">
+						<thead>
+							<tr>
+								<th ng-hide="action =='Edit'">Select</th>
+								<th rowspan=2 class="vert-align">EmployeeID</th>
+        		                <th rowspan=2 class="vert-align">FirstName</th>
+        		                <th rowspan=2 class="vert-align">SurName</th>
+        		                <th rowspan=2 class="vert-align">TradeName</th>
+        		                <th rowspan=2 class="vert-align">Category</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr ng-repeat="staff in staffList">
+								<td ng-hide="action =='Edit'"><input type="checkbox"
+									ng-model="staff .selected"
+									ng-click="staffPopUpRowSelect(staff)"></td>
+
+						         <td><input type="text" readonly="readonly"
+									ng-model="staff.employeeID" name="employeeID"
+									ng-click="staffDetails(staff)" placeholder="employeeID"
+									ng-required="true"/> <span
+									ng-show="staffForm.employeeID.$dirty && staffForm.employeeID.required">employeeID is mandatory</span> 
+									<span ng-show="staffForm.employeeID.$error.pattern">Enter
+										correct employeeID</span> <span
+									ng-show="staffForm.employeeID.$error.minlength">To Short!</span></td>
+									
+									 <td><input type="text" readonly="readonly"
+									ng-model="staff.firstName" name="firstName"
+									 placeholder="firstName"
+									ng-required="true" /> <span
+									ng-show="staffForm.firstName.$dirty && staffForm.firstName.required">firstName is mandatory</span> 
+									<span ng-show="staffForm.firstName.$error.pattern">Enter
+										correct firstName</span> <span
+									ng-show="staffForm.firstName.$error.minlength">To Short!</span></td>
+									
+									 <td><input type="text" readonly="readonly"
+									ng-model="staff.surName" name="surName"
+									 placeholder="surName"
+									ng-required="true" /> <span
+									ng-show="staffForm.surName.$dirty && staffForm.surName.required">surName is mandatory</span> 
+									<span ng-show="staffForm.surName.$error.pattern">Enter
+										correct surName</span> <span
+									ng-show="staffForm.surName.$error.minlength">To Short!</span></td>
+									
+									 <td><input type="text" readonly="readonly"
+									ng-model="staff.tradeName" name="tradeName"
+									 placeholder="tradeName"
+									ng-required="true" /> <span
+									ng-show="staffForm.tradeName.$dirty && staffForm.tradeName.required">tradeName is mandatory</span> 
+									<span ng-show="staffForm.tradeName.$error.pattern">Enter
+										correct tradeName</span> <span
+									ng-show="staffForm.tradeName.$error.minlength">To Short!</span></td>
+									
+									<td><input type="text" readonly="readonly"
+									ng-model="staff.category" name="category"
+									 placeholder="category"
+									ng-required="true" /> <span
+									ng-show="staffForm.category.$dirty && staffForm.category.required">category is mandatory</span> 
+									<span ng-show="staffForm.category.$error.pattern">Enter
+										correct category</span> <span
+									ng-show="staffForm.category.$error.minlength">To Short!</span></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+			<div class="panel-footer">
+				<div class="pull-left">
+					<input type="submit" class="btn  btn-brown btn-sm"
+						ng-click="addRows()" value="Add"
+						ng-show="action =='Add'" /> <input type="button"
+						class="btn  btn-brown btn-sm"
+						ng-click="deleteProjRows()" value="Delete"
+						ng-show="action =='Add'" />
+				</div>
+				<div class="pull-right">
+					<input type="submit" class="btn  btn-brown btn-sm"
+						value="Save" ng-click="staffForm.$valid && saveStaff()" />
+				</div>
+			</div>
+		</div>
+	</form>
+</div>
+ 
+ 
+ 
+ 
+ 
+ 

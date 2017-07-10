@@ -1,0 +1,56 @@
+<div id="tab-pannel" ng-controller="MaterialGroupController" ng-init="materialSearch()">
+	<div class="panel-group">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h4 class="panel-title">Material Group</h4>
+			</div>
+			<div class="panel-body1 spacer2">
+				<div class="pull-left left-padding">
+					<input type="text" ng-model="materialReq.materialCode" pattern="^[a-z A-Z\s]+$" placeholder="MaterialGroup Code">
+					<input type="text" ng-model="materialReq.materialName" pattern="^[a-z A-Z\s]+$" placeholder="MaterialGroup Name">
+					<select ng-model="materialReq.status">
+						<option value="0" label="Select Status" class="statusSelect" selected="selected"></option>
+						<option value="1">Active</option>
+						<option value="2">InActive</option>
+					</select>
+				</div>
+				<div class="pull-right right-padding">
+					<input type="submit" ng-click="materialSearch() " class="btn bottomaligned btn-brown btn-sm" value="Search" />
+					 <input type="reset" class="btn bottomaligned btn-brown btn-sm" ng-click="reset()" value="Reset">
+				</div>
+			</div>
+			<div class="panel-body22">
+				<div  id="tableHeight20-2" class="table-responsive  panel-collapse collapse in">
+					<table class="table table-striped" fixed-header>
+						<thead id="tab-head">
+						 	<tr>
+								<th>Select</th>
+								<th>MaterialGroup Code</th>
+								<th>MaterialGroup Name</th>
+								<th>Status</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr ng-repeat="classification in materialclassifications | orderBy:['code','name'] ">
+								<td><input type="checkbox" ng-model="classification.selected" ng-click="rowSelect(classification)"></td>
+								<td>{{classification.code}}</td>
+								<td>{{classification.name}}</td>
+								<td>{{classification.status | potstatusfilter:classification.status }}</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+			<div class="panel-footer">
+				<div class="pull-right">
+					<input type="button" ng-click=" MaterialClassification('Add')" class="btn btn-brown btn-sm" value="Create" ng-show="account.appCodeTemplate['ENTRPRSE_CENTLIB_MATRLCLSFY_ADD'] && activeFlag==1"  />
+				</div>
+				<div class="pull-left">
+					<input type="button" ng-click="MaterialClassification('Edit')" class="btn btn-brown btn-sm" value="Edit" ng-show="account.appCodeTemplate['ENTRPRSE_CENTLIB_MATRLCLSFY_ADD'] && activeFlag==1"  />
+					<input type="button" ng-click="deleteMaterialSubGroups()" class="btn btn-brown btn-sm" value="Deactivate"  ng-show="account.appCodeTemplate['ENTRPRSE_CENTLIB_MATRLCLSFY_DELETE'] && activeFlag==1" />
+					<input type="button" ng-click="activeMaterialSubGroups()" class="btn btn-brown btn-sm" value="Activate" ng-show="account.appCodeTemplate['ENTRPRSE_CENTLIB_MATRLCLSFY_DELETE'] && activeFlag==2"  />  
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,66 @@
+<div id="tab-pannel" class="panel-group"
+	ng-init="addCreateRequestRowData()">
+	<form name="ApproverTransferForm" validate>
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h4 class="panel-title">Approver For Transfer</h4>
+			</div>
+			<div class="panel-body15">
+				<div class="table-responsive ">
+					<table class="table table-bordered table-striped">
+						<thead>
+							<tr>
+								<th>Select</th>
+								<th>From Project</th>
+								<th>Plant Id</th>
+								<th>To Project</th>
+								<th>Approver Details</th>
+								<th>Comments</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr ng-repeat="plantPopUp in addPlantTransfers">
+								<td><input type="checkbox" name="select"
+									ng-model="plantPopUp.select"
+									ng-click="plantTranferPopUpRowSelect(plantPopUp)"></td>
+								<td class="input-width2"><input type="text"
+									ng-model="plantPopUp.transferFromProject"
+									placeholder="From Project"
+									ng-click="getPlantFromProjects(plantPopUp)"> </td>
+								<td class="input-width1"><input type="text" name="plantId"
+									ng-model="plantPopUp.plantRegId" placeholder="Plant Id"
+									readonly="readonly"></td>
+								<td class="input-width1"><input type="text"
+									name="toProject" ng-model="plantPopUp.transferToProject"
+									placeholder="To Project"
+									ng-click="getPlantToProjects(plantPopUp)"></td>
+								<td class="input-width1"><input type="text"
+									name="approverDetails"
+									ng-model="plantPopUp.apprUserLabelKeyTO.code"
+									placeholder="Approver Details"
+									ng-click="getApproversList(plantPopUp,plantPopUp.apprUserLabelKeyTO)"
+									readonly="readonly"></td>
+								<td class="input-width1"><input type="text" name="comments"
+									ng-model="plantPopUp.comments" placeholder="Comments"></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+
+			<div class="panel-footer">
+				<div class="pull-left">
+					<input type="button" class="btn btn-brown bottomaligned btn-sm"
+						ng-click="addCreateRequestRowData()" value="Add"
+						ng-show="action =='Add'"> <input type="button"
+						class="btn btn-brown bottomaligned btn-sm" ng-click="deleteRows()"
+						value="Delete" ng-show="action =='Add'">
+				</div>
+				<div class="pull-right">
+					<input type="button" class="btn bottomaligned btn-brown btn-sm"
+						ng-click="savePlantCreate()" value="Save">
+				</div>
+			</div>
+		</div>
+	</form>
+</div>

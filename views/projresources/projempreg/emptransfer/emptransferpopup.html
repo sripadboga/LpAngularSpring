@@ -1,0 +1,78 @@
+<div id="tab-pannel" class="panel-group">
+	<form name="ApproverTransferForm" validate>
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h4 class="panel-title">Approver For Transfer</h4>
+			</div>
+			<div class="panel-body15">
+				<div class="table-responsive ">
+					<table class="table table-bordered table-striped">
+						<thead>
+							<tr>
+								<th>Select</th>
+								<th>Employee Id</th>
+								<th>From Project</th>
+								<th>From Project EPS</th>
+								<th>To Project</th>
+								<th>To Project EPS</th>
+								<th>Approver Details</th>
+								<th>Comments</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr ng-repeat="empTrans in addEmpTransfers">
+
+								<td class="input-width"><input type="checkbox" name="eId"
+									ng-model="empTrans.selected"
+									ng-click="empTransPopUpRowSelect(empTrans)"></td>
+
+								<td class="input-width1"><input type="text" name="empId"
+									ng-model="empTrans.empId" placeholder="Employee Id"
+									readonly="readonly"></td>
+
+
+								<td class="input-width2"><input type="text" name="projId"
+									ng-model="empTrans.fromProjectLabelKeyTO.name"
+									placeholder="Project Id"
+									ng-click="getUserProjects(empTrans.fromProjectLabelKeyTO)"
+									readonly="readonly"></td>
+
+								<td>{{empTrans.fromProjectLabelKeyTO.code}}</td>
+
+								<td class="input-width1"><input type="text"
+									readonly="readonly" name="toProject"
+									ng-model="empTrans.toProjectLabelKeyTO.name"
+									placeholder="To Project"
+									ng-click="getUserProjects(empTrans.toProjectLabelKeyTO)"></td>
+
+								<td>{{empTrans.toProjectLabelKeyTO.code}}</td>
+
+								<td class="input-width1"><input type="text"
+									name="approverDetails"
+									ng-model="empTrans.reqUserLabelKeyTO.code"
+									placeholder="Approver"
+									ng-click="getApproversList(empTrans.reqUserLabelKeyTO)"
+									readonly="readonly"></td>
+
+								<td><input type="text" name="comments"
+									ng-model="empTrans.comments" placeholder="comments"></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+			<div class="panel-footer">
+				<div class="pull-right">
+					<input type="button" class="btn btn-brown btn-sm"
+						ng-click="saveEmpTransfersferDetails()" value="Save">
+				</div>
+				<div class="pull-left">
+					<input type="button" class="btn btn-brown btn-sm"
+						ng-click="addRows()" value="Add" ng-show="action =='Add'">
+					<input type="button" class="btn btn-brown btn-sm"
+						ng-click="deleteRows()" value="Delete" ng-show="action =='Add'">
+				</div>
+			</div>
+		</div>
+	</form>
+</div>

@@ -1,0 +1,59 @@
+<div id="tab-pannel" class="panel-group">
+	<form name="wageForm" validate>
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h4 class="panel-title">Employee Wages</h4>
+			</div>
+			<div class="panel-body10">
+				<div  id="tableHeight8-2" class="table-responsive">
+					<table class="table table-striped" fixed-header>
+						<thead id="tab-head">
+							<tr>
+								<th ng-show="action=='Add'">Select</th>
+								<th>Wage FactorCode</th>
+								<th>Wage FactorName</th>
+								<th>Wage Factor</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr ng-repeat="wage in addWages">
+	
+								<td ng-show="action=='Add'">
+								<input type="checkbox"  ng-model="wage.selected" ng-click="popUpRowSelect(wage)"></td>
+	
+								<td ng-form name="wageform">
+								<input type="text" name="code" ng-model="wage.code" pattern="^[a-z A-Z\d\s.,]+$" minlength="2" maxlength="20" placeholder="Wage FactorCode" ng-required="true">
+									<span ng-show="wageform.code.$dirty && wageform.code.$error.required"></span> 
+									<span ng-show="wageform.code.$error.minlength">Too Short!</span>
+									<span ng-show="wageform.code.$error.pattern">Special characters are not allowed </span> 
+									<span ng-show="wageform.code.$error.maxlength">Enter upto 20 chars only</span></td>
+									
+								<td ng-form name="wageform1">
+								<input type="text" name="name" ng-model="wage.name" pattern="^[a-z A-Z\d\s.,]+$" minlength="3" maxlength="30" placeholder="Wage FactorName" required> 
+								<span ng-show="wageform1.name.$dirty && wageform1.name.$error.required">This field is required</span> 
+								<span ng-show="wageform1.name.$error.minlength">Too Short!</span>
+								<span ng-show="wageform1.name.$error.pattern">Special characters are not allowed </span>
+								 <span ng-show="wageform1.name.$error.maxlength">Enter upto 30chars only</span></td>
+								 
+								<td ng-form name="wageform2">
+								<input type="text"  name="wageFactor" ng-model="wage.wageFactor" maxlength="10" pattern="^[\d\.,%]+$" placeholder="Wage Factor" required="required">
+								 <span ng-show="wageform2.wageFactor.$dirty && wageform2.wageFactor.$error.required">This field is required</span>
+								  <span ng-show="wageform2.wageFactor.$error.pattern">Enter only numbers </span> 
+								  <span ng-show="wageform2.wageFactor.$error.maxlength">Enter upto 30 chars only</span></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+			<div class="panel-footer">
+				<div class="pull-left"> 
+					<input type="submit" class="btn bottomaligned btn-brown btn-sm" ng-show="action=='Add'" ng-click="wageForm.$valid && addRows()"value="Add">
+					 <input type="button" class="btn bottomaligned btn-brown btn-sm" ng-click="deleteRows()" ng-show="action=='Add'" value="Delete">
+				</div>
+				<div class="pull-right">
+					<input type="submit" class="btn bottomaligned btn-brown btn-sm" ng-click="wageForm.$valid && saveEmpWages()" value="Save"  />
+				</div>
+			</div>
+		</div>
+	</form>
+</div>

@@ -1,0 +1,13 @@
+<div ng-controller="HomeController" ng-init="init()">
+	<div class="row   spacer" style="width: 970px;">
+		<br>
+		<div ng-repeat="m in modules"
+			class="homepageId col-md-2 col-sm-4 col-xs-4 spacer" ng-click="go(m)">
+			<div class="menu-item spacer ">
+				<p>{{ m.moduleName}}</p>
+			</div>
+			<br>
+		</div>
+	</div>
+
+</div>

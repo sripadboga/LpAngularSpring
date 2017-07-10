@@ -1,0 +1,59 @@
+<div id="tab-pannel" class="panel-group" ng-init="getMeasuresByProcureType()">
+	<form name="centralForm" validate>
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h4 class="panel-title">Plant Classification</h4>
+			</div>
+			<div class="panel-body10">
+				<div fixed-header id="tableHeight8-2" class="table-responsive">
+					<table  class="table table-striped">
+						<thead id="tab-head">
+							<tr>
+								<th ng-show="action =='Add'">Select</th>
+								<th>Plant Resource Code</th>
+								<th>Plant Resource Name</th>
+								<th>Unit Of Measures</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr ng-repeat="central in plantUnits">
+								<td ng-show="action =='Add'">
+								<input type="checkbox" ng-model="central.selected" 	ng-click="popUpRowSelect(central)"></td>
+								
+								<td ng-form name="centralform">
+								<input type="text" name="code" ng-model="central.code" pattern="^[a-z A-Z\d\s\-_.,\%]+$" minlength="2" maxlength="20" placeholder="Plant Resource Code" ng-required="true">
+								 <span ng-show="centralform.code.$dirty && centralform.code.$error.required">This field is required</span> 
+								 <span ng-show="centralform.code.$error.minlength">Too Short</span>
+								 <span ng-show="centralform.code.$error.pattern">Special characters are not allowed</span> 
+								 <span ng-show="centralform.code.$error.maxlength">Enter upto 20 chars only</span></td>
+								 
+								<td ng-form name="centralform1">
+								<input type="text" name="name" ng-model="central.name" pattern="^[a-z A-Z\d\s\-_.,\%]+$" minlength="3" maxlength="30" placeholder="Plant Resource Code" ng-required="true">
+								 <span ng-show="centralform1.name.$dirty && centralform1.name.$error.required">This field is required</span> 
+								 <span ng-show="centralform1.name.$error.minlength">Too Short</span> 
+								 <span ng-show="centralform1.name.$error.pattern">Special characters are not allowed</span> 
+								 <span  ng-show="centralform1.name.$error.maxlength">Enter upto 30 chars only</span></td>
+								  
+								<td><select ng-change="updatePlantCode(central.measureUnitTO,central);" ng-options="cat.name  for cat in proCategory track by cat.name" ng-model="central.measureUnitTO" ng-required="true">
+								<option value="">-select-</option> </select></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+			<div class="panel-footer">
+				<div class="pull-left">
+					<input type="submit" ng-click="centralForm.$valid && addRows()" value="Add" class="btn bottomaligned btn-brown btn-sm" ng-show="action =='Add'" value="Add"/ >
+					<input type="button" ng-click="deleteRows()" value="Delete" ng-show="action =='Add'" class="btn bottomaligned btn-brown btn-sm"  ng-show="account.appCodeTemplate['ENTRPRSE_CENTLIB_PLANTCLSFY_DELETE']"> 
+				</div>
+				<div class="pull-right">
+					<input type="submit" ng-click="centralForm.$valid && savePlantClasses()" class="btn bottomaligned btn-brown btn-sm" value="Save"  />
+				</div>
+			</div>
+		</div>
+	</form>
+</div>
+
+
+
+

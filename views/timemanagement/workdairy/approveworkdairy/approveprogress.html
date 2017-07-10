@@ -1,0 +1,51 @@
+<div id="tab-pannel">
+	<div class="panel-group">
+		<div class="panel panel-default panel-body20-1-1">
+			<div class="table-responsive">
+				<table class="table table-bordered table-striped">
+					<thead>
+						<tr>
+							<th rowspan="2">Select</th>
+							<th rowspan="2">SOW Item Id</th>
+							<th rowspan="2">SOR Item Id</th>
+							<th rowspan="2">SOE Item Id</th>
+							<th rowspan="2">Cost Code Id</th>
+							<th rowspan="2">Work Description</th>
+							<th rowspan="2">Unit Of Measure</th>
+							<th colspan="2">Cost Code wise Work Progress</th>
+							<th rowspan="2">Total</th>
+							<th rowspan="2">Approval Status</th>
+						</tr>
+						<tr>
+							<th>gfgf</th>
+							<th>nbnb</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat="pro in progress">
+							<td><input type="checkbox"
+								ng-click="approveProgressRowSelect(pro)" ng-model="pro.select"></td>
+							<td>{{pro.sowItemId}}</td>
+							<td>{{pro.sorItemId}}</td>
+							<td>{{pro.soeItemId}}</td>
+							<td>{{pro.costCodeId}}</td>
+							<td>{{pro.workDescrp}}</td>
+							<td>{{pro.unitOfMeasure}}</td>
+							<td>{{pro.gfgf}}</td>
+							<td>{{pro.nbnb}}</td>
+							<td>{{pro.total}}</td>
+							<td>{{pro.approvalStatus}}</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<div class="panel-footer">
+			<div class="pull-left">
+				<input type="button" class="btn btn-brown "
+					ng-click="editApprovedProgress('Edit')" value="Edit">
+			</div>
+		</div>
+	</div>
+</div>
+

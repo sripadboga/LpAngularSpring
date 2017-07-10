@@ -1,0 +1,53 @@
+<div id="tab-pannel" class="panel-group">
+	<div class="panel panel-default">
+		<div class="panel-body15 table-responsive">
+			<table class="table table-bordered table-striped">
+				<thead>
+					<tr>
+						<th align="center">Select</th>
+						<th align="center">Resource ID</th>
+						<th align="center">Resource Name</th>
+						<th align="center">Employee Category</th>
+						<th align="center">Unit of Measure</th>
+						<th align="center">Original Budget Quantity</th>
+						<th align="center">Revised Budget Quantity</th>
+						<th align="center">Actual Quantity to Date</th>
+						<th align="center">Remaining Quantity</th>
+						<th align="center">Estimate to Complete</th>
+						<th align="center">Estimation at Completion Quantity</th>
+						<th align="center">Schedule Start</th>
+						<th align="center">Schedule Finish</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="manpower in projManpowerDetails">
+						<td><input type="checkbox" ng-model="manpower.select"
+							ng-click="manPowerRowSelect(manpower)"></td>
+						<td>{{manpower.projEmpClassTO.empClassTO.code}}</td>
+						<td>{{manpower.projEmpClassTO.empClassTO.name}}</td>
+						<td>{{manpower.projEmpClassTO.projEmpCatgTO.code}}</td>
+						<td>{{manpower.projEmpClassTO.measureUnitTO.name}}</td>
+						<td>{{manpower.originalQty}}</td>
+						<td>{{manpower.revisedQty}}</td>
+						<td>{{manpower.actualQty}}</td>
+						<td>{{manpower.remainingQty}}</td>
+						<td>{{manpower.estimateComplete = calcEstimateToComplete(manpower,1)}}</td>
+						<td>{{manpower.estimateCompletion = calcEstimateAtCompletion(manpower)}}</td>
+						<td>{{manpower.startDate | date}}</td>
+						<td>{{manpower.finishDate | date}}</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	<div class="panel-footer">
+		<div class="pull-right">
+			<input type="button" class="btn bottomaligned btn-brown btn-sm"
+				value="Add" ng-click="editManPowerDetails('Add',null)">
+		</div>
+		<div class="pull-left">
+			<input type="button" class="btn bottomaligned btn-brown btn-sm"
+				ng-click="editManPowerDetails('Edit',null)" value="Edit">
+		</div>
+</div>
+	</div>
+</div>

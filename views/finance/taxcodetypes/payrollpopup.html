@@ -1,0 +1,71 @@
+<div id="tab-pannel" class="panel-group">
+	<form name="payRollForm" validate>
+		<div id="tab-pannel" class="panel panel-default">
+			<div class="panel-heading">
+				<h4 class="panel-title">Pay Roll Cycle / Credit Cycle - Period</h4>
+			</div>
+			<div id="tab-pannel" class="panel-body10">
+				<table class="table table-striped">
+					<thead>
+						<tr>
+							<th ng-show="action=='Add'">Select</th>
+							<th>Employee Type</th>
+							<th>Employee Category</th>
+							<th>Pay Roll Cycle</th>
+							<th>Explanatory notes</th>
+						</tr>
+					</thead>
+					<tr ng-repeat="payRoll in addPayRoll">
+						<td ng-show="action=='Add'"><input type="checkbox"
+							value="payRoll.id" ng-model="payRoll.selected"
+							ng-click="payRollPopupRowSelect(payRoll)"></td>
+						<td ng-form name="classform"><input type="text" name="type"
+							ng-model="payRoll.type" pattern="^[a-zA-Z\d\s.,]+$" minlength="2"
+							maxlength="20" placeholder="Employee Type" required="required">
+							<span
+							ng-show="classform.type.$dirty && classform.type.$error.required">This
+								field is required</span> <span
+							ng-show="classform.type.$error.minlength">Too Short!</span> <span
+							ng-show="classform.type.$error.pattern">Must enter
+								required format</span> <span ng-show="classform.type.$error.maxlength">You
+								reached max length</span></td>
+
+						<td ng-form name="classform1"><input type="text" name="catg"
+							ng-model="payRoll.catg" pattern="^[a-zA-Z\d\s.,]+$" minlength="2"
+							maxlength="20" placeholder="Category" required="required">
+							<span
+							ng-show="classform1.catg.$dirty && classform1.catg.$error.required">This
+								field is required</span> <span
+							ng-show="classform1.catg.$error.minlength">Too Short!</span> <span
+							ng-show="classform1.catg.$error.pattern">Must enter
+								required format</span> <span ng-show="classform1.catg.$error.maxlength">You
+								reached max length</span></td>
+						<td><input type="text" name="payRollCycle"
+							ng-model="payRoll.payRollCycle" placeholder="payRollCycle"
+							ng-required="true">
+						<td><textarea cols="20" rows="3" name="notes" ng-model="payRoll.notes"
+							placeholder="Notes"></textarea></td>
+					</tr>
+				</table>
+			</div>
+			<div class="panel-footer">
+				<div class="pull-left">
+					<input type="submit" ng-click="payRollForm.$valid && addRows()"
+						class="btn bottomaligned btn-brown btn-sm" value="Add"
+						ng-show="action =='Add'" validate> <input type="button"
+						ng-click="deleteRows()" value="Delete" ng-show="action =='Add'"
+						class="btn bottomaligned btn-brown btn-sm" validate>
+				</div>
+				<div class="pull-right">
+					<input type="submit" ng-click="payRollForm.$valid && savePayRoll()"
+						value="Save" class="btn bottomaligned btn-brown btn-sm" />
+				</div>
+			</div>
+		</div>
+	</form>
+</div>
+
+
+
+
+

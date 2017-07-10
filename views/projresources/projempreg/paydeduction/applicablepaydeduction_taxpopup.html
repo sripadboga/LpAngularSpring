@@ -1,0 +1,181 @@
+<div id="tab-pannel" class="panel-group">
+<form name="applicablePayDeductionForm" validate>
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<h4 class="panel-title">Pay Deductions,Tax & Exemptions</h4>
+		</div>
+		<div class="panel-body18">
+				<div class="table-responsive">
+					<table class="table table-bordered table-striped">
+						<thead>
+							<tr>
+								<th rowspan=4>Select</th>
+								<th rowspan=4>Project Posting#</th>
+								<th rowspan=4>Effective From</th>
+								<th rowspan=4>EPS ID</th>
+								<th rowspan=4>EPS Name</th>
+								<th rowspan=4>Project ID</th>
+								<th rowspan=4>Project Name</th>
+								<th rowspan=4>Parent Company ID</th>
+								<th rowspan=4>Parent Company Name</th>
+								<th rowspan=4>Employee Tax File Number</th>
+								<th rowspan=4>Currency</th>
+								<th rowspan=4>Unit of Pay Rate</th>
+								<th rowspan=4>Pay Cycle</th>
+								<th colspan=10 class="text-center">Tax and Levy Exemptions related questinaries</th>
+								<th colspan=5 class="text-center">Applicable Pay Deductions as per current year Taxrules and Employee declarations
+								</th>
+								<th rowspan=4>Employee Documents</th>
+							</tr>
+							<tr>
+								<th rowspan=3>Resident or Non Resident for tax purposes</th>
+								<th rowspan=3>Married Status</th>
+								<th rowspan=3>Number of Dependent Children</th>
+								<th rowspan=3>Pay and allowances are Taxebale ?</th>
+								<th colspan=2 class="text-center">Eligibility for Tax Free
+									Threshold</th>
+								<th colspan=2 class="text-center">Eligibility for Medical
+									levy Tax Exemptions</th>
+								<th colspan=2 class="text-center">TSF</th>
+								<th colspan=2 class="text-center">HL <br>Home Loan
+									Deduction
+								</th>
+								<th colspan=1 class="text-center">LWP<br>Leave Without
+									Pay Deduction
+								</th>
+								<th colspan=2 class="text-center">HECS<br>Higher
+									Education Contribution Scheme Loan
+								</th>
+							</tr>
+							<tr>
+								<th rowspan=2>Yes or No</th>
+								<th rowspan=2>If Yes, eligble amount</th>
+								<th rowspan=2>Yes or No</th>
+								<th rowspan=2>If Yes, % on Medical levy tax</th>
+								<th colspan=1 class="text-center">Is super fund
+									Contribution from Company is Taxable</th>
+								<th colspan=1 class="text-center">Is super fund
+									Contribution from Employee is Taxable</th>
+								<th rowspan=2>% on BP</th>
+								<th rowspan=2>Fixed amount</th>
+								<th rowspan=2>Rate per Day</th>
+								<th rowspan=2>% on BP</th>
+								<th rowspan=2>Fixed amount</th>
+							</tr>
+							<tr>
+								<th>Yes or No</th>
+								<th>Yes or No</th>
+							</tr>
+						</thead>
+						<tbody id="vert-align">
+							<tr ng-repeat="deduction in addEmpPayDeductionTax">
+								<td><input type="checkbox" value="deduction.id"
+									ng-model="deduction.selected" ng-click="deductionPopUpRowSelect(deduction)"></td>
+								<td class="input-width"><input type="text" name="projectPosting"
+									onkeypress='return event.charCode >= 48 && event.charCode <= 57'
+									ng-model="deduction.projectPosting" placeholder="projectPosting"
+									ng-required="true" pattern="[0-9]+"></td>
+								<td><input type="date" name="effectiveFrom"
+									ng-model="deduction.effectiveFrom" placeholder="effectiveFrom"
+									readonly="readonly"></td>
+
+								<td class="input-width"><input type="text" name="epsId" ng-model="deduction.epsId"
+									placeholder="epsId" readonly="readonly"></td>
+								<td class="input-width"><input type="text" name="epsName"
+									ng-model="deduction.epsName" placeholder="epsName"
+									readonly="readonly"></td>
+								<td class="input-width"><input type="text" name="pId" ng-model="deduction.pId"
+									placeholder="pId" readonly="readonly"></td>
+								<td class="input-width"><input type="text" name="pName" ng-model="deduction.pName"
+									placeholder="pName" readonly="readonly"></td>
+								<td class="input-width"><input type="text" name="pComId" ng-model="deduction.pComId"
+									placeholder="pComId" readonly="readonly"></td>
+								<td class="input-width"><input type="text" name="pComName"
+									ng-model="deduction.pComName" placeholder="pComName"
+									readonly="readonly"></td>
+
+								<td class="input-width"><input type="text" name="taxNum" ng-model="deduction.taxNum"
+									placeholder="taxNum" readonly="readonly"></td>
+								<td class="input-width"><input type="text" name="currency"
+									ng-model="deduction.currency" placeholder="currency"
+									readonly="readonly"></td>
+								<td><select ng-model="deduction.payRate" ng-required="true"><option
+											ng-repeat="payRate in payRates">{{payRate.name}}</option>
+								</select></td>
+								<td><select ng-model="deduction.payCycle" ng-required="true"><option
+											ng-repeat="payCycle in payCycles">{{payCycle.name}}</option>
+								</select></td>
+
+								<td><select name="residentOrNonResident"
+									ng-model="deduction.residentOrNonResident" ng-required="true">
+										<option
+											ng-repeat="residentOrNonResident in residentOrNonResidents">{{residentOrNonResident.name}}</option>
+								</select></td>
+								<td><select ng-model="deduction.marriedStatus"
+									ng-required="true"><option
+											ng-repeat="marriedStatus in marriedStatuss">{{marriedStatus.name}}</option>
+								</select></td>
+
+								<td class="input-width"><input type="text" name="children"
+									onkeypress='return event.charCode >= 48 && event.charCode <= 57'
+									ng-model="deduction.children" placeholder="children"
+									ng-required="true"></td>
+								<td><select ng-model="deduction.allowancesTaxable"
+									ng-required="true"><option
+											ng-repeat="allowancesTaxable in allowancesTaxables">{{allowancesTaxable.name}}</option>
+								</select></td>
+								<td><select ng-model="deduction.yesOrNo1" ng-required="true"><option
+											ng-repeat="yesOrNo1 in yesOrNo1s">{{yesOrNo1.name}}</option>
+								</select></td>
+
+								<!-- <td class="input-width"><input type="text" name="yesOrNo1"
+									ng-model="deduction.yesOrNo1" placeholder="yesOrNo1"
+									ng-required="true"></td> -->
+								<td class="input-width"><input type="number" name="eligibleAmount"
+									ng-model="deduction.eligibleAmount" placeholder="eligibleAmount"
+									ng-required="true"></td>
+								<td><select ng-model="deduction.yesOrNo2" ng-required="true"><option
+											ng-repeat="yesOrNo2 in yesOrNo2s">{{yesOrNo2.name}}</option>
+								</select></td>
+								<td class="input-width"><input type="text" name="medicalTax"
+									ng-model="deduction.medicalTax" placeholder="medicalTax"
+									ng-required="true"></td>
+								<td><select ng-model="deduction.yesOrNo3" ng-required="true"><option
+											ng-repeat="yesOrNo3 in yesOrNo3s">{{yesOrNo3.name}}</option>
+								</select></td>
+								<td><select ng-model="deduction.yesOrNo4" ng-required="true"><option
+											ng-repeat="yesOrNo4 in yesOrNo4s">{{yesOrNo4.name}}</option>
+								</select></td>
+								<td class="input-width"><input type="text" name="bp1" ng-model="deduction.bp1"
+									placeholder="bp1" ng-required="true"></td>
+								<td class="input-width"><input type="number" name="fixedAmount1"
+									ng-model="deduction.fixedAmount1" placeholder="fixedAmount1"
+									ng-required="true"></td>
+								<td class="input-width"><input type="number" name="ratePerDay"
+									ng-model="deduction.ratePerDay" placeholder="ratePerDay"
+									ng-required="true"></td>
+								<td class="input-width"><input type="text" name="bp2" ng-model="deduction.bp2"
+									placeholder="bp2" ng-required="true"></td>
+
+								<td class="input-width"><input type="number" name="fixedAmount2" 
+									ng-model="deduction.fixedAmount2" placeholder="fixedAmount2"
+									ng-required="true"></td>
+								<td><input type="file" name="doc" ng-model="deduction.doc"
+									placeholder="doc"></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+		</div>
+		<div class="panel-footer">
+			<div class="pull-right">
+				<input type="button" class="btn btn-brown btn-sm" 	ng-click="save()" value="Save"> 
+				</div>
+					<div class="pull-left">
+				<input type="button" class="btn btn-brown btn-sm" ng-click="addRows()" value="Add" ng-show="action =='Add'"> 
+				<input type="button" class="btn btn-brown btn-sm" ng-click="deleteRows()" value="Delete" ng-show="action =='Add'">
+			</div>
+		</div>
+	</div>
+	</form>
+	</div>

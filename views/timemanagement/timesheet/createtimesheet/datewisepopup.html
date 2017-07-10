@@ -1,0 +1,126 @@
+<div id="tab-pannel" class="panel-group">
+	<form name="dateForm" validate>
+		<div id="tab-pannel" class="panel panel-default">
+			<div class="panel-heading">
+				<h4 class="panel-title" ng-show="action =='Add'">Add Project</h4>
+				<h4 class="panel-title" ng-show="action =='Edit'">Edit Project</h4>
+			</div>
+			<div id="tab-pannel" class="panel-body5 panel panel-default">
+				<div class="table-responsive">
+
+					<table class="table">
+						<thead>
+							<tr>
+								<th rowspan=2 class="vert-align" ng-hide="action =='Edit'">Select</th>
+								<th colspan=8 class="text-center">DatewiseHours worked & TaskPerformed</th>
+        		                
+        		                
+							</tr> 
+							
+							<tr>
+        		<th>mon</th>
+        		<th>tue</th>
+        		<th>wed</th>
+        		<th>thu</th>
+        		<th>fri</th> 
+        		<th>sat</th>
+        		<th>sun</th>
+        		<th>total</th>
+        		
+        		
+        	</tr>	
+						</thead>
+						<tbody>
+							<tr ng-repeat="date in dateList">
+								<td ng-hide="action =='Edit'"><input type="checkbox"
+									ng-model="date.selected"
+									ng-click="datePopUpRowSelect(date)"></td>
+
+						         <td><input type="text" 
+									ng-model="date.mon" name="mon"
+									ng-click="dateDetails(date)" placeholder="mon"
+									ng-required="true"/> <span
+									ng-show="dateForm.mon.$dirty && dateForm.mon.required">employeeID is mandatory</span> 
+									<span ng-show="dateForm.mon.$error.pattern">Enter
+										correct employeeID</td>
+									
+									 <td><input type="text" 
+									ng-model="date.tue" name="tue"
+									ng-click="dateDetails(date)" placeholder="tue"
+									ng-required="true"/> <span
+									ng-show="dateForm.tue.$dirty && dateForm.tue.required">employeeID is mandatory</span> 
+									<span ng-show="dateForm.tue.$error.pattern">Enter
+										correct employeeID</td>
+									
+									 <td><input type="text" 
+									ng-model="date.wed" name="wed"
+									ng-click="dateDetails(date)" placeholder="wed"
+									ng-required="true"/> <span
+									ng-show="dateForm.wed.$dirty && dateForm.wed.required">employeeID is mandatory</span> 
+									<span ng-show="dateForm.wed.$error.pattern">Enter
+										correct employeeID</td>
+									
+										 <td><input type="text" 
+									ng-model="date.thu" name="thu"
+									ng-click="dateDetails(date)" placeholder="thu"
+									ng-required="true"/> <span
+									ng-show="dateForm.thu.$dirty && dateForm.thu.required">employeeID is mandatory</span> 
+									<span ng-show="dateForm.thu.$error.pattern">Enter
+										correct employeeID</td>
+									
+									 <td><input type="text" 
+									ng-model="date.fri" name="fri"
+									ng-click="dateDetails(date)" placeholder="fri"
+									ng-required="true"/> <span
+									ng-show="dateForm.fri.$dirty && dateForm.fri.required">employeeID is mandatory</span> 
+									<span ng-show="dateForm.fri.$error.pattern">Enter
+										correct employeeID</td>
+										
+											 <td><input type="text" 
+									ng-model="date.sat" name="sat"
+									ng-click="dateDetails(date)" placeholder="sat"
+									ng-required="true"/> <span
+									ng-show="dateForm.sat.$dirty && dateForm.sat.required">employeeID is mandatory</span> 
+									<span ng-show="dateForm.sat.$error.pattern">Enter
+										correct employeeID</td>
+										
+											 <td><input type="text" 
+									ng-model="date.sun" name="sun"
+									ng-click="dateDetails(date)" placeholder="sun"
+									ng-required="true"/> <span
+									ng-show="dateForm.sun.$dirty && dateForm.sun.required">employeeID is mandatory</span> 
+									<span ng-show="dateForm.sun.$error.pattern">Enter
+										correct employeeID</td>
+											 <td><input type="text" 
+									ng-model="date.total" name="total"
+									ng-click="dateDetails(date)" placeholder="total"
+									ng-required="true"/> <span
+									ng-show="dateForm.total.$dirty && dateForm.total.required">employeeID is mandatory</span> 
+									<span ng-show="dateForm.total.$error.pattern">Enter
+										correct employeeID</td>
+											 
+									
+									
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+			<div class="panel-footer">
+				<div class="pull-left">
+					<input type="submit" class="btn bottomaligned btn-brown btn-sm"
+						ng-click="addDateRows()" value="Add"
+						ng-show="action =='Add'" /> <input type="button"
+						class="btn bottomaligned btn-brown btn-sm"
+						ng-click="deleteProjRows()" value="Delete"
+						ng-show="action =='Add'" />
+				</div>
+				<div class="pull-right">
+					<input type="submit" class="btn bottomaligned btn-brown btn-sm"
+						value="Save" ng-click="dateForm.$valid && saveDate()" />
+				</div>
+			</div>
+		</div>
+	</form>
+</div>
+ 

@@ -1,0 +1,35 @@
+<div id="tab-pannel" class="panel-group">
+		<div class="table-responsive panel-body22-1">
+					<table class="table table-bordered table-striped">
+						<thead>
+							<tr>
+							 <th >Select</th>
+								<th>EPS Name</th>
+								<th>Project Name</th>
+								<th>Plant Current Status</th>
+								<th>Purchase or Commissioning Date</th>
+								<th>Mobilization Date</th>
+								<th>Anticipated de-mobilization Date</th>
+								<th>De-mobilization Date</th>
+								<th>Current  Meter Reading</th>
+							</tr>
+						</thead>
+						<tbody>
+						<tr ng-repeat="tab in currentStatusData">
+						 <td><input type="checkbox" value="id" ng-model="status.selected"
+					ng-click="rowSelect(status)"></td>
+							<td>{{status.EPSName}}</td>
+								<td>{{status.projectName}}</td>
+								<td>{{status.plntcurrent}}</td>
+								<td>{{status.purchase}}</td>
+								<td>{{status.mobilisation}}</td>
+								<td>{{status.Anticipdemobilisation}}</td>
+								<td>{{status.demobilisation}}</td>
+								<td>{{status.odometer}}</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+			
+				

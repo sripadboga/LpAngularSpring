@@ -1,0 +1,26 @@
+<div id="tab-pannel">
+	<div class="panel-group">
+		<div class="table-responsive panel-body10 panel-collapse collapse in">
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<th>Store ID</th>
+						<th>Store Description</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="tab in storeYardData | orderBy:['code']"
+						ng-dblclick="deliveryPlacePopup(tab,1)">
+                    <!-- <tr ng-show="storeYardData.length == 0">
+						<td class="noresults" colspan="5" >No records found</td>
+					</tr> -->
+						<td>{{tab.code}}</td>
+						<td>{{tab.desc}}</td>
+					</tr>
+
+
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>

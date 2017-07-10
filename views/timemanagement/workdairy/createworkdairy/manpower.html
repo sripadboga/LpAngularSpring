@@ -1,0 +1,69 @@
+<div class="panel-body16">
+	<div class="table-responsive">
+		<table class="table table-bordered table-striped">
+			<thead>
+				<tr>
+					<th rowspan="3">Select</th>
+					<th rowspan="3">Employee ID</th>
+					<th rowspan="3">First Name</th>
+					<th rowspan="3">Last Name</th>
+					<th rowspan="3">Designation</th>
+					<th rowspan="3">Category</th>
+					<th rowspan="3">Wage Factor</th>
+					<!-- <th rowspan="3">Unit Of Measure</th> -->
+					<th colspan="{{workDairyCostCodeList.length*2+3}}"
+						class="text-center">Manpower Utilization</th>
+					<th rowspan="3">Comments</th>
+					<th rowspan="3">Approval Status</th>
+				</tr>
+				<tr>
+					<th colspan="{{workDairyCostCodeList.length+1}}"
+						class="text-center">Used Time</th>
+					<th colspan="{{workDairyCostCodeList.length+1}}"
+						class="text-center">Idle Time</th>
+					<th>Total</th>
+				</tr>
+				<tr>
+					<th ng-repeat="workDairyCostCode in  workDairyCostCodeList">{{workDairyCostCode.code}}</th>
+					<th>Total</th>
+					<th ng-repeat="workDairyCostCode in  workDairyCostCodeList">{{workDairyCostCode.code}}</th>
+					<th>Total</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="man in mans">
+					<td><input type="checkbox" ng-click="manpowerRowSelect(man)"
+						ng-model="man.select"></td>
+					<td>{{man.code}}</td>
+					<td>{{man.firstName}}</td>
+					<td>{{man.lastName}}</td>
+					<td>{{man.designaton}}</td>
+					<td>{{man.category}}</td>
+					<!-- <td>{{man.unitOfMeasure}}</td> -->
+					<td>{{man.wageRateFactorId}}</td>
+					<td ng-repeat=""></td>
+					<td>{{man.usedTotal}}</td>
+					<td ng-repeat=""></td>
+					<td>{{man.idleTotal}}</td>
+					<td>{{man.total}}</td>
+					<td>{{man.comments}}</td>
+					<td>{{man.approvalPerson}}</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
+<div class="panel-footer">
+	<div class="pull-right">
+		<input type="button" class="btn btn-brown bottomaligned"
+			ng-click="addManpower('Add')" value="Create">
+	</div>
+	<div class="pull-left">
+		<input type="button" class="btn btn-brown bottomaligned"
+			ng-click="addManpower('Edit')" value="Edit"> <input
+			type="button" class="btn btn-brown bottomaligned"
+			ng-click="deleteManpower()" value="Deactivate"> <input
+			type="button" class="btn btn-brown bottomaligned"
+			ng-click="printPreview()" value="Print Preview">
+	</div>
+</div>

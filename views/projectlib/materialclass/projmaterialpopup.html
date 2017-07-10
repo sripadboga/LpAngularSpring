@@ -1,0 +1,80 @@
+<div id="tab-pannel" class="panel-group">
+	<form name="materialForm" validate>
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h4 class="panel-title">Material Classifications</h4>
+			</div>
+			<div class="panel-body10">
+				<div id="tableHeight8-2">
+					<table class="table table-striped" fixed-header>
+						<thead>
+							<tr>
+								<th ng-show="action=='Add'">Select</th>
+								<th>Resource ID</th>
+								<th>Resource Name</th>
+								<th>Sub Group ID - Sub Group Name</th>
+								<th>Unit Of Measure</th>
+								<th>Internal Project Transfer</th>
+								<th>External Project Transfer</th>
+							</tr>
+						</thead>
+						<tr ng-repeat="tab in addTableData">
+							<td ng-show="action=='Add'"><input type="checkbox"
+								value="id" class="ng-pristine ng-valid" ng-model="tab.select"
+								ng-click="popUpRowSelect(tab)"></td>
+							<td ng-form="classform"><input type="text"
+								ng-model="tab.code" name="code" placeholder="Resource ID"
+								maxlength=30 pattern="^[a-z  A-Z\d\s]+$" ng-required="true">
+								<span
+								ng-show="classform.code.$dirty && classform.code.$error.required">This
+									field is required</span> <span ng-show="classform.code.$error.pattern">Special
+									characters are not allowed</span> <span
+								ng-show="classform.code.$error.maxlength">You reached max
+									length</span></td>
+							<td ng-form="classform1"><input type="text"
+								ng-model="tab.name" name="name" placeholder="Resource Name"
+								maxlength=50 pattern="^[a-z A-Z\d\s]+$" ng-required="true">
+								<span
+								ng-show="classform.name.$dirty && classform.name.$error.required">This
+									field is required</span> <span
+								ng-show="classform1.name.$error.pattern">Special
+									characters are not allowed</span> <span
+								ng-show="classform1.name.$error.maxlength">You reached
+									max length</span></td>
+							<td ng-form="classform2"><select
+								ng-options="res.dispName for res  in resourceData track by res.code"
+								ng-change="updateResCode(tab.materialSubGroupTO,tab);"
+								ng-model="tab.materialSubGroupTO" name="code" ng-required="true">
+									<option value="">-select-</option>
+							</select></td>
+							<td ng-form="classform4"><select
+								ng-options="catg.name for catg  in catgData track by catg.name"
+								ng-change="updateCatgCode(tab.measureUnitTO,tab);"
+								ng-model="tab.measureUnitTO" value="name" ng-required="true" >
+									<option value="">-select-</option>
+							</select></td>
+							<td><input type="checkbox" ng-model="tab.internalApproved">
+							</td>
+							<td><input type="checkbox" ng-model="tab.externalApproved">
+							</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+			<div class="panel-footer">
+				<div class="pull-left">
+					<input type="submit" class="btn bottomaligned btn-brown btn-sm"
+						ng-show="action=='Add'"
+						ng-click="materialForm.$valid && addMaterialClass()" value="Add" />
+					<input type="button" class="btn bottomaligned btn-brown btn-sm"
+						ng-click="deleteRows()" ng-show="action=='Add'" value="Delete" />
+				</div>
+				<div class="pull-right">
+					<input type="submit" class="btn bottomaligned btn-brown btn-sm"
+						ng-click="materialForm.$valid && saveProjMaterialClasses()"
+						value="Save" />
+				</div>
+			</div>
+		</div>
+	</form>
+</div>

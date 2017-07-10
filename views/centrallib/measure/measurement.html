@@ -1,0 +1,60 @@
+<div id="tab-pannel" ng-controller="MeasureController" ng-init="measureSearch()">
+	<div class="panel-group">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h4 class="panel-title">Measuring Units</h4>
+			</div>
+			<div class="panel-body1 spacer2">
+				<div class="pull-left left-padding">
+					<input type="text" ng-model="measReq.mesureCode" placeholder="Measurement  Code"> 
+					<input type="text" ng-model="measReq.mesureName" placeholder="Measurement Name">
+					<select ng-model="measReq.status">
+						<option value="0" label="Select Status" class="statusSelect" selected="selected"></option>
+						<option value="1" label="Active"></option>
+						<option value="2" label="InActive"></option>
+					</select>
+				</div>
+				<div class="pull-right right-padding">
+					<input type="button" ng-click="measureSearch()" value="Search" class="btn bottomaligned btn-brown btn-sm" /> 
+					<input type="reset" class="btn bottomaligned btn-brown btn-sm" ng-click="reset()" value="Reset" />
+				</div>
+			</div>
+			<div class="panel-body22">
+				<div id="tableHeight20-2" class="table-responsive panel-collapse collapse in">
+					<table class="table table-striped" fixed-header>
+						<thead id="tab-head">
+							<tr>
+								<th>Select</th>
+								<th>Measurement Code</th>
+								<th>Measurement Name</th>
+								<th>Classifications</th>
+								<th>Status</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr ng-repeat="measurement in measuringUnits  | orderBy:['code','name'] ">
+								<td>
+									<input type="checkbox" ng-model="measurement.selected" ng-click="rowSelect(measurement)">
+								</td>
+								<td>{{measurement.code }}</td>
+								<td>{{measurement.name }}</td>
+								<td>{{measurement.procurementTO.name}}</td>
+								<td>{{measurement.status | potstatusfilter:measurement.status}}</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+			<div class="panel-footer">
+				<div class="pull-right">
+					<input type="button" class="btn bottomaligned btn-brown btn-sm" ng-click="addMeasureUnits('Add')" value="Create" ng-show=" activeFlag==1"  />
+				</div>
+				<div class="pull-left">
+					<input type="button" class="btn bottomaligned btn-brown btn-sm" ng-click="addMeasureUnits('Edit')" value="Edit" ng-show=" activeFlag==1" />
+					<input type="button" class="btn bottomaligned btn-brown btn-sm" ng-click="deleteMeasurements()" value="Deactivate"  ng-show="account.appCodeTemplate['ENTRPRSE_CENTLIB_MEASUREUNIT_DELETE'] && activeFlag==1"/>
+					<input type="button" class="btn bottomaligned btn-brown btn-sm" ng-click="activeMeasurements()" value="Activate"  ng-show="account.appCodeTemplate['ENTRPRSE_CENTLIB_MEASUREUNIT_DELETE'] && activeFlag==2"/>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

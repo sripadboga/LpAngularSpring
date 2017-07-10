@@ -1,0 +1,80 @@
+<div id="tab-pannel" ng-controller="ProjMaterialClassController">
+	<div class="panel-group">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h4 class="panel-title">Material Classifications</h4>
+			</div>
+			<div class="panel-body1 spacer2">
+				<div class="pull-left left-padding">
+					<input type="text" ng-model="searchProject.parentName"
+						placeholder="EPS ID/EPS Name" ng-click="getUserProjects()">
+					<input type="text" ng-model="searchProject.projName"
+						placeholder="Project ID/Project Name" ng-click="getUserProjects()">
+					<select ng-model="materialReq.status">
+						<option value="1" label="Active" selected="selected"></option>
+						<option value="2" label="InActive"></option>
+					</select>
+				</div>
+				<div class="pull-right right-padding">
+					<input type="button" ng-click="getProjMaterialClasses()"
+						class="btn bottomaligned btn-brown btn-sm" value="Search"
+						ng-model="searchText"> <input type="reset"
+						class="btn bottomaligned btn-brown btn-sm"
+						ng-click="resetProjMaterialClasses()" value="Reset" />
+				</div>
+			</div>
+				<div class="panel-body22">
+					<div id="tableHeight20-2"
+						class="table-responsive  panel-collapse collapse in">
+						<table class="table table-striped" fixed-header>
+							<thead>
+								<tr>
+									<th>Select</th>
+									<th>Resource ID</th>
+									<th>Resource Name</th>
+									<th>Sub Group ID-Sub Group Name</th>
+									<th>Unit Of Measure</th>
+									<th>Internal Project Transfer</th>
+									<th>External Project Transfer</th>
+									<th>Status</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr ng-repeat="tab in tableData | orderBy:['code','name']">
+									<td><input type="checkbox" value="id"
+										class="ng-pristine ng-valid" ng-model="tab.select"
+										ng-click="rowSelect(tab)"></td>
+									<td>{{tab.code}}</td>
+									<td>{{tab.name}}</td>
+									<td>{{tab.materialSubGroupTO.code}} -
+										{{tab.materialSubGroupTO.name}}</td>
+									<td>{{tab.measureUnitTO.name}}</td>
+									<td><input type="checkbox" ng-model="tab.internalApproved"
+										ng-disabled="true"></td>
+									<td><input type="checkbox" ng-model="tab.externalApproved"
+										ng-disabled="true"></td>
+									<td>{{tab.status | potstatusfilter:tab.status}}</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+				<div class="panel-footer">
+					<div class="pull-right">
+						<input type="button" ng-click="addTableData('Add',searchProject)" 
+							class="btn bottomaligned btn-brown btn-sm" value="Create" ng-show="account.appCodeTemplate['PRJ_PRJLIB_PRJMATRLCLSFY_ADD'] && activeFlag==1"  />
+					</div>
+					<div class="pull-left">
+						<input type="submit" ng-click="addTableData('Edit',searchProject)"
+							class="btn bottomaligned btn-brown btn-sm" value="Edit"  ng-show="account.appCodeTemplate['PRJ_PRJLIB_PRJMATRLCLSFY_ADD'] && activeFlag==1"/> 
+							<input
+							type="submit" ng-click="deleteProjMaterialClasses()"
+							class="btn bottomaligned btn-brown btn-sm" value="Deactivate"   ng-show="account.appCodeTemplate['PRJ_PRJLIB_PRJMATRLCLSFY_DELETE'] && activeFlag==1"/>
+							<input
+							type="submit" ng-click="activeProjMaterialClasses()"
+							class="btn bottomaligned btn-brown btn-sm" value="Activate"  ng-show="account.appCodeTemplate['PRJ_PRJLIB_PRJMATRLCLSFY_DELETE']  && activeFlag==2" />
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>

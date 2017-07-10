@@ -1,0 +1,69 @@
+<div id="tab-pannel" class="panel-group"
+	ng-controller="PlantTransferController">
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<h4 class="panel-title">Plant Transfer</h4>
+		</div>
+		<div class="spacer2 panel-body1">
+			<div class="pull-left left-padding">
+				<input type="text" ng-model="searchProject.projName"
+					placeholder="Project ID/Project Name" ng-click="getUserProjects()">
+				<input type="text" ng-model="searchPlant"
+					placeholder="Plant Id"
+					ng-click="getPlantDetails(searchProject.projId)">
+				<select ng-model="plantReq.apprStatus">
+					<option value="0" label="Select Status" class="statusSelect"
+						selected="selected"></option>
+					<option value="2">Inprogress</option>
+					<option value="1">Approve</option>
+					<option value="3">Reject</option>
+				</select>
+			</div>
+			<div class="pull-right right-padding">
+				<input type="button"
+					ng-click="getPlantTransferDetails(searchProject.projId)"
+					class="btn bottomaligned btn-brown btn-sm" value="Search"
+					ng-model="searchText"> <input type="reset"
+					class="btn bottomaligned btn-brown btn-sm"
+					ng-click="resetInternalRequest()" value="Reset">
+			</div>
+		</div>
+		<div class="panel-body22">
+
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<th>Select</th>
+						<th>Project ID</th>
+						<th>Plant Id</th>
+						<th>From Project</th>
+						<th>To Project</th>
+						<th>Approver Details</th>
+						<th>Status</th>
+						<th>Comments</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="empRequest in plantRequestDetails">
+						<td>{{}}</td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<div class="panel-footer">
+			<div class="pull-right">
+				<input type="button" class="btn bottomaligned btn-brown btn-sm"
+					ng-click="createPlantRequest('Add')" value="Create Request">
+				<input type="button" class="btn bottomaligned btn-brown btn-sm"
+					ng-click="approverRequest()" value="Approve"> <input
+					type="button" class="btn bottomaligned btn-brown btn-sm"
+					ng-click="rejectRequest()" value="Reject">
+			</div>
+		</div>
+	</div>
+</div>

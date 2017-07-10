@@ -1,0 +1,65 @@
+<div id="tab-pannel">
+<div class="panel-group">
+	<div class="panel panel-default panel-body20-4-1">
+		<div class="table-responsive">
+			<table class="table table-bordered table-striped">
+				<thead>
+					<tr>
+		<th>Select</th>
+			<th>Date</th>
+			<th>Project Name</th>
+			<th>Eps Name</th>
+			<th>Resource Id</th>
+			<th>Resource Name</th>
+			<th>Resource Sub Group Name</th>
+			<th>Unit Of Measure</th>
+			<th>Material Supplier Name</th>
+			<th>Purchase Order Number</th>
+			<th>PO Schedule Item Id</th>
+			<th>Docket Date</th>
+			<th>Docket Number</th>
+			<th>WorkDiary Id</th>
+			<th>Supervisor Name</th>
+			<th>Date Wise Consumption Quantity</th>
+			<th>Docket Wise Cumulative Consumption</th>
+		</tr>
+		</thead>
+		<tbody>
+		<tr ng-repeat="consumption in dateWiseConsumption">
+					<td><input type="checkbox" value="id" ng-model="consumption.selected"
+						ng-click="consumptionRowSelect(consumption)"></td>
+					<td>{{consumption.date}}</td>
+					<td>{{consumption.projectName}}</td>
+					<td>{{consumption.epsName}}</td>
+					<td>{{consumption.resourceId}}</td>
+					<td>{{consumption.resourceName}}</td>
+					<td>{{consumption.resourceSubGroupName}}</td>
+					<td>{{consumption.unitOfMeasure}}</td>
+					<td>{{consumption.materialSupplierName}}</td>
+					<td>{{consumption.purchaseOrderNumber}}</td>
+					<td>{{consumption.poScheduleItemId}}</td>
+					<td>{{consumption.docketDate}}</td>
+					<td>{{consumption.docketNumber}}</td>
+					<td>{{consumption.workDiaryId}}</td>
+					<td>{{consumption.supervisorName}}</td>
+					<td>{{consumption.dateWiseConsumptionQuantity}}</td>
+					<td>{{consumption.docketWiseCumulativeConsumption}}</td>
+		</tbody>
+	</table>
+</div>
+</div>
+<div class="panel-footer">
+<div class="pull-right">
+	<input type="button" class="btn btn-brown"
+		ng-click="addDateWiseConsumption('Add')" value="Create">
+		</div>
+		<div class="pull-left">
+		
+		<input type="button" class="btn btn-brown"
+		ng-click="addDateWiseConsumption('Edit')" value="Edit">
+		 <input type="button" class="btn btn-brown" ng-click="deleteDateWiseConsumption()"
+		value="Deactivate"> 
+</div>
+</div>
+</div>
+</div>

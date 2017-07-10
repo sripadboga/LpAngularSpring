@@ -1,0 +1,103 @@
+<div id="tab-pannel">
+
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<h4 class="panel-title">External Stage2 Approval</h4>
+		</div>
+
+		<div class="spacer2 panel-body20">
+			<form name="procureForm" validate>
+				<div class="row" id="input-height">
+					<div class="col-md-2">
+						<input type="text" readonly="readonly"
+							ng-show="preContractObj.id > 0" ng-model="preContractObj.code">
+					</div>
+
+					<div class="col-md-2">
+						<input type="text" name="desc" ng-model="preContractObj.desc"
+							readonly="readonly">
+					</div>
+
+					<div class="col-md-3" ng-form name="form">
+						<select style="min-width: 200px !important;" id="contractType" name="contractType"
+							ng-model="preContractObj.preContractTypeTO"
+							ng-options="contract.code for contract in contractTypes track by contract.code"
+							ng-disabled="true"><option value="">Contract Type</option></select>
+					</div>
+
+					<div class="col-md-1" ng-form name="myForm2">
+						<select id="currency" name="currency"
+							ng-model="preContractObj.currencyTO"
+							ng-options="currency.code for currency in currencyList track by currency.code"
+							ng-disabled="true"><option value="">Currency</option></select>
+					</div>
+
+					<div class="col-md-2" ng-form name="myForm7">
+						<input type="text" name="approver"
+							ng-click="getUsersByModulePermission();"
+							ng-show="preContractObj.workFlowStatusTO.value ==1 || preContractObj.workFlowStatusTO.value ==3"
+							ng-model="approverUserMap[preContractObj.preContractReqApprTO.apprUserLabelkeyTO.id].name"
+							placeholder="Approver ID" maxlength="100" > 
+							<span ng-show="myForm7.approver.$error.maxlength">You Reached max length</span>
+							
+													
+							
+					</div>
+					<div class="col-md-1" ng-form name="myForm8">
+						<input type="text"
+							ng-show="preContractObj.id >1"
+							ng-model="preContractObj.preContractReqApprTO.reqComments"
+							name="comments" placeholder="ReqComments"  ng-disabled="preContractObj.workFlowStatusTO.value ==2 || preContractObj.workFlowStatusTO.value ==4" maxlength="100">
+							<span ng-show="myForm8.comments.$error.maxlength">You Reached Max length</span>
+					</div>
+					<div class="col-md-2" ng-form name="myForm9">
+						<input type="text"
+							ng-show="preContractObj.workFlowStatusTO.value ==2"
+							ng-model="preContractObj.preContractReqApprTO.apprComments"
+							name="comments" placeholder="ApprComments" maxlength="100" ng-hide="preContractObj.workFlowStatusTO.value ==1">
+							<span ng-show="myForm9.comments.$error.maxlength">You Reached Max length</span>
+					</div>
+				</div>
+				<div class="pull-right1 right-padding"
+					ng-hide="preContractObj.workFlowStatusTO.value ==5 || preContractObj.workFlowStatusTO.value ==6">
+					<input type="button" style="margin-top:12px !important" class="btn bottomaligned btn-brown btn-sm"
+						ng-Click="addCompany()" value="AddCompany"
+						ng-show="preContractObj.workFlowStatusTO.value ==1 || preContractObj.workFlowStatusTO.value ==3 || preContractObj.workFlowStatusTO.value ==2"> 
+						<input
+						type="Submit" style="margin-top:12px !important" value="Save Contract"
+						ng-click="procureForm.$valid && saveExternalRequest()"
+						ng-show="preContractObj.workFlowStatusTO.value ==2"
+						class="btn bottomaligned btn-brown btn-sm"> <input
+						type="Submit" value="Send For Approval"
+						ng-show="preContractObj.workFlowStatusTO.value ==1 || preContractObj.workFlowStatusTO.value ==3"
+						ng-click="saveExternalRequest(2)"
+						class="btn bottomaligned btn-brown btn-sm">
+					
+						<!--  <input
+						ng-show="preContractObj.workFlowStatusTO.value ==2" type="Submit"
+						value="Send Back To Requestor" ng-click="saveExternalRequest(3)"
+						class="btn bottomaligned btn-brown btn-sm"> <input
+						type="Submit" value="On Hold" ng-click="saveExternalRequest(4)"
+						ng-hide="preContractObj.workFlowStatusTO.value ==1 || preContractObj.workFlowStatusTO.value ==5 "
+						class="btn bottomaligned btn-brown btn-sm"> <input
+						ng-show="preContractObj.workFlowStatusTO.value ==2" type="Submit"
+						value="Approve" ng-click="saveExternalRequest(5)"
+						class="btn bottomaligned btn-brown btn-sm"> <input
+						ng-show="preContractObj.workFlowStatusTO.value ==2" type="Submit"
+						value="Reject" ng-click="saveExternalRequest(6)"
+						class="btn bottomaligned btn-brown btn-sm"> -->
+				</div>
+			</form>
+			<div id="tabs1" class="spacer4">
+				<ul class="nav nav-tabs">
+					<li ng-repeat="preContarctDetailTab in preContrctDetailTabs"
+						ng-class="{active:isActiveTab1(preContarctDetailTab.url)}"><a
+						data-toggle="tab" ng-click="onClickTab1(preContarctDetailTab)">{{preContarctDetailTab.title}}</a></li>
+				</ul>
+				<div class="tab-content">
+					<div ng-include="currentTab1"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

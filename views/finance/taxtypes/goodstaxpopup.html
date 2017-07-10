@@ -1,0 +1,84 @@
+<div id="tab-pannel" class="panel-group">
+	<form name="goodsForm" validate>
+		<div id="tab-pannel" class="panel panel-default">
+			<div class="panel-heading">
+				<h4 class="panel-title" ng-show="action =='Add'">Add Project</h4>
+				<h4 class="panel-title" ng-show="action =='Edit'">Edit Project</h4>
+			</div>
+			
+			<div id="tab-pannel" class="panel-body5 panel panel-default">
+				<div class="table-responsive">
+
+					<table class="table">
+						<thead>
+							<tr>
+						    <th ng-hide="action =='Edit'">Select</th>
+							<th>Invoice amount</th>
+        		            <th>Tax Rate in %</th>
+        	                <th>Notes</th>
+        		
+        		         </tr>
+							
+						</thead>
+						<tbody>
+							<tr ng-repeat="goods in goodsList">
+								<td ng-hide="action =='Edit'"><input type="checkbox"
+									ng-model="goods.selected"
+									ng-click="goodsPopUpRowSelect(goods)"></td>
+
+						      
+									  <td><input type="text" 
+									ng-model="goods.invoiceAmount" name="invoiceAmount"
+								    placeholder="invoiceAmount" pattern="^[a-zA-Z0-9-_%]+$"
+									ng-required="true"/> <span
+									ng-show="goodsForm.invoiceAmount.$dirty && goodsForm.invoiceAmount.required">invoiceAmount is mandatory</span> 
+									<span ng-show="goodsForm.invoiceAmount.$error.pattern">Enter
+										correct invoiceAmount</span> <span
+									ng-show="goodsForm.invoiceAmount.$error.minlength">To Short!</span></td>
+									
+									
+									 <td><input type="text"
+									ng-model="goods.taxRate" name="taxRate"
+									 placeholder="taxRate" pattern="^[0-9<>%]+$"
+									ng-required="true" /> <span
+									ng-show="goodsForm.taxRate.$dirty && goodsForm.taxRate.required">taxRate is mandatory</span> 
+									<span ng-show="goodsForm.taxRate.$error.pattern">Enter
+										correct taxRate</span> <span
+									ng-show="goodsForm.taxRate.$error.minlength">To Short!</span></td>
+									
+									 <td><input type="text" 
+									ng-model="goods.comments" name="comments"
+									 placeholder="comments" pattern="^[a-zA-Z0-9-_%,$]+$"
+									ng-required="true" /> <span
+									ng-show="goodsForm.comments.$dirty && goodsForm.comments.required">comments is mandatory</span> 
+									<span ng-show="goodsForm.comments.$error.pattern">Enter
+										correct comments</span> <span
+									ng-show="goodsForm.comments.$error.minlength">To Short!</span></td>					
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+			<div class="panel-footer">
+				<div class="pull-left">
+					<input type="submit" class="btn bottomaligned btn-brown btn-sm"
+						ng-click="addgoodsRows()" value="Add"
+						ng-show="action =='Add'" /> <input type="button"
+						class="btn bottomaligned btn-brown btn-sm"
+						ng-click="deleteProjRows()" value="Delete"
+						ng-show="action =='Add'" />
+				</div>
+				<div class="pull-right">
+					<input type="submit" class="btn bottomaligned btn-brown btn-sm"
+						value="Save" ng-click="goodsForm.$valid && savegoodstax()" />
+				</div>
+			</div>
+		</div>
+	</form>
+</div>
+ 
+ 
+ 
+ 
+ 
+ 

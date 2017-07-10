@@ -1,0 +1,82 @@
+<div id="tab-pannel" class="panel-group">
+				<form name="plntRegForm2" validate>
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<h4 class="panel-title">Log Book Records</h4>
+		</div>
+		<div class="table-responsive">
+			<div class="panel-body15">
+					<table class="table table-bordered table-striped">
+						<thead>
+							<tr>
+								<th>Select</th>
+								<th>Date</th>
+								<th>Asset Name</th>
+								<th>EPS</th>
+								<th>Project</th>
+								<th>Driver or operator ID</th>
+								<th>Driver or operator Name</th>
+								<th>Start meter reading</th>
+								<th>End meter reading</th>
+								<th>Net Unit Used</th>
+								<th>Purpose</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr ng-repeat="logbook in addLogBookData">
+								<td class="vert-align"><input type="checkbox" value="logbook.id"
+									ng-model="logbook.selected"  ng-click="logBookPopUpRowSelect(logbook)"></td>
+								<td class="input-width"><input type="Date" name="date" ng-model=logbook.date
+									placeholder="date" ng-required="true" ><span
+									ng-show="plntRegForm2.date.$error.pattern">
+										</span></td>
+								<td class="input-width"><input type="text" name="AssName"
+									ng-model="logbook.AssName" placeholder="AssName"
+									ng-required="true" pattern="[a-zA-Z-\s]+"><span
+									ng-show="plntRegForm2.AssName.$error.pattern">only
+										alphabets allowed</span></td>
+								<td class="input-width"><input type="text" name="Eps" ng-model="logbook.Eps"
+									placeholder="Eps" ng-required="true"></td>
+								<td class="input-width"><input type="text" name="Project"
+									ng-model="logbook.Project" placeholder="Project"
+									ng-required="true"></td>
+								<td class="input-width"><input type="text" name="DriverId"
+									ng-model="logbook.DriverId" placeholder="DriverId"
+									ng-required="true"></td>
+								<td class="input-width"><input type="text" name="DriverName"
+									ng-model="logbook.DriverName" placeholder="DriverName"
+									ng-required="true"></td>
+
+								<td class="input-width"><input type="text" name="StrtMtrRdng"
+									ng-model="logbook.StrtMtrRdng" placeholder="StrtMtrRdng"
+									ng-required="true"></td>
+								<td class="input-width"><input type="text" name="EndMeterRdng"
+									ng-model="logbook.EndMeterRdng" placeholder="EndMeterRdng"
+									ng-required="true"></td>
+								<td class="input-width"><input type="text" name="NetUnit"
+									ng-model="logbook.NetUnit" placeholder="NetUnit"
+									ng-required="true"></td>
+								<td class="input-width"><input type="text" name="Purpose"
+									ng-model="logbook.Purpose" placeholder="Purpose"
+									ng-required="true"></td>
+							</tr>
+						</tbody>
+					</table>
+			</div>
+			</div>
+				<div class="panel-footer">
+			<div class="pull-left">
+				<input type="button" class="btn btn-brown btn-sm" ng-click="addRows()"
+					value="Add" ng-show="action =='Add'">
+				<input type="button"
+					class="btn btn-brown btn-sm" ng-click="deleteRows()" value="Delete"
+					ng-show="action =='Add'">
+			</div>
+			<div class="pull-right">
+					<input type="button" class="btn btn-brown btn-sm"
+					ng-click="save()" value="Save">
+			</div>
+		</div>
+		</div>
+		</form>
+	</div>

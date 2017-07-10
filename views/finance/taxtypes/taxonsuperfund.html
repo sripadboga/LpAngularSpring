@@ -1,0 +1,64 @@
+<div id="tab-pannel" ng-controller="TaxOnSuperfundController" ng-init="getSuperfundTax()">
+	<div class="panel-group panel panel-default">
+		<div class="panel-heading">
+			<h4 class="panel-title">TaxOnSuperfund</h4>
+		</div>
+		<div class="panel-body25 spacer1">
+			
+		<div class="panel-group">
+		
+		<table class="table table-striped table-bordered">
+			<thead>
+        	<tr>
+        	<th>Select</th>
+        		<th>Annual Taxable Income  Limit</th>
+        		<th>Super Fund Contribution ( Before Tax)</th>
+        		<th>Tax Rate in % over Super fund amount</th>
+        		<th>Notes</th>
+        		
+        		
+        	</tr>
+        	
+        	</thead>
+        	<tbody>
+        	<tr ng-repeat="taxon in superFund">
+				
+				<td><input type="checkbox" ng-model="taxon.select"
+							ng-click="taxonrowselect(taxon)"></td>
+							
+				<td>{{taxon.limitIncome}}</td>
+				<td>{{taxon.fundAmount}}</td>
+				<td>{{taxon.taxRate}}</td>
+                <td>{{taxon.comments}}</td>
+                
+              </tr>
+              </tbody>
+        </table>
+		</div>
+		</div>
+<div class="panel-footer">
+		<div class="pull-right">
+			<input type="button" class="btn bottomaligned btn-brown btn-sm"
+				value="Create" ng-click="addTaxon('Add')">
+		</div>
+		<div class="pull-left">
+			<input type="button" class="btn bottomaligned btn-brown btn-sm"
+				value="Edit" ng-click="addTaxon('Edit')">
+		</div>
+		
+		<div class="pull-left">
+			<input type="button" class="btn bottomaligned btn-brown btn-sm"
+				value="Deactivate" ng-click="deteteTaxon('Deactivate')">
+		</div>
+		
+	</div>
+	
+</div>
+			
+	  </div>
+ 
+ 
+ 
+    
+    
+  

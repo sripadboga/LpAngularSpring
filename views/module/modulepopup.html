@@ -1,0 +1,75 @@
+<div id="tab-pannel" ng-init="getActions()">
+	<form role="form" name="roleform" validate>
+		<div class="panel-group">
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h4 class="panel-title">Modules</h4>
+				</div>
+				
+				<div class="panel-body1 table-responsive spacer1">
+							<div class="col-md-2 col-sm-4 col-xs-6" ng-form name="moduleForm1">
+							<input type="text" name="moduleName" placeholder="Module Name" ng-model="moduleName" ng-required="true" pattern="^[a-z A-Z0-9]+$" minlength="3" maxlength="20">
+								 <span ng-show="moduleForm1.moduleName.$error.pattern">Must enter required format</span>
+								<span ng-show="moduleForm1.moduleName.$error.minlength">Too Short</span>
+							<span ng-show="moduleForm1.moduleName.$error.maxlength">Name length should not greater than 20</span></div>
+							
+							<div class="col-md-2 col-sm-4 col-xs-6" ng-form name="moduleForm2">
+							<input type="text" name="displayOrder" placeholder="Display Order Name" ng-model="moduleDispOrder" ng-required="true" pattern="^[a-z A-Z0-9]+$">
+								 <span ng-show="moduleForm2.moduleDispOrder.$error.pattern">Must enter required format</span></div>
+								 
+							<div class="col-md-2 col-sm-4 col-xs-6" ng-form name="moduleForm3">
+							<input type="text"  name="moduleUrlValue" placeholder="Module URL Value" ng-model="moduleName" ng-required="true" pattern="^[a-z A-Z0-9]+$"> 
+							<span ng-show="moduleForm3.moduleUrlValue.$error.pattern">Must enter required format</span></div>
+							
+							<div class="col-md-6 col-sm-4 col-xs-6" class="vert-align">
+							<span ng-repeat="modAction in moduleActions"> 
+							<input type="checkbox" ng-model="modAction.permission"><span>{{modAction.actionName}}</span></input>
+							</span></div>
+
+				</div>
+				
+				<div class="panel panel-body6">
+				<div id="tableHeight4" class="table-responsive">
+					<table class="table table-striped" fixed-header>
+						<thead>
+							<th>Select</th>
+							<th>Tab Name</th>
+							<th>Display Order</th>
+							<th>Permissions</th>
+						</thead>
+						<tbody>
+							<tr ng-repeat="tabData in tabModules">
+								<td><input type="checkbox" ng-model="tabData.selected"  ng-click="popUpRowSelect(tabData)"/></td>
+								
+								<td><input type="text" placeholder="Tab Name" ng-model="tabData.moduleName" ng-required="true"></td>
+								
+								<td><input type="text" placeholder="Display Order" ng-model="tabData.moduleDispOrder" ng-required="true"></td>
+								
+								<td><span ng-repeat="permission in tabData.permissionTOs">
+								<input type="checkbox" ng-model="permission.permission">{{permission.actionName}}</span>
+								</td>
+								
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				</div>
+				<div class="panel-footer">
+					<div class="pull-left">
+					<input
+							type="submit" class="btn bottomaligned btn-brown btn-sm"
+							value="AddTab" ng-click="roleform.$valid && addTab()"   ng-hide="action =='Edit'"/>
+						<input type="button" class="btn btn-brown btn-sm"
+							ng-click="deleteTabModules()" value="Delete"  ng-hide="action =='Edit'"> 
+					</div>
+					<div class="pull-right">
+						<input Type="submit" value="Save" class="btn btn-brown btn-sm"
+							ng-Click="roleform.$valid && saveModule(roleform)" />
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</form>
+
+</div>

@@ -1,0 +1,49 @@
+<div id="tab-pannel" class="panel-group">
+	<form name="employeesForm" validate>
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h4 class="panel-title">Employee Classification</h4>
+			</div>
+			<div class="panel-body12">
+				<div id="tableHeight8-2" class="table-responsive">
+					<table  fixed-header class="table table-striped">
+						<thead id="tab-head">
+							<tr>
+								<th ng-show="action =='Add'">Select</th>
+								<th>Employee Classification code</th>
+								<th>Employee Classification Name</th>
+							</tr>
+						</thead>
+						<tr ng-repeat="employees in employeesCls">
+	
+							<td ng-show="action =='Add'">
+							<input type="checkbox" ng-model="employees.selected" ng-click=popUpRowSelect(employees)></td>
+	
+							<td ng-form name="employeesform">
+							<input type="text" name="code" ng-model="employees.code" pattern="^[a-zA-Z\s.,]+$" minlength="2" maxlength="20" placeholder="Employee Classification code" ng-required="true">
+								<span ng-show="employeesform.code.$dirty && employeesform.code.$error.required">This field is required</span>
+								<span ng-show="employeesform.code.$error.minlength">Too Short!</span>
+								 <span ng-show="employeesform.code.$error.pattern">Enter Only Alphabets</span> 
+								 <span ng-show="employeesform.code.$error.maxlength">Enter Upto 20 chars only</span></td>
+							<td ng-form name="employeesform1">
+							<input type="text" name="name" ng-model="employees.name" pattern="^[a-zA-Z\d\s.,]+$" minlength="3" maxlength="30" placeholder="Employee Classification Name" ng-required="true">
+								<span ng-show="employeesform1.name.$dirty && employeesform1.name.$error.required">This field is required</span> 
+								<span ng-show="employeesform1.name.$error.minlength">Too Short!</span>
+								<span ng-show="employeesform1.name.$error.pattern">Special characters are not allowed</span> <span
+								ng-show="employeesform1.name.$error.maxlength">Enter Upto 30 chars only</span></td>
+						</tr>
+					</table>
+				</div>
+				</div>
+				<div class="panel-footer">
+					<div class="pull-left">
+						<input type="submit" ng-click="employeesForm.$valid && addRows()" value="Add" ng-show="action =='Add'" class="btn bottomaligned btn-brown btn-sm">
+						 <input type="button" ng-click="deleteRows()" value="Delete" class="btn btn-brown btn-sm" ng-show="action =='Add'">
+					</div>
+					<div class="pull-right">
+						<input type="submit" class="btn btn-brown btn-sm" ng-click="employeesForm.$valid && saveEmpClasses()" class="btn btn-brown btn-sm" value="Save" validate  />
+					</div>
+				</div>
+			</div>
+	</form>
+</div>

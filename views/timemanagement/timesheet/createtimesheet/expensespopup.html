@@ -1,0 +1,84 @@
+ <div id="tab-pannel" class="panel-group">
+	<form name="expensesForm" validate>
+		<div id="tab-pannel" class="panel panel-default">
+			<div class="panel-heading">
+				<h4 class="panel-title" ng-show="action =='Add'">Add Project</h4>
+				<h4 class="panel-title" ng-show="action =='Edit'">Edit Project</h4>
+			</div>
+			<div id="tab-pannel" class="panel-body5 panel panel-default">
+				<div class="table-responsive">
+
+					<table class="table">
+						<thead>
+							<tr>
+								<th ng-hide="action =='Edit'">Select</th>
+								 <th align="center">Date</th>
+								 <th align="center">CostCode ID</th>
+			                     <th align="center">Amount</th>
+			                     <th align="center">Description</th>
+			                   </tr>
+							
+							
+						</thead>
+						<tbody>
+							<tr ng-repeat="expenses in expList">
+								<td ng-hide="action =='Edit'"><input type="checkbox"
+									ng-model="expenses.selected"
+									ng-click="expensesPopUpRowSelect(expenses)"></td>
+
+						         <td><input type="date" 
+									ng-model="expenses.date" name="date"
+									ng-click="expensesDetails(date)"
+									ng-required="true"/> <span
+									ng-show="expensesForm.date.$dirty && expensesForm.date.required">expensesForm is mandatory</span> 
+									<span ng-show="expensesForm.date.$error.pattern">Enter
+										correct employeeID</span> </td>
+											
+									  <td><select ng-change="costCodeID(expenses.costTO,expenses);" 
+									  ng-options="cost.name  for cat in proCategory track by cost.name" 
+									  ng-model="expenses.costTO" ng-required="true">
+								      <option value="">-select-</option> </select></td>
+									
+									<td><input type="text" 
+									ng-model="expenses.amount" name="amount" placeholder="amount"
+									ng-click="expensesDetails(date)"
+									ng-required="true"/> <span
+									ng-show="expensesForm.amount.$dirty && expensesForm.amount.required">expensesForm is mandatory</span> 
+									<span ng-show="expensesForm.amount.$error.pattern">Enter
+										correct employeeID</span> </td>
+									
+									<td><input type="text" 
+									ng-model="expenses.description" name="description"  placeholder="description"
+									ng-click="expensesDetails(date)"
+									ng-required="true"/> <span
+									ng-show="expensesForm.description.$dirty && expensesForm.description.required">expensesForm is mandatory</span> 
+									<span ng-show="expensesForm.description.$error.pattern">Enter
+										correct employeeID</span> </td>
+								</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+			<div class="panel-footer">
+				<div class="pull-left">
+					<input type="submit" class="btn bottomaligned btn-brown btn-sm"
+						ng-click="addRows()" value="Add"
+						ng-show="action =='Add'" /> <input type="button"
+						class="btn bottomaligned btn-brown btn-sm"
+						ng-click="deleteProjRows()" value="Delete"
+						ng-show="action =='Add'" />
+				</div>
+				<div class="pull-right">
+					<input type="submit" class="btn bottomaligned btn-brown btn-sm"
+						value="Save" ng-click="saveExp()" />
+				</div>
+			</div>
+		</div>
+	</form>
+</div>
+ 
+ 
+ 
+ 
+ 
+ 

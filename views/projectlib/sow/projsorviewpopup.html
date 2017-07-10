@@ -1,0 +1,56 @@
+<div id="tab-pannel" class="panel-group" ng-controller="ProjSOWController"  ng-init="getSORDetails()">
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<h4 class="panel-title">Schedule Of Rates</h4>
+		</div>
+
+		<div class="panel-body22 table-responsive">
+			<table class="table table-striped table-fixed-header">
+				<thead>
+					<tr>
+						<th>SOR Id</th>
+						<th>SOR Name</th>
+						<th>Measurement</th>
+						<th>Man Power Hrs</th>
+						<th>Labour</th>
+						<th>Plant</th>
+						<th>Material</th>
+						<th>Others Rate</th>
+						<th>Amount</th>
+						<th>Quantity</th>
+						<th>Total</th>
+						<th>Comments</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="tab in SORData | sowSorFilterTree:itemId:isExpand"
+						ng-dblclick="selectSORDetails(tab)">
+						<td><span
+								style="padding-left: 10px;" ><span style="padding-left: {{tab.level*30}}px;"> <fa
+									ng-show="((!tab.leaf && tab.expand) || (!tab.leaf  && tab.childSORItemTOs.length <= 0))"
+									ng-click="itemClick(tab.id,tab.expand);"
+									name="fa fa-minus"> </fa> <fa
+									ng-click="itemClick(tab.id,tab.expand);"
+									name="fa fa-plus" ng-show="(!tab.leaf && !tab.expand && tab.childSORItemTOs.length > 0)">
+								</fa> <fa ng-click="itemClick(tab.id,tab.expand);"
+									ng-show="(tab.item)" name="leaf"> </fa> <span
+								style="padding-left: 10px;" >{{tab.code}}</span></span></span> </td>
+						<td>{{tab.name}}</td>
+						<td>{{tab.measureUnitTO.name}}</td>
+						<td>{{tab.manPowerHrs}}</td>
+						<td>{{tab.labourRate}}</td>
+						<td>{{tab.plantRate}}</td>
+						<td>{{tab.materialRate}}</td>
+						<td>{{tab.othersRate}}</td>
+						<td>{{tab.amount}}</td>
+						<td>{{tab.quantity}}</td>
+						<td>{{tab.total}}</td>
+						<td>{{tab.comments}}</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+
+	</div>
+
+</div>

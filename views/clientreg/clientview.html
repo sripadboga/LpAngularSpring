@@ -1,0 +1,52 @@
+<div id="tab-pannel" ng-controller="ClientController"
+	ng-init="getClients()">
+	<div id="tab-pannel" class="panel-group">
+		<div id="tab-pannel" class="panel panel-default">
+			<div class="panel-heading">
+				<h4 class="panel-title">Clients Summary</h4>
+			</div>
+			<div class="panel-body25">
+			<div id="tableHeight23" class="table-responsive">
+				<table class="table table-striped" fixed-header>
+					<thead>
+					<tr>
+						<th>Client Code</th>
+						<th>Client Name</th>
+						<th>Business Type</th>
+						<th>Email ID</th>
+						<th>FAX</th>
+						<th>Phone Number</th>
+						<th>Mobile Number</th>
+						<th>Comments</th>
+						</tr>
+					</thead>
+					<tr ng-repeat="client in clients">
+						<!-- <td><input type="checkbox" ng-model="tab.select"
+							ng-click="rowSelect(tab)"></td> -->
+						<td>{{client.code}}</td>
+						<td>{{client.name}}</td>
+						<td>{{client.businessType}}</td>
+						<td>{{client.email}}</td>
+						<td>{{client.fax}}</td>
+						<td>{{client.phone}}</td>
+						<td>{{client.mobile}}</td>
+						<td class="text-left"><fa name="comment" flip="horizontal" ng-click="show(client.remarks)"></fa></td>
+					</tr>
+				</table>
+			</div>
+			</div>
+			<div class="panel-footer">
+				<div class="pull-right">
+					<input type="button" class="btn btn-brown btn-sm"
+						ng-click="clientDetails()" value="Create" ng-show="account.appCodeTemplate['ADMIN_CLIENTREG_ADD']" >
+						</div>
+						<div class="pull-left">
+						 <input
+						type="button" class="btn  btn-brown btn-sm"
+						ng-click="deactivateClient(client)" value="Deactivate" ng-hide="true" ng-show="account.appCodeTemplate['ADMIN_CLIENTREG_DELETE']">
+	
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

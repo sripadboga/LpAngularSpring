@@ -1,0 +1,50 @@
+<div id="tab-pannel" class="panel-group">
+	<form name="taxcountryForm" validate>
+		<div id="tab-pannel" class="panel panel-default">
+			<div class="panel-heading">
+				<th>TaxcodeList</th>
+			</div>
+			<div class="table-responsive panel-body9">
+				<table class="table table-striped table-bordered">
+					<thead>
+						<tr>
+							<th ng-hide="action =='Edit'">Select</th>
+							<th>TaxCode</th>
+							<th>Description</th>
+							<th>Applicable</th>
+							<th>Pay period</th>
+							<th>Due Date</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat="taxcodemapping in taxmappingDetails">
+							<td><input type="checkbox"
+								ng-model="taxcodemapping.selected"
+								ng-click="selectedTaxCodes(taxcodemapping)"></td>
+							<td>{{taxcodemapping.code}}</td>
+							<td>{{taxcodemapping.name}}</td>
+							<td>{{taxcodemapping.taxType}}</td>
+							<td><select ng-model="taxcodemapping.lableKeyTo"
+								ng-options="pay.name for pay in lableKeyTOs track by pay.name">
+									<option value="">Select</option>
+							</select></td>
+
+							<td><input type="text" ng-model="taxcodemapping.dueDate"
+								potdate-picker id="dueDate" placeholder="dd-mm-yyyy"></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="panel-footer">
+
+				<div class="pull-right">
+					<input type="submit" class="btn bottomaligned btn-brown btn-sm"
+						value="Save" ng-click="saveTaxCodeDetails()" />
+				</div>
+
+			</div>
+
+		</div>
+	</form>
+
+</div>

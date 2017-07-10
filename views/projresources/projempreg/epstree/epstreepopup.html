@@ -1,0 +1,38 @@
+<div id="tab-pannel" class="panel-group">
+<form name="treeForm" >
+	<table class="table table-striped table-bordered">
+	<thead>
+<tr>
+        <th ng-show="action=='Add'">Select</th>
+		<th>EPS ID</th>
+		<th>EPS Name</th>
+		</tr>
+		</thead>
+		<tbody>
+		<tr  ng-repeat="item in trees">
+		<td ng-show="action=='Add'"><input type="checkbox"  ng-model="item.selected" ></td>
+<td><input type="text"  name="code" ng-model="item.id"  pattern = "^[a-zA-Z\d\-_.,\%]+$" maxlength="20"
+placeholder="ID" required> 
+		   <span  ng-show="treeForm.code.$error.pattern">Not valid </span>
+		    <span  ng-show="treeForm.code.$dirty&&treeForm.code.$error.required">required </span>
+		</td>
+		   
+		<td>
+		 <input type="text" name="name" ng-model="item.name"  placeholder="name"  pattern = "^[a-z A-Z\d\s\-_.,\%]+$" maxlength="50" required>
+		  <span  ng-show="treeForm.name.$dirty&&treeForm.name.$error.required">required</span>
+		    <span  ng-show="treeForm.name.$error.pattern">>Not valid </span>
+		    </td>
+		    </tr>
+</tbody>
+</table>
+<div class="panel-footer">
+<div class="pull-right">
+	   <button type="button" style="align-float: right;"   ng-click="saveTree(item,treeForm)">Save</button>
+	   </div>
+	   <div class="pull-left">
+	    <button type="submit" ng-click="treeForm.$valid && addRows() " ng-show="action =='Add'" >Add</button> 
+	     <input type="button" ng-click="deleteRows()" value="Delete" ng-show="action =='Add'">
+	     </div>
+	     </div>
+</form>
+</div>

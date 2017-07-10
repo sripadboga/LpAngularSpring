@@ -1,0 +1,72 @@
+<div  id="tab-pannel">
+<div class="row panel-body29" id="loginpage">
+	<div class="col-lg-8 col-md-8 col-sm-12 panel-body1">
+		<h3>Login</h3>
+		<img
+			src="images/bg.jpg"
+			style="border: 1px solid black;" class="img-responsive"
+			alt="Photo of Byron Bay, one of Australia's best beaches!"><br/>
+		<h4 class="top-padding">Welcome to Project On Track</h4>
+		&nbsp;
+		<hr style="border-bottom: 1px dotted #000;">
+		&nbsp;
+		<div>Raju Tech was established in Australia in the year 2010.
+			The founding member and Director of this business is a Civil Engineer
+			and comes with over 3 decades multinational experience in wide range
+			of Engineering and Construction industry.</div><br/>
+		<div>Raju Tech was established in Australia in the year 2010.
+			The founding member and Director of this business is a Civil Engineer
+			and comes with over 3 decades multinational experience in wide range
+			of Engineering and Construction industry.</div><br/>
+		<div>We are providing our world class project planning and
+			control Services since the year 2011 to the wide range of industries
+			and we have build our client base to over a dozen leading companies
+			in Australia</div><br/>
+	</div>
+	<div class="col-lg-4 col-md-4 col-sm-12 spacer">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h5>Enter Username and password</h5>
+			</div>
+		<div id="login">
+			<div class="panel-body" >
+				<form class="left-padding right-padding"  >
+					<div class="forminline">
+						<div class="form-group control-group" ng-class="{true: 'error'}[submitted && form.username.$invalid]">
+							<label class="col-md-5 form-grp control-label spacer2" for="username">User
+								name:</label>
+							<div class="col-md-7 form-grp controls">
+								<input type="username" class="form-control" id="username"  ng-model="username"  placeholder="Enter Username" required /> 
+								<span class="help-inline pull-right" 	ng-show="submitted && form.email.$error.required" style="color: red">Required</span>
+							</div>
+						</div>
+					</div>
+					<div class="forminline">
+						<div class="form-group control-group " 	ng-class="{true: 'error'}[submitted && form.password.$invalid]">
+							<label class="col-md-5 form-grp control-label spacer2" for="pwd">Password:</label>
+							<div class="col-md-7 form-grp controls">
+								<input type="password" class="form-control" id="password"  ng-model="password" placeholder="Enter password" name="password" required /> 
+								<span class="help-inline pull-right"  ng-show="submitted && form.email.$error.required" style="color: red">Required</span>
+							</div>
+						</div>
+					</div>
+			
+
+					<div>
+						<a class="pull-right spacer1" ng-click="forGot()" href="">Forgot
+							Password ?</a>
+					</div>
+					<br>
+			</div>
+		</div>
+			<div class="panel-footer">
+				<div class="pull-right">
+					<button type="submit" class="btn btn-brown btn-sm " ng-click="login()">Login</button>
+					<button type="Reset" class="btn btn-brown btn-sm " value="reset">Reset</button>
+				</div>
+			</div>
+			</form>
+		</div>
+	</div>
+</div>
+</div>

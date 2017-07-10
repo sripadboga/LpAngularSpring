@@ -1,0 +1,112 @@
+<div id="tab-pannel" ng-controller="CreateTimeSheetController">
+	<div class="panel-group panel panel-default" ng-init="getProjectEps()">
+		<div class="panel-heading">
+			<h4 class="panel-title">TimeSheet</h4>
+		</div>
+		<div class="panel-body12 spacer1">
+			<div class="pull-left left-padding">
+				<input type="text" ng-model="searchProject.parentName"
+					placeholder="EPS ID/EPS Name" ng-click="getUserProjects()">
+				<input type="text" ng-model="searchProject.projName"
+					placeholder="Project ID/Project Name" ng-click="getUserProjects()">
+				<label>WeekCommencing</label> <input type="date"> <label>Crew
+					Type </label> <select ng-model="crew.type" style="width: 132px;">
+					<option value="">-select-</option>
+					<option ng-repeat="type in crews">{{type.name}}</option>
+				</select> <label>Crew/Individual Name </label> <select
+					ng-model="crewindv.type" style="width: 132px;">
+					<option value="">-select-</option>
+					<option ng-repeat="type in crewindvs">{{type.name}}</option>
+				</select>
+			</div>
+			<div class="pull-left spacer1">
+				<label>Time Sheet Number</label> <input type="text"> <label>Approver</label>
+				<input type="text" readonly="readonly" ng-required="true"
+					ng-model="approver.labelKeyTO.code"
+					ng-click="approverPerson(approver.labelKeyTO)"> <label>Copy
+					Template <input type="radio" value="Yes" name="copy">Yes
+				</label>
+			</div>
+			<div class="pull-right right-padding">
+				<input type="button" ng-click="getSOEDetails(projects.proj.projId)"
+					class="btn  btn-brown btn-sm" value="Search" ng-model="searchText">
+			</div>
+			<div class="panel-group">
+				<table class="table table-striped table-bordered">
+					<thead>
+						<tr>
+							<th rowspan=2 class="vert-align">select</th>
+							<th rowspan=2 class="vert-align">EmployeeID</th>
+							<th rowspan=2 class="vert-align">FirstName</th>
+							<th rowspan=2 class="vert-align">surName</th>
+							<th rowspan=2 class="vert-align">tradeName</th>
+							<th rowspan=2 class="vert-align">category</th>
+							<th rowspan=2 class="vert-align">wageFactorId</th>
+							<th rowspan=2 class="vert-align">costCode</th>
+							<th colspan=8 class="text-center">DatewiseHours worked &
+								TaskPerformed</th>
+						</tr>
+						<tr>
+							<th>mon</th>
+							<th>tue</th>
+							<th>wed</th>
+							<th>thu</th>
+							<th>fri</th>
+							<th>sat</th>
+							<th>sun</th>
+							<th>total</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat="time in timesheet">
+							<td><input type="checkbox" ng-model="time.select"
+								ng-click="timesheetSelect(time)"></td>
+							<td>{{time.employeeID}}</td>
+							<td>{{time.firstName}}</td>
+							<td>{{time.surName}}</td>
+							<td>{{time.tradeName}}</td>
+							<td>{{time.category}}</td>
+							<td>{{time.wageName}}</td>
+							<td>{{time.cosName}}</td>
+							<td>{{time.mon}}</td>
+							<td>{{time.tue}}</td>
+							<td>{{time.wed}}</td>
+							<td>{{time.thu}}</td>
+							<td>{{time.fri}}</td>
+							<td>{{time.sat}}</td>
+							<td>{{time.sun}}</td>
+							<td>{{time.total}}</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<div class="panel-footer">
+			<div class="pull-right">
+				<input type="button" class="btn  btn-brown btn-sm" value="Create"
+					ng-click="addTimeSheet('Add',null)"> <input type="button"
+					class="btn  btn-brown btn-sm" value="Save"
+					ng-click="saveTimeSheet('Save',null)">
+			</div>
+
+		</div>
+	</div>
+	<div class="panel-group spacer0">
+		<div>
+			<ul class="nav nav-tabs">
+				<li ng-repeat="tab in timeSheetTab"
+					ng-class="{active:isActiveTimeSheetTab(tab.url)}"><a
+					data-toggle="tab" ng-click="onClickTimeSheetTab(tab)">{{tab.title}}</a></li>
+			</ul>
+		</div>
+
+	</div>
+	<div class="tab-content">
+		<div ng-include="currentTab"></div>
+	</div>
+</div>
+
+
+
+
+

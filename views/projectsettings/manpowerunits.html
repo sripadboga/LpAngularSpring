@@ -1,0 +1,37 @@
+<div id="tab-pannel">
+	<div class="panel-group">
+		<div class="panel panel-default">
+			<div class="panel-body15-0 table-responsive">
+				<table class="table table-bordered table-striped">
+					<thead>
+						<tr>
+							<th class="vert-align">Category ID</th>
+							<th class="text-center">Budget Units</th>
+							<th class="text-center">Revised Units</th>
+							<th class="text-center">Actual Units</th>
+							<th class="text-center">Remaining Units</th>
+							<th class="text-center">% Age Spent</th>
+							<th class="text-center">Estimate to Complete</th>
+							<th class="text-center">Estimate at Completion</th>
+							<th class="text-center">Completion Variance</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat="measure in measureunits">
+							<td>{{measure.empCatgName}}</td>
+							<td>{{measure.originalQty}}</td>
+							<td>{{measure.revisedQty}}</td>
+							<td>{{measure.actualQty}}</td>
+							<td>{{measure.remainingQty}}</td>
+							<td>{{(measure.actualQty/measure.originalQty)*100 |
+								number:4}}</td>
+							<td>{{measure.estimateComplete}}</td>
+							<td>{{measure.estimateCompletion}}</td>
+							<td>{{measure.revisedQty-measure.estimateCompletion}}</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>

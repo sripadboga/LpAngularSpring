@@ -1,0 +1,104 @@
+<div id="tab-pannel" class="panel-group">
+	<form name="empForm" validate>
+		<div id="tab-pannel" class="panel panel-default">
+			<div class="panel-heading">
+				<h4 class="panel-title" ng-show="action =='Add'">Add Project</h4>
+				<h4 class="panel-title" ng-show="action =='Edit'">Edit Project</h4>
+			</div>
+			
+			<div id="tab-pannel" class="panel-body5 panel panel-default">
+				<div class="table-responsive">
+
+					<table class="table">
+						<thead>
+							<tr>
+						    <th ng-hide="action =='Edit'">Select</th>
+							<th colspan=2 class="vert-align">Total Employee Wages </th>
+        		            <th rowspan=2 class="vert-align">Fixed amount of Tax</th>
+        		            <th rowspan=2 class="vert-align">variable Tax Rate in % on annual taxable income</th>
+        		            <th rowspan=2 class="vert-align">Notes</th>
+        		            </tr>
+							
+							<tr>
+						    <th> </th>
+        	                <th> </th>
+        		            </tr>
+						</thead>
+						<tbody>
+							<tr ng-repeat="emp in empList">
+								<td ng-hide="action =='Edit'"><input type="checkbox"
+									ng-model="emp.selected"
+									ng-click="empPopUpRowSelect(emp)"></td>
+
+						         <td><input type="text" 
+									ng-model="emp.annualMinTax" name="annualMinTax"
+								    placeholder="annualMinTax"  pattern="^[0-9<>]+$"
+									ng-required="true"/> <span
+									ng-show="empForm.annualMinTax.$dirty && empForm.annualMinTax.required">annualMinTax is mandatory</span> 
+									<span ng-show="empForm.annualMinTax.$error.pattern">Enter
+										correct annualMinTax</span> <span
+									ng-show="empForm.annualMinTax.$error.minlength">To Short!</span></td>
+									
+									  <td><input type="text" 
+									ng-model="emp.annualMaxTax" name="annualMaxTax"
+									 placeholder="annualMaxTax"  pattern="^[0-9<>]+$"
+									ng-required="true"/> <span
+									ng-show="empForm.annualMaxTax.$dirty && empForm.annualMaxTax.required">annualMaxTax is mandatory</span> 
+									<span ng-show="empForm.annualMaxTax.$error.pattern">Enter
+										correct annualMaxTax</span> <span
+									ng-show="empForm.annualMaxTax.$error.minlength">To Short!</span></td>
+									
+									 <td><input type="text" 
+									ng-model="emp.fixedTax" name="fixedTax"
+									 placeholder="fixedTax" pattern="^[0-9<>]+$"
+									ng-required="true" /> <span
+									ng-show="empForm.fixedTax.$dirty && empForm.fixedTax.required">fixedTax is mandatory</span> 
+									<span ng-show="empForm.fixedTax.$error.pattern">Enter
+										correct fixedTax</span> <span
+									ng-show="empForm.fixedTax.$error.minlength">To Short!</span></td>
+									
+									 <td><input type="text"
+									ng-model="emp.variableTax" name="variableTax"
+									 placeholder="variableTax" pattern="^[0-9<>%.]+$"
+									ng-required="true" /> <span
+									ng-show="empForm.variableTax.$dirty && empForm.variableTax.required">variableTax is mandatory</span> 
+									<span ng-show="empForm.variableTax.$error.pattern">Enter
+										correct variableTax</span> <span
+									ng-show="empForm.variableTax.$error.minlength">To Short!</span></td>
+									
+									 <td><input type="text" 
+									ng-model="emp.comments" name="comments"
+									 placeholder="comments" pattern="^[a-zA-Z0-9-_%,$]+$"
+									ng-required="true" /> <span
+									ng-show="empForm.comments.$dirty && empForm.comments.required">comments is mandatory</span> 
+									<span ng-show="empForm.comments.$error.pattern">Enter
+										correct comments</span> <span
+									ng-show="empForm.comments.$error.minlength">To Short!</span></td>					
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+			<div class="panel-footer">
+				<div class="pull-left">
+					<input type="submit" class="btn bottomaligned btn-brown btn-sm"
+						ng-click="addempTaxRows()" value="Add"
+						ng-show="action =='Add'" /> <input type="button"
+						class="btn bottomaligned btn-brown btn-sm"
+						ng-click="deleteProjRows()" value="Delete"
+						ng-show="action =='Add'" />
+				</div>
+				<div class="pull-right">
+					<input type="submit" class="btn bottomaligned btn-brown btn-sm"
+						value="Save" ng-click="empForm.$valid && saveemppayroll()" />
+				</div>
+			</div>
+		</div>
+	</form>
+</div>
+ 
+ 
+ 
+ 
+ 
+ 

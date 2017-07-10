@@ -1,0 +1,59 @@
+<div id="tab-pannel" class="panel-group">
+	<form name="crewListForm" validate>
+		<div id="tab-pannel" class="panel panel-default">
+			<div class="panel-heading">
+				<h4 class="panel-title">Crew List</h4>
+			</div>
+			<div id="tab-pannel" class="panel-body10">
+				<table class="table table-striped">
+					<thead>
+						<tr>
+							<th ng-show="action=='Add'">Select</th>
+							<th>Crew Id</th>
+							<th>Crew Name</th>
+							<th>ShiftType</th>
+						</tr>
+					</thead>
+					<tr ng-repeat="tab in addTableData">
+						<td ng-show="action=='Add'"><input type="checkbox"
+							value="tab.id" ng-model="tab.select" ng-click="popUpRowSelect(tab)"></td>
+						<td ng-form name="myForm1"><input type="text" name="code"
+							ng-model="tab.code" placeholder=" Crew Id" ng-required="true"
+							pattern="[a-zA-Z-\d\s]+" maxlength=30> <span
+							ng-show="myForm1.code.$error.pattern">Only alpha numerics
+								allowed</span> <span ng-show="myForm1.code.$error.maxlength">You
+								reached max length</span></td>
+						<td ng-form name="myForm2"><input type="text" name="desc"
+							ng-model="tab.desc" placeholder=" CrewName" ng-required="true"
+							pattern="[a-zA-Z-\s]+" maxlength=30> <span
+							ng-show="myForm2.desc.$error.pattern">Only alphabets
+								allowed</span> <span ng-show="myForm2.desc.$error.maxlength">You
+								reached max length</span></td>
+						<td><select
+							ng-options="res.code for res  in shiftData track by res.code"
+							ng-change="updateResCode(tab.projWorkShiftTO,tab);"
+							ng-model="tab.projWorkShiftTO" name="code" ng-required="true">
+								<option value="">-select-</option>
+								<span ng-model="tab.projWorkShiftTO.code"></span>
+						</select></td>
+					</tr>
+				</table>
+			</div>
+			<div class="panel-footer">
+				<div class="pull-left">
+					<input type="submit" ng-click="crewListForm.$valid && addRows()"
+						class="btn bottomaligned btn-brown btn-sm" value="Add"
+						ng-show="action =='Add'" validate> <input type="button"
+						ng-click="deleteRows()" value="Delete" ng-show="action =='Add'"
+						class="btn bottomaligned btn-brown btn-sm" validate>
+				</div>
+				<div class="pull-right">
+					<input type="submit"
+						ng-click="crewListForm.$valid && saveCrewList()" value="Save"
+						class="btn bottomaligned btn-brown btn-sm" />
+				</div>
+			</div>
+		</div>
+	</form>
+</div>
+
